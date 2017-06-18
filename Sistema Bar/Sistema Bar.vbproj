@@ -84,11 +84,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDatos.vb" />
     <Compile Include="Formularios\FrmMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmMenu.Designer.vb">
       <DependentUpon>FrmMenu.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRubros.Designer.vb">
+      <DependentUpon>FrmRubros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRubros.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -110,6 +117,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\FrmMenu.resx">
       <DependentUpon>FrmMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRubros.resx">
+      <DependentUpon>FrmRubros.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

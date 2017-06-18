@@ -13,7 +13,7 @@
     End Function
 
     Private Sub New()
-        conexion.ConnectionString = ""
+        conexion.ConnectionString = "Provider=SQLNCLI11;Data Source=DESKTOP-T27I6DR;Integrated Security=SSPI;Initial Catalog=BAR"
         comando.Connection = conexion
     End Sub
 
