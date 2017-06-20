@@ -48,14 +48,14 @@ CREATE TABLE Gastos (
 
 CREATE TABLE Rubros(
 	Id int identity(1, 1),
-	Nombre varchar(50),
+	Nombre varchar(50) UNIQUE NOT NULL,
 	CONSTRAINT Rubros_pk PRIMARY KEY(Id)
 )
 
 CREATE TABLE Articulos(
 	Id int identity (1, 1),
 	Id_Rubro int,
-	Nombre varchar(50),
+	Nombre varchar(50) UNIQUE NOT NULL,
 	Precio_Lista decimal(4, 2),
 	Precio_Venta decimal(4, 2),
 	Stock int,

@@ -4,6 +4,8 @@
     Private comando As New OleDb.OleDbCommand
     Private transaccion As OleDb.OleDbTransaction
 
+    Private Shared instancia As AccesoDatos
+
     Enum eEstado
         desconectado
         listo
@@ -18,6 +20,15 @@
         End Get
     End Property
 
+    Shared Sub New()
+        instancia = New AccesoDatos()
+    End Sub
+
+    ' Obtener la instancia actual de acceso a datos
+    Public Shared Function getBDInstancia() As AccesoDatos
+        Return instancia
+    End Function
+
     Public Sub New()
         ' Definición del string de conexión
         conString("Provider") = "SQLNCLI11"
@@ -30,13 +41,6 @@
         comando.Connection = conexion
         estadoActual = eEstado.desconectado
     End Sub
-
-    Public Shared Function getInstance() As AccesoDatos
-        ' Devuelve una nueva instancia de AccesoDatos para interactuar con la BD
-        Dim db As New AccesoDatos
-        db.conectar()
-        Return db
-    End Function
 
     Public Sub iniciarTransaccion()
         ' Cambia el estado a Transacción e inicia una conexión
@@ -75,7 +79,6 @@
         End If
     End Sub
 
-
     Public Function ejecutarSQL(ByVal sql As String) As DataTable
         conectar()
         comando.CommandText = sql
@@ -96,7 +99,51 @@
             MsgBox("Error SQL: " & ex.Message & " " & Chr(13) & "En la consulta: " & Chr(13) & sql, MsgBoxStyle.Critical)
         End Try
 
+        desconectar()
+
         Return tabla
     End Function
+
+    Public Function cargarTabla(ByVal nombreTabla As String, Optional ByVal condFilas As String = "") As DataTable
+        Return ejecutarSQL("SELECT " & condFilas & " * FROM " & nombreTabla)
+    End Function
+
+    ' Permite insertar con el siguiente formato:
+    '"apellido = lopez; nombre=juan; sexo=M"
+    Public Sub insertar(ByVal nombreTabla As String, ByVal datos As String)
+        Dim estructura As DataTable = cargarTabla(nombreTabla, "TOP 1")
+
+        ' Separar en pares clave=valor.
+        Dim pares() As String ' Define un array
+        pares = datos.Split(";")
+        Dim est_col As String = "" ' estructura de columnas
+        Dim est_datos As String = "" ' estructura de datos
+        For Each par In pares
+            Dim columnas() As String
+            columnas = par.Split("=")
+            Dim encontre As Boolean = False
+            Dim tipodato As String = ""
+            Dim d As Integer = 0
+            For d = 0 To estructura.Columns.Count - 1
+                If columnas(0).ToUpper.Trim = estructura.Columns(d).ColumnName.ToUpper Then
+                    encontre = True
+                    tipodato = estructura.Columns(d).DataType.Name
+                    columnas(1) = Util.formatear(columnas(1), tipodato)
+                End If
+            Next
+            If encontre Then
+                est_col &= IIf(est_col = "", "", ", ") & columnas(0).Trim
+                est_datos &= IIf(est_datos = "", "", ", ") & columnas(1).Trim
+            Else
+                MsgBox("Error al insertar. La columna " & columnas(0).Trim & " no existe", MsgBoxStyle.Critical)
+            End If
+
+        Next
+        ' SQL Insert
+        Dim txt_insert As String = ""
+        txt_insert = "INSERT INTO " & nombreTabla & "(" & est_col & ")"
+        txt_insert &= " VALUES (" & est_datos & ")"
+        ejecutarSQL(txt_insert)
+    End Sub
 
 End Class
