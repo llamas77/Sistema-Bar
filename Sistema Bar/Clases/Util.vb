@@ -69,16 +69,18 @@
     End Function
 
     ' Carga una grilla segun un DataTable
-    Public Shared Sub cargarGrilla(ByRef db As AccesoDatos, ByVal nombreTabla As String, ByRef grilla As DataGridView)
+    Public Shared Sub cargarGrilla(ByRef db As AccesoDatos, ByVal sql As String, ByRef grilla As DataGridView)
         'Guarda la posición de la celda seleccionada
         Dim index As Integer
         If grilla.Rows.Count > 0 Then
             index = grilla.CurrentRow.Index
         End If
 
+        ' Construye el DataTable
         grilla.Rows.Clear()
-        Dim tabla As DataTable = db.cargarTabla(nombreTabla)
+        Dim tabla As DataTable = db.ejecutarSQL(sql)
 
+        ' Carga el DataTable en la grilla
         Dim i, j As Integer
         For i = 0 To tabla.Rows.Count - 1
             grilla.Rows.Add()
@@ -96,8 +98,8 @@
         End If
     End Sub
 
-    ' Agrega caracteres necesarios para el comando INSERT (según tipo de dato)
-    Public Shared Function formatear(ByVal dato As String, ByVal tipoDato As String) As String
+    ' Agrega/reemplaza caracteres necesarios (según tipo de dato) (para INSERT o números con decimales)
+    Public Shared Function formatear(ByVal dato As String, Optional ByVal tipoDato As String = "Numero") As String
         Select Case tipoDato
             Case "String", "Date", "DateTime"
                 Return "'" & dato.Trim & "'"
@@ -105,4 +107,25 @@
                 Return dato.Trim.Replace(",", ".")
         End Select
     End Function
+
+    ' Carga un ComboBox según tabla
+    Public Shared Sub cargarCombo(ByRef combo As ComboBox, ByVal tabla As DataTable, ByVal pk As String, ByVal descriptor As String)
+        combo.DataSource = tabla
+        combo.ValueMember = pk
+        combo.DisplayMember = descriptor
+    End Sub
+
+    ' Buscar en la grilla según texto y columna seleccionada
+    Public Shared Sub buscar(ByRef txt As TextBoxBase, ByRef grilla As DataGridView)
+        If grilla.Rows.Count = 0 Then Return
+
+        Dim columnIndex As Integer = grilla.CurrentCell.ColumnIndex
+        Dim i As Integer
+        For i = 0 To grilla.Rows.Count - 1
+            If grilla.Rows(i).Cells(columnIndex).Value.ToString().ToUpper().Contains(txt.Text.ToUpper()) Then
+                grilla.CurrentCell = grilla.Rows(i).Cells(columnIndex)
+                Return
+            End If
+        Next
+    End Sub
 End Class

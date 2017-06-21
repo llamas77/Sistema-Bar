@@ -53,16 +53,15 @@ CREATE TABLE Rubros(
 )
 
 CREATE TABLE Articulos(
-	Id int identity (1, 1),
+	Id int,
 	Id_Rubro int,
-	Nombre varchar(50) UNIQUE NOT NULL,
+	Nombre varchar(50) NOT NULL,
 	Precio_Lista decimal(4, 2),
 	Precio_Venta decimal(4, 2),
 	Stock int,
-	CONSTRAINT Articulos_pk PRIMARY KEY (Id, Id_Rubro),
+	CONSTRAINT Articulos_pk PRIMARY KEY (Id),
 	CONSTRAINT Articulos_fk FOREIGN KEY (Id_Rubro) REFERENCES Rubros (id)
 )
-
 
 CREATE TABLE Compras(
 	Id int identity(1, 1),
@@ -74,12 +73,11 @@ CREATE TABLE Compras(
 
 CREATE TABLE Detalles_Compras(
 	Id_Articulo int,
-	Id_Rubro int,
 	Id_Compra int,
 	Cantidad int,
 	Precio_Lista decimal(4, 2),
-	CONSTRAINT Detalles_Compras_pk PRIMARY KEY(Id_Articulo, Id_Rubro, Id_Compra),
-	CONSTRAINT Detalles_Compras_fk_1 FOREIGN KEY(Id_Articulo, Id_Rubro) REFERENCES Articulos (Id, Id_Rubro),
+	CONSTRAINT Detalles_Compras_pk PRIMARY KEY(Id_Articulo, Id_Compra),
+	CONSTRAINT Detalles_Compras_fk_1 FOREIGN KEY(Id_Articulo) REFERENCES Articulos (Id),
 	CONSTRAINT Detalles_Compras_fk_2 FOREIGN KEY (Id_Compra) REFERENCES Compras(Id)
 )
 
@@ -97,11 +95,10 @@ CREATE TABLE Ventas(
 
 CREATE TABLE Detalles_Ventas(
 	Id_Articulo int,
-	Id_Rubro int,
 	Id_Venta int,
 	Cantidad int,
 	Precio_Venta decimal(4, 2),
-	CONSTRAINT Detalles_Ventas_pk PRIMARY KEY(Id_Articulo, Id_Rubro, Id_Venta),
-	CONSTRAINT Detalles_Ventas_fk_1 FOREIGN KEY (Id_Articulo, Id_Rubro) REFERENCES Articulos (Id, Id_Rubro),
+	CONSTRAINT Detalles_Ventas_pk PRIMARY KEY(Id_Articulo, Id_Venta),
+	CONSTRAINT Detalles_Ventas_fk_1 FOREIGN KEY (Id_Articulo) REFERENCES Articulos (Id),
 	CONSTRAINT Detalles_Ventas_fk_2 FOREIGN KEY (Id_Venta) REFERENCES Ventas (Id)
 )

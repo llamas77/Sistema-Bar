@@ -94,6 +94,12 @@
     <Compile Include="Controles\VTextBox.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmArticulos.Designer.vb">
+      <DependentUpon>FrmArticulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmArticulos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmMenu.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <Compile Include="Clases\Util.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\FrmArticulos.resx">
+      <DependentUpon>FrmArticulos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmMenu.resx">
       <DependentUpon>FrmMenu.vb</DependentUpon>
     </EmbeddedResource>

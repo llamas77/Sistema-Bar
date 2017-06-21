@@ -31,6 +31,8 @@ Partial Class FrmRubros
         Me.cmdBorrar = New System.Windows.Forms.Button()
         Me.cmdCancelar = New System.Windows.Forms.Button()
         Me.txtNombre = New Sistema_Bar.VTextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtBuscar = New Sistema_Bar.VTextBox()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -41,11 +43,11 @@ Partial Class FrmRubros
         Me.grilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre})
-        Me.grilla.Location = New System.Drawing.Point(16, 56)
+        Me.grilla.Location = New System.Drawing.Point(16, 90)
+        Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
-        Me.grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grilla.Size = New System.Drawing.Size(344, 238)
+        Me.grilla.Size = New System.Drawing.Size(344, 265)
         Me.grilla.TabIndex = 2
         '
         'Id
@@ -63,7 +65,7 @@ Partial Class FrmRubros
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(22, 19)
+        Me.Label1.Location = New System.Drawing.Point(11, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 16)
         Me.Label1.TabIndex = 2
@@ -72,7 +74,7 @@ Partial Class FrmRubros
         '
         'cmdActualizar
         '
-        Me.cmdActualizar.Location = New System.Drawing.Point(265, 15)
+        Me.cmdActualizar.Location = New System.Drawing.Point(265, 19)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(95, 25)
         Me.cmdActualizar.TabIndex = 1
@@ -81,7 +83,7 @@ Partial Class FrmRubros
         '
         'cmdModificar
         '
-        Me.cmdModificar.Location = New System.Drawing.Point(16, 310)
+        Me.cmdModificar.Location = New System.Drawing.Point(16, 371)
         Me.cmdModificar.Name = "cmdModificar"
         Me.cmdModificar.Size = New System.Drawing.Size(95, 25)
         Me.cmdModificar.TabIndex = 3
@@ -90,7 +92,7 @@ Partial Class FrmRubros
         '
         'cmdBorrar
         '
-        Me.cmdBorrar.Location = New System.Drawing.Point(117, 310)
+        Me.cmdBorrar.Location = New System.Drawing.Point(117, 371)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(95, 25)
         Me.cmdBorrar.TabIndex = 4
@@ -99,7 +101,7 @@ Partial Class FrmRubros
         '
         'cmdCancelar
         '
-        Me.cmdCancelar.Location = New System.Drawing.Point(265, 310)
+        Me.cmdCancelar.Location = New System.Drawing.Point(265, 371)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(95, 25)
         Me.cmdCancelar.TabIndex = 5
@@ -109,29 +111,53 @@ Partial Class FrmRubros
         'txtNombre
         '
         Me.txtNombre.EMensaje = Nothing
-        Me.txtNombre.Location = New System.Drawing.Point(77, 18)
+        Me.txtNombre.Location = New System.Drawing.Point(66, 19)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.NombreVisual = "Nombre"
-        Me.txtNombre.Size = New System.Drawing.Size(135, 20)
+        Me.txtNombre.Size = New System.Drawing.Size(146, 20)
         Me.txtNombre.TabIndex = 0
         Me.txtNombre.VNumero = False
         Me.txtNombre.VObligatorio = True
         Me.txtNombre.VPositivo = False
         '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(11, 65)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 16)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Buscar:"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtBuscar
+        '
+        Me.txtBuscar.EMensaje = Nothing
+        Me.txtBuscar.Location = New System.Drawing.Point(66, 64)
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.NombreVisual = "sin nombre"
+        Me.txtBuscar.Size = New System.Drawing.Size(294, 20)
+        Me.txtBuscar.TabIndex = 6
+        Me.txtBuscar.VNumero = False
+        Me.txtBuscar.VObligatorio = False
+        Me.txtBuscar.VPositivo = False
+        '
         'FrmRubros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(378, 347)
+        Me.ClientSize = New System.Drawing.Size(378, 408)
+        Me.Controls.Add(Me.txtBuscar)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.cmdCancelar)
         Me.Controls.Add(Me.cmdBorrar)
         Me.Controls.Add(Me.cmdModificar)
         Me.Controls.Add(Me.cmdActualizar)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.grilla)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "FrmRubros"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Rubros"
@@ -151,4 +177,6 @@ Partial Class FrmRubros
     Friend WithEvents Button1 As Button
     Friend WithEvents Id As DataGridViewTextBoxColumn
     Friend WithEvents Nombre As DataGridViewTextBoxColumn
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtBuscar As VTextBox
 End Class

@@ -16,7 +16,11 @@ Public Class FrmRubros
         FirstControl = txtNombre
         FirstControl.Select()
         setTipoAct(eTipoAct.insertar, cmdActualizar)
-        cargarGrilla(db, "Rubros", grilla)
+        cargarGrilla()
+    End Sub
+
+    Public Sub cargarGrilla()
+        Util.cargarGrilla(db, "SELECT * FROM Rubros", grilla)
     End Sub
 
     ' Inserta o Modifica un registo en la BD
@@ -27,8 +31,9 @@ Public Class FrmRubros
             'Insertar
 
             'Si encuentra un rubro con el mismo nombre no lo inserta
-            If db.ejecutarSQL("SELECT * FROM Rubros WHERE Nombre='" & txtNombre.Text.Trim & "'").Rows.Count = 1 Then
+            If db.ejecutarSQL("SELECT Id FROM Rubros WHERE Nombre='" & txtNombre.Text.Trim & "'").Rows.Count = 1 Then
                 MsgBox("Ya existe un rubro con ese nombre. Elija otro.", vbCritical)
+                FirstControl.Select()
                 Return
             End If
 
@@ -37,7 +42,7 @@ Public Class FrmRubros
             'Actualizar
 
             'Si encuentra un rubro con el mismo Id, lo actualiza. De lo contrario ya se borró
-            If db.ejecutarSQL("SELECT * FROM Rubros WHERE Id=" & idActual).Rows.Count = 0 Then
+            If db.ejecutarSQL("SELECT Id FROM Rubros WHERE Id=" & idActual).Rows.Count = 0 Then
                 MsgBox("El rubro que intenta modificar ya no existe.", vbCritical)
             Else
                 Dim sql As String = ""
@@ -49,7 +54,7 @@ Public Class FrmRubros
             End If
         End If
 
-        cargarGrilla(db, "Rubros", grilla)
+        cargarGrilla()
 
         tipoAct = setTipoAct(eTipoAct.insertar, cmdActualizar)
         vaciarForm(Me)
@@ -79,11 +84,31 @@ Public Class FrmRubros
             If db.ejecutarSQL("SELECT * FROM Rubros WHERE Id=" & elemento.Cells(0).Value).Rows.Count = 0 Then
                 MsgBox("El rubro no se borró porque ya no existe.", vbCritical)
             Else
-                db.ejecutarSQL("DELETE FROM Rubros WHERE Id=" & elemento.Cells(0).Value)
+
+                ' Verifica si el rubro que se quiere eliminar no está siendo referenciado por la tabla Artículos
+                Dim articulos As DataTable
+                articulos = db.ejecutarSQL("SELECT a.Nombre FROM Rubros r JOIN Articulos a ON (r.Id = a.Id_Rubro) WHERE r.Id =" & elemento.Cells(0).Value)
+                If articulos.Rows.Count > 0 Then
+                    Dim stringArts As String = ""
+                    Dim i As Integer
+                    For i = 0 To articulos.Rows.Count - 1
+                        If i = articulos.Rows.Count - 1 Then
+                            stringArts &= "" & articulos.Rows(i)(0).ToString() & ". "
+                        Else
+                            stringArts &= "" & articulos.Rows(i)(0).ToString() & ", "
+                        End If
+                    Next
+
+
+                    MsgBox("Este rubro se usa en los siguientes artículos, por lo que no puede ser borrado:" & Chr(13) &
+                            stringArts, vbCritical)
+                Else
+                    ' Elimina el rubro
+                    db.ejecutarSQL("DELETE FROM Rubros WHERE Id=" & elemento.Cells(0).Value)
+                End If
             End If
         End If
-
-        cargarGrilla(db, "Rubros", grilla)
+        cargarGrilla()
         FirstControl.Select()
     End Sub
 
@@ -114,4 +139,7 @@ Public Class FrmRubros
         modificar(sender, e)
     End Sub
 
+    Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
+        buscar(txtBuscar, grilla)
+    End Sub
 End Class
