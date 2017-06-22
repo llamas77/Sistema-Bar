@@ -113,6 +113,7 @@
         combo.DataSource = tabla
         combo.ValueMember = pk
         combo.DisplayMember = descriptor
+        combo.SelectedIndex = -1
     End Sub
 
     ' Buscar en la grilla según texto y columna seleccionada
@@ -128,4 +129,24 @@
             End If
         Next
     End Sub
+
+    Public Shared Function vInputBox(ByVal texto As String, Optional ByVal titulo As String = "", Optional ByVal numero As Boolean = False, Optional ByVal minimo As Integer = 0) As String
+        Dim res As String
+        res = InputBox(texto, titulo)
+        If res = "" Then Return ""
+
+        If numero Then
+            If Not IsNumeric(res) Then
+                MsgBox("El valor ingresado debe ser un número.", vbCritical)
+                Return ""
+            End If
+
+            If Val(res) < minimo Then
+                MsgBox("El número debe ser mayor o igual que " & minimo, vbCritical)
+                Return ""
+            End If
+        End If
+        Return res
+
+    End Function
 End Class

@@ -100,11 +100,23 @@
     <Compile Include="Formularios\FrmArticulos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmCompras.Designer.vb">
+      <DependentUpon>FrmCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmMenu.Designer.vb">
       <DependentUpon>FrmMenu.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmProveedores.Designer.vb">
+      <DependentUpon>FrmProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmProveedores.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmRubros.Designer.vb">
@@ -136,8 +148,14 @@
     <EmbeddedResource Include="Formularios\FrmArticulos.resx">
       <DependentUpon>FrmArticulos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCompras.resx">
+      <DependentUpon>FrmCompras.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmMenu.resx">
       <DependentUpon>FrmMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmProveedores.resx">
+      <DependentUpon>FrmProveedores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmRubros.resx">
       <DependentUpon>FrmRubros.vb</DependentUpon>

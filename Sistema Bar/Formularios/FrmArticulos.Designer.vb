@@ -141,6 +141,8 @@ Partial Class FrmArticulos
         '
         'cmbRubro
         '
+        Me.cmbRubro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbRubro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbRubro.EMensaje = Nothing
         Me.cmbRubro.FormattingEnabled = True
         Me.cmbRubro.Location = New System.Drawing.Point(318, 12)
@@ -241,7 +243,7 @@ Partial Class FrmArticulos
         '
         'Nombre
         '
-        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.HeaderText = "Descripción"
         Me.Nombre.Name = "Nombre"
         Me.Nombre.ReadOnly = True
         Me.Nombre.Width = 250
@@ -290,7 +292,7 @@ Partial Class FrmArticulos
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Nombre"
-        Me.txtBuscar.Size = New System.Drawing.Size(330, 20)
+        Me.txtBuscar.Size = New System.Drawing.Size(296, 20)
         Me.txtBuscar.TabIndex = 7
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VObligatorio = False
@@ -348,6 +350,8 @@ Partial Class FrmArticulos
     Friend WithEvents Label6 As Label
     Friend WithEvents txtStock As VTextBox
     Friend WithEvents grilla As DataGridView
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtBuscar As VTextBox
     Friend WithEvents Id As DataGridViewTextBoxColumn
     Friend WithEvents Id_Rubro As DataGridViewTextBoxColumn
     Friend WithEvents Nombre As DataGridViewTextBoxColumn
@@ -355,6 +359,4 @@ Partial Class FrmArticulos
     Friend WithEvents Precio_Lista As DataGridViewTextBoxColumn
     Friend WithEvents Precio_Venta As DataGridViewTextBoxColumn
     Friend WithEvents Stock As DataGridViewTextBoxColumn
-    Friend WithEvents Label7 As Label
-    Friend WithEvents txtBuscar As VTextBox
 End Class

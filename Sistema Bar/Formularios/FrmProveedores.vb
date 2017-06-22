@@ -1,7 +1,7 @@
 ﻿Imports Sistema_Bar.Util
 Imports Sistema_Bar.AccesoDatos
 
-Public Class FrmRubros
+Public Class FrmProveedores
     Implements Vaciable
 
     Public tipoAct As eTipoAct
@@ -20,7 +20,7 @@ Public Class FrmRubros
     End Sub
 
     Public Sub cargarGrilla()
-        Util.cargarGrilla(db, "SELECT * FROM Rubros", grilla)
+        Util.cargarGrilla(db, "SELECT * FROM Proveedores", grilla)
     End Sub
 
     ' Inserta o Modifica un registo en la BD
@@ -30,23 +30,23 @@ Public Class FrmRubros
         If tipoAct = eTipoAct.insertar Then
             'Insertar
 
-            'Si encuentra un rubro con el mismo nombre no lo inserta
-            If db.ejecutarSQL("SELECT Id FROM Rubros WHERE Nombre='" & txtNombre.Text.Trim & "'").Rows.Count = 1 Then
-                MsgBox("Ya existe un rubro con ese nombre. Elija otro.", vbCritical)
+            'Si encuentra un proveedor con el mismo nombre no lo inserta
+            If db.ejecutarSQL("SELECT Id FROM Proveedores WHERE Nombre='" & txtNombre.Text.Trim & "'").Rows.Count = 1 Then
+                MsgBox("Ya existe ese proveedor.", vbCritical)
                 FirstControl.Select()
                 Return
             End If
 
-            db.insertar("Rubros", "Nombre=" & txtNombre.Text)
+            db.insertar("Proveedores", "Nombre=" & txtNombre.Text)
         Else
             'Actualizar
 
-            'Si encuentra un rubro con el mismo Id, lo actualiza. De lo contrario ya se borró
-            If db.ejecutarSQL("SELECT Id FROM Rubros WHERE Id=" & idActual).Rows.Count = 0 Then
-                MsgBox("El rubro que intenta modificar ya no existe.", vbCritical)
+            'Si encuentra un proveedor con el mismo Id, lo actualiza. De lo contrario ya se borró
+            If db.ejecutarSQL("SELECT Id FROM Proveedores WHERE Id=" & idActual).Rows.Count = 0 Then
+                MsgBox("El proveedor que intenta modificar ya no existe.", vbCritical)
             Else
                 Dim sql As String = ""
-                sql &= "UPDATE Rubros "
+                sql &= "UPDATE Proveedores "
                 sql &= "SET Nombre='" & txtNombre.Text.Trim & "'"
                 sql &= "WHERE Id=" & idActual
 
@@ -78,35 +78,35 @@ Public Class FrmRubros
 
         Dim elemento As DataGridViewRow = grilla.CurrentRow()
 
-        If MessageBox.Show("¿Está seguro que desea borrar el rubro: " & elemento.Cells(1).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
+        If MessageBox.Show("¿Está seguro que desea borrar el proveedor: " & elemento.Cells(1).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
 
-        ' Borra el rubro solo si sigue existiendo.
-        ' (No hace falta pero es bueno aclararlo por mensaje en caso de que pase esto)
-        If db.ejecutarSQL("SELECT * FROM Rubros WHERE Id=" & elemento.Cells(0).Value).Rows.Count = 0 Then
-            MsgBox("El rubro no se borró porque ya no existe.", vbCritical)
+        ' Validar que no se haya borrado (medio innecesario, pero lo avisa de todas formas)
+        If db.ejecutarSQL("SELECT * FROM Proveedores WHERE Id=" & elemento.Cells(0).Value).Rows.Count = 0 Then
+            MsgBox("El proveedor no se borró porque ya no existe.", vbCritical)
             cargarGrilla()
             FirstControl.Select()
             Return
         End If
 
-        ' Verifica si el rubro que se quiere eliminar no está siendo referenciado por la tabla Artículos
-        Dim articulos As DataTable
-        articulos = db.ejecutarSQL("SELECT TOP 10 a.Nombre FROM Rubros r JOIN Articulos a ON (r.Id = a.Id_Rubro) WHERE r.Id =" & elemento.Cells(0).Value)
-        If articulos.Rows.Count > 0 Then
-            Dim stringArts As String = ""
+        ' Verifica si el proveedor que se quiere eliminar no está siendo referenciado por la tabla Compras
+        Dim compras As DataTable
+        compras = db.ejecutarSQL("SELECT DISTINCT TOP 10 c.Id FROM Proveedores p JOIN Compras c ON (p.Id = c.Id_Proveedor) WHERE p.Id =" & elemento.Cells(0).Value)
+        If compras.Rows.Count > 0 Then
+            Dim stringCompras As String = ""
             Dim i As Integer
-            For i = 0 To articulos.Rows.Count - 1
-                stringArts &= "" & articulos.Rows(i)(0).ToString() & ", "
+            For i = 0 To compras.Rows.Count - 1
+                stringCompras &= "" & compras.Rows(i)(0).ToString() & ", "
             Next
-            MsgBox("Este rubro no puede ser borrado porque se usa en los siguientes artículos:" & Chr(13) &
-                        stringArts & "y/o entre otros.", vbCritical)
+
+            MsgBox("No se puede borrar el proveedor porque está presente en las compras de código:" & Chr(13) &
+                    stringCompras & "y/o entre otras.", vbCritical)
             cargarGrilla()
             FirstControl.Select()
             Return
         End If
 
-        ' Elimina el rubro
-        db.ejecutarSQL("DELETE FROM Rubros WHERE Id=" & elemento.Cells(0).Value)
+        ' Elimina el proveedor
+        db.ejecutarSQL("DELETE FROM Proveedores WHERE Id=" & elemento.Cells(0).Value)
 
         cargarGrilla()
         FirstControl.Select()

@@ -44,8 +44,6 @@
 
     Public Sub iniciarTransaccion()
         ' Cambia el estado a Transacción e inicia una conexión
-        transaccion = conexion.BeginTransaction
-        comando.Transaction = transaccion
         estadoActual = eEstado.transaccion_listo
         conectar()
     End Sub
@@ -64,9 +62,13 @@
         'Inicia una conexión siempre y cuando no haya una abierta
         If conexion.State.ToString() <> "Open" Then
             conexion.Open()
-            If estadoActual = eEstado.desconectado Then estadoActual = eEstado.listo
+            If estadoActual = eEstado.desconectado Then
+                estadoActual = eEstado.listo
+            Else
+                transaccion = conexion.BeginTransaction
+                comando.Transaction = transaccion
+            End If
         End If
-
     End Sub
 
     Private Sub desconectar()
@@ -86,7 +88,7 @@
         Dim tabla As New DataTable
 
         Try
-            If sql.Trim.ToUpper.IndexOf("SELECT") = 0 Then
+            If sql.Trim.ToUpper.IndexOf("SELECT") > -1 Then
                 tabla.Load(comando.ExecuteReader())
             Else
                 comando.ExecuteNonQuery()

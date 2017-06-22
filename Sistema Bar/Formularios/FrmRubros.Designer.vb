@@ -48,7 +48,7 @@ Partial Class FrmRubros
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
         Me.grilla.Size = New System.Drawing.Size(344, 265)
-        Me.grilla.TabIndex = 2
+        Me.grilla.TabIndex = 3
         '
         'Id
         '
@@ -65,7 +65,7 @@ Partial Class FrmRubros
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(11, 20)
+        Me.Label1.Location = New System.Drawing.Point(13, 23)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 16)
         Me.Label1.TabIndex = 2
@@ -86,7 +86,7 @@ Partial Class FrmRubros
         Me.cmdModificar.Location = New System.Drawing.Point(16, 371)
         Me.cmdModificar.Name = "cmdModificar"
         Me.cmdModificar.Size = New System.Drawing.Size(95, 25)
-        Me.cmdModificar.TabIndex = 3
+        Me.cmdModificar.TabIndex = 4
         Me.cmdModificar.Text = "Modificar"
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
@@ -95,7 +95,7 @@ Partial Class FrmRubros
         Me.cmdBorrar.Location = New System.Drawing.Point(117, 371)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(95, 25)
-        Me.cmdBorrar.TabIndex = 4
+        Me.cmdBorrar.TabIndex = 5
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
@@ -104,14 +104,14 @@ Partial Class FrmRubros
         Me.cmdCancelar.Location = New System.Drawing.Point(265, 371)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(95, 25)
-        Me.cmdCancelar.TabIndex = 5
+        Me.cmdCancelar.TabIndex = 6
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '
         'txtNombre
         '
         Me.txtNombre.EMensaje = Nothing
-        Me.txtNombre.Location = New System.Drawing.Point(66, 19)
+        Me.txtNombre.Location = New System.Drawing.Point(68, 22)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.NombreVisual = "Nombre"
@@ -137,7 +137,7 @@ Partial Class FrmRubros
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "sin nombre"
         Me.txtBuscar.Size = New System.Drawing.Size(294, 20)
-        Me.txtBuscar.TabIndex = 6
+        Me.txtBuscar.TabIndex = 2
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VObligatorio = False
         Me.txtBuscar.VPositivo = False

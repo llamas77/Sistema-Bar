@@ -27,6 +27,14 @@ Public Class FrmArticulos
     Private Sub actualizar(sender As Object, e As EventArgs) Handles cmdActualizar.Click
         If Not validarForm(Me) Then Return
 
+        ' Validamos antes de insertar o updatear si las dependencias siguen existiendo, caso contrario actualizamos combos
+        If db.ejecutarSQL("SELECT Id FROM Rubros WHERE Id=" & cmbRubro.SelectedValue).Rows.Count = 0 Then
+            MsgBox("El rubro que quiere asignarle al artículo ya no existe más.", vbCritical)
+            cargarCombo(cmbRubro, db.cargarTabla("Rubros"), "Id", "Nombre")
+            Return
+        End If
+
+
         If tipoAct = eTipoAct.insertar Then
             'Insertar
 
@@ -95,13 +103,43 @@ Public Class FrmArticulos
 
         Dim elemento As DataGridViewRow = grilla.CurrentRow()
 
-        If MessageBox.Show("¿Está seguro que desea borrar el artículo: " & elemento.Cells(2).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-            If db.ejecutarSQL("SELECT * FROM Articulos WHERE Id=" & elemento.Cells(0).Value).Rows.Count = 0 Then
-                MsgBox("El artículo no se borró porque ya no existe.", vbCritical)
-            Else
-                db.ejecutarSQL("DELETE FROM Articulos WHERE Id=" & elemento.Cells(0).Value)
-            End If
+        ' Pregunta para confirmación
+        If MessageBox.Show("¿Está seguro que desea borrar el artículo: " & elemento.Cells(2).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
+
+        ' Validar que no se haya borrado (medio innecesario, pero lo avisa de todas formas)
+        If db.ejecutarSQL("SELECT * FROM Articulos WHERE Id=" & elemento.Cells(0).Value).Rows.Count = 0 Then
+            MsgBox("El artículo no se borró porque ya no existe.", vbCritical)
+            cargarGrilla()
+            FirstControl.Select()
+            Return
         End If
+
+        ' Verifica si el artículo que se quiere eliminar no está siendo referenciado por la tabla Detalles_Compras
+        Dim compras As DataTable
+        Dim sql As String = ""
+        sql &= "SELECT DISTINCT TOP 10 dc.Id_Compra "
+        sql &= "FROM Articulos a JOIN Detalles_Compras dc ON (a.Id = dc.Id_Articulo) "
+        sql &= "WHERE a.Id=" & elemento.Cells(0).Value
+
+        compras = db.ejecutarSQL(sql)
+        If compras.Rows.Count > 0 Then
+            Dim stringArts As String = ""
+            Dim i As Integer
+            For i = 0 To compras.Rows.Count - 1
+                stringArts &= "" & compras.Rows(i)(0).ToString() & ", "
+            Next
+
+            MsgBox("Este artículo no puede ser borrado porque está presente en las compras de código:" & Chr(13) &
+                    stringArts & "y/o entre otras.", vbCritical)
+            cargarGrilla()
+            FirstControl.Select()
+            Return
+        End If
+
+        'TODO: Verificar que no hayan detalles_ventas apuntándole
+
+        'Borrar
+        db.ejecutarSQL("DELETE FROM Articulos WHERE Id=" & elemento.Cells(0).Value)
 
         cargarGrilla()
         FirstControl.Select()
@@ -130,6 +168,8 @@ Public Class FrmArticulos
                 modificar(sender, e)
             Case Keys.Delete
                 borrar(sender, e)
+            Case Keys.Escape
+                cancelar(sender, e)
         End Select
     End Sub
 
@@ -140,4 +180,5 @@ Public Class FrmArticulos
     Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
         buscar(txtBuscar, grilla)
     End Sub
+
 End Class

@@ -22,6 +22,12 @@ CREATE TABLE Clientes (
 	CONSTRAINT Clientes_fk2 FOREIGN KEY (Id_TipoDoc) REFERENCES Tipos_Doc(Id)
 )
 
+CREATE TABLE Proveedores(
+	Id int identity(1, 1),
+	Nombre varchar(200) UNIQUE NOT NULL,
+	CONSTRAINT Proveedores_pk PRIMARY KEY(Id)
+)
+
 CREATE TABLE Turnos (
 	Id INT IDENTITY(1, 1),
 	Hora_Inicio DATETIME DEFAULT getDate() NOT NULL,
@@ -66,10 +72,10 @@ CREATE TABLE Articulos(
 CREATE TABLE Compras(
 	Id int identity(1, 1),
 	Fecha datetime DEFAULT getdate() NOT NULL,
-	Nombre_Proveedor varchar(50),
-	CONSTRAINT Compras_pk PRIMARY KEY (Id)
+	Id_Proveedor int,
+	CONSTRAINT Compras_pk PRIMARY KEY (Id),
+	CONSTRAINT Compras_fk FOREIGN KEY (Id_Proveedor) REFERENCES Proveedores(Id)
 )
-
 
 CREATE TABLE Detalles_Compras(
 	Id_Articulo int,
