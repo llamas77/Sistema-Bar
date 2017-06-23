@@ -22,6 +22,8 @@ Partial Class FrmArticulos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtCodigo = New Sistema_Bar.VTextBox()
         Me.cmdCancelar = New System.Windows.Forms.Button()
         Me.cmdBorrar = New System.Windows.Forms.Button()
@@ -39,6 +41,8 @@ Partial Class FrmArticulos
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtStock = New Sistema_Bar.VTextBox()
         Me.grilla = New System.Windows.Forms.DataGridView()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtBuscar = New Sistema_Bar.VTextBox()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Id_Rubro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,8 +50,6 @@ Partial Class FrmArticulos
         Me.Precio_Lista = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Precio_Venta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtBuscar = New Sistema_Bar.VTextBox()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -60,6 +62,7 @@ Partial Class FrmArticulos
         Me.txtCodigo.Size = New System.Drawing.Size(184, 20)
         Me.txtCodigo.TabIndex = 0
         Me.txtCodigo.VNumero = True
+        Me.txtCodigo.VNumLimit = True
         Me.txtCodigo.VObligatorio = True
         Me.txtCodigo.VPositivo = True
         '
@@ -127,6 +130,7 @@ Partial Class FrmArticulos
         Me.txtNombre.Size = New System.Drawing.Size(184, 20)
         Me.txtNombre.TabIndex = 1
         Me.txtNombre.VNumero = False
+        Me.txtNombre.VNumLimit = False
         Me.txtNombre.VObligatorio = True
         Me.txtNombre.VPositivo = False
         '
@@ -170,6 +174,7 @@ Partial Class FrmArticulos
         Me.txtPrecioLista.Size = New System.Drawing.Size(82, 20)
         Me.txtPrecioLista.TabIndex = 4
         Me.txtPrecioLista.VNumero = True
+        Me.txtPrecioLista.VNumLimit = True
         Me.txtPrecioLista.VObligatorio = True
         Me.txtPrecioLista.VPositivo = True
         '
@@ -191,6 +196,7 @@ Partial Class FrmArticulos
         Me.txtPrecioVenta.Size = New System.Drawing.Size(82, 20)
         Me.txtPrecioVenta.TabIndex = 5
         Me.txtPrecioVenta.VNumero = True
+        Me.txtPrecioVenta.VNumLimit = True
         Me.txtPrecioVenta.VObligatorio = True
         Me.txtPrecioVenta.VPositivo = True
         '
@@ -212,6 +218,7 @@ Partial Class FrmArticulos
         Me.txtStock.Size = New System.Drawing.Size(64, 20)
         Me.txtStock.TabIndex = 3
         Me.txtStock.VNumero = True
+        Me.txtStock.VNumLimit = True
         Me.txtStock.VObligatorio = True
         Me.txtStock.VPositivo = True
         '
@@ -227,6 +234,29 @@ Partial Class FrmArticulos
         Me.grilla.ReadOnly = True
         Me.grilla.Size = New System.Drawing.Size(854, 270)
         Me.grilla.TabIndex = 8
+        '
+        'Label7
+        '
+        Me.Label7.Location = New System.Drawing.Point(12, 110)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(49, 16)
+        Me.Label7.TabIndex = 8
+        Me.Label7.Text = "Buscar:"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtBuscar
+        '
+        Me.txtBuscar.EMensaje = Nothing
+        Me.txtBuscar.Location = New System.Drawing.Point(67, 109)
+        Me.txtBuscar.MaxLength = 50
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.NombreVisual = "Nombre"
+        Me.txtBuscar.Size = New System.Drawing.Size(296, 20)
+        Me.txtBuscar.TabIndex = 7
+        Me.txtBuscar.VNumero = False
+        Me.txtBuscar.VNumLimit = False
+        Me.txtBuscar.VObligatorio = False
+        Me.txtBuscar.VPositivo = False
         '
         'Id
         '
@@ -257,6 +287,9 @@ Partial Class FrmArticulos
         '
         'Precio_Lista
         '
+        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.Precio_Lista.DefaultCellStyle = DataGridViewCellStyle1
         Me.Precio_Lista.HeaderText = "Precio de lista"
         Me.Precio_Lista.Name = "Precio_Lista"
         Me.Precio_Lista.ReadOnly = True
@@ -264,6 +297,9 @@ Partial Class FrmArticulos
         '
         'Precio_Venta
         '
+        DataGridViewCellStyle2.Format = "C2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.Precio_Venta.DefaultCellStyle = DataGridViewCellStyle2
         Me.Precio_Venta.HeaderText = "Precio de venta"
         Me.Precio_Venta.Name = "Precio_Venta"
         Me.Precio_Venta.ReadOnly = True
@@ -275,28 +311,6 @@ Partial Class FrmArticulos
         Me.Stock.Name = "Stock"
         Me.Stock.ReadOnly = True
         Me.Stock.Width = 70
-        '
-        'Label7
-        '
-        Me.Label7.Location = New System.Drawing.Point(12, 110)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 16)
-        Me.Label7.TabIndex = 8
-        Me.Label7.Text = "Buscar:"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtBuscar
-        '
-        Me.txtBuscar.EMensaje = Nothing
-        Me.txtBuscar.Location = New System.Drawing.Point(67, 109)
-        Me.txtBuscar.MaxLength = 50
-        Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.NombreVisual = "Nombre"
-        Me.txtBuscar.Size = New System.Drawing.Size(296, 20)
-        Me.txtBuscar.TabIndex = 7
-        Me.txtBuscar.VNumero = False
-        Me.txtBuscar.VObligatorio = False
-        Me.txtBuscar.VPositivo = False
         '
         'FrmArticulos
         '

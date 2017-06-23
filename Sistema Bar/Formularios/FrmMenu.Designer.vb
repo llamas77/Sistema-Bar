@@ -28,6 +28,7 @@ Partial Class FrmMenu
         Me.ArículosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComprasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProveedoresToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
@@ -63,7 +64,7 @@ Partial Class FrmMenu
         '
         'ComprasToolStripMenuItem
         '
-        Me.ComprasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ComprasToolStripMenuItem1})
+        Me.ComprasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ComprasToolStripMenuItem1, Me.ConsultarCompraToolStripMenuItem})
         Me.ComprasToolStripMenuItem.Name = "ComprasToolStripMenuItem"
         Me.ComprasToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
         Me.ComprasToolStripMenuItem.Text = "Compras"
@@ -71,8 +72,14 @@ Partial Class FrmMenu
         'ComprasToolStripMenuItem1
         '
         Me.ComprasToolStripMenuItem1.Name = "ComprasToolStripMenuItem1"
-        Me.ComprasToolStripMenuItem1.Size = New System.Drawing.Size(122, 22)
-        Me.ComprasToolStripMenuItem1.Text = "Compras"
+        Me.ComprasToolStripMenuItem1.Size = New System.Drawing.Size(174, 22)
+        Me.ComprasToolStripMenuItem1.Text = "Nueva compra"
+        '
+        'ConsultarCompraToolStripMenuItem
+        '
+        Me.ConsultarCompraToolStripMenuItem.Name = "ConsultarCompraToolStripMenuItem"
+        Me.ConsultarCompraToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ConsultarCompraToolStripMenuItem.Text = "Consultar compras"
         '
         'ProveedoresToolStripMenuItem
         '
@@ -84,14 +91,14 @@ Partial Class FrmMenu
         'ProveedoresToolStripMenuItem1
         '
         Me.ProveedoresToolStripMenuItem1.Name = "ProveedoresToolStripMenuItem1"
-        Me.ProveedoresToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ProveedoresToolStripMenuItem1.Size = New System.Drawing.Size(139, 22)
         Me.ProveedoresToolStripMenuItem1.Text = "Proveedores"
         '
         'FrmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(627, 216)
+        Me.ClientSize = New System.Drawing.Size(627, 313)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FrmMenu"
@@ -112,4 +119,5 @@ Partial Class FrmMenu
     Friend WithEvents ComprasToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ProveedoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProveedoresToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ConsultarCompraToolStripMenuItem As ToolStripMenuItem
 End Class
