@@ -32,7 +32,7 @@
     Public Sub New()
         ' Definición del string de conexión
         conString("Provider") = "SQLNCLI11"
-        conString("Data Source") = "DESKTOP-T27I6DR"
+        conString("Data Source") = "PCGUILLE"
         conString("Integrated Security") = "SSPI"
         conString("Initial Catalog") = "BAR"
 

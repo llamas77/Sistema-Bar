@@ -25,4 +25,20 @@
         Dim frm As New FrmCompras
         frm.Show()
     End Sub
+
+    Private Sub TiposDeClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TiposDeClienteToolStripMenuItem.Click
+        Dim frm As New FrmTiposClientes
+        frm.Show()
+
+    End Sub
+
+    Private Sub GestiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestiónToolStripMenuItem.Click
+        Dim frm As New FrmClientes
+        frm.Show()
+    End Sub
+
+    Private Sub TiposDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TiposDeDocumentosToolStripMenuItem.Click
+        Dim frm As New FrmTiposDoc
+        frm.Show()
+    End Sub
 End Class

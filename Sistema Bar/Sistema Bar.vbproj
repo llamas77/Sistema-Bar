@@ -94,6 +94,23 @@
     <Compile Include="Controles\VTextBox.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmClientes.Designer.vb">
+      <DependentUpon>FrmClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmTiposClientes.Designer.vb">
+      <DependentUpon>FrmTiposClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmTiposClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmArticulos.Designer.vb">
       <DependentUpon>FrmArticulos.vb</DependentUpon>
     </Compile>
@@ -131,6 +148,12 @@
     <Compile Include="Formularios\FrmRubros.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmTiposDoc.Designer.vb">
+      <DependentUpon>FrmTiposDoc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmTiposDoc.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Interfaces\Vaciable.vb" />
     <Compile Include="Interfaces\Validable.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -154,6 +177,9 @@
     <EmbeddedResource Include="Formularios\FrmArticulos.resx">
       <DependentUpon>FrmArticulos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmClientes.resx">
+      <DependentUpon>FrmClientes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCompra.resx">
       <DependentUpon>FrmCompra.vb</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +195,12 @@
     <EmbeddedResource Include="Formularios\FrmRubros.resx">
       <DependentUpon>FrmRubros.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTiposClientes.resx">
+      <DependentUpon>FrmTiposClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTiposDoc.resx">
+      <DependentUpon>FrmTiposDoc.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -177,6 +209,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
