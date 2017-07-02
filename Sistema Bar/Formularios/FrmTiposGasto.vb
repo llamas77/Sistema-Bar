@@ -1,7 +1,8 @@
-﻿Imports Sistema_Bar.Util
+﻿
+Imports Sistema_Bar.Util
 Imports Sistema_Bar.AccesoDatos
 
-Public Class FrmTiposClientes
+Public Class FrmTiposGasto
 
     Implements Vaciable
 
@@ -13,7 +14,7 @@ Public Class FrmTiposClientes
 
     Public Property FirstControl As Control Implements Vaciable.FirstControl
 
-    Private Sub FrmRubros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmTiposGasto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FirstControl = txtNombre
         FirstControl.Select()
         setTipoAct(eTipoAct.insertar, cmdActualizar)
@@ -31,23 +32,23 @@ Public Class FrmTiposClientes
         If tipoAct = eTipoAct.insertar Then
             'Insertar
 
-            'Si encuentra un tipo de cliente con el mismo nombre no lo inserta
-            If db.ejecutarSQL("SELECT Id FROM Tipos_Cliente WHERE Nombre='" & txtNombre.Text.Trim & "'").Rows.Count = 1 Then
-                MsgBox("Ya existe un tipo de cliente con ese nombre. Elija otro.", vbCritical)
+            'Si encuentra un tipo de gasto con el mismo nombre no lo inserta
+            If db.ejecutarSQL("SELECT Id FROM Tipos_Gasto WHERE Nombre='" & txtNombre.Text.Trim & "'").Rows.Count = 1 Then
+                MsgBox("Ya existe un tipo de gasto con ese nombre. Elija otro.", vbCritical)
                 FirstControl.Select()
                 Return
             End If
 
-            db.insertar("Tipos_Cliente", "Nombre=" & txtNombre.Text)
+            db.insertar("Tipos_Gasto", "Nombre=" & txtNombre.Text)
         Else
             'Actualizar
 
-            'Si encuentra un tipo de cliente con el mismo Id, lo actualiza. De lo contrario ya se borró
-            If db.ejecutarSQL("SELECT Id FROM Tipos_Cliente WHERE Id=" & idActual).Rows.Count = 0 Then
-                MsgBox("El tipo de cliente que intenta modificar ya no existe.", vbCritical)
+            'Si encuentra un tipo de gasto con el mismo Id, lo actualiza. De lo contrario ya se borró
+            If db.ejecutarSQL("SELECT Id FROM Tipos_Gasto WHERE Id=" & idActual).Rows.Count = 0 Then
+                MsgBox("El tipo de gasto que intenta modificar ya no existe.", vbCritical)
             Else
                 Dim sql As String = ""
-                sql &= "UPDATE Tipos_Cliente "
+                sql &= "UPDATE Tipos_Gasto "
                 sql &= "SET Nombre='" & txtNombre.Text.Trim & "'"
                 sql &= "WHERE Id=" & idActual
 
@@ -79,27 +80,27 @@ Public Class FrmTiposClientes
 
         Dim elemento As DataGridViewRow = grilla.CurrentRow()
 
-        If MessageBox.Show("¿Está seguro que desea borrar el tipo de cliente: " & elemento.Cells(1).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
+        If MessageBox.Show("¿Está seguro que desea borrar el tipo de gasto: " & elemento.Cells(1).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
 
-        ' Borra el tipo de cliente solo si sigue existiendo.
+        ' Borra el tipo de gasto solo si sigue existiendo.
         ' (No hace falta pero es bueno aclararlo por mensaje en caso de que pase esto)
-        If db.ejecutarSQL("SELECT * FROM Tipos_Cliente WHERE Id=" & elemento.Cells(0).Value).Rows.Count = 0 Then
-            MsgBox("El tipo de cliente no se borró porque ya no existe.", vbCritical)
+        If db.ejecutarSQL("SELECT * FROM Tipos_Gasto WHERE Id=" & elemento.Cells(0).Value).Rows.Count = 0 Then
+            MsgBox("El tipo de gasto no se borró porque ya no existe.", vbCritical)
             cargarGrilla()
             FirstControl.Select()
             Return
         End If
 
-        ' Verifica si el tipo de cliente que se quiere eliminar no está siendo referenciado por la tabla Clientes
-        Dim clientes As DataTable
-        clientes = db.ejecutarSQL("SELECT TOP 10 t.Nombre FROM Tipos_Cliente t JOIN Clientes c ON (t.Id = c.Id_TipoCliente) WHERE t.Id =" & elemento.Cells(0).Value)
-        If clientes.Rows.Count > 0 Then
+        ' Verifica si el tipo de gasto que se quiere eliminar no está siendo referenciado por la tabla Gastos
+        Dim gastos As DataTable
+        gastos = db.ejecutarSQL("SELECT TOP 10 t.Nombre FROM Tipos_Gasto t JOIN Gastos g ON (t.Id = c.Id_TipoGasto) WHERE t.Id =" & elemento.Cells(0).Value)
+        If gastos.Rows.Count > 0 Then
             Dim stringArts As String = ""
             Dim i As Integer
-            For i = 0 To clientes.Rows.Count - 1
-                stringArts &= "" & clientes.Rows(i)(0).ToString() & ", "
+            For i = 0 To gastos.Rows.Count - 1
+                stringArts &= "" & gastos.Rows(i)(0).ToString() & ", "
             Next
-            MsgBox("Este tipo de cliente no puede ser borrado porque se usa en los siguientes clientes:" & Chr(13) &
+            MsgBox("Este tipo de gasto no puede ser borrado porque se usa en los siguientes gastos:" & Chr(13) &
                         stringArts & "y/o entre otros.", vbCritical)
             cargarGrilla()
             FirstControl.Select()
@@ -107,7 +108,7 @@ Public Class FrmTiposClientes
         End If
 
         ' Elimina el rubro
-        db.ejecutarSQL("DELETE FROM Tipos_Cliente WHERE Id=" & elemento.Cells(0).Value)
+        db.ejecutarSQL("DELETE FROM Tipos_Gasto WHERE Id=" & elemento.Cells(0).Value)
 
         cargarGrilla()
         FirstControl.Select()

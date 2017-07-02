@@ -154,6 +154,12 @@
     <Compile Include="Formularios\FrmTiposDoc.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmTiposGasto.Designer.vb">
+      <DependentUpon>FrmTiposGasto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmTiposGasto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Interfaces\Vaciable.vb" />
     <Compile Include="Interfaces\Validable.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmTiposDoc.resx">
       <DependentUpon>FrmTiposDoc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTiposGasto.resx">
+      <DependentUpon>FrmTiposGasto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -48,7 +48,7 @@ Partial Class FrmClientes
         Me.txtApellido = New Sistema_Bar.VTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.dateFechaAlta = New System.Windows.Forms.DateTimePicker()
+        Me.txtFecha = New Sistema_Bar.VMaskedTextBox()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -69,7 +69,7 @@ Partial Class FrmClientes
         'txtNombre
         '
         Me.txtNombre.EMensaje = Nothing
-        Me.txtNombre.Location = New System.Drawing.Point(92, 77)
+        Me.txtNombre.Location = New System.Drawing.Point(83, 75)
         Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
@@ -87,8 +87,9 @@ Partial Class FrmClientes
         'txtDni
         '
         Me.txtDni.EMensaje = Nothing
-        Me.txtDni.Location = New System.Drawing.Point(92, 29)
+        Me.txtDni.Location = New System.Drawing.Point(83, 31)
         Me.txtDni.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtDni.MaxLength = 9
         Me.txtDni.Name = "txtDni"
         Me.txtDni.NombreVisual = "Código"
         Me.txtDni.NumLimit = 999999999
@@ -208,7 +209,7 @@ Partial Class FrmClientes
         Me.cmbTipoDoc.NombreVisual = "TipoDoc"
         Me.cmbTipoDoc.Size = New System.Drawing.Size(178, 24)
         Me.cmbTipoDoc.TabIndex = 28
-        Me.cmbTipoDoc.VObligatorio = False
+        Me.cmbTipoDoc.VObligatorio = True
         '
         'Label4
         '
@@ -321,19 +322,24 @@ Partial Class FrmClientes
         Me.Label6.Text = "Fecha de Alta:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'dateFechaAlta
+        'txtFecha
         '
-        Me.dateFechaAlta.Location = New System.Drawing.Point(831, 71)
-        Me.dateFechaAlta.Name = "dateFechaAlta"
-        Me.dateFechaAlta.Size = New System.Drawing.Size(248, 22)
-        Me.dateFechaAlta.TabIndex = 35
+        Me.txtFecha.EMensaje = Nothing
+        Me.txtFecha.Enabled = False
+        Me.txtFecha.Location = New System.Drawing.Point(832, 70)
+        Me.txtFecha.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtFecha.Name = "txtFecha"
+        Me.txtFecha.NombreVisual = "Fecha"
+        Me.txtFecha.Size = New System.Drawing.Size(105, 22)
+        Me.txtFecha.TabIndex = 35
+        Me.txtFecha.VObligatorio = False
         '
         'FrmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1180, 571)
-        Me.Controls.Add(Me.dateFechaAlta)
+        Me.Controls.Add(Me.txtFecha)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtApellido)
         Me.Controls.Add(Me.Label5)
@@ -385,5 +391,5 @@ Partial Class FrmClientes
     Friend WithEvents txtApellido As VTextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents dateFechaAlta As DateTimePicker
+    Friend WithEvents txtFecha As VMaskedTextBox
 End Class
