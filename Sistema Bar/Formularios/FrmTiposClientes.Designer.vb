@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmTiposClientes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,25 +20,19 @@ Partial Class FrmTiposClientes
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtNombre = New Sistema_Bar.VTextBox()
         Me.txtBuscar = New Sistema_Bar.VTextBox()
         Me.cmdActualizar = New System.Windows.Forms.Button()
-        Me.TiposClienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet1 = New Sistema_Bar.DataSet1()
-        Me.Tipos_ClienteTableAdapter = New Sistema_Bar.DataSet1TableAdapters.Tipos_ClienteTableAdapter()
         Me.cmdModificar = New System.Windows.Forms.Button()
         Me.cmdBorrar = New System.Windows.Forms.Button()
         Me.cmdCancelar = New System.Windows.Forms.Button()
         Me.grilla = New System.Windows.Forms.DataGridView()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.TiposClienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -101,20 +95,6 @@ Partial Class FrmTiposClientes
         Me.cmdActualizar.TabIndex = 5
         Me.cmdActualizar.Text = "Agregar"
         Me.cmdActualizar.UseVisualStyleBackColor = True
-        '
-        'TiposClienteBindingSource
-        '
-        Me.TiposClienteBindingSource.DataMember = "Tipos_Cliente"
-        Me.TiposClienteBindingSource.DataSource = Me.DataSet1
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Tipos_ClienteTableAdapter
-        '
-        Me.Tipos_ClienteTableAdapter.ClearBeforeFill = True
         '
         'cmdModificar
         '
@@ -187,8 +167,6 @@ Partial Class FrmTiposClientes
         Me.Controls.Add(Me.Label1)
         Me.Name = "FrmTiposClientes"
         Me.Text = "Tipos de Cliente"
-        CType(Me.TiposClienteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -200,9 +178,6 @@ Partial Class FrmTiposClientes
     Friend WithEvents txtNombre As VTextBox
     Friend WithEvents txtBuscar As VTextBox
     Friend WithEvents cmdActualizar As Button
-    Friend WithEvents DataSet1 As DataSet1
-    Friend WithEvents TiposClienteBindingSource As BindingSource
-    Friend WithEvents Tipos_ClienteTableAdapter As DataSet1TableAdapters.Tipos_ClienteTableAdapter
     Friend WithEvents cmdModificar As Button
     Friend WithEvents cmdBorrar As Button
     Friend WithEvents cmdCancelar As Button
