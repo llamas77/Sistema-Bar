@@ -54,6 +54,6 @@
     End Sub
 
     Private Sub FrmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        habilitarMenues(False)
+        ' habilitarMenues(False)
     End Sub
 End Class
