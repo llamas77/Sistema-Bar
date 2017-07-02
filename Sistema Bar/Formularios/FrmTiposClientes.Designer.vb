@@ -64,6 +64,7 @@ Partial Class FrmTiposClientes
         '
         Me.txtNombre.EMensaje = Nothing
         Me.txtNombre.Location = New System.Drawing.Point(80, 34)
+        Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.NombreVisual = "sin nombre"
         Me.txtNombre.NumLimit = 999999999
@@ -73,7 +74,7 @@ Partial Class FrmTiposClientes
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
         Me.txtNombre.VNumMin = False
-        Me.txtNombre.VObligatorio = False
+        Me.txtNombre.VObligatorio = True
         Me.txtNombre.VPositivo = False
         '
         'txtBuscar

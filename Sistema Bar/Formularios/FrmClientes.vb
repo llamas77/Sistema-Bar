@@ -15,6 +15,7 @@ Public Class FrmClientes
         setTipoAct(eTipoAct.insertar, cmdActualizar)
         cargarCombo(cmbTipoDoc, db.cargarTabla("Tipos_Doc"), "Id", "Nombre")
         cargarCombo(cmbTipoCliente, db.cargarTabla("Tipos_Cliente"), "Id", "Nombre")
+        txtFecha.Text = DateTime.Today
         Me.cargarGrilla()
     End Sub
 
@@ -59,7 +60,6 @@ Public Class FrmClientes
             sqlInsert &= "; Id_TipoCliente=" & cmbTipoCliente.SelectedValue
             sqlInsert &= "; Nombre=" & txtNombre.Text.Trim
             sqlInsert &= "; Apellido=" & txtApellido.Text.Trim
-            sqlInsert &= "; Fecha_Alta=" & dateFechaAlta.Value
             db.insertar("Clientes", sqlInsert)
         Else
             'Actualizar
@@ -75,7 +75,6 @@ Public Class FrmClientes
                 sql &= ", Id_TipoCliente=" & cmbTipoCliente.SelectedValue
                 sql &= ", Nombre='" & txtNombre.Text.Trim & "'"
                 sql &= ", Apellido='" & txtApellido.Text.Trim & "'"
-                sql &= "; Fecha_Alta=" & dateFechaAlta.Value
 
                 db.ejecutarSQL(sql)
             End If
@@ -101,7 +100,6 @@ Public Class FrmClientes
         txtNombre.Text = elemento.Cells(4).Value
         txtApellido.Text = elemento.Cells(5).Value
         cmbTipoCliente.SelectedValue = elemento.Cells(6).Value
-        dateFechaAlta.Value = elemento.Cells(7).Value
         FirstControl.Select()
     End Sub
 
@@ -162,7 +160,7 @@ Public Class FrmClientes
         vaciarForm(Me)
     End Sub
 
-    Private Sub anyTxt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDni.KeyPress, txtNombre.KeyPress, txtNombre.KeyPress, txtApellido.KeyPress, dateFechaAlta.KeyPress
+    Private Sub anyTxt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDni.KeyPress, txtNombre.KeyPress, txtNombre.KeyPress, txtApellido.KeyPress
         Select Case Asc(e.KeyChar)
             Case Keys.Enter
                 e.Handled = True
