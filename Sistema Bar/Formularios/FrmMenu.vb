@@ -42,14 +42,18 @@
         frm.Show()
     End Sub
 
-    Private Sub deshabilitarMenues()
-        ArtículosToolStripMenuItem.Enabled = False
-        ComprasToolStripMenuItem.Enabled = False
-        ProveedoresToolStripMenuItem.Enabled = False
+    'Poner todos los menues
+    Private Sub habilitarMenues(ByVal bool As Boolean)
+        AbrirTurnoToolStripMenuItem.Enabled = Not bool
+        CerrarTurnoToolStripMenuItem.Enabled = bool
 
+        ArtículosToolStripMenuItem.Enabled = bool
+        ComprasToolStripMenuItem.Enabled = bool
+        ProveedoresToolStripMenuItem.Enabled = bool
+        ClientesToolStripMenuItem.Enabled = bool
     End Sub
 
     Private Sub FrmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'deshabilitarMenues()
+        habilitarMenues(False)
     End Sub
 End Class
