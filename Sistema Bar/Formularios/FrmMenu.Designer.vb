@@ -39,7 +39,10 @@ Partial Class FrmMenu
         Me.GestiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TiposDeDocumentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TiposDeClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusTurno = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -48,7 +51,7 @@ Partial Class FrmMenu
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnoToolStripMenuItem, Me.ArtículosToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.ClientesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(676, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(679, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -154,11 +157,27 @@ Partial Class FrmMenu
         Me.TiposDeClienteToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.TiposDeClienteToolStripMenuItem.Text = "Tipos de Cliente"
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusTurno})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 332)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(679, 22)
+        Me.StatusStrip1.TabIndex = 1
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusTurno
+        '
+        Me.ToolStripStatusTurno.Name = "ToolStripStatusTurno"
+        Me.ToolStripStatusTurno.Size = New System.Drawing.Size(93, 17)
+        Me.ToolStripStatusTurno.Text = "Estado del turno"
+        '
         'FrmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(676, 354)
+        Me.ClientSize = New System.Drawing.Size(679, 354)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FrmMenu"
@@ -166,6 +185,8 @@ Partial Class FrmMenu
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -188,4 +209,6 @@ Partial Class FrmMenu
     Friend WithEvents TurnoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AbrirTurnoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CerrarTurnoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusTurno As ToolStripStatusLabel
 End Class

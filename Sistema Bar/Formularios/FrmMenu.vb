@@ -1,5 +1,14 @@
-﻿Public Class FrmMenu
+﻿Imports Sistema_Bar.Util
+Public Class FrmMenu
 
+    Enum eTurno
+        abierto
+        cerrado
+    End Enum
+
+    Dim estadoTurno As eTurno
+
+    Dim db As AccesoDatos = AccesoDatos.getBDInstancia()
 
     Private Sub RubrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RubrosToolStripMenuItem.Click
         Dim frm As New FrmRubros
@@ -54,10 +63,58 @@
     End Sub
 
     Private Sub FrmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' habilitarMenues(False)
+
+        Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
+        ' Chequea si ya había un turno abierto
+
+        estadoTurno = setEstTurno(tabla, eTurno.cerrado)
+        If tabla.Rows.Count = 1 Then
+            If TypeOf tabla(0)(2) Is DBNull Then
+                estadoTurno = setEstTurno(tabla, eTurno.abierto)
+            End If
+        End If
     End Sub
 
     Private Sub AbrirTurnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirTurnoToolStripMenuItem.Click
+        If estadoTurno = eTurno.abierto Then Return
+
+        Dim texto As String = vInputBox("Ingrese el monto que hay en caja",, True)
+        If texto = "" Then Return
+
+        db.ejecutarSQL("INSERT INTO Turnos (Hora_Inicio, Caja_Inicial) VALUES (getDate(), " & formatear(texto) & ")")
+
+        Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
+        estadoTurno = setEstTurno(tabla, eTurno.abierto)
+    End Sub
+
+    Private Sub CerrarTurnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarTurnoToolStripMenuItem.Click
+        If estadoTurno = eTurno.cerrado Then Return
+
+        Dim texto As String = vInputBox("Ingrese el monto que hay en caja",, True)
+        If texto = "" Then Return
+
+        Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
+
+        Dim sql As String = ""
+        sql &= "UPDATE Turnos "
+        sql &= "SET Hora_Fin=getDate(), Caja_Final=" & formatear(texto)
+        sql &= "WHERE Id = " & tabla(0)(0)
+        db.ejecutarSQL(sql)
+
+        estadoTurno = setEstTurno(tabla, eTurno.cerrado)
 
     End Sub
+
+    ' Setea el turno, actualizando textos
+    Private Function setEstTurno(ByRef tabla As DataTable, ByVal estado As eTurno) As eTurno
+        If estado = eTurno.abierto Then
+            habilitarMenues(True)
+            ToolStripStatusTurno.Text = "Turno abierto desde: " & tabla(0)(1)
+            Return eTurno.abierto
+        End If
+        ToolStripStatusTurno.Text = "No hay un turno abierto"
+        habilitarMenues(False)
+        Return eTurno.cerrado
+    End Function
+
 End Class
