@@ -23,6 +23,9 @@ Partial Class FrmMenu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.TurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AbrirTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CerrarTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArtículosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RubrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArículosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -36,9 +39,6 @@ Partial Class FrmMenu
         Me.GestiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TiposDeDocumentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TiposDeClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AbrirTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CerrarTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -51,6 +51,25 @@ Partial Class FrmMenu
         Me.MenuStrip1.Size = New System.Drawing.Size(676, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'TurnoToolStripMenuItem
+        '
+        Me.TurnoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirTurnoToolStripMenuItem, Me.CerrarTurnoToolStripMenuItem})
+        Me.TurnoToolStripMenuItem.Name = "TurnoToolStripMenuItem"
+        Me.TurnoToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
+        Me.TurnoToolStripMenuItem.Text = "Turno"
+        '
+        'AbrirTurnoToolStripMenuItem
+        '
+        Me.AbrirTurnoToolStripMenuItem.Name = "AbrirTurnoToolStripMenuItem"
+        Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AbrirTurnoToolStripMenuItem.Text = "Abrir turno"
+        '
+        'CerrarTurnoToolStripMenuItem
+        '
+        Me.CerrarTurnoToolStripMenuItem.Name = "CerrarTurnoToolStripMenuItem"
+        Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CerrarTurnoToolStripMenuItem.Text = "Cerrar turno"
         '
         'ArtículosToolStripMenuItem
         '
@@ -134,25 +153,6 @@ Partial Class FrmMenu
         Me.TiposDeClienteToolStripMenuItem.Name = "TiposDeClienteToolStripMenuItem"
         Me.TiposDeClienteToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.TiposDeClienteToolStripMenuItem.Text = "Tipos de Cliente"
-        '
-        'TurnoToolStripMenuItem
-        '
-        Me.TurnoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirTurnoToolStripMenuItem, Me.CerrarTurnoToolStripMenuItem})
-        Me.TurnoToolStripMenuItem.Name = "TurnoToolStripMenuItem"
-        Me.TurnoToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
-        Me.TurnoToolStripMenuItem.Text = "Turno"
-        '
-        'AbrirTurnoToolStripMenuItem
-        '
-        Me.AbrirTurnoToolStripMenuItem.Name = "AbrirTurnoToolStripMenuItem"
-        Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AbrirTurnoToolStripMenuItem.Text = "Abrir turno"
-        '
-        'CerrarTurnoToolStripMenuItem
-        '
-        Me.CerrarTurnoToolStripMenuItem.Name = "CerrarTurnoToolStripMenuItem"
-        Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CerrarTurnoToolStripMenuItem.Text = "Cerrar turno"
         '
         'FrmMenu
         '

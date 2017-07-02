@@ -56,4 +56,8 @@
     Private Sub FrmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         habilitarMenues(False)
     End Sub
+
+    Private Sub AbrirTurnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirTurnoToolStripMenuItem.Click
+
+    End Sub
 End Class
