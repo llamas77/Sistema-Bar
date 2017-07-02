@@ -41,4 +41,15 @@
         Dim frm As New FrmTiposDoc
         frm.Show()
     End Sub
+
+    Private Sub deshabilitarMenues()
+        ArtículosToolStripMenuItem.Enabled = False
+        ComprasToolStripMenuItem.Enabled = False
+        ProveedoresToolStripMenuItem.Enabled = False
+
+    End Sub
+
+    Private Sub FrmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'deshabilitarMenues()
+    End Sub
 End Class

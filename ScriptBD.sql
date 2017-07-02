@@ -1,11 +1,15 @@
 CREATE TABLE Turnos (
 	Id INT IDENTITY(1, 1),
-	Hora_Inicio DATETIME DEFAULT getDate() NOT NULL,
-	Hora_Fin DATETIME DEFAULT getDate() NOT NULL,
+	Hora_Inicio DATETIME,
+	Hora_Fin DATETIME,
 	Caja_Inicial DECIMAL(11, 2),
 	Caja_Final DECIMAL(11, 2),
 	CONSTRAINT Turnos_pk PRIMARY KEY (Id)
 )
+
+INSERT INTO Turnos (Hora_Inicio, Caja_Inicial) VALUES (getDate(), 200)
+SELECT * FROM Turnos
+DROP TABLE Turnos
 
 CREATE TABLE Rubros(
 	Id INT IDENTITY(1, 1),
@@ -127,4 +131,3 @@ CREATE TABLE Detalles_Ventas(
 --DROP TABLE Clientes
 --DROP TABLE Tipos_Cliente
 --DROP TABLE Tipos_Doc
-

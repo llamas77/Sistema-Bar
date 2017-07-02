@@ -30,4 +30,22 @@ Public Class FrmCompras
     Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
         buscar(txtBuscar, grilla)
     End Sub
+
+    Private Sub ver(sender As Object, e As EventArgs) Handles cmdVer.Click
+        If Not puedeActuarEnGrilla(grilla) Then Return
+        Dim frm As New FrmRepCompraConDetalle(grilla.Rows(grilla.CurrentRow.Index).Cells(0).Value)
+        frm.Show()
+    End Sub
+
+    Private Sub grilla_KeyDown(sender As Object, e As KeyEventArgs) Handles grilla.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                ver(sender, e)
+        End Select
+    End Sub
+
+    Private Sub grilla_DoubleClick(sender As Object, e As EventArgs) Handles grilla.DoubleClick
+        ver(sender, e)
+    End Sub
+
 End Class

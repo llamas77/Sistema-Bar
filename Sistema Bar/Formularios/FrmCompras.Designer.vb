@@ -22,12 +22,12 @@ Partial Class FrmCompras
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grilla = New System.Windows.Forms.DataGridView()
         Me.txtBuscar = New Sistema_Bar.VTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cmdNueva = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmdVer = New System.Windows.Forms.Button()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Id_Proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -83,14 +83,14 @@ Partial Class FrmCompras
         Me.cmdNueva.Text = "Nueva compra"
         Me.cmdNueva.UseVisualStyleBackColor = True
         '
-        'Button1
+        'cmdVer
         '
-        Me.Button1.Location = New System.Drawing.Point(116, 335)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(95, 25)
-        Me.Button1.TabIndex = 12
-        Me.Button1.Text = "Ver compra"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cmdVer.Location = New System.Drawing.Point(116, 335)
+        Me.cmdVer.Name = "cmdVer"
+        Me.cmdVer.Size = New System.Drawing.Size(95, 25)
+        Me.cmdVer.TabIndex = 12
+        Me.cmdVer.Text = "Ver compra"
+        Me.cmdVer.UseVisualStyleBackColor = True
         '
         'Id
         '
@@ -115,9 +115,9 @@ Partial Class FrmCompras
         '
         'Total
         '
-        DataGridViewCellStyle2.Format = "C2"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.Total.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.Total.DefaultCellStyle = DataGridViewCellStyle1
         Me.Total.HeaderText = "Total"
         Me.Total.Name = "Total"
         Me.Total.ReadOnly = True
@@ -127,7 +127,7 @@ Partial Class FrmCompras
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(652, 375)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cmdVer)
         Me.Controls.Add(Me.cmdNueva)
         Me.Controls.Add(Me.grilla)
         Me.Controls.Add(Me.txtBuscar)
@@ -147,7 +147,7 @@ Partial Class FrmCompras
     Friend WithEvents txtBuscar As VTextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents cmdNueva As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents cmdVer As Button
     Friend WithEvents Id As DataGridViewTextBoxColumn
     Friend WithEvents Fecha As DataGridViewTextBoxColumn
     Friend WithEvents Id_Proveedor As DataGridViewTextBoxColumn
