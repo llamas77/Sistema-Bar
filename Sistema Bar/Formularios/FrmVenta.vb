@@ -398,7 +398,8 @@ Public Class FrmVenta
             If IsNumeric(formatear(txtPagaCon.Text.Trim)) Then
                 If Val(formatear(txtPagaCon.Text.Trim)) >= cantTotal Then
                     Label11.Visible = True
-                    lblVuelto.Text = "$ " & FormatNumber(Val(formatear(txtPagaCon.Text.Trim)), 4) - FormatNumber(cantTotal, 4)
+                    Dim val As Single = FormatNumber(txtPagaCon.Text.Trim - cantTotal, 2)
+                    lblVuelto.Text = "$ " & val
                     Exit Sub
                 End If
             End If

@@ -442,7 +442,7 @@ Partial Class FrmVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(733, 532)
+        Me.ClientSize = New System.Drawing.Size(733, 515)
         Me.Controls.Add(Me.chkBar)
         Me.Controls.Add(Me.cmdVender)
         Me.Controls.Add(Me.cmdBorrar)
