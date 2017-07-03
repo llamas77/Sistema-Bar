@@ -20,7 +20,7 @@ Public Class FrmCompra
         cargarCombo(cmbArticulos, db.cargarTabla("Articulos"), "Id", "Nombre")
         vaciarForm(Me)
         txtCantidad.Text = "1"
-        txtTotal.Text = "$ 0"
+        lblTotal.Text = "$ 0"
         txtFecha.Text = DateTime.Today
     End Sub
 
@@ -149,7 +149,7 @@ Public Class FrmCompra
         For i = 0 To grilla.Rows.Count - 1
             suma += grilla.Rows(i).Cells(4).Value
         Next
-        txtTotal.Text = "$ " & suma
+        lblTotal.Text = "$ " & suma
     End Sub
 
 

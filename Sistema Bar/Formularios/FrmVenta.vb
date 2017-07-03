@@ -8,6 +8,8 @@ Public Class FrmVenta
 
     Public Property FirstControl As Control Implements Vaciable.FirstControl
 
+    Dim cantTotal As Single
+
     Dim alCosto As Boolean
     Dim descuento As Single
 
@@ -23,7 +25,7 @@ Public Class FrmVenta
         cargarCombo(cmbArticulos, db.cargarTabla("Articulos"), "Id", "Nombre")
         vaciarForm(Me)
         txtCantidad.Text = "1"
-        txtTotal.Text = "$ 0"
+        lblTotal.Text = "$ 0"
         txtFecha.Text = DateTime.Today
     End Sub
 
@@ -46,7 +48,7 @@ Public Class FrmVenta
             Dim i As Integer
             For i = 0 To tabla.Rows.Count - 1
                 If tabla.Rows(i)(0) = cmbArticulos.SelectedValue Then
-                    txtPrecio.Text = Val(IIf(alCosto, tabla(i)(3), tabla(i)(4)) * (1 - descuento))
+                    txtPrecio.Text = FormatNumber(Val(IIf(alCosto, tabla(i)(3), tabla(i)(4)) * (1 - descuento)), 4)
                     txtStock.Text = tabla(i)(5)
                     Exit For
                 End If
@@ -86,7 +88,7 @@ Public Class FrmVenta
             Dim i As Integer
             For i = 0 To tabla.Rows.Count - 1
                 If tabla(i)(0) = txtCodigo.Text.Trim Then
-                    txtPrecio.Text = Val(IIf(alCosto, tabla(i)(3), tabla(i)(4)) * (1 - descuento))
+                    txtPrecio.Text = FormatNumber(Val(IIf(alCosto, tabla(i)(3), tabla(i)(4)) * (1 - descuento)), 4)
                     Exit For
                 End If
             Next
@@ -191,7 +193,8 @@ Public Class FrmVenta
         For i = 0 To grilla.Rows.Count - 1
             suma += grilla.Rows(i).Cells(4).Value
         Next
-        txtTotal.Text = "$ " & suma
+        lblTotal.Text = "$ " & suma
+        cantTotal = suma
     End Sub
 
 
@@ -242,7 +245,7 @@ Public Class FrmVenta
             For j = 0 To tabla.Rows.Count - 1
                 If tabla.Rows(j)(0) = grilla.Rows(i).Cells(1).Value Then
                     'Actualizo precio y total
-                    precio = Val(IIf(alCosto, tabla(j)(3), tabla(j)(4)) * (1 - descuento))
+                    precio = FormatNumber(Val(IIf(alCosto, tabla(j)(3), tabla(j)(4)) * (1 - descuento)), 4)
                     grilla.Rows(i).Cells(3).Value = Val(formatear(precio))
                     grilla.Rows(i).Cells(4).Value = grilla.Rows(i).Cells(0).Value * Val(formatear(precio))
                 End If
@@ -388,5 +391,19 @@ Public Class FrmVenta
         End If
 
         actualizarTodosPrecios()
+    End Sub
+
+    Private Sub txtPagaCon_TextChanged(sender As Object, e As EventArgs) Handles txtPagaCon.TextChanged
+        If txtPagaCon.Text.Trim <> "" Then
+            If IsNumeric(formatear(txtPagaCon.Text.Trim)) Then
+                If Val(formatear(txtPagaCon.Text.Trim)) >= cantTotal Then
+                    Label11.Visible = True
+                    lblVuelto.Text = "$ " & FormatNumber(Val(formatear(txtPagaCon.Text.Trim)), 4) - FormatNumber(cantTotal, 4)
+                    Exit Sub
+                End If
+            End If
+        End If
+        Label11.Visible = False
+        lblVuelto.Text = ""
     End Sub
 End Class
