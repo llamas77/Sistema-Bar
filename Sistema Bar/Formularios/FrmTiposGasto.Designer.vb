@@ -48,7 +48,7 @@ Partial Class FrmTiposGasto
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
-        Me.grilla.Size = New System.Drawing.Size(459, 260)
+        Me.grilla.Size = New System.Drawing.Size(446, 260)
         Me.grilla.TabIndex = 17
         '
         'Id
@@ -66,7 +66,7 @@ Partial Class FrmTiposGasto
         '
         'cmdCancelar
         '
-        Me.cmdCancelar.Location = New System.Drawing.Point(344, 401)
+        Me.cmdCancelar.Location = New System.Drawing.Point(331, 401)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(138, 39)
         Me.cmdCancelar.TabIndex = 14
@@ -93,7 +93,7 @@ Partial Class FrmTiposGasto
         '
         'cmdActualizar
         '
-        Me.cmdActualizar.Location = New System.Drawing.Point(331, 28)
+        Me.cmdActualizar.Location = New System.Drawing.Point(353, 33)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(116, 32)
         Me.cmdActualizar.TabIndex = 13
@@ -105,10 +105,10 @@ Partial Class FrmTiposGasto
         Me.txtBuscar.EMensaje = Nothing
         Me.txtBuscar.Location = New System.Drawing.Point(82, 87)
         Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.NombreVisual = "sin nombre"
+        Me.txtBuscar.NombreVisual = "Buscar"
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
-        Me.txtBuscar.Size = New System.Drawing.Size(337, 22)
+        Me.txtBuscar.Size = New System.Drawing.Size(387, 22)
         Me.txtBuscar.TabIndex = 12
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
@@ -122,10 +122,10 @@ Partial Class FrmTiposGasto
         Me.txtNombre.Location = New System.Drawing.Point(82, 33)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.NombreVisual = "sin nombre"
+        Me.txtNombre.NombreVisual = "Nombre"
         Me.txtNombre.NumLimit = 999999999
         Me.txtNombre.NumMin = 0
-        Me.txtNombre.Size = New System.Drawing.Size(229, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(265, 22)
         Me.txtNombre.TabIndex = 11
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
@@ -155,7 +155,7 @@ Partial Class FrmTiposGasto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(508, 471)
+        Me.ClientSize = New System.Drawing.Size(496, 471)
         Me.Controls.Add(Me.grilla)
         Me.Controls.Add(Me.cmdCancelar)
         Me.Controls.Add(Me.cmdBorrar)

@@ -21,7 +21,39 @@ Public Class FrmTiposClientes
     End Sub
 
     Public Sub cargarGrilla()
-        Util.cargarGrilla(db, "SELECT * FROM Tipos_Cliente", grilla)
+        Dim Sql As String = "SELECT Id, Nombre, AlCosto FROM Tipos_Cliente"
+
+
+        'Guarda la posición de la celda seleccionada
+        Dim index As Integer
+        If grilla.Rows.Count > 0 Then
+            index = grilla.CurrentRow.Index
+        End If
+
+        ' Construye el DataTable
+        grilla.Rows.Clear()
+        Dim tabla As DataTable = db.ejecutarSQL(Sql)
+
+        ' Carga el DataTable en la grilla
+        Dim i, j As Integer
+        For i = 0 To tabla.Rows.Count - 1
+            grilla.Rows.Add()
+            For j = 0 To tabla.Columns.Count - 1
+                If j = 2 Then
+                    grilla.Rows(i).Cells(j).Value = IIf(tabla.Rows(i)(j), "Precio de Costo", "Precio de Venta")
+                Else
+                    grilla.Rows(i).Cells(j).Value = tabla.Rows(i)(j)
+                End If
+            Next
+        Next
+
+        ' Posiciona la selección donde estaba
+        If grilla.Rows.Count > 0 Then
+            If grilla.Rows.Count() <= index Then ' Si tenia la ultima celda y tengo menos valores selecciono el ultimo.
+                index = grilla.Rows.Count - 1
+            End If
+            grilla.CurrentCell = grilla.Rows(index).Cells(grilla.FirstDisplayedCell.ColumnIndex)
+        End If
     End Sub
 
     ' Inserta o Modifica un registo en la BD
@@ -38,7 +70,7 @@ Public Class FrmTiposClientes
                 Return
             End If
 
-            db.insertar("Tipos_Cliente", "Nombre=" & txtNombre.Text)
+            db.insertar("Tipos_Cliente", "Nombre=" & txtNombre.Text & "; AlCosto=" & IIf(chkAlCosto.Checked, "1", "0"))
         Else
             'Actualizar
 
@@ -48,7 +80,7 @@ Public Class FrmTiposClientes
             Else
                 Dim sql As String = ""
                 sql &= "UPDATE Tipos_Cliente "
-                sql &= "SET Nombre='" & txtNombre.Text.Trim & "'"
+                sql &= "SET Nombre='" & txtNombre.Text.Trim & "', AlCosto=" & IIf(chkAlCosto.Checked, "1", "0")
                 sql &= "WHERE Id=" & idActual
 
                 db.ejecutarSQL(sql)
@@ -70,6 +102,7 @@ Public Class FrmTiposClientes
         Dim elemento As DataGridViewRow = grilla.CurrentRow()
         idActual = elemento.Cells(0).Value
         txtNombre.Text = elemento.Cells(1).Value
+        chkAlCosto.Checked = IIf(elemento.Cells(2).Value = "Precio de Costo", True, False)
         FirstControl.Select()
     End Sub
 
@@ -106,7 +139,7 @@ Public Class FrmTiposClientes
             Return
         End If
 
-        ' Elimina el rubro
+        ' Elimina el tipo de cliente
         db.ejecutarSQL("DELETE FROM Tipos_Cliente WHERE Id=" & elemento.Cells(0).Value)
 
         cargarGrilla()
@@ -145,4 +178,6 @@ Public Class FrmTiposClientes
     Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
         buscar(txtBuscar, grilla)
     End Sub
+
+
 End Class

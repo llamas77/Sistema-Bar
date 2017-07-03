@@ -33,6 +33,8 @@ Partial Class FrmTiposClientes
         Me.grilla = New System.Windows.Forms.DataGridView()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.chkAlCosto = New System.Windows.Forms.CheckBox()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -48,7 +50,7 @@ Partial Class FrmTiposClientes
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(18, 88)
+        Me.Label2.Location = New System.Drawing.Point(12, 91)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 17)
         Me.Label2.TabIndex = 2
@@ -60,10 +62,10 @@ Partial Class FrmTiposClientes
         Me.txtNombre.Location = New System.Drawing.Point(80, 34)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.NombreVisual = "sin nombre"
+        Me.txtNombre.NombreVisual = "Nombre"
         Me.txtNombre.NumLimit = 999999999
         Me.txtNombre.NumMin = 0
-        Me.txtNombre.Size = New System.Drawing.Size(229, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(300, 22)
         Me.txtNombre.TabIndex = 3
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
@@ -74,12 +76,12 @@ Partial Class FrmTiposClientes
         'txtBuscar
         '
         Me.txtBuscar.EMensaje = Nothing
-        Me.txtBuscar.Location = New System.Drawing.Point(80, 88)
+        Me.txtBuscar.Location = New System.Drawing.Point(74, 88)
         Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.NombreVisual = "sin nombre"
+        Me.txtBuscar.NombreVisual = "Buscar"
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
-        Me.txtBuscar.Size = New System.Drawing.Size(337, 22)
+        Me.txtBuscar.Size = New System.Drawing.Size(306, 22)
         Me.txtBuscar.TabIndex = 4
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
@@ -89,7 +91,7 @@ Partial Class FrmTiposClientes
         '
         'cmdActualizar
         '
-        Me.cmdActualizar.Location = New System.Drawing.Point(329, 29)
+        Me.cmdActualizar.Location = New System.Drawing.Point(391, 83)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(116, 32)
         Me.cmdActualizar.TabIndex = 5
@@ -129,13 +131,13 @@ Partial Class FrmTiposClientes
         Me.grilla.AllowUserToDeleteRows = False
         Me.grilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre})
+        Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre, Me.Precio})
         Me.grilla.Location = New System.Drawing.Point(21, 135)
         Me.grilla.Margin = New System.Windows.Forms.Padding(4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
-        Me.grilla.Size = New System.Drawing.Size(459, 260)
+        Me.grilla.Size = New System.Drawing.Size(486, 260)
         Me.grilla.TabIndex = 8
         '
         'Id
@@ -151,11 +153,28 @@ Partial Class FrmTiposClientes
         Me.Nombre.Name = "Nombre"
         Me.Nombre.ReadOnly = True
         '
+        'Precio
+        '
+        Me.Precio.HeaderText = "Precio"
+        Me.Precio.Name = "Precio"
+        Me.Precio.ReadOnly = True
+        '
+        'chkAlCosto
+        '
+        Me.chkAlCosto.AutoSize = True
+        Me.chkAlCosto.Location = New System.Drawing.Point(407, 35)
+        Me.chkAlCosto.Name = "chkAlCosto"
+        Me.chkAlCosto.Size = New System.Drawing.Size(80, 21)
+        Me.chkAlCosto.TabIndex = 9
+        Me.chkAlCosto.Text = "Al costo"
+        Me.chkAlCosto.UseVisualStyleBackColor = True
+        '
         'FrmTiposClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(528, 458)
+        Me.ClientSize = New System.Drawing.Size(586, 458)
+        Me.Controls.Add(Me.chkAlCosto)
         Me.Controls.Add(Me.grilla)
         Me.Controls.Add(Me.cmdCancelar)
         Me.Controls.Add(Me.cmdBorrar)
@@ -182,6 +201,8 @@ Partial Class FrmTiposClientes
     Friend WithEvents cmdBorrar As Button
     Friend WithEvents cmdCancelar As Button
     Friend WithEvents grilla As DataGridView
+    Friend WithEvents chkAlCosto As CheckBox
     Friend WithEvents Id As DataGridViewTextBoxColumn
     Friend WithEvents Nombre As DataGridViewTextBoxColumn
+    Friend WithEvents Precio As DataGridViewTextBoxColumn
 End Class

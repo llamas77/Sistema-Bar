@@ -47,8 +47,7 @@ Public Class FrmClientes
         If tipoAct = eTipoAct.insertar Then
             'Insertar
 
-            If (db.ejecutarSQL("SELECT Nro_Doc FROM Clientes WHERE Nro_Doc=" & txtDni.Text.Trim).Rows.Count = 1 And
-                db.ejecutarSQL("SELECT Id_TipoDoc FROM Clientes WHERE Id_TipoDoc=" & cmbTipoDoc.SelectedValue).Rows.Count = 1) Then
+            If (db.ejecutarSQL("SELECT Nro_Doc FROM Clientes WHERE Nro_Doc=" & txtDni.Text.Trim & " AND Id_TipoDoc=" & cmbTipoDoc.SelectedValue).Rows.Count = 1) Then
                 MsgBox("Ya existe un cliente con ese documento.", vbCritical)
                 FirstControl.Select()
                 Return
@@ -64,17 +63,16 @@ Public Class FrmClientes
         Else
             'Actualizar
 
-            If (db.ejecutarSQL("SELECT Nro_Doc FROM Clientes WHERE Nro_Doc=" & txtDni.Text.Trim).Rows.Count = 1 And
-                db.ejecutarSQL("SELECT Id_TipoDoc FROM Clientes WHERE Id_TipoDoc=" & cmbTipoDoc.SelectedValue).Rows.Count = 1) Then
+            If (db.ejecutarSQL("SELECT Nro_Doc FROM Clientes WHERE Nro_Doc=" & txtDni.Text.Trim & " AND Id_TipoDoc=" & cmbTipoDoc.SelectedValue).Rows.Count = 0) Then
                 MsgBox("El cliente que intenta modificar ya no existe.", vbCritical)
             Else
                 Dim sql As String = ""
                 sql &= "UPDATE Clientes "
-                sql &= "SET NroDoc=" & txtDni.Text.Trim
-                sql &= ", Id_TipoDoc=" & cmbTipoDoc.SelectedValue
-                sql &= ", Id_TipoCliente=" & cmbTipoCliente.SelectedValue
+                sql &= "SET Id_TipoCliente=" & cmbTipoCliente.SelectedValue
                 sql &= ", Nombre='" & txtNombre.Text.Trim & "'"
-                sql &= ", Apellido='" & txtApellido.Text.Trim & "'"
+                sql &= ", Apellido='" & txtApellido.Text.Trim & "' "
+                sql &= "WHERE Nro_Doc=" & txtDni.Text.Trim
+                sql &= " AND Id_TipoDoc=" & cmbTipoDoc.SelectedValue
 
                 db.ejecutarSQL(sql)
             End If
@@ -97,9 +95,12 @@ Public Class FrmClientes
         Dim elemento As DataGridViewRow = grilla.CurrentRow()
         txtDni.Enabled = False
         cmbTipoDoc.Enabled = False
+        txtDni.Text = elemento.Cells(2).Value
+        cmbTipoDoc.SelectedValue = elemento.Cells(0).Value
         txtNombre.Text = elemento.Cells(4).Value
         txtApellido.Text = elemento.Cells(5).Value
-        cmbTipoCliente.SelectedValue = elemento.Cells(6).Value
+        cmbTipoCliente.SelectedValue = elemento.Cells(1).Value
+        txtFecha.Text = elemento.Cells(7).Value
         FirstControl.Select()
     End Sub
 
@@ -109,10 +110,10 @@ Public Class FrmClientes
         Dim elemento As DataGridViewRow = grilla.CurrentRow()
 
         ' Pregunta para confirmación
-        If MessageBox.Show("¿Está seguro que desea borrar el cliente: " & elemento.Cells(4).Value & elemento.Cells(5) & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
+        If MessageBox.Show("¿Está seguro que desea borrar el cliente: " & elemento.Cells(4).Value & " " & elemento.Cells(5).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
 
         ' Validar que no se haya borrado (medio innecesario, pero lo avisa de todas formas)
-        If (db.ejecutarSQL("SELECT * FROM Clientes WHERE NroDoc=" & elemento.Cells(2).Value).Rows.Count = 0 And
+        If (db.ejecutarSQL("SELECT * FROM Clientes WHERE Nro_Doc=" & elemento.Cells(2).Value).Rows.Count = 0 And
             db.ejecutarSQL("SELECT * FROM Clientes WHERE Id_TipoDoc=" & elemento.Cells(0).Value).Rows.Count = 0) Then
             MsgBox("El Cliente no se borró porque ya no existe.", vbCritical)
             cargarGrilla()
@@ -125,7 +126,7 @@ Public Class FrmClientes
         Dim sql As String = ""
         sql &= "SELECT DISTINCT TOP 10 v.Id "
         sql &= "FROM Clientes c JOIN Ventas v ON (c.Id_TipoDoc = v.Tipo_Doc_Cliente AND c.Nro_Doc = v.Nro_Doc_Cliente)"
-        sql &= "WHERE c.Nro_Doc=" & elemento.Cells(2).Value & "AND c.Id_Tipo_Doc=" & elemento.Cells(0).Value
+        sql &= "WHERE c.Nro_Doc=" & elemento.Cells(2).Value & "AND c.Id_TipoDoc=" & elemento.Cells(0).Value
 
         ventas = db.ejecutarSQL(sql)
         If ventas.Rows.Count > 0 Then
@@ -145,10 +146,10 @@ Public Class FrmClientes
         'TODO: Verificar que no hayan ventas apuntándole
 
         'Borrar
-        db.ejecutarSQL("DELETE FROM Clientes WHERE Nro_Doc=" & elemento.Cells(2).Value & "AND Id_Tipo_Doc=" & elemento.Cells(0).Value)
+        db.ejecutarSQL("DELETE FROM Clientes WHERE Nro_Doc=" & elemento.Cells(2).Value & "AND Id_TipoDoc=" & elemento.Cells(0).Value)
 
         cargarGrilla()
-        FirstControl.Select()
+        vaciarForm(Me)
     End Sub
 
     ' Cancela toda operación pendiente y vacía el formulario
@@ -160,7 +161,15 @@ Public Class FrmClientes
         vaciarForm(Me)
     End Sub
 
-    Private Sub anyTxt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDni.KeyPress, txtNombre.KeyPress, txtNombre.KeyPress, txtApellido.KeyPress
+    Private Sub anyTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles cmbTipoDoc.KeyDown, cmbTipoCliente.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                e.Handled = True
+                actualizar(sender, e)
+        End Select
+    End Sub
+
+    Private Sub anyTxt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDni.KeyPress, txtNombre.KeyPress, txtApellido.KeyPress
         Select Case Asc(e.KeyChar)
             Case Keys.Enter
                 e.Handled = True
@@ -186,5 +195,6 @@ Public Class FrmClientes
     Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
         buscar(txtBuscar, grilla)
     End Sub
+
 
 End Class

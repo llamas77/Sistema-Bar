@@ -22,7 +22,7 @@ Public Class FrmTiposGasto
     End Sub
 
     Public Sub cargarGrilla()
-        Util.cargarGrilla(db, "SELECT * FROM Tipos_Cliente", grilla)
+        Util.cargarGrilla(db, "SELECT * FROM Tipos_Gasto", grilla)
     End Sub
 
     ' Inserta o Modifica un registo en la BD
@@ -93,7 +93,7 @@ Public Class FrmTiposGasto
 
         ' Verifica si el tipo de gasto que se quiere eliminar no está siendo referenciado por la tabla Gastos
         Dim gastos As DataTable
-        gastos = db.ejecutarSQL("SELECT TOP 10 t.Nombre FROM Tipos_Gasto t JOIN Gastos g ON (t.Id = c.Id_TipoGasto) WHERE t.Id =" & elemento.Cells(0).Value)
+        gastos = db.ejecutarSQL("SELECT TOP 10 t.Nombre FROM Tipos_Gasto t JOIN Gastos g ON (t.Id = g.Id_TipoGasto) WHERE t.Id =" & elemento.Cells(0).Value)
         If gastos.Rows.Count > 0 Then
             Dim stringArts As String = ""
             Dim i As Integer
