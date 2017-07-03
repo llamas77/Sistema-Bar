@@ -362,7 +362,7 @@ Partial Class FrmArticulos
         Me.MaximizeBox = False
         Me.Name = "FrmArticulos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Artículos"
+        Me.Text = "Gestión de Artículos"
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

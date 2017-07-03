@@ -45,11 +45,11 @@ Partial Class FrmTiposGasto
         Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre})
-        Me.grilla.Location = New System.Drawing.Point(17, 109)
+        Me.grilla.Location = New System.Drawing.Point(17, 98)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
-        Me.grilla.Size = New System.Drawing.Size(334, 211)
+        Me.grilla.Size = New System.Drawing.Size(334, 222)
         Me.grilla.TabIndex = 17
         '
         'Id
@@ -108,7 +108,7 @@ Partial Class FrmTiposGasto
         'txtBuscar
         '
         Me.txtBuscar.EMensaje = Nothing
-        Me.txtBuscar.Location = New System.Drawing.Point(62, 71)
+        Me.txtBuscar.Location = New System.Drawing.Point(62, 73)
         Me.txtBuscar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Buscar"
@@ -143,7 +143,7 @@ Partial Class FrmTiposGasto
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 71)
+        Me.Label2.Location = New System.Drawing.Point(14, 76)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(43, 13)
