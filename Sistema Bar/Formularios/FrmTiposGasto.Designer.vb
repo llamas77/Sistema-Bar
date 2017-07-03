@@ -22,6 +22,7 @@ Partial Class FrmTiposGasto
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmTiposGasto))
         Me.grilla = New System.Windows.Forms.DataGridView()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -41,6 +42,7 @@ Partial Class FrmTiposGasto
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
         Me.grilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre})
         Me.grilla.Location = New System.Drawing.Point(23, 134)
@@ -66,27 +68,27 @@ Partial Class FrmTiposGasto
         '
         'cmdCancelar
         '
-        Me.cmdCancelar.Location = New System.Drawing.Point(331, 401)
+        Me.cmdCancelar.Location = New System.Drawing.Point(332, 413)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(138, 39)
+        Me.cmdCancelar.Size = New System.Drawing.Size(138, 30)
         Me.cmdCancelar.TabIndex = 14
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '
         'cmdBorrar
         '
-        Me.cmdBorrar.Location = New System.Drawing.Point(173, 401)
+        Me.cmdBorrar.Location = New System.Drawing.Point(174, 413)
         Me.cmdBorrar.Name = "cmdBorrar"
-        Me.cmdBorrar.Size = New System.Drawing.Size(138, 39)
+        Me.cmdBorrar.Size = New System.Drawing.Size(138, 30)
         Me.cmdBorrar.TabIndex = 15
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
         'cmdModificar
         '
-        Me.cmdModificar.Location = New System.Drawing.Point(23, 401)
+        Me.cmdModificar.Location = New System.Drawing.Point(24, 413)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(138, 39)
+        Me.cmdModificar.Size = New System.Drawing.Size(138, 30)
         Me.cmdModificar.TabIndex = 16
         Me.cmdModificar.Text = "Modificar "
         Me.cmdModificar.UseVisualStyleBackColor = True
@@ -165,8 +167,12 @@ Partial Class FrmTiposGasto
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmTiposGasto"
-        Me.Text = "FrmTiposGasto"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Tipos de Gasto"
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

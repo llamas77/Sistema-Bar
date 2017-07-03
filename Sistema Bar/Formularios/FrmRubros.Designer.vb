@@ -22,6 +22,7 @@ Partial Class FrmRubros
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRubros))
         Me.grilla = New System.Windows.Forms.DataGridView()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -41,10 +42,11 @@ Partial Class FrmRubros
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
         Me.grilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre})
         Me.grilla.Location = New System.Drawing.Point(21, 111)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
@@ -77,7 +79,7 @@ Partial Class FrmRubros
         'cmdActualizar
         '
         Me.cmdActualizar.Location = New System.Drawing.Point(353, 23)
-        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(127, 31)
         Me.cmdActualizar.TabIndex = 1
@@ -87,7 +89,7 @@ Partial Class FrmRubros
         'cmdModificar
         '
         Me.cmdModificar.Location = New System.Drawing.Point(21, 457)
-        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdModificar.Name = "cmdModificar"
         Me.cmdModificar.Size = New System.Drawing.Size(127, 31)
         Me.cmdModificar.TabIndex = 4
@@ -97,7 +99,7 @@ Partial Class FrmRubros
         'cmdBorrar
         '
         Me.cmdBorrar.Location = New System.Drawing.Point(156, 457)
-        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(127, 31)
         Me.cmdBorrar.TabIndex = 5
@@ -107,7 +109,7 @@ Partial Class FrmRubros
         'cmdCancelar
         '
         Me.cmdCancelar.Location = New System.Drawing.Point(353, 457)
-        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(127, 31)
         Me.cmdCancelar.TabIndex = 6
@@ -118,7 +120,7 @@ Partial Class FrmRubros
         '
         Me.txtNombre.EMensaje = Nothing
         Me.txtNombre.Location = New System.Drawing.Point(91, 27)
-        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.NombreVisual = "Nombre"
@@ -146,7 +148,7 @@ Partial Class FrmRubros
         '
         Me.txtBuscar.EMensaje = Nothing
         Me.txtBuscar.Location = New System.Drawing.Point(88, 79)
-        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "sin nombre"
         Me.txtBuscar.NumLimit = 999999999
@@ -174,7 +176,8 @@ Partial Class FrmRubros
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.grilla)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "FrmRubros"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -22,6 +22,7 @@ Partial Class FrmGastos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGastos))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbTipoGasto = New Sistema_Bar.VComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -121,6 +122,7 @@ Partial Class FrmGastos
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
         Me.grilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Id_TipoGasto, Me.Fecha, Me.Tipo_Gasto, Me.Descripcion, Me.Monto})
         Me.grilla.Location = New System.Drawing.Point(26, 147)
@@ -234,7 +236,11 @@ Partial Class FrmGastos
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cmbTipoGasto)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmGastos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gastos"
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

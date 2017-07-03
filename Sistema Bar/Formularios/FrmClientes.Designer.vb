@@ -22,6 +22,7 @@ Partial Class FrmClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmClientes))
         Me.cmbTipoCliente = New Sistema_Bar.VComboBox()
         Me.txtDni = New Sistema_Bar.VTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -58,7 +59,7 @@ Partial Class FrmClientes
         Me.cmbTipoCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTipoCliente.EMensaje = Nothing
         Me.cmbTipoCliente.FormattingEnabled = True
-        Me.cmbTipoCliente.Location = New System.Drawing.Point(778, 21)
+        Me.cmbTipoCliente.Location = New System.Drawing.Point(837, 29)
         Me.cmbTipoCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbTipoCliente.Name = "cmbTipoCliente"
         Me.cmbTipoCliente.NombreVisual = "Tipo Cliente"
@@ -69,7 +70,7 @@ Partial Class FrmClientes
         'txtDni
         '
         Me.txtDni.EMensaje = Nothing
-        Me.txtDni.Location = New System.Drawing.Point(83, 31)
+        Me.txtDni.Location = New System.Drawing.Point(116, 29)
         Me.txtDni.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDni.MaxLength = 9
         Me.txtDni.Name = "txtDni"
@@ -86,7 +87,7 @@ Partial Class FrmClientes
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(651, 22)
+        Me.Label3.Location = New System.Drawing.Point(710, 29)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(119, 20)
@@ -96,7 +97,7 @@ Partial Class FrmClientes
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(19, 77)
+        Me.Label2.Location = New System.Drawing.Point(43, 73)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(65, 20)
@@ -106,17 +107,17 @@ Partial Class FrmClientes
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(19, 31)
+        Me.Label1.Location = New System.Drawing.Point(13, 30)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 20)
+        Me.Label1.Size = New System.Drawing.Size(95, 20)
         Me.Label1.TabIndex = 21
-        Me.Label1.Text = "DNI:"
+        Me.Label1.Text = "Documento:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmdActualizar
         '
-        Me.cmdActualizar.Location = New System.Drawing.Point(1025, 131)
+        Me.cmdActualizar.Location = New System.Drawing.Point(914, 126)
         Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(127, 31)
@@ -126,7 +127,7 @@ Partial Class FrmClientes
         '
         'cmdCancelar
         '
-        Me.cmdCancelar.Location = New System.Drawing.Point(1025, 527)
+        Me.cmdCancelar.Location = New System.Drawing.Point(914, 527)
         Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(127, 31)
@@ -186,26 +187,27 @@ Partial Class FrmClientes
         '
         Me.cmbTipoDoc.EMensaje = Nothing
         Me.cmbTipoDoc.FormattingEnabled = True
-        Me.cmbTipoDoc.Location = New System.Drawing.Point(449, 22)
+        Me.cmbTipoDoc.Location = New System.Drawing.Point(498, 27)
         Me.cmbTipoDoc.Name = "cmbTipoDoc"
         Me.cmbTipoDoc.NombreVisual = "Tipo de Documento"
-        Me.cmbTipoDoc.Size = New System.Drawing.Size(178, 24)
+        Me.cmbTipoDoc.Size = New System.Drawing.Size(220, 24)
         Me.cmbTipoDoc.TabIndex = 28
         Me.cmbTipoDoc.VObligatorio = True
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(376, 25)
+        Me.Label4.Location = New System.Drawing.Point(376, 27)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(67, 17)
+        Me.Label4.Size = New System.Drawing.Size(116, 17)
         Me.Label4.TabIndex = 29
-        Me.Label4.Text = "Tipo DNI:"
+        Me.Label4.Text = "Tipo Documento:"
         '
         'grilla
         '
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
+        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_TipoDoc, Me.ID_TipoCliente, Me.Nro_Doc, Me.Tipo_DNI, Me.Nombre, Me.Apellido, Me.Tipo_Cliente, Me.Fecha_Alta})
         Me.grilla.Location = New System.Drawing.Point(25, 183)
@@ -213,7 +215,7 @@ Partial Class FrmClientes
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
         Me.grilla.RowTemplate.Height = 24
-        Me.grilla.Size = New System.Drawing.Size(1143, 322)
+        Me.grilla.Size = New System.Drawing.Size(1016, 322)
         Me.grilla.TabIndex = 30
         '
         'ID_TipoDoc
@@ -241,30 +243,35 @@ Partial Class FrmClientes
         Me.Tipo_DNI.HeaderText = "Tipo Documento"
         Me.Tipo_DNI.Name = "Tipo_DNI"
         Me.Tipo_DNI.ReadOnly = True
+        Me.Tipo_DNI.Width = 150
         '
         'Nombre
         '
         Me.Nombre.HeaderText = "Nombre"
         Me.Nombre.Name = "Nombre"
         Me.Nombre.ReadOnly = True
+        Me.Nombre.Width = 200
         '
         'Apellido
         '
         Me.Apellido.HeaderText = "Apellido"
         Me.Apellido.Name = "Apellido"
         Me.Apellido.ReadOnly = True
+        Me.Apellido.Width = 200
         '
         'Tipo_Cliente
         '
-        Me.Tipo_Cliente.HeaderText = "Tipo_Cliente"
+        Me.Tipo_Cliente.HeaderText = "Tipo de Cliente"
         Me.Tipo_Cliente.Name = "Tipo_Cliente"
         Me.Tipo_Cliente.ReadOnly = True
+        Me.Tipo_Cliente.Width = 150
         '
         'Fecha_Alta
         '
         Me.Fecha_Alta.HeaderText = "Fecha de Alta"
         Me.Fecha_Alta.Name = "Fecha_Alta"
         Me.Fecha_Alta.ReadOnly = True
+        Me.Fecha_Alta.Width = 150
         '
         'txtApellido
         '
@@ -276,7 +283,7 @@ Partial Class FrmClientes
         Me.txtApellido.NombreVisual = "Apellido"
         Me.txtApellido.NumLimit = 999999999
         Me.txtApellido.NumMin = 0
-        Me.txtApellido.Size = New System.Drawing.Size(244, 22)
+        Me.txtApellido.Size = New System.Drawing.Size(269, 22)
         Me.txtApellido.TabIndex = 31
         Me.txtApellido.VNumero = False
         Me.txtApellido.VNumLimit = False
@@ -296,7 +303,7 @@ Partial Class FrmClientes
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(701, 71)
+        Me.Label6.Location = New System.Drawing.Point(726, 73)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(123, 20)
@@ -308,7 +315,7 @@ Partial Class FrmClientes
         '
         Me.txtFecha.EMensaje = Nothing
         Me.txtFecha.Enabled = False
-        Me.txtFecha.Location = New System.Drawing.Point(832, 70)
+        Me.txtFecha.Location = New System.Drawing.Point(857, 74)
         Me.txtFecha.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFecha.Name = "txtFecha"
         Me.txtFecha.NombreVisual = "Fecha"
@@ -319,7 +326,7 @@ Partial Class FrmClientes
         'txtNombre
         '
         Me.txtNombre.EMensaje = Nothing
-        Me.txtNombre.Location = New System.Drawing.Point(83, 77)
+        Me.txtNombre.Location = New System.Drawing.Point(116, 73)
         Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
@@ -338,7 +345,7 @@ Partial Class FrmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1180, 571)
+        Me.ClientSize = New System.Drawing.Size(1070, 571)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.txtFecha)
         Me.Controls.Add(Me.Label6)
@@ -358,8 +365,12 @@ Partial Class FrmClientes
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmClientes"
-        Me.Text = "FrmClientes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Clientes"
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -379,6 +390,11 @@ Partial Class FrmClientes
     Friend WithEvents cmbTipoDoc As VComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents grilla As DataGridView
+    Friend WithEvents txtApellido As VTextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtFecha As VMaskedTextBox
+    Friend WithEvents txtNombre As VTextBox
     Friend WithEvents ID_TipoDoc As DataGridViewTextBoxColumn
     Friend WithEvents ID_TipoCliente As DataGridViewTextBoxColumn
     Friend WithEvents Nro_Doc As DataGridViewTextBoxColumn
@@ -387,9 +403,4 @@ Partial Class FrmClientes
     Friend WithEvents Apellido As DataGridViewTextBoxColumn
     Friend WithEvents Tipo_Cliente As DataGridViewTextBoxColumn
     Friend WithEvents Fecha_Alta As DataGridViewTextBoxColumn
-    Friend WithEvents txtApellido As VTextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents txtFecha As VMaskedTextBox
-    Friend WithEvents txtNombre As VTextBox
 End Class

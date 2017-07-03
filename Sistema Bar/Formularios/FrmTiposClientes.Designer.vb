@@ -22,6 +22,7 @@ Partial Class FrmTiposClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmTiposClientes))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtNombre = New Sistema_Bar.VTextBox()
@@ -100,27 +101,27 @@ Partial Class FrmTiposClientes
         '
         'cmdModificar
         '
-        Me.cmdModificar.Location = New System.Drawing.Point(21, 402)
+        Me.cmdModificar.Location = New System.Drawing.Point(21, 418)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(138, 39)
+        Me.cmdModificar.Size = New System.Drawing.Size(138, 28)
         Me.cmdModificar.TabIndex = 7
         Me.cmdModificar.Text = "Modificar "
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
         'cmdBorrar
         '
-        Me.cmdBorrar.Location = New System.Drawing.Point(171, 402)
+        Me.cmdBorrar.Location = New System.Drawing.Point(171, 418)
         Me.cmdBorrar.Name = "cmdBorrar"
-        Me.cmdBorrar.Size = New System.Drawing.Size(138, 39)
+        Me.cmdBorrar.Size = New System.Drawing.Size(138, 28)
         Me.cmdBorrar.TabIndex = 7
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
         'cmdCancelar
         '
-        Me.cmdCancelar.Location = New System.Drawing.Point(369, 402)
+        Me.cmdCancelar.Location = New System.Drawing.Point(369, 418)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(138, 39)
+        Me.cmdCancelar.Size = New System.Drawing.Size(138, 28)
         Me.cmdCancelar.TabIndex = 7
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
@@ -130,6 +131,7 @@ Partial Class FrmTiposClientes
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
         Me.grilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre, Me.Precio})
         Me.grilla.Location = New System.Drawing.Point(21, 135)
@@ -173,7 +175,7 @@ Partial Class FrmTiposClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(586, 458)
+        Me.ClientSize = New System.Drawing.Size(550, 458)
         Me.Controls.Add(Me.chkAlCosto)
         Me.Controls.Add(Me.grilla)
         Me.Controls.Add(Me.cmdCancelar)
@@ -184,7 +186,11 @@ Partial Class FrmTiposClientes
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmTiposClientes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Tipos de Cliente"
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

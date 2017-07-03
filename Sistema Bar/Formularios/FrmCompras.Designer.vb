@@ -23,15 +23,16 @@ Partial Class FrmCompras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCompras))
         Me.grilla = New System.Windows.Forms.DataGridView()
-        Me.txtBuscar = New Sistema_Bar.VTextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cmdNueva = New System.Windows.Forms.Button()
-        Me.cmdVer = New System.Windows.Forms.Button()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Id_Proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtBuscar = New Sistema_Bar.VTextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cmdNueva = New System.Windows.Forms.Button()
+        Me.cmdVer = New System.Windows.Forms.Button()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -39,58 +40,16 @@ Partial Class FrmCompras
         '
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
+        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Fecha, Me.Id_Proveedor, Me.Total})
-        Me.grilla.Location = New System.Drawing.Point(15, 49)
+        Me.grilla.Location = New System.Drawing.Point(20, 60)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
-        Me.grilla.Size = New System.Drawing.Size(616, 270)
+        Me.grilla.Size = New System.Drawing.Size(821, 332)
         Me.grilla.TabIndex = 10
-        '
-        'txtBuscar
-        '
-        Me.txtBuscar.EMensaje = Nothing
-        Me.txtBuscar.Location = New System.Drawing.Point(67, 23)
-        Me.txtBuscar.MaxLength = 50
-        Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.NombreVisual = "Nombre"
-        Me.txtBuscar.NumLimit = 999999999
-        Me.txtBuscar.NumMin = 0
-        Me.txtBuscar.Size = New System.Drawing.Size(211, 20)
-        Me.txtBuscar.TabIndex = 9
-        Me.txtBuscar.VNumero = False
-        Me.txtBuscar.VNumLimit = False
-        Me.txtBuscar.VNumMin = False
-        Me.txtBuscar.VObligatorio = False
-        Me.txtBuscar.VPositivo = False
-        '
-        'Label7
-        '
-        Me.Label7.Location = New System.Drawing.Point(12, 24)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 16)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Buscar:"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'cmdNueva
-        '
-        Me.cmdNueva.Location = New System.Drawing.Point(15, 335)
-        Me.cmdNueva.Name = "cmdNueva"
-        Me.cmdNueva.Size = New System.Drawing.Size(95, 25)
-        Me.cmdNueva.TabIndex = 12
-        Me.cmdNueva.Text = "Nueva compra"
-        Me.cmdNueva.UseVisualStyleBackColor = True
-        '
-        'cmdVer
-        '
-        Me.cmdVer.Location = New System.Drawing.Point(116, 335)
-        Me.cmdVer.Name = "cmdVer"
-        Me.cmdVer.Size = New System.Drawing.Size(95, 25)
-        Me.cmdVer.TabIndex = 12
-        Me.cmdVer.Text = "Ver compra"
-        Me.cmdVer.UseVisualStyleBackColor = True
         '
         'Id
         '
@@ -122,17 +81,67 @@ Partial Class FrmCompras
         Me.Total.Name = "Total"
         Me.Total.ReadOnly = True
         '
+        'txtBuscar
+        '
+        Me.txtBuscar.EMensaje = Nothing
+        Me.txtBuscar.Location = New System.Drawing.Point(89, 28)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBuscar.MaxLength = 50
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.NombreVisual = "Nombre"
+        Me.txtBuscar.NumLimit = 999999999
+        Me.txtBuscar.NumMin = 0
+        Me.txtBuscar.Size = New System.Drawing.Size(280, 22)
+        Me.txtBuscar.TabIndex = 9
+        Me.txtBuscar.VNumero = False
+        Me.txtBuscar.VNumLimit = False
+        Me.txtBuscar.VNumMin = False
+        Me.txtBuscar.VObligatorio = False
+        Me.txtBuscar.VPositivo = False
+        '
+        'Label7
+        '
+        Me.Label7.Location = New System.Drawing.Point(16, 30)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(65, 20)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Buscar:"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cmdNueva
+        '
+        Me.cmdNueva.Location = New System.Drawing.Point(20, 412)
+        Me.cmdNueva.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdNueva.Name = "cmdNueva"
+        Me.cmdNueva.Size = New System.Drawing.Size(127, 31)
+        Me.cmdNueva.TabIndex = 12
+        Me.cmdNueva.Text = "Nueva compra"
+        Me.cmdNueva.UseVisualStyleBackColor = True
+        '
+        'cmdVer
+        '
+        Me.cmdVer.Location = New System.Drawing.Point(155, 412)
+        Me.cmdVer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdVer.Name = "cmdVer"
+        Me.cmdVer.Size = New System.Drawing.Size(127, 31)
+        Me.cmdVer.TabIndex = 12
+        Me.cmdVer.Text = "Ver compra"
+        Me.cmdVer.UseVisualStyleBackColor = True
+        '
         'FrmCompras
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(652, 375)
+        Me.ClientSize = New System.Drawing.Size(869, 462)
         Me.Controls.Add(Me.cmdVer)
         Me.Controls.Add(Me.cmdNueva)
         Me.Controls.Add(Me.grilla)
         Me.Controls.Add(Me.txtBuscar)
         Me.Controls.Add(Me.Label7)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.Name = "FrmCompras"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

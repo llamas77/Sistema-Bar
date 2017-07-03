@@ -181,4 +181,5 @@ Public Class FrmArticulos
         buscar(txtBuscar, grilla)
     End Sub
 
+
 End Class

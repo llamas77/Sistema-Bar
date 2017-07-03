@@ -22,8 +22,9 @@ Partial Class FrmVenta
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmVenta))
         Me.cmdVender = New System.Windows.Forms.Button()
         Me.cmdBorrar = New System.Windows.Forms.Button()
         Me.cmdModificar = New System.Windows.Forms.Button()
@@ -59,27 +60,30 @@ Partial Class FrmVenta
         '
         'cmdVender
         '
-        Me.cmdVender.Location = New System.Drawing.Point(602, 479)
+        Me.cmdVender.Location = New System.Drawing.Point(803, 590)
+        Me.cmdVender.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdVender.Name = "cmdVender"
-        Me.cmdVender.Size = New System.Drawing.Size(101, 25)
+        Me.cmdVender.Size = New System.Drawing.Size(135, 31)
         Me.cmdVender.TabIndex = 28
         Me.cmdVender.Text = "Realizar Venta"
         Me.cmdVender.UseVisualStyleBackColor = True
         '
         'cmdBorrar
         '
-        Me.cmdBorrar.Location = New System.Drawing.Point(136, 479)
+        Me.cmdBorrar.Location = New System.Drawing.Point(181, 590)
+        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdBorrar.Name = "cmdBorrar"
-        Me.cmdBorrar.Size = New System.Drawing.Size(114, 25)
+        Me.cmdBorrar.Size = New System.Drawing.Size(152, 31)
         Me.cmdBorrar.TabIndex = 26
         Me.cmdBorrar.Text = "Borrar artículo"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
         'cmdModificar
         '
-        Me.cmdModificar.Location = New System.Drawing.Point(16, 479)
+        Me.cmdModificar.Location = New System.Drawing.Point(21, 590)
+        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(114, 25)
+        Me.cmdModificar.Size = New System.Drawing.Size(152, 31)
         Me.cmdModificar.TabIndex = 25
         Me.cmdModificar.Text = "Modificar artículo"
         Me.cmdModificar.UseVisualStyleBackColor = True
@@ -88,10 +92,11 @@ Partial Class FrmVenta
         '
         Me.txtFecha.EMensaje = Nothing
         Me.txtFecha.Enabled = False
-        Me.txtFecha.Location = New System.Drawing.Point(463, 12)
+        Me.txtFecha.Location = New System.Drawing.Point(617, 15)
+        Me.txtFecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtFecha.Name = "txtFecha"
         Me.txtFecha.NombreVisual = "Fecha"
-        Me.txtFecha.Size = New System.Drawing.Size(80, 20)
+        Me.txtFecha.Size = New System.Drawing.Size(105, 22)
         Me.txtFecha.TabIndex = 39
         Me.txtFecha.VObligatorio = False
         '
@@ -101,23 +106,25 @@ Partial Class FrmVenta
         Me.cmbTiposDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTiposDoc.EMensaje = Nothing
         Me.cmbTiposDoc.FormattingEnabled = True
-        Me.cmbTiposDoc.Location = New System.Drawing.Point(111, 38)
+        Me.cmbTiposDoc.Location = New System.Drawing.Point(148, 47)
+        Me.cmbTiposDoc.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmbTiposDoc.Name = "cmbTiposDoc"
         Me.cmbTiposDoc.NombreVisual = "Tipo Documento"
-        Me.cmbTiposDoc.Size = New System.Drawing.Size(255, 21)
+        Me.cmbTiposDoc.Size = New System.Drawing.Size(339, 24)
         Me.cmbTiposDoc.TabIndex = 27
         Me.cmbTiposDoc.VObligatorio = False
         '
         'txtBuscar
         '
         Me.txtBuscar.EMensaje = Nothing
-        Me.txtBuscar.Location = New System.Drawing.Point(71, 142)
+        Me.txtBuscar.Location = New System.Drawing.Point(95, 175)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Buscar"
         Me.txtBuscar.NumLimit = 0
         Me.txtBuscar.NumMin = 0
-        Me.txtBuscar.Size = New System.Drawing.Size(296, 20)
+        Me.txtBuscar.Size = New System.Drawing.Size(393, 22)
         Me.txtBuscar.TabIndex = 23
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
@@ -127,18 +134,20 @@ Partial Class FrmVenta
         '
         'Label7
         '
-        Me.Label7.Location = New System.Drawing.Point(16, 143)
+        Me.Label7.Location = New System.Drawing.Point(21, 176)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 16)
+        Me.Label7.Size = New System.Drawing.Size(65, 20)
         Me.Label7.TabIndex = 38
         Me.Label7.Text = "Buscar:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmdAgregar
         '
-        Me.cmdAgregar.Location = New System.Drawing.Point(589, 139)
+        Me.cmdAgregar.Location = New System.Drawing.Point(785, 171)
+        Me.cmdAgregar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdAgregar.Name = "cmdAgregar"
-        Me.cmdAgregar.Size = New System.Drawing.Size(114, 25)
+        Me.cmdAgregar.Size = New System.Drawing.Size(152, 31)
         Me.cmdAgregar.TabIndex = 22
         Me.cmdAgregar.Text = "Agregar artículo"
         Me.cmdAgregar.UseVisualStyleBackColor = True
@@ -147,13 +156,15 @@ Partial Class FrmVenta
         '
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
+        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Cantidad, Me.Id_Articulo, Me.Nombre, Me.Precio_Lista, Me.Total})
-        Me.grilla.Location = New System.Drawing.Point(20, 171)
+        Me.grilla.Location = New System.Drawing.Point(27, 210)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
-        Me.grilla.Size = New System.Drawing.Size(684, 256)
+        Me.grilla.Size = New System.Drawing.Size(912, 315)
         Me.grilla.TabIndex = 24
         '
         'Cantidad
@@ -179,18 +190,18 @@ Partial Class FrmVenta
         '
         'Precio_Lista
         '
-        DataGridViewCellStyle5.Format = "C2"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.Precio_Lista.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.Precio_Lista.DefaultCellStyle = DataGridViewCellStyle3
         Me.Precio_Lista.HeaderText = "Precio unitario"
         Me.Precio_Lista.Name = "Precio_Lista"
         Me.Precio_Lista.ReadOnly = True
         '
         'Total
         '
-        DataGridViewCellStyle6.Format = "C2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.Total.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle4.Format = "C2"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.Total.DefaultCellStyle = DataGridViewCellStyle4
         Me.Total.HeaderText = "Total"
         Me.Total.Name = "Total"
         Me.Total.ReadOnly = True
@@ -201,23 +212,25 @@ Partial Class FrmVenta
         Me.cmbArticulos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbArticulos.EMensaje = Nothing
         Me.cmbArticulos.FormattingEnabled = True
-        Me.cmbArticulos.Location = New System.Drawing.Point(285, 81)
+        Me.cmbArticulos.Location = New System.Drawing.Point(380, 100)
+        Me.cmbArticulos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmbArticulos.Name = "cmbArticulos"
         Me.cmbArticulos.NombreVisual = "Artículo"
-        Me.cmbArticulos.Size = New System.Drawing.Size(258, 21)
+        Me.cmbArticulos.Size = New System.Drawing.Size(343, 24)
         Me.cmbArticulos.TabIndex = 20
         Me.cmbArticulos.VObligatorio = True
         '
         'txtCantidad
         '
         Me.txtCantidad.EMensaje = Nothing
-        Me.txtCantidad.Location = New System.Drawing.Point(462, 107)
+        Me.txtCantidad.Location = New System.Drawing.Point(616, 132)
+        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtCantidad.MaxLength = 50
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.NombreVisual = "Cantidad"
         Me.txtCantidad.NumLimit = 999999999
         Me.txtCantidad.NumMin = 1
-        Me.txtCantidad.Size = New System.Drawing.Size(81, 20)
+        Me.txtCantidad.Size = New System.Drawing.Size(107, 22)
         Me.txtCantidad.TabIndex = 19
         Me.txtCantidad.VNumero = True
         Me.txtCantidad.VNumLimit = True
@@ -229,13 +242,14 @@ Partial Class FrmVenta
         '
         Me.txtStock.EMensaje = Nothing
         Me.txtStock.Enabled = False
-        Me.txtStock.Location = New System.Drawing.Point(285, 107)
+        Me.txtStock.Location = New System.Drawing.Point(380, 132)
+        Me.txtStock.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtStock.MaxLength = 50
         Me.txtStock.Name = "txtStock"
         Me.txtStock.NombreVisual = "Stock"
         Me.txtStock.NumLimit = 0
         Me.txtStock.NumMin = 0
-        Me.txtStock.Size = New System.Drawing.Size(81, 20)
+        Me.txtStock.Size = New System.Drawing.Size(107, 22)
         Me.txtStock.TabIndex = 36
         Me.txtStock.VNumero = False
         Me.txtStock.VNumLimit = False
@@ -247,13 +261,14 @@ Partial Class FrmVenta
         '
         Me.txtTotal.EMensaje = Nothing
         Me.txtTotal.Enabled = False
-        Me.txtTotal.Location = New System.Drawing.Point(622, 432)
+        Me.txtTotal.Location = New System.Drawing.Point(829, 532)
+        Me.txtTotal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtTotal.MaxLength = 50
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.NombreVisual = "Precio unitario"
         Me.txtTotal.NumLimit = 0
         Me.txtTotal.NumMin = 0
-        Me.txtTotal.Size = New System.Drawing.Size(81, 20)
+        Me.txtTotal.Size = New System.Drawing.Size(107, 22)
         Me.txtTotal.TabIndex = 37
         Me.txtTotal.VNumero = False
         Me.txtTotal.VNumLimit = False
@@ -265,13 +280,14 @@ Partial Class FrmVenta
         '
         Me.txtPrecio.EMensaje = Nothing
         Me.txtPrecio.Enabled = False
-        Me.txtPrecio.Location = New System.Drawing.Point(111, 107)
+        Me.txtPrecio.Location = New System.Drawing.Point(148, 132)
+        Me.txtPrecio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtPrecio.MaxLength = 50
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.NombreVisual = "Precio unitario"
         Me.txtPrecio.NumLimit = 0
         Me.txtPrecio.NumMin = 0
-        Me.txtPrecio.Size = New System.Drawing.Size(81, 20)
+        Me.txtPrecio.Size = New System.Drawing.Size(107, 22)
         Me.txtPrecio.TabIndex = 21
         Me.txtPrecio.VNumero = False
         Me.txtPrecio.VNumLimit = False
@@ -281,18 +297,20 @@ Partial Class FrmVenta
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(400, 107)
+        Me.Label4.Location = New System.Drawing.Point(533, 132)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 20)
+        Me.Label4.Size = New System.Drawing.Size(80, 25)
         Me.Label4.TabIndex = 29
         Me.Label4.Text = "Cantidad:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(237, 107)
+        Me.Label5.Location = New System.Drawing.Point(316, 132)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(42, 20)
+        Me.Label5.Size = New System.Drawing.Size(56, 25)
         Me.Label5.TabIndex = 30
         Me.Label5.Text = "Stock:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -300,13 +318,14 @@ Partial Class FrmVenta
         'txtCodigo
         '
         Me.txtCodigo.EMensaje = Nothing
-        Me.txtCodigo.Location = New System.Drawing.Point(111, 81)
+        Me.txtCodigo.Location = New System.Drawing.Point(148, 100)
+        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtCodigo.MaxLength = 50
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.NombreVisual = "Artículo"
         Me.txtCodigo.NumLimit = 999999999
         Me.txtCodigo.NumMin = 0
-        Me.txtCodigo.Size = New System.Drawing.Size(168, 20)
+        Me.txtCodigo.Size = New System.Drawing.Size(223, 22)
         Me.txtCodigo.TabIndex = 18
         Me.txtCodigo.VNumero = True
         Me.txtCodigo.VNumLimit = True
@@ -316,54 +335,60 @@ Partial Class FrmVenta
         '
         'Label8
         '
-        Me.Label8.Location = New System.Drawing.Point(416, 12)
+        Me.Label8.Location = New System.Drawing.Point(555, 15)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(41, 20)
+        Me.Label8.Size = New System.Drawing.Size(55, 25)
         Me.Label8.TabIndex = 31
         Me.Label8.Text = "Fecha:"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label9
         '
-        Me.Label9.Location = New System.Drawing.Point(545, 431)
+        Me.Label9.Location = New System.Drawing.Point(727, 530)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(71, 20)
+        Me.Label9.Size = New System.Drawing.Size(95, 25)
         Me.Label9.TabIndex = 32
         Me.Label9.Text = "Total:"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(33, 107)
+        Me.Label3.Location = New System.Drawing.Point(44, 132)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 20)
+        Me.Label3.Size = New System.Drawing.Size(95, 25)
         Me.Label3.TabIndex = 33
         Me.Label3.Text = "Precio Unit:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(33, 81)
+        Me.Label1.Location = New System.Drawing.Point(44, 100)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(71, 20)
+        Me.Label1.Size = New System.Drawing.Size(95, 25)
         Me.Label1.TabIndex = 34
         Me.Label1.Text = "Artículo:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(-5, 37)
+        Me.Label2.Location = New System.Drawing.Point(-7, 46)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(113, 20)
+        Me.Label2.Size = New System.Drawing.Size(151, 25)
         Me.Label2.TabIndex = 35
         Me.Label2.Text = "Tipo Documento:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(36, 11)
+        Me.Label6.Location = New System.Drawing.Point(48, 14)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(72, 20)
+        Me.Label6.Size = New System.Drawing.Size(96, 25)
         Me.Label6.TabIndex = 29
         Me.Label6.Text = "Documento:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -371,13 +396,14 @@ Partial Class FrmVenta
         'txtDocumento
         '
         Me.txtDocumento.EMensaje = Nothing
-        Me.txtDocumento.Location = New System.Drawing.Point(111, 12)
+        Me.txtDocumento.Location = New System.Drawing.Point(148, 15)
+        Me.txtDocumento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtDocumento.MaxLength = 50
         Me.txtDocumento.Name = "txtDocumento"
         Me.txtDocumento.NombreVisual = "Documento"
         Me.txtDocumento.NumLimit = 999999999
         Me.txtDocumento.NumMin = 1
-        Me.txtDocumento.Size = New System.Drawing.Size(255, 20)
+        Me.txtDocumento.Size = New System.Drawing.Size(339, 22)
         Me.txtDocumento.TabIndex = 19
         Me.txtDocumento.VNumero = False
         Me.txtDocumento.VNumLimit = False
@@ -388,18 +414,19 @@ Partial Class FrmVenta
         'chkBar
         '
         Me.chkBar.AutoSize = True
-        Me.chkBar.Location = New System.Drawing.Point(462, 42)
+        Me.chkBar.Location = New System.Drawing.Point(616, 52)
+        Me.chkBar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.chkBar.Name = "chkBar"
-        Me.chkBar.Size = New System.Drawing.Size(103, 17)
+        Me.chkBar.Size = New System.Drawing.Size(134, 21)
         Me.chkBar.TabIndex = 40
         Me.chkBar.Text = "Consume en bar"
         Me.chkBar.UseVisualStyleBackColor = True
         '
         'FrmVenta
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(733, 532)
+        Me.ClientSize = New System.Drawing.Size(977, 655)
         Me.Controls.Add(Me.chkBar)
         Me.Controls.Add(Me.cmdVender)
         Me.Controls.Add(Me.cmdBorrar)
@@ -425,9 +452,13 @@ Partial Class FrmVenta
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.MaximizeBox = False
         Me.Name = "FrmVenta"
-        Me.Text = "FrmVenta"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Nueva Venta"
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
