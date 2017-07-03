@@ -60,6 +60,8 @@ Public Class FrmMenu
         ComprasToolStripMenuItem.Enabled = bool
         ProveedoresToolStripMenuItem.Enabled = bool
         ClientesToolStripMenuItem.Enabled = bool
+        GastosToolStripMenuItem.Enabled = bool
+        VentasToolStripMenuItem.Enabled = bool
     End Sub
 
     Private Sub FrmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -117,4 +119,13 @@ Public Class FrmMenu
         Return eTurno.cerrado
     End Function
 
+    Private Sub TiposDeGastoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TiposDeGastoToolStripMenuItem.Click
+        Dim frm As New FrmTiposGasto
+        frm.Show()
+    End Sub
+
+    Private Sub GestiónToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GestiónToolStripMenuItem1.Click
+        Dim frm As New FrmGastos
+        frm.Show()
+    End Sub
 End Class

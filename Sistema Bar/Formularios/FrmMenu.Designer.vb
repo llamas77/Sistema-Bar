@@ -41,6 +41,12 @@ Partial Class FrmMenu
         Me.TiposDeClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusTurno = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.GastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TiposDeGastoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestiónToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevaVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -48,7 +54,7 @@ Partial Class FrmMenu
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnoToolStripMenuItem, Me.ArtículosToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.ClientesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnoToolStripMenuItem, Me.ArtículosToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.GastosToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(679, 24)
@@ -65,13 +71,13 @@ Partial Class FrmMenu
         'AbrirTurnoToolStripMenuItem
         '
         Me.AbrirTurnoToolStripMenuItem.Name = "AbrirTurnoToolStripMenuItem"
-        Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.AbrirTurnoToolStripMenuItem.Text = "Abrir turno"
         '
         'CerrarTurnoToolStripMenuItem
         '
         Me.CerrarTurnoToolStripMenuItem.Name = "CerrarTurnoToolStripMenuItem"
-        Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.CerrarTurnoToolStripMenuItem.Text = "Cerrar turno"
         '
         'ArtículosToolStripMenuItem
@@ -172,6 +178,44 @@ Partial Class FrmMenu
         Me.ToolStripStatusTurno.Size = New System.Drawing.Size(93, 17)
         Me.ToolStripStatusTurno.Text = "Estado del turno"
         '
+        'GastosToolStripMenuItem
+        '
+        Me.GastosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TiposDeGastoToolStripMenuItem, Me.GestiónToolStripMenuItem1})
+        Me.GastosToolStripMenuItem.Name = "GastosToolStripMenuItem"
+        Me.GastosToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.GastosToolStripMenuItem.Text = "Gastos"
+        '
+        'TiposDeGastoToolStripMenuItem
+        '
+        Me.TiposDeGastoToolStripMenuItem.Name = "TiposDeGastoToolStripMenuItem"
+        Me.TiposDeGastoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TiposDeGastoToolStripMenuItem.Text = "Tipos de Gasto"
+        '
+        'GestiónToolStripMenuItem1
+        '
+        Me.GestiónToolStripMenuItem1.Name = "GestiónToolStripMenuItem1"
+        Me.GestiónToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.GestiónToolStripMenuItem1.Text = "Gestión"
+        '
+        'VentasToolStripMenuItem
+        '
+        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaVentaToolStripMenuItem, Me.ConsultarVentasToolStripMenuItem})
+        Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.VentasToolStripMenuItem.Text = "Ventas"
+        '
+        'NuevaVentaToolStripMenuItem
+        '
+        Me.NuevaVentaToolStripMenuItem.Name = "NuevaVentaToolStripMenuItem"
+        Me.NuevaVentaToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.NuevaVentaToolStripMenuItem.Text = "Nueva venta"
+        '
+        'ConsultarVentasToolStripMenuItem
+        '
+        Me.ConsultarVentasToolStripMenuItem.Name = "ConsultarVentasToolStripMenuItem"
+        Me.ConsultarVentasToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.ConsultarVentasToolStripMenuItem.Text = "Consultar ventas"
+        '
         'FrmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -211,4 +255,10 @@ Partial Class FrmMenu
     Friend WithEvents CerrarTurnoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusTurno As ToolStripStatusLabel
+    Friend WithEvents GastosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TiposDeGastoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GestiónToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents VentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NuevaVentaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConsultarVentasToolStripMenuItem As ToolStripMenuItem
 End Class
