@@ -31,33 +31,33 @@ Public Class VTextBox
                 Return False
             End If
 
-        Else
-            If Text.Trim <> "" Then
-                If VNumero Then
-                    If Not IsNumeric(Text) Then
-                        EMensaje = "El campo: '" & NombreVisual & "' debe ser un número."
+        End If
+
+        If Text.Trim <> "" Then
+            If VNumero Then
+                If Not IsNumeric(Text) Then
+                    EMensaje = "El campo: '" & NombreVisual & "' debe ser un número."
+                    Return False
+                End If
+
+                If VPositivo Then
+                    If Val(Text) < 0 Then
+                        EMensaje = "El campo: '" & NombreVisual & "' debe ser un número positivo."
                         Return False
                     End If
+                End If
 
-                    If VPositivo Then
-                        If Val(Text) < 0 Then
-                            EMensaje = "El campo: '" & NombreVisual & "' debe ser un número positivo."
-                            Return False
-                        End If
+                If VNumMin Then
+                    If Val(Text) < NumMin Then
+                        EMensaje = "El número del campo: '" & NombreVisual & "' debe ser mayor o igual a " & NumMin & "."
+                        Return False
                     End If
+                End If
 
-                    If VNumMin Then
-                        If Val(Text) < NumMin Then
-                            EMensaje = "El número del campo: '" & NombreVisual & "' debe ser mayor o igual a " & NumMin & "."
-                            Return False
-                        End If
-                    End If
-
-                    If VNumLimit Then
-                        If Val(Text) > NumLimit Then
-                            EMensaje = "El número del campo: '" & NombreVisual & "' debe ser menor o igual a " & NumLimit & "."
-                            Return False
-                        End If
+                If VNumLimit Then
+                    If Val(Text) > NumLimit Then
+                        EMensaje = "El número del campo: '" & NombreVisual & "' debe ser menor o igual a " & NumLimit & "."
+                        Return False
                     End If
                 End If
             End If

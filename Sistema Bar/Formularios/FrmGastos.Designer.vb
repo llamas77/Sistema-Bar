@@ -22,6 +22,7 @@ Partial Class FrmGastos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGastos))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbTipoGasto = New Sistema_Bar.VComboBox()
@@ -31,55 +32,61 @@ Partial Class FrmGastos
         Me.cmdBorrar = New System.Windows.Forms.Button()
         Me.cmdActualizar = New System.Windows.Forms.Button()
         Me.grilla = New System.Windows.Forms.DataGridView()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtMonto = New Sistema_Bar.VTextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtDescripcion = New Sistema_Bar.VTextBox()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Id_TipoGasto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Tipo_Gasto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtMonto = New Sistema_Bar.VTextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtDescripcion = New Sistema_Bar.VTextBox()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(23, 12)
+        Me.Label1.Location = New System.Drawing.Point(257, 16)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(109, 29)
+        Me.Label1.Size = New System.Drawing.Size(82, 24)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Tipo de Gasto:"
         '
         'cmbTipoGasto
         '
+        Me.cmbTipoGasto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbTipoGasto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTipoGasto.EMensaje = Nothing
         Me.cmbTipoGasto.FormattingEnabled = True
-        Me.cmbTipoGasto.Location = New System.Drawing.Point(127, 12)
+        Me.cmbTipoGasto.Location = New System.Drawing.Point(333, 12)
+        Me.cmbTipoGasto.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cmbTipoGasto.Name = "cmbTipoGasto"
         Me.cmbTipoGasto.NombreVisual = "Tipo de Gasto"
-        Me.cmbTipoGasto.Size = New System.Drawing.Size(186, 24)
+        Me.cmbTipoGasto.Size = New System.Drawing.Size(140, 21)
         Me.cmbTipoGasto.TabIndex = 1
         Me.cmbTipoGasto.VObligatorio = True
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(23, 121)
+        Me.Label2.Location = New System.Drawing.Point(17, 93)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(109, 29)
+        Me.Label2.Size = New System.Drawing.Size(82, 24)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Buscar:"
         '
         'txtBuscar
         '
         Me.txtBuscar.EMensaje = Nothing
-        Me.txtBuscar.Location = New System.Drawing.Point(86, 118)
+        Me.txtBuscar.Location = New System.Drawing.Point(64, 91)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Buscar"
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
-        Me.txtBuscar.Size = New System.Drawing.Size(648, 22)
+        Me.txtBuscar.Size = New System.Drawing.Size(409, 20)
         Me.txtBuscar.TabIndex = 3
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
@@ -89,30 +96,27 @@ Partial Class FrmGastos
         '
         'cmdCancelar
         '
-        Me.cmdCancelar.Location = New System.Drawing.Point(607, 506)
-        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdCancelar.Location = New System.Drawing.Point(508, 411)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdCancelar.Size = New System.Drawing.Size(95, 25)
         Me.cmdCancelar.TabIndex = 10
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '
         'cmdBorrar
         '
-        Me.cmdBorrar.Location = New System.Drawing.Point(26, 506)
-        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdBorrar.Location = New System.Drawing.Point(20, 411)
         Me.cmdBorrar.Name = "cmdBorrar"
-        Me.cmdBorrar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdBorrar.Size = New System.Drawing.Size(95, 25)
         Me.cmdBorrar.TabIndex = 9
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
         'cmdActualizar
         '
-        Me.cmdActualizar.Location = New System.Drawing.Point(606, 13)
-        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdActualizar.Location = New System.Drawing.Point(508, 88)
         Me.cmdActualizar.Name = "cmdActualizar"
-        Me.cmdActualizar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdActualizar.Size = New System.Drawing.Size(95, 25)
         Me.cmdActualizar.TabIndex = 7
         Me.cmdActualizar.Text = "Agregar"
         Me.cmdActualizar.UseVisualStyleBackColor = True
@@ -125,13 +129,64 @@ Partial Class FrmGastos
         Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Id_TipoGasto, Me.Fecha, Me.Tipo_Gasto, Me.Descripcion, Me.Monto})
-        Me.grilla.Location = New System.Drawing.Point(26, 147)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
+        Me.grilla.Location = New System.Drawing.Point(20, 119)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
-        Me.grilla.Size = New System.Drawing.Size(707, 326)
+        Me.grilla.Size = New System.Drawing.Size(583, 265)
         Me.grilla.TabIndex = 11
+        '
+        'Label3
+        '
+        Me.Label3.Location = New System.Drawing.Point(46, 16)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(45, 17)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "Monto:"
+        '
+        'txtMonto
+        '
+        Me.txtMonto.EMensaje = Nothing
+        Me.txtMonto.Location = New System.Drawing.Point(95, 13)
+        Me.txtMonto.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtMonto.Name = "txtMonto"
+        Me.txtMonto.NombreVisual = "Monto"
+        Me.txtMonto.NumLimit = 999999999
+        Me.txtMonto.NumMin = 0
+        Me.txtMonto.Size = New System.Drawing.Size(101, 20)
+        Me.txtMonto.TabIndex = 13
+        Me.txtMonto.VNumero = True
+        Me.txtMonto.VNumLimit = True
+        Me.txtMonto.VNumMin = True
+        Me.txtMonto.VObligatorio = True
+        Me.txtMonto.VPositivo = True
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(25, 45)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(66, 24)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "Descripción:"
+        '
+        'txtDescripcion
+        '
+        Me.txtDescripcion.EMensaje = Nothing
+        Me.txtDescripcion.Location = New System.Drawing.Point(95, 42)
+        Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDescripcion.Name = "txtDescripcion"
+        Me.txtDescripcion.NombreVisual = "Descripción"
+        Me.txtDescripcion.NumLimit = 999999999
+        Me.txtDescripcion.NumMin = 0
+        Me.txtDescripcion.Size = New System.Drawing.Size(378, 20)
+        Me.txtDescripcion.TabIndex = 15
+        Me.txtDescripcion.VNumero = False
+        Me.txtDescripcion.VNumLimit = False
+        Me.txtDescripcion.VNumMin = False
+        Me.txtDescripcion.VObligatorio = False
+        Me.txtDescripcion.VPositivo = False
         '
         'Id
         '
@@ -167,63 +222,18 @@ Partial Class FrmGastos
         '
         'Monto
         '
+        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.Monto.DefaultCellStyle = DataGridViewCellStyle1
         Me.Monto.HeaderText = "Monto"
         Me.Monto.Name = "Monto"
         Me.Monto.ReadOnly = True
         '
-        'Label3
-        '
-        Me.Label3.Location = New System.Drawing.Point(351, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 29)
-        Me.Label3.TabIndex = 12
-        Me.Label3.Text = "Monto:"
-        '
-        'txtMonto
-        '
-        Me.txtMonto.EMensaje = Nothing
-        Me.txtMonto.Location = New System.Drawing.Point(408, 12)
-        Me.txtMonto.Name = "txtMonto"
-        Me.txtMonto.NombreVisual = "Monto"
-        Me.txtMonto.NumLimit = 999999999
-        Me.txtMonto.NumMin = 0
-        Me.txtMonto.Size = New System.Drawing.Size(133, 22)
-        Me.txtMonto.TabIndex = 13
-        Me.txtMonto.VNumero = True
-        Me.txtMonto.VNumLimit = True
-        Me.txtMonto.VNumMin = True
-        Me.txtMonto.VObligatorio = True
-        Me.txtMonto.VPositivo = True
-        '
-        'Label4
-        '
-        Me.Label4.Location = New System.Drawing.Point(23, 68)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(109, 29)
-        Me.Label4.TabIndex = 14
-        Me.Label4.Text = "Descripción:"
-        '
-        'txtDescripcion
-        '
-        Me.txtDescripcion.EMensaje = Nothing
-        Me.txtDescripcion.Location = New System.Drawing.Point(127, 65)
-        Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.NombreVisual = "Descripción"
-        Me.txtDescripcion.NumLimit = 999999999
-        Me.txtDescripcion.NumMin = 0
-        Me.txtDescripcion.Size = New System.Drawing.Size(607, 22)
-        Me.txtDescripcion.TabIndex = 15
-        Me.txtDescripcion.VNumero = False
-        Me.txtDescripcion.VNumLimit = False
-        Me.txtDescripcion.VNumMin = False
-        Me.txtDescripcion.VObligatorio = False
-        Me.txtDescripcion.VPositivo = False
-        '
         'FrmGastos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(746, 552)
+        Me.ClientSize = New System.Drawing.Size(622, 448)
         Me.Controls.Add(Me.txtDescripcion)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtMonto)
@@ -238,10 +248,11 @@ Partial Class FrmGastos
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MaximizeBox = False
         Me.Name = "FrmGastos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Gastos"
+        Me.Text = "Gestión de Gastos"
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

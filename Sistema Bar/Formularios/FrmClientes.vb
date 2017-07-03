@@ -143,8 +143,6 @@ Public Class FrmClientes
             Return
         End If
 
-        'TODO: Verificar que no hayan ventas apuntándole
-
         'Borrar
         db.ejecutarSQL("DELETE FROM Clientes WHERE Nro_Doc=" & elemento.Cells(2).Value & "AND Id_TipoDoc=" & elemento.Cells(0).Value)
 
@@ -159,6 +157,7 @@ Public Class FrmClientes
         txtDni.Enabled = True
         cmbTipoDoc.Enabled = True
         vaciarForm(Me)
+        txtFecha.Text = DateTime.Today
     End Sub
 
     Private Sub anyTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles cmbTipoDoc.KeyDown, cmbTipoCliente.KeyDown

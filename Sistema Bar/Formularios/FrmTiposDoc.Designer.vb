@@ -40,13 +40,12 @@ Partial Class FrmTiposDoc
         'txtBuscar
         '
         Me.txtBuscar.EMensaje = Nothing
-        Me.txtBuscar.Location = New System.Drawing.Point(80, 83)
-        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtBuscar.Location = New System.Drawing.Point(60, 67)
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Buscar"
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
-        Me.txtBuscar.Size = New System.Drawing.Size(391, 22)
+        Me.txtBuscar.Size = New System.Drawing.Size(294, 20)
         Me.txtBuscar.TabIndex = 9
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
@@ -57,14 +56,13 @@ Partial Class FrmTiposDoc
         'txtNombre
         '
         Me.txtNombre.EMensaje = Nothing
-        Me.txtNombre.Location = New System.Drawing.Point(83, 31)
-        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtNombre.Location = New System.Drawing.Point(62, 25)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.NombreVisual = "Nombre"
         Me.txtNombre.NumLimit = 999999999
         Me.txtNombre.NumMin = 0
-        Me.txtNombre.Size = New System.Drawing.Size(254, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(180, 20)
         Me.txtNombre.TabIndex = 7
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
@@ -74,60 +72,54 @@ Partial Class FrmTiposDoc
         '
         'cmdCancelar
         '
-        Me.cmdCancelar.Location = New System.Drawing.Point(345, 461)
-        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdCancelar.Location = New System.Drawing.Point(259, 375)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdCancelar.Size = New System.Drawing.Size(95, 25)
         Me.cmdCancelar.TabIndex = 15
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '
         'cmdBorrar
         '
-        Me.cmdBorrar.Location = New System.Drawing.Point(148, 461)
-        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdBorrar.Location = New System.Drawing.Point(111, 375)
         Me.cmdBorrar.Name = "cmdBorrar"
-        Me.cmdBorrar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdBorrar.Size = New System.Drawing.Size(95, 25)
         Me.cmdBorrar.TabIndex = 14
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
         'cmdModificar
         '
-        Me.cmdModificar.Location = New System.Drawing.Point(13, 461)
-        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdModificar.Location = New System.Drawing.Point(10, 375)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdModificar.Size = New System.Drawing.Size(95, 25)
         Me.cmdModificar.TabIndex = 13
         Me.cmdModificar.Text = "Modificar"
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
         'cmdActualizar
         '
-        Me.cmdActualizar.Location = New System.Drawing.Point(345, 27)
-        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdActualizar.Location = New System.Drawing.Point(259, 22)
         Me.cmdActualizar.Name = "cmdActualizar"
-        Me.cmdActualizar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdActualizar.Size = New System.Drawing.Size(95, 25)
         Me.cmdActualizar.TabIndex = 8
         Me.cmdActualizar.Text = "Agregar"
         Me.cmdActualizar.UseVisualStyleBackColor = True
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(7, 84)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(5, 68)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(65, 20)
+        Me.Label2.Size = New System.Drawing.Size(49, 16)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Buscar:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(9, 32)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(7, 26)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 20)
+        Me.Label1.Size = New System.Drawing.Size(49, 16)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Nombre:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -140,12 +132,11 @@ Partial Class FrmTiposDoc
         Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre})
-        Me.grilla.Location = New System.Drawing.Point(13, 115)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
+        Me.grilla.Location = New System.Drawing.Point(10, 93)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
-        Me.grilla.Size = New System.Drawing.Size(459, 326)
+        Me.grilla.Size = New System.Drawing.Size(344, 265)
         Me.grilla.TabIndex = 12
         '
         'Id
@@ -163,9 +154,9 @@ Partial Class FrmTiposDoc
         '
         'FrmTiposDoc
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(499, 517)
+        Me.ClientSize = New System.Drawing.Size(374, 420)
         Me.Controls.Add(Me.txtBuscar)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.cmdCancelar)
@@ -177,6 +168,7 @@ Partial Class FrmTiposDoc
         Me.Controls.Add(Me.grilla)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MaximizeBox = False
         Me.Name = "FrmTiposDoc"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

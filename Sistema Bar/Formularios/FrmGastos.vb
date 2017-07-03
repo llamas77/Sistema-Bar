@@ -19,7 +19,7 @@ Public Class FrmGastos
 
     Public Sub cargarGrilla()
         Dim sql As String
-        sql = "SELECT g.Id, g.Id_TipoGasto, g.Fecha, t.Nombre as 'Nombre_TipoGasto', g.Monto, g.Descripcion FROM Tipos_Gasto t JOIN Gastos g ON (t.Id = g.Id_TipoGasto)"
+        sql = "SELECT g.Id, g.Id_TipoGasto, g.Fecha, t.Nombre as 'Nombre_TipoGasto', g.Descripcion, g.Monto FROM Tipos_Gasto t JOIN Gastos g ON (t.Id = g.Id_TipoGasto)"
         Util.cargarGrilla(db, sql, grilla)
     End Sub
 
@@ -29,7 +29,7 @@ Public Class FrmGastos
 
         ' Validamos antes de insertar o updatear si las dependencias siguen existiendo, caso contrario actualizamos combos
         If db.ejecutarSQL("Select Id FROM Tipos_Gasto WHERE Id=" & cmbTipoGasto.SelectedValue).Rows.Count = 0 Then
-            MsgBox("El tipo de gasto que quiere asignarle al gasto ya no existe más.", vbCritical)
+            MsgBox("El tipo de gasto que quiere asignarle al gasto ya no existe.", vbCritical)
             cargarCombo(cmbTipoGasto, db.cargarTabla("Tipos_Gasto"), "Id", "Nombre")
             Return
         End If
@@ -40,7 +40,7 @@ Public Class FrmGastos
 
             Dim sqlInsert As String = ""
             sqlInsert &= "Id_TipoGasto=" & cmbTipoGasto.SelectedValue
-            sqlInsert &= "; Monto=" & txtMonto.Text.Trim
+            sqlInsert &= "; Monto=" & formatear(txtMonto.Text.Trim)
             sqlInsert &= "; Descripcion=" & txtDescripcion.Text.Trim
             db.insertar("Gastos", sqlInsert)
         End If

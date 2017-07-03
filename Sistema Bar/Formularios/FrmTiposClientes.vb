@@ -125,12 +125,12 @@ Public Class FrmTiposClientes
 
         ' Verifica si el tipo de cliente que se quiere eliminar no está siendo referenciado por la tabla Clientes
         Dim clientes As DataTable
-        clientes = db.ejecutarSQL("SELECT TOP 10 t.Nombre FROM Tipos_Cliente t JOIN Clientes c ON (t.Id = c.Id_TipoCliente) WHERE t.Id =" & elemento.Cells(0).Value)
+        clientes = db.ejecutarSQL("SELECT TOP 10 c.Nombre, c.Apellido FROM Tipos_Cliente t JOIN Clientes c ON (t.Id = c.Id_TipoCliente) WHERE t.Id =" & elemento.Cells(0).Value)
         If clientes.Rows.Count > 0 Then
             Dim stringArts As String = ""
             Dim i As Integer
             For i = 0 To clientes.Rows.Count - 1
-                stringArts &= "" & clientes.Rows(i)(0).ToString() & ", "
+                stringArts &= "" & clientes.Rows(i)(0).ToString() & " " & clientes.Rows(i)(1).ToString() & ", "
             Next
             MsgBox("Este tipo de cliente no puede ser borrado porque se usa en los siguientes clientes:" & Chr(13) &
                         stringArts & "y/o entre otros.", vbCritical)
