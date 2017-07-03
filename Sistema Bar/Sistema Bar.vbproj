@@ -260,6 +260,9 @@
     <EmbeddedResource Include="Formularios\FrmVenta.resx">
       <DependentUpon>FrmVenta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmVentas.resx">
+      <DependentUpon>FrmVentas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\FrmRepCompraConDetalle.resx">
       <DependentUpon>FrmRepCompraConDetalle.vb</DependentUpon>
     </EmbeddedResource>

@@ -128,4 +128,9 @@ Public Class FrmMenu
         Dim frm As New FrmGastos
         frm.Show()
     End Sub
+
+    Private Sub NuevaVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaVentaToolStripMenuItem.Click
+        Dim frm As New FrmVenta(Nothing)
+        frm.Show()
+    End Sub
 End Class

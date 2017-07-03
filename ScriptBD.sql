@@ -17,8 +17,8 @@ CREATE TABLE Articulos(
 	Id INT,
 	Id_Rubro INT,
 	Nombre VARCHAR(50) NOT NULL,
-	Precio_Lista DECIMAL(11, 2),
-	Precio_Venta DECIMAL(11, 2),
+	Precio_Lista DECIMAL(13, 4),
+	Precio_Venta DECIMAL(13, 4),
 	Stock int,
 	CONSTRAINT Articulos_pk PRIMARY KEY (Id),
 	CONSTRAINT Articulos_fk FOREIGN KEY (Id_Rubro) REFERENCES Rubros (id)
@@ -58,7 +58,7 @@ CREATE TABLE Detalles_Compras(
 	Id_Articulo INT,
 	Id_Compra INT,
 	Cantidad INT,
-	Precio_Lista DECIMAL(11, 2),
+	Precio_Lista DECIMAL(13, 4),
 	CONSTRAINT Detalles_Compras_pk PRIMARY KEY(Id_Articulo, Id_Compra),
 	CONSTRAINT Detalles_Compras_fk_1 FOREIGN KEY(Id_Articulo) REFERENCES Articulos (Id),
 	CONSTRAINT Detalles_Compras_fk_2 FOREIGN KEY (Id_Compra) REFERENCES Compras(Id) ON DELETE CASCADE
@@ -90,25 +90,34 @@ CREATE TABLE Clientes (
 )
 
 CREATE TABLE Ventas(
-	Id INT,
-	Id_Tipo_Cliente INT,
+	Id INT IDENTITY(1, 1),
 	Tipo_Doc_Cliente INT,
 	Nro_Doc_Cliente INT,
 	Fecha DATETIME DEFAULT getdate() NOT NULL,
+	AlCosto BIT,
+	Descuento DECIMAL(11, 2),
+	Realizada BIT,
 	CONSTRAINT Ventas_pk PRIMARY KEY (Id),
-	CONSTRAINT Ventas_fk_1 FOREIGN KEY(Id_Tipo_Cliente) REFERENCES Tipos_Cliente(Id),
-	CONSTRAINT Ventas_fk_2 FOREIGN KEY (Tipo_Doc_Cliente, Nro_Doc_Cliente) REFERENCES Clientes(Id_TipoDoc, Nro_Doc)
+	CONSTRAINT Ventas_fk FOREIGN KEY (Tipo_Doc_Cliente, Nro_Doc_Cliente) REFERENCES Clientes(Id_TipoDoc, Nro_Doc)
 )
 
 CREATE TABLE Detalles_Ventas(
 	Id_Articulo INT,
 	Id_Venta INT,
 	Cantidad INT,
-	Precio_Venta DECIMAL(11, 2),
+	Precio DECIMAL(13, 4),
 	CONSTRAINT Detalles_Ventas_pk PRIMARY KEY(Id_Articulo, Id_Venta),
 	CONSTRAINT Detalles_Ventas_fk_1 FOREIGN KEY (Id_Articulo) REFERENCES Articulos (Id),
 	CONSTRAINT Detalles_Ventas_fk_2 FOREIGN KEY (Id_Venta) REFERENCES Ventas (Id) ON DELETE CASCADE
 )
+
+CREATE TABLE Extras (
+	Id INT,
+	Descuento DECIMAL(11, 2)
+	CONSTRAINT Extras_pk PRIMARY KEY (Id)
+)
+
+INSERT INTO Extras VALUES(1, 0.33)
 
 
 --DROP TABLE Detalles_Compras

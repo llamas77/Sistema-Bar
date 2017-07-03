@@ -60,9 +60,9 @@
 
     End Sub
 
-    Public Shared Function puedeActuarEnGrilla(ByRef grilla As DataGridView) As Boolean
+    Public Shared Function puedeActuarEnGrilla(ByRef grilla As DataGridView, Optional ByVal mensaje As Boolean = True) As Boolean
         If grilla.Rows.Count = 0 Then
-            MsgBox("No hay ningún elemento en la grilla.", vbCritical)
+            If mensaje Then MsgBox("No hay ningún elemento en la grilla.", vbCritical)
             Return False
         End If
         Return True
