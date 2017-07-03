@@ -133,4 +133,9 @@ Public Class FrmMenu
         Dim frm As New FrmVenta(Nothing)
         frm.Show()
     End Sub
+
+    Private Sub GastosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GastosToolStripMenuItem1.Click
+        Dim frm As New FrmRepGastos
+        frm.Show()
+    End Sub
 End Class

@@ -204,6 +204,12 @@
     <Compile Include="Formularios\Reportes\FrmRepCompraConDetalle.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepGastos.Designer.vb">
+      <DependentUpon>FrmRepGastos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepGastos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Interfaces\Vaciable.vb" />
     <Compile Include="Interfaces\Validable.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -266,6 +272,9 @@
     <EmbeddedResource Include="Formularios\Reportes\FrmRepCompraConDetalle.resx">
       <DependentUpon>FrmRepCompraConDetalle.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FrmRepGastos.resx">
+      <DependentUpon>FrmRepGastos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -274,6 +283,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepCompraConDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RepComprasConDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RepGastos.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
