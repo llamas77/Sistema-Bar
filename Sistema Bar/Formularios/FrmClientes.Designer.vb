@@ -23,7 +23,6 @@ Partial Class FrmClientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.cmbTipoCliente = New Sistema_Bar.VComboBox()
-        Me.txtNombre = New Sistema_Bar.VTextBox()
         Me.txtDni = New Sistema_Bar.VTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -49,6 +48,7 @@ Partial Class FrmClientes
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtFecha = New Sistema_Bar.VMaskedTextBox()
+        Me.txtNombre = New Sistema_Bar.VTextBox()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -66,24 +66,6 @@ Partial Class FrmClientes
         Me.cmbTipoCliente.TabIndex = 11
         Me.cmbTipoCliente.VObligatorio = True
         '
-        'txtNombre
-        '
-        Me.txtNombre.EMensaje = Nothing
-        Me.txtNombre.Location = New System.Drawing.Point(83, 75)
-        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtNombre.MaxLength = 50
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.NombreVisual = "Nombre"
-        Me.txtNombre.NumLimit = 999999999
-        Me.txtNombre.NumMin = 0
-        Me.txtNombre.Size = New System.Drawing.Size(244, 22)
-        Me.txtNombre.TabIndex = 10
-        Me.txtNombre.VNumero = False
-        Me.txtNombre.VNumLimit = False
-        Me.txtNombre.VNumMin = False
-        Me.txtNombre.VObligatorio = True
-        Me.txtNombre.VPositivo = False
-        '
         'txtDni
         '
         Me.txtDni.EMensaje = Nothing
@@ -91,7 +73,7 @@ Partial Class FrmClientes
         Me.txtDni.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDni.MaxLength = 9
         Me.txtDni.Name = "txtDni"
-        Me.txtDni.NombreVisual = "Código"
+        Me.txtDni.NombreVisual = "Dni"
         Me.txtDni.NumLimit = 999999999
         Me.txtDni.NumMin = 0
         Me.txtDni.Size = New System.Drawing.Size(244, 22)
@@ -159,7 +141,7 @@ Partial Class FrmClientes
         Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.NombreVisual = "Nombre"
+        Me.txtBuscar.NombreVisual = "Buscar"
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
         Me.txtBuscar.Size = New System.Drawing.Size(393, 22)
@@ -206,7 +188,7 @@ Partial Class FrmClientes
         Me.cmbTipoDoc.FormattingEnabled = True
         Me.cmbTipoDoc.Location = New System.Drawing.Point(449, 22)
         Me.cmbTipoDoc.Name = "cmbTipoDoc"
-        Me.cmbTipoDoc.NombreVisual = "TipoDoc"
+        Me.cmbTipoDoc.NombreVisual = "Tipo de Documento"
         Me.cmbTipoDoc.Size = New System.Drawing.Size(178, 24)
         Me.cmbTipoDoc.TabIndex = 28
         Me.cmbTipoDoc.VObligatorio = True
@@ -291,7 +273,7 @@ Partial Class FrmClientes
         Me.txtApellido.Margin = New System.Windows.Forms.Padding(4)
         Me.txtApellido.MaxLength = 50
         Me.txtApellido.Name = "txtApellido"
-        Me.txtApellido.NombreVisual = "Nombre"
+        Me.txtApellido.NombreVisual = "Apellido"
         Me.txtApellido.NumLimit = 999999999
         Me.txtApellido.NumMin = 0
         Me.txtApellido.Size = New System.Drawing.Size(244, 22)
@@ -334,11 +316,30 @@ Partial Class FrmClientes
         Me.txtFecha.TabIndex = 35
         Me.txtFecha.VObligatorio = False
         '
+        'txtNombre
+        '
+        Me.txtNombre.EMensaje = Nothing
+        Me.txtNombre.Location = New System.Drawing.Point(83, 77)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtNombre.MaxLength = 50
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.NombreVisual = "Nombre"
+        Me.txtNombre.NumLimit = 999999999
+        Me.txtNombre.NumMin = 0
+        Me.txtNombre.Size = New System.Drawing.Size(244, 22)
+        Me.txtNombre.TabIndex = 36
+        Me.txtNombre.VNumero = False
+        Me.txtNombre.VNumLimit = False
+        Me.txtNombre.VNumMin = False
+        Me.txtNombre.VObligatorio = True
+        Me.txtNombre.VPositivo = False
+        '
         'FrmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1180, 571)
+        Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.txtFecha)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtApellido)
@@ -353,7 +354,6 @@ Partial Class FrmClientes
         Me.Controls.Add(Me.cmdCancelar)
         Me.Controls.Add(Me.cmdActualizar)
         Me.Controls.Add(Me.cmbTipoCliente)
-        Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.txtDni)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -366,7 +366,6 @@ Partial Class FrmClientes
 
     End Sub
     Friend WithEvents cmbTipoCliente As VComboBox
-    Friend WithEvents txtNombre As VTextBox
     Friend WithEvents txtDni As VTextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
@@ -392,4 +391,5 @@ Partial Class FrmClientes
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents txtFecha As VMaskedTextBox
+    Friend WithEvents txtNombre As VTextBox
 End Class

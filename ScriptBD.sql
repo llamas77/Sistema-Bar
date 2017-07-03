@@ -7,10 +7,6 @@ CREATE TABLE Turnos (
 	CONSTRAINT Turnos_pk PRIMARY KEY (Id)
 )
 
-INSERT INTO Turnos (Hora_Inicio, Caja_Inicial) VALUES (getDate(), 200)
-SELECT * FROM Turnos
-DROP TABLE Turnos
-
 CREATE TABLE Rubros(
 	Id INT IDENTITY(1, 1),
 	Nombre varchar(50) UNIQUE NOT NULL,
@@ -39,6 +35,7 @@ CREATE TABLE Gastos (
 	Id_TipoGasto INT,
 	Monto DECIMAL(11, 2),
 	Descripcion VARCHAR(150),
+	Fecha DATETIME DEFAULT getDate() NOT NULL,
 	CONSTRAINT Gastos_pk PRIMARY KEY(Id),
 	CONSTRAINT Gastos_fk FOREIGN KEY(Id_TipoGasto) REFERENCES Tipos_Gasto(Id)
 )
@@ -76,6 +73,7 @@ CREATE TABLE Tipos_Doc (
 CREATE TABLE Tipos_Cliente (
 	Id INT IDENTITY(1, 1),
 	Nombre VARCHAR(50) NOT NULL,
+	AlCosto BIT,
 	CONSTRAINT TiposCliente_pk PRIMARY KEY (Id)
 )
 

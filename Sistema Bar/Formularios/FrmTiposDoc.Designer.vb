@@ -42,7 +42,7 @@ Partial Class FrmTiposDoc
         Me.txtBuscar.Location = New System.Drawing.Point(80, 83)
         Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.NombreVisual = "sin nombre"
+        Me.txtBuscar.NombreVisual = "Buscar"
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
         Me.txtBuscar.Size = New System.Drawing.Size(391, 22)
@@ -63,7 +63,7 @@ Partial Class FrmTiposDoc
         Me.txtNombre.NombreVisual = "Nombre"
         Me.txtNombre.NumLimit = 999999999
         Me.txtNombre.NumMin = 0
-        Me.txtNombre.Size = New System.Drawing.Size(193, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(254, 22)
         Me.txtNombre.TabIndex = 7
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
