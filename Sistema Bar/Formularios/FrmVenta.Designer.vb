@@ -436,7 +436,7 @@ Partial Class FrmVenta
         Me.lblVuelto.Size = New System.Drawing.Size(102, 20)
         Me.lblVuelto.TabIndex = 32
         Me.lblVuelto.Text = "$ 0"
-        Me.lblVuelto.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblVuelto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'FrmVenta
         '
