@@ -23,7 +23,7 @@ Partial Class FrmRepGastos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.DataSet = New Sistema_Bar.DataSet()
         Me.gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -43,9 +43,9 @@ Partial Class FrmRepGastos
         Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.gastosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource3.Name = "DataSet1"
+        ReportDataSource3.Value = Me.gastosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepGastos.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 86)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -151,6 +151,7 @@ Partial Class FrmRepGastos
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "FrmRepGastos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Gastos"
         CType(Me.DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

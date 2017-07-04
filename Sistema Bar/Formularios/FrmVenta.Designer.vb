@@ -59,6 +59,7 @@ Partial Class FrmVenta
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.lblVuelto = New System.Windows.Forms.Label()
+        Me.cmdPendiente = New System.Windows.Forms.Button()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -438,12 +439,22 @@ Partial Class FrmVenta
         Me.lblVuelto.Text = "$ 0"
         Me.lblVuelto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'cmdPendiente
+        '
+        Me.cmdPendiente.Location = New System.Drawing.Point(495, 479)
+        Me.cmdPendiente.Name = "cmdPendiente"
+        Me.cmdPendiente.Size = New System.Drawing.Size(101, 25)
+        Me.cmdPendiente.TabIndex = 28
+        Me.cmdPendiente.Text = "Dejar Pendiente"
+        Me.cmdPendiente.UseVisualStyleBackColor = True
+        '
         'FrmVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(733, 515)
         Me.Controls.Add(Me.chkBar)
+        Me.Controls.Add(Me.cmdPendiente)
         Me.Controls.Add(Me.cmdVender)
         Me.Controls.Add(Me.cmdBorrar)
         Me.Controls.Add(Me.cmdModificar)
@@ -474,7 +485,7 @@ Partial Class FrmVenta
         Me.Controls.Add(Me.Label2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.Name = "FrmVenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -519,4 +530,5 @@ Partial Class FrmVenta
     Friend WithEvents lblTotal As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents lblVuelto As Label
+    Friend WithEvents cmdPendiente As Button
 End Class

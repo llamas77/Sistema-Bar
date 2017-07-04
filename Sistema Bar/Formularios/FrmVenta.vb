@@ -155,6 +155,7 @@ Public Class FrmVenta
 
         actualizarTotal()
 
+
         FirstControl.Select()
     End Sub
 
@@ -195,6 +196,8 @@ Public Class FrmVenta
         Next
         lblTotal.Text = "$ " & suma
         cantTotal = suma
+
+        actPagaCon()
     End Sub
 
 
@@ -254,40 +257,48 @@ Public Class FrmVenta
     End Sub
 
     Private Sub cmdVender_Click(sender As Object, e As EventArgs) Handles cmdVender.Click
+        If vender(True) Then MsgBox("La venta se realizó correctamente.", vbInformation)
+    End Sub
+
+    Private Sub cmdPendiente_Click(sender As Object, e As EventArgs) Handles cmdPendiente.Click
+        If vender(False) Then MsgBox("La venta queda pendiente.", vbInformation)
+    End Sub
+
+    Private Function vender(ByVal realizada As Boolean) As Boolean
         ' Verificar que el formulario esté completo (doc, tipo doc y grilla, el resto no importa)
-        If Not puedeActuarEnGrilla(grilla) Then Return
+        If Not puedeActuarEnGrilla(grilla) Then Return False
         If cmbTiposDoc.SelectedIndex = -1 Then
             MsgBox("Debe seleccionar un tipo de documento.", vbCritical)
-            Return
+            Return False
         End If
         If txtDocumento.Text.Trim = "" Then
             MsgBox("El campo 'Documento' no puede estar vacío.", vbCritical)
-            Return
+            Return False
         End If
         If Not IsNumeric(txtDocumento.Text.Trim) Then
             MsgBox("El campo 'Documento' debe ser un número.", vbCritical)
-            Return
+            Return False
         End If
         If Val(txtDocumento.Text.Trim) < 0 Then
             MsgBox("El campo 'Documento' debe ser un número positivo.", vbCritical)
-            Return
+            Return False
         End If
         If Val(txtDocumento.Text.Trim) > 999999999 Then
             MsgBox("El campo 'Documento' tiene muchos dígitos.", vbCritical)
-            Return
+            Return False
         End If
 
         ' Si el tipo doc seleccionado no existe más, se actualiza el combo
         If db.ejecutarSQL("SELECT Id FROM Tipos_Doc WHERE Id=" & cmbTiposDoc.SelectedValue).Rows.Count = 0 Then
             MsgBox("El tipo de documento que quiere asignar a la venta ya no existe.", vbCritical)
             cargarCombo(cmbTiposDoc, db.cargarTabla("Tipos_Doc"), "Id", "Nombre")
-            Return
+            Return False
         End If
 
         ' Verifica si existe el cliente (combinando tipo doc y doc)
         If db.ejecutarSQL("SELECT Nro_Doc FROM Clientes WHERE Id_TipoDoc=" & cmbTiposDoc.SelectedValue & " AND Nro_Doc=" & txtDocumento.Text.Trim).Rows.Count = 0 Then
             MsgBox("El cliente que quiere asignar a la venta no existe", vbCritical)
-            Return
+            Return False
         End If
 
         ' Si hay un artículo seleccionado en el combo y no existe más, se avisa y actualiza el combo
@@ -295,7 +306,7 @@ Public Class FrmVenta
             If db.ejecutarSQL("SELECT Id FROM Articulos WHERE Id=" & cmbArticulos.SelectedValue).Rows.Count = 0 Then
                 MsgBox("El artículo que quiere asignar a la venta ya no existe más.", vbCritical)
                 cargarCombo(cmbArticulos, db.cargarTabla("Articulos"), "Id", "Nombre")
-                Return
+                Return False
             End If
         End If
 
@@ -314,14 +325,14 @@ Public Class FrmVenta
             Next
             cargarCombo(cmbArticulos, db.cargarTabla("Articulos"), "Id", "Nombre")
             actualizarPrecios()
-            Return
+            Return False
         End If
 
         'Validamos que haya stock suficiente
         For i = 0 To grilla.Rows.Count - 1
             If db.ejecutarSQL("SELECT Stock FROM Articulos WHERE Id =" & grilla.Rows(i).Cells(1).Value)(0)(0) < grilla.Rows(i).Cells(0).Value Then
                 MsgBox("No hay stock suficiente para el artículo: " & grilla.Rows(i).Cells(2).Value, vbCritical)
-                Return
+                Return False
             End If
         Next
 
@@ -331,7 +342,7 @@ Public Class FrmVenta
 
         'Insertar venta
         Dim compra As String = ""
-        compra &= "INSERT INTO Ventas (Tipo_Doc_Cliente, Nro_Doc_Cliente, AlCosto, Descuento) VALUES (" & cmbTiposDoc.SelectedValue & ", " & txtDocumento.Text.Trim & ", " & IIf(alCosto, "1", "0") & ", " & formatear(descuento) & ")"
+        compra &= "INSERT INTO Ventas (Tipo_Doc_Cliente, Nro_Doc_Cliente, AlCosto, Descuento, Realizada) VALUES (" & cmbTiposDoc.SelectedValue & ", " & txtDocumento.Text.Trim & ", " & IIf(alCosto, "1", "0") & ", " & formatear(descuento) & ", " & IIf(realizada, "1", "0") & ")"
         compra &= "; SELECT SCOPE_IDENTITY()"
         Dim idCompra As Integer = db.ejecutarSQL(compra)(0)(0)
 
@@ -362,14 +373,14 @@ Public Class FrmVenta
 
         db.terminarTransaccion()
 
-        MsgBox("La venta se realizó correctamente.", vbInformation)
-
         If TypeOf contenedor Is FrmVentas Then
-            'contenedor.cargarGrilla()
+            contenedor.cargarGrilla()
         End If
 
         Close()
-    End Sub
+
+        Return True
+    End Function
 
     Private Sub txtDocumento_TextChanged(sender As Object, e As EventArgs) Handles txtDocumento.TextChanged
         validAlCosto()
@@ -394,6 +405,10 @@ Public Class FrmVenta
     End Sub
 
     Private Sub txtPagaCon_TextChanged(sender As Object, e As EventArgs) Handles txtPagaCon.TextChanged
+        actPagaCon()
+    End Sub
+
+    Private Sub actPagaCon()
         If txtPagaCon.Text.Trim <> "" Then
             If IsNumeric(formatear(txtPagaCon.Text.Trim)) Then
                 If Val(formatear(txtPagaCon.Text.Trim)) >= cantTotal Then
@@ -407,4 +422,6 @@ Public Class FrmVenta
         Label11.Visible = False
         lblVuelto.Text = ""
     End Sub
+
+
 End Class

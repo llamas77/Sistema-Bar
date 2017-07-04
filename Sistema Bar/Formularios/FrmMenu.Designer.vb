@@ -46,10 +46,10 @@ Partial Class FrmMenu
         Me.GastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TiposDeGastoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestiónToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusTurno = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GastosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusTurno = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -74,13 +74,13 @@ Partial Class FrmMenu
         'AbrirTurnoToolStripMenuItem
         '
         Me.AbrirTurnoToolStripMenuItem.Name = "AbrirTurnoToolStripMenuItem"
-        Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.AbrirTurnoToolStripMenuItem.Text = "Abrir turno"
         '
         'CerrarTurnoToolStripMenuItem
         '
         Me.CerrarTurnoToolStripMenuItem.Name = "CerrarTurnoToolStripMenuItem"
-        Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.CerrarTurnoToolStripMenuItem.Text = "Cerrar turno"
         '
         'ArtículosToolStripMenuItem
@@ -93,13 +93,13 @@ Partial Class FrmMenu
         'RubrosToolStripMenuItem
         '
         Me.RubrosToolStripMenuItem.Name = "RubrosToolStripMenuItem"
-        Me.RubrosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RubrosToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
         Me.RubrosToolStripMenuItem.Text = "Rubros"
         '
         'ArículosToolStripMenuItem
         '
         Me.ArículosToolStripMenuItem.Name = "ArículosToolStripMenuItem"
-        Me.ArículosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ArículosToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
         Me.ArículosToolStripMenuItem.Text = "Gestión"
         '
         'VentasToolStripMenuItem
@@ -150,7 +150,7 @@ Partial Class FrmMenu
         'ProveedoresToolStripMenuItem1
         '
         Me.ProveedoresToolStripMenuItem1.Name = "ProveedoresToolStripMenuItem1"
-        Me.ProveedoresToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ProveedoresToolStripMenuItem1.Size = New System.Drawing.Size(114, 22)
         Me.ProveedoresToolStripMenuItem1.Text = "Gestión"
         '
         'ClientesToolStripMenuItem
@@ -204,6 +204,19 @@ Partial Class FrmMenu
         Me.GestiónToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.GestiónToolStripMenuItem1.Text = "Gestión"
         '
+        'ReportesToolStripMenuItem
+        '
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GastosToolStripMenuItem1})
+        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
+        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'GastosToolStripMenuItem1
+        '
+        Me.GastosToolStripMenuItem1.Name = "GastosToolStripMenuItem1"
+        Me.GastosToolStripMenuItem1.Size = New System.Drawing.Size(109, 22)
+        Me.GastosToolStripMenuItem1.Text = "Gastos"
+        '
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -219,19 +232,6 @@ Partial Class FrmMenu
         Me.ToolStripStatusTurno.Name = "ToolStripStatusTurno"
         Me.ToolStripStatusTurno.Size = New System.Drawing.Size(93, 17)
         Me.ToolStripStatusTurno.Text = "Estado del turno"
-        '
-        'ReportesToolStripMenuItem
-        '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GastosToolStripMenuItem1})
-        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
-        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
-        Me.ReportesToolStripMenuItem.Text = "Reportes"
-        '
-        'GastosToolStripMenuItem1
-        '
-        Me.GastosToolStripMenuItem1.Name = "GastosToolStripMenuItem1"
-        Me.GastosToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.GastosToolStripMenuItem1.Text = "Gastos"
         '
         'FrmMenu
         '

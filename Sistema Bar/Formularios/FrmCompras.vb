@@ -14,7 +14,7 @@ Public Class FrmCompras
 
     Public Sub cargarGrilla()
         Dim sql As String = ""
-        sql &= "SELECT c.Id, c.Fecha, p.Nombre, SUM(dc.Cantidad * dc.Precio_Lista)"
+        sql &= "SELECT c.Id, c.Fecha, p.Nombre, SUM(dc.Cantidad * dc.Precio_Lista) as Total "
         sql &= "FROM Compras c JOIN Proveedores p ON (c.Id_Proveedor = p.Id) "
         sql &= "JOIN Detalles_Compras dc ON (c.Id = dc.Id_Compra) "
         sql &= "GROUP BY c.Id, c.Fecha, p.Nombre"
