@@ -471,7 +471,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Guille\Source\Repos\Sistema-Bar\Sistema Bar\DataSets\DataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Documents\proyectos\Sistema Bar\Sistema Bar\DataSets\DataSet.xsd</rd:SchemaPath>
         <rd:TableName>ComprasR</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

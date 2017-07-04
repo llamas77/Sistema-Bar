@@ -177,4 +177,14 @@ Public Class FrmMenu
         Dim frm As New FrmConfig
         frm.Show()
     End Sub
+
+    Private Sub ArtículosToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles ArtículosToolStripMenuItem1.Click
+        Dim frm As New FrmRepArticulos
+        frm.Show()
+    End Sub
+
+    Private Sub RubrosToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles RubrosToolStripMenuItem1.Click
+        Dim frm As New FrmRepRubros
+        frm.Show()
+    End Sub
 End Class

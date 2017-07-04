@@ -177,7 +177,7 @@
         <Top>0.74667in</Top>
         <Left>0.12589in</Left>
         <Height>0.5in</Height>
-        <Width>6.37411in</Width>
+        <Width>6.37412in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -323,7 +323,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Guille\Source\Repos\Sistema-Bar\Sistema Bar\DataSets\DataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Documents\proyectos\Sistema Bar\Sistema Bar\DataSets\DataSet.xsd</rd:SchemaPath>
         <rd:TableName>Rubros</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

@@ -344,7 +344,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepArticulos.rdlc" />
     <EmbeddedResource Include="Reportes\RepCompraConDetalle.rdlc" />
-    <EmbeddedResource Include="Reportes\RepComprasConDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RepComprasR.rdlc" />
     <EmbeddedResource Include="Reportes\RepGastos.rdlc" />
     <EmbeddedResource Include="Reportes\RepComprasA.rdlc" />

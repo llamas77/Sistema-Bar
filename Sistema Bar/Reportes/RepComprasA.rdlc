@@ -530,8 +530,8 @@
           <DataField>Proveedor</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Artículo">
-          <DataField>Artículo</DataField>
+        <Field Name="Articulo">
+          <DataField>Articulo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Total">
@@ -545,7 +545,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Guille\Source\Repos\Sistema-Bar\Sistema Bar\DataSets\DataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Documents\proyectos\Sistema Bar\Sistema Bar\DataSets\DataSet.xsd</rd:SchemaPath>
         <rd:TableName>ComprasA</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
