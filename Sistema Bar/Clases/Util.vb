@@ -5,6 +5,8 @@
         modificar
     End Enum
 
+    Public Shared errString As String = "%%ERR.COD%%"
+
     Public Shared Function setTipoAct(ByVal tipoAct As eTipoAct, ByVal boton As Button) As eTipoAct
         Select Case tipoAct
             Case eTipoAct.insertar
@@ -43,6 +45,7 @@
                     Dim combo As ComboBox
                     combo = control
                     combo.SelectedIndex = -1
+                    combo.Text = ""
                 ElseIf TypeOf control Is TextBoxBase Then
                     Dim texto As TextBoxBase
                     texto = control
@@ -138,12 +141,12 @@
         If numero Then
             If Not IsNumeric(res) Then
                 MsgBox("El valor ingresado debe ser un número.", vbCritical)
-                Return ""
+                Return errString
             End If
 
             If Val(res) < minimo Then
                 MsgBox("El número debe ser mayor o igual que " & minimo, vbCritical)
-                Return ""
+                Return errString
             End If
         End If
         Return res

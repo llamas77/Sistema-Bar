@@ -35,6 +35,7 @@ Public Class FrmArticulos
         End If
 
 
+
         If tipoAct = eTipoAct.insertar Then
             'Insertar
 
@@ -43,6 +44,8 @@ Public Class FrmArticulos
                 FirstControl.Select()
                 Return
             End If
+
+            db.iniciarTransaccion()
 
             Dim sqlInsert As String = ""
             sqlInsert &= "Id=" & txtCodigo.Text.Trim
@@ -53,12 +56,16 @@ Public Class FrmArticulos
             sqlInsert &= "; Stock=" & txtStock.Text.Trim
 
             db.insertar("Articulos", sqlInsert)
+
         Else
             'Actualizar
 
             If db.ejecutarSQL("SELECT Id FROM Articulos WHERE Id=" & txtCodigo.Text.Trim).Rows.Count = 0 Then
                 MsgBox("El rubro que intenta modificar ya no existe.", vbCritical)
             Else
+
+                db.iniciarTransaccion()
+
                 Dim sql As String = ""
                 sql &= "UPDATE Articulos "
                 sql &= "SET Id=" & txtCodigo.Text.Trim
@@ -68,7 +75,6 @@ Public Class FrmArticulos
                 sql &= ", Precio_Venta=" & formatear(txtPrecioVenta.Text.Trim)
                 sql &= ", Stock=" & txtStock.Text.Trim
                 sql &= " WHERE Id=" & txtCodigo.Text.Trim
-
                 db.ejecutarSQL(sql)
             End If
 
@@ -76,10 +82,45 @@ Public Class FrmArticulos
             txtStock.Enabled = True
         End If
 
+        actualizarPreciosVenta(txtCodigo.Text.Trim)
+        db.terminarTransaccion()
+
         cargarGrilla()
 
         tipoAct = setTipoAct(eTipoAct.insertar, cmdActualizar)
         vaciarForm(Me)
+    End Sub
+
+    ' Actualiza los precios de todas las ventas y detalles de ventas pendientes
+    Public Sub actualizarPreciosVenta(ByVal idArt As Integer)
+
+        db.iniciarTransaccion()
+
+        ' Actualizo precios de venta de ventas pendientes
+        Dim sql As String = ""
+        sql &= "UPDATE dv "
+        sql &= "SET dv.Precio = a.Precio_Venta * (1 - v.Descuento)"
+        sql &= "FROM Detalles_Ventas dv "
+        sql &= "JOIN Ventas v ON (v.Id = dv.Id_Venta) "
+        sql &= "JOIN Articulos a ON (dv.Id_Articulo = a.Id)"
+
+        sql &= "WHERE v.Realizada=0 AND v.AlCosto=0 AND a.Id =" & idArt
+
+        db.ejecutarSQL(sql)
+
+        ' Actualizo precios de lista de ventas pendientes
+        sql = ""
+        sql &= "UPDATE dv "
+        sql &= "SET dv.Precio = a.Precio_Lista * (1 - v.Descuento)"
+        sql &= "FROM Detalles_Ventas dv "
+        sql &= "JOIN Ventas v ON (v.Id = dv.Id_Venta) "
+        sql &= "JOIN Articulos a ON (dv.Id_Articulo = a.Id)"
+
+        sql &= "WHERE v.Realizada=0 AND v.AlCosto=1 AND a.Id=" & idArt
+
+        db.ejecutarSQL(sql)
+
+        db.terminarTransaccion()
     End Sub
 
     Private Sub modificar(sender As Object, e As EventArgs) Handles cmdModificar.Click

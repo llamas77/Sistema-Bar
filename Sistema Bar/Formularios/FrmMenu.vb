@@ -62,14 +62,14 @@ Public Class FrmMenu
         ClientesToolStripMenuItem.Enabled = bool
         GastosToolStripMenuItem.Enabled = bool
         VentasToolStripMenuItem.Enabled = bool
+        ReportesToolStripMenuItem.Enabled = bool
     End Sub
 
     Private Sub FrmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        estadoTurno = setEstTurno(Nothing, eTurno.cerrado)
 
-        Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
         ' Chequea si ya había un turno abierto
-
-        estadoTurno = setEstTurno(tabla, eTurno.cerrado)
+        Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
         If tabla.Rows.Count = 1 Then
             If TypeOf tabla(0)(2) Is DBNull Then
                 estadoTurno = setEstTurno(tabla, eTurno.abierto)
@@ -81,7 +81,11 @@ Public Class FrmMenu
         If estadoTurno = eTurno.abierto Then Return
 
         Dim texto As String = vInputBox("Ingrese el monto que hay en caja",, True)
-        If texto = "" Then Return
+        If texto.Trim = "" Then Return
+        While texto = errString
+            texto = vInputBox("Ingrese el monto que hay en caja",, True)
+            If texto.Trim = "" Then Return
+        End While
 
         db.ejecutarSQL("INSERT INTO Turnos (Hora_Inicio, Caja_Inicial) VALUES (getDate(), " & formatear(texto) & ")")
 
@@ -93,7 +97,11 @@ Public Class FrmMenu
         If estadoTurno = eTurno.cerrado Then Return
 
         Dim texto As String = vInputBox("Ingrese el monto que hay en caja",, True)
-        If texto = "" Then Return
+        If texto.Trim = "" Then Return
+        While texto = errString
+            texto = vInputBox("Ingrese el monto que hay en caja",, True)
+            If texto.Trim = "" Then Return
+        End While
 
         Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
 
@@ -139,12 +147,12 @@ Public Class FrmMenu
         frm.Show()
     End Sub
 
-    Private Sub ArtículosToolStripMenuItem1_Click(sender As Object, e As EventArgs) 
+    Private Sub ArtículosToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         Dim frm As New FrmRepArticulos
         frm.Show()
     End Sub
 
-    Private Sub RubrosToolStripMenuItem1_Click(sender As Object, e As EventArgs) 
+    Private Sub RubrosToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         Dim frm As New FrmRepRubros
         frm.Show()
 
@@ -157,6 +165,11 @@ Public Class FrmMenu
 
     Private Sub PorArtículosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PorArtículosToolStripMenuItem.Click
         Dim frm As New FrmRepComprasA
+        frm.Show()
+    End Sub
+
+    Private Sub ConsultarVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarVentasToolStripMenuItem.Click
+        Dim frm As New FrmVentas
         frm.Show()
     End Sub
 End Class

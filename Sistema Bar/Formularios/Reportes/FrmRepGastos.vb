@@ -27,7 +27,7 @@ Public Class FrmRepGastos
         End If
 
         If txtHasta.Text.Trim <> "/  /" Then
-            sql &= IIf(hay_where, " AND ", " WHERE ") & " g.Fecha <= '" & txtHasta.Text.Trim & "'"
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " convert(date, g.Fecha, 103) <= '" & txtHasta.Text.Trim & "'"
 
             hay_where = True
         End If

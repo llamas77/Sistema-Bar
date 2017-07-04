@@ -84,6 +84,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -240,6 +241,12 @@
     <Compile Include="Formularios\Reportes\FrmRepRubros.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepVentaConDetalle.Designer.vb">
+      <DependentUpon>FrmRepVentaConDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepVentaConDetalle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Interfaces\Vaciable.vb" />
     <Compile Include="Interfaces\Validable.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -317,6 +324,9 @@
     <EmbeddedResource Include="Formularios\Reportes\FrmRepRubros.resx">
       <DependentUpon>FrmRepRubros.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FrmRepVentaConDetalle.resx">
+      <DependentUpon>FrmRepVentaConDetalle.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -330,6 +340,7 @@
     <EmbeddedResource Include="Reportes\RepGastos.rdlc" />
     <EmbeddedResource Include="Reportes\RepComprasA.rdlc" />
     <EmbeddedResource Include="Reportes\RepRubros.rdlc" />
+    <EmbeddedResource Include="Reportes\RepVentaConDetalle.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

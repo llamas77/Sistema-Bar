@@ -66,6 +66,7 @@ Partial Class FrmMenu
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnoToolStripMenuItem, Me.ArtículosToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.GastosToolStripMenuItem, Me.ReportesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(803, 24)
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
         Me.MenuStrip1.Size = New System.Drawing.Size(1295, 28)
         Me.MenuStrip1.TabIndex = 0
@@ -82,11 +83,13 @@ Partial Class FrmMenu
         '
         Me.AbrirTurnoToolStripMenuItem.Name = "AbrirTurnoToolStripMenuItem"
         Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(163, 26)
+        Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.AbrirTurnoToolStripMenuItem.Text = "Abrir turno"
         '
         'CerrarTurnoToolStripMenuItem
         '
         Me.CerrarTurnoToolStripMenuItem.Name = "CerrarTurnoToolStripMenuItem"
+        Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(163, 26)
         Me.CerrarTurnoToolStripMenuItem.Text = "Cerrar turno"
         '
@@ -101,11 +104,13 @@ Partial Class FrmMenu
         '
         Me.RubrosToolStripMenuItem.Name = "RubrosToolStripMenuItem"
         Me.RubrosToolStripMenuItem.Size = New System.Drawing.Size(134, 26)
+        Me.RubrosToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
         Me.RubrosToolStripMenuItem.Text = "Rubros"
         '
         'ArículosToolStripMenuItem
         '
         Me.ArículosToolStripMenuItem.Name = "ArículosToolStripMenuItem"
+        Me.ArículosToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
         Me.ArículosToolStripMenuItem.Size = New System.Drawing.Size(134, 26)
         Me.ArículosToolStripMenuItem.Text = "Gestión"
         '
@@ -158,6 +163,7 @@ Partial Class FrmMenu
         '
         Me.ProveedoresToolStripMenuItem1.Name = "ProveedoresToolStripMenuItem1"
         Me.ProveedoresToolStripMenuItem1.Size = New System.Drawing.Size(134, 26)
+        Me.ProveedoresToolStripMenuItem1.Size = New System.Drawing.Size(114, 22)
         Me.ProveedoresToolStripMenuItem1.Text = "Gestión"
         '
         'ClientesToolStripMenuItem
@@ -262,14 +268,29 @@ Partial Class FrmMenu
         Me.GastosToolStripMenuItem1.Size = New System.Drawing.Size(181, 26)
         Me.GastosToolStripMenuItem1.Text = "Gastos"
         '
+        'ReportesToolStripMenuItem
+        '
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GastosToolStripMenuItem1})
+        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
+        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'GastosToolStripMenuItem1
+        '
+        Me.GastosToolStripMenuItem1.Name = "GastosToolStripMenuItem1"
+        Me.GastosToolStripMenuItem1.Size = New System.Drawing.Size(109, 22)
+        Me.GastosToolStripMenuItem1.Text = "Gastos"
+        '
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusTurno})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 674)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 407)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
         Me.StatusStrip1.Size = New System.Drawing.Size(1295, 25)
+        Me.StatusStrip1.Size = New System.Drawing.Size(803, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -287,6 +308,8 @@ Partial Class FrmMenu
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1295, 699)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(803, 429)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
