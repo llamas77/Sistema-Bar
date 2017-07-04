@@ -11,7 +11,7 @@ Public Class FrmVenta
     Dim cantTotal As Single
 
     Dim alCosto As Boolean
-    Dim descuento As Single
+    Dim recargo As Single
 
     Public Sub New(ByRef ventas As FrmVentas)
         InitializeComponent()
@@ -48,7 +48,7 @@ Public Class FrmVenta
             Dim i As Integer
             For i = 0 To tabla.Rows.Count - 1
                 If tabla.Rows(i)(0) = cmbArticulos.SelectedValue Then
-                    txtPrecio.Text = FormatNumber(Val(IIf(alCosto, tabla(i)(3), tabla(i)(4)) * (1 - descuento)), 4)
+                    txtPrecio.Text = FormatNumber(Val(IIf(alCosto, tabla(i)(3), tabla(i)(4)) * (1 + recargo)), 4)
                     txtStock.Text = tabla(i)(5)
                     Exit For
                 End If
@@ -88,7 +88,7 @@ Public Class FrmVenta
             Dim i As Integer
             For i = 0 To tabla.Rows.Count - 1
                 If tabla(i)(0) = txtCodigo.Text.Trim Then
-                    txtPrecio.Text = FormatNumber(Val(IIf(alCosto, tabla(i)(3), tabla(i)(4)) * (1 - descuento)), 4)
+                    txtPrecio.Text = FormatNumber(Val(IIf(alCosto, tabla(i)(3), tabla(i)(4)) * (1 + recargo)), 4)
                     Exit For
                 End If
             Next
@@ -253,7 +253,7 @@ Public Class FrmVenta
             For j = 0 To tabla.Rows.Count - 1
                 If tabla.Rows(j)(0) = grilla.Rows(i).Cells(1).Value Then
                     'Actualizo precio y total
-                    precio = FormatNumber(Val(IIf(alCosto, tabla(j)(3), tabla(j)(4)) * (1 - descuento)), 4)
+                    precio = FormatNumber(Val(IIf(alCosto, tabla(j)(3), tabla(j)(4)) * (1 + recargo)), 4)
                     grilla.Rows(i).Cells(3).Value = Val(formatear(precio))
                     grilla.Rows(i).Cells(4).Value = grilla.Rows(i).Cells(0).Value * Val(formatear(precio))
                 End If
@@ -347,7 +347,7 @@ Public Class FrmVenta
 
         'Insertar venta
         Dim compra As String = ""
-        compra &= "INSERT INTO Ventas (Tipo_Doc_Cliente, Nro_Doc_Cliente, AlCosto, Descuento, Realizada) VALUES (" & cmbTiposDoc.SelectedValue & ", " & txtDocumento.Text.Trim & ", " & IIf(alCosto, "1", "0") & ", " & formatear(descuento) & ", " & IIf(realizada, "1", "0") & ")"
+        compra &= "INSERT INTO Ventas (Tipo_Doc_Cliente, Nro_Doc_Cliente, AlCosto, Recargo, Realizada) VALUES (" & cmbTiposDoc.SelectedValue & ", " & txtDocumento.Text.Trim & ", " & IIf(alCosto, "1", "0") & ", " & formatear(recargo) & ", " & IIf(realizada, "1", "0") & ")"
         compra &= "; SELECT SCOPE_IDENTITY()"
         Dim idCompra As Integer = db.ejecutarSQL(compra)(0)(0)
 
@@ -401,9 +401,9 @@ Public Class FrmVenta
 
     Private Sub chkBar_CheckedChanged(sender As Object, e As EventArgs) Handles chkBar.CheckedChanged
         If chkBar.Checked Then
-            descuento = db.ejecutarSQL("SELECT Descuento FROM Extras WHERE Id=1")(0)(0)
+            recargo = db.ejecutarSQL("SELECT Recargo FROM Configuraciones WHERE Id=1")(0)(0)
         Else
-            descuento = 0
+            recargo = 0
         End If
 
         actualizarTodosPrecios()

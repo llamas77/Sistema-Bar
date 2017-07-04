@@ -999,7 +999,7 @@ Partial Public Class DataSet
         
         Private columnApellido As Global.System.Data.DataColumn
         
-        Private columnDescuento As Global.System.Data.DataColumn
+        Private columnRecargo As Global.System.Data.DataColumn
         
         Private columnAlCosto As Global.System.Data.DataColumn
         
@@ -1100,9 +1100,9 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DescuentoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property RecargoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnDescuento
+                Return Me.columnRecargo
             End Get
         End Property
         
@@ -1199,9 +1199,9 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddVentasConDetalleRow(ByVal Id_Venta As Integer, ByVal Fecha As Date, ByVal Nro_Doc As Integer, ByVal Nombre_TipoDoc As String, ByVal Nombre_Cliente As String, ByVal Apellido As String, ByVal Descuento As Decimal, ByVal AlCosto As Boolean, ByVal Realizada As Boolean, ByVal Id_Articulo As Integer, ByVal Articulo As String, ByVal Cantidad As Integer, ByVal Precio As Decimal, ByVal Total As Decimal) As VentasConDetalleRow
+        Public Overloads Function AddVentasConDetalleRow(ByVal Id_Venta As Integer, ByVal Fecha As Date, ByVal Nro_Doc As Integer, ByVal Nombre_TipoDoc As String, ByVal Nombre_Cliente As String, ByVal Apellido As String, ByVal Recargo As Decimal, ByVal AlCosto As Boolean, ByVal Realizada As Boolean, ByVal Id_Articulo As Integer, ByVal Articulo As String, ByVal Cantidad As Integer, ByVal Precio As Decimal, ByVal Total As Decimal) As VentasConDetalleRow
             Dim rowVentasConDetalleRow As VentasConDetalleRow = CType(Me.NewRow,VentasConDetalleRow)
-            Dim columnValuesArray() As Object = New Object() {Id_Venta, Fecha, Nro_Doc, Nombre_TipoDoc, Nombre_Cliente, Apellido, Descuento, AlCosto, Realizada, Id_Articulo, Articulo, Cantidad, Precio, Total}
+            Dim columnValuesArray() As Object = New Object() {Id_Venta, Fecha, Nro_Doc, Nombre_TipoDoc, Nombre_Cliente, Apellido, Recargo, AlCosto, Realizada, Id_Articulo, Articulo, Cantidad, Precio, Total}
             rowVentasConDetalleRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVentasConDetalleRow)
             Return rowVentasConDetalleRow
@@ -1230,7 +1230,7 @@ Partial Public Class DataSet
             Me.columnNombre_TipoDoc = MyBase.Columns("Nombre_TipoDoc")
             Me.columnNombre_Cliente = MyBase.Columns("Nombre_Cliente")
             Me.columnApellido = MyBase.Columns("Apellido")
-            Me.columnDescuento = MyBase.Columns("Descuento")
+            Me.columnRecargo = MyBase.Columns("Recargo")
             Me.columnAlCosto = MyBase.Columns("AlCosto")
             Me.columnRealizada = MyBase.Columns("Realizada")
             Me.columnId_Articulo = MyBase.Columns("Id_Articulo")
@@ -1255,8 +1255,8 @@ Partial Public Class DataSet
             MyBase.Columns.Add(Me.columnNombre_Cliente)
             Me.columnApellido = New Global.System.Data.DataColumn("Apellido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnApellido)
-            Me.columnDescuento = New Global.System.Data.DataColumn("Descuento", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDescuento)
+            Me.columnRecargo = New Global.System.Data.DataColumn("Recargo", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRecargo)
             Me.columnAlCosto = New Global.System.Data.DataColumn("AlCosto", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAlCosto)
             Me.columnRealizada = New Global.System.Data.DataColumn("Realizada", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
@@ -1865,16 +1865,16 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Descuento() As Decimal
+        Public Property Recargo() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableVentasConDetalle.DescuentoColumn),Decimal)
+                    Return CType(Me(Me.tableVentasConDetalle.RecargoColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descuento' de la tabla 'VentasConDetalle' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Recargo' de la tabla 'VentasConDetalle' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableVentasConDetalle.DescuentoColumn) = value
+                Me(Me.tableVentasConDetalle.RecargoColumn) = value
             End Set
         End Property
         
@@ -2057,14 +2057,14 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsDescuentoNull() As Boolean
-            Return Me.IsNull(Me.tableVentasConDetalle.DescuentoColumn)
+        Public Function IsRecargoNull() As Boolean
+            Return Me.IsNull(Me.tableVentasConDetalle.RecargoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetDescuentoNull()
-            Me(Me.tableVentasConDetalle.DescuentoColumn) = Global.System.Convert.DBNull
+        Public Sub SetRecargoNull()
+            Me(Me.tableVentasConDetalle.RecargoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

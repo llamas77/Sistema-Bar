@@ -151,4 +151,9 @@ Public Class FrmMenu
         Dim frm As New FrmVentas
         frm.Show()
     End Sub
+
+    Private Sub ConfiguracionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionesToolStripMenuItem.Click
+        Dim frm As New FrmConfig
+        frm.Show()
+    End Sub
 End Class

@@ -15,7 +15,7 @@ Public Class FrmVentas
 
     Public Sub cargarGrilla()
         Dim sql As String = ""
-        sql &= "SELECT v.Id, v.Fecha, td.Nombre, c.Nro_Doc, c.Nombre, c.Apellido, (v.Descuento * 100) as Descuento, v.AlCosto, v.Realizada, SUM(dv.Cantidad * dv.Precio) as Total "
+        sql &= "SELECT v.Id, v.Fecha, td.Nombre, c.Nro_Doc, c.Nombre, c.Apellido, (v.Recargo * 100) as Recargo, v.AlCosto, v.Realizada, SUM(dv.Cantidad * dv.Precio) as Total "
         sql &= "FROM Ventas v JOIN Clientes c ON (v.Tipo_Doc_Cliente = c.Id_TipoDoc AND v.Nro_Doc_Cliente = c.Nro_Doc) "
         sql &= "JOIN Tipos_Doc td ON (c.Id_TipoDoc = td.Id)"
         sql &= "JOIN Detalles_Ventas dv ON (v.Id = dv.Id_Venta) "
@@ -47,17 +47,22 @@ Public Class FrmVentas
         End If
 
         If txtHasta.Text.Trim <> "/  /" Then
-            sql &= IIf(hay_where, " AND ", " WHERE ") & " v.Fecha <= '" & txtHasta.Text.Trim & "'"
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " convert(date, v.Fecha, 103) <= '" & txtHasta.Text.Trim & "'"
             hay_where = True
         End If
 
-        If txtDtoMin.Text.Trim <> "" Then
-            sql &= IIf(hay_where, " AND ", " WHERE ") & " Descuento>=" & formatear(txtDtoMin.Text.Trim)
+        If txtRecMin.Text.Trim <> "" Then
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " Recargo>=" & formatear(txtRecMin.Text.Trim)
             hay_where = True
         End If
 
-        If txtDtoMax.Text.Trim <> "" Then
-            sql &= IIf(hay_where, " AND ", " WHERE ") & " Descuento<=" & formatear(txtDtoMax.Text.Trim)
+        If txtRecMax.Text.Trim <> "" Then
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " Recargo<=" & formatear(txtRecMax.Text.Trim)
+            hay_where = True
+        End If
+
+        If chkBar.Checked Then
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " Recargo > 0"
             hay_where = True
         End If
 
@@ -71,7 +76,7 @@ Public Class FrmVentas
             hay_where = True
         End If
 
-        sql &= " GROUP BY v.Id, v.Fecha, td.Nombre, c.Nro_Doc, c.Nombre, c.Apellido, v.Descuento, v.AlCosto, v.Realizada "
+        sql &= " GROUP BY v.Id, v.Fecha, td.Nombre, c.Nro_Doc, c.Nombre, c.Apellido, v.Recargo, v.AlCosto, v.Realizada "
 
         Dim hay_having As Boolean
         If txtMontoMin.Text.Trim <> "" Then
@@ -159,6 +164,10 @@ Public Class FrmVentas
         terminarVenta(grilla.CurrentCell.RowIndex)
     End Sub
 
+    Private Sub txtTerminarPendientes_Click(sender As Object, e As EventArgs) Handles txtTerminarPendientes.Click
+        terminarventas()
+    End Sub
+
     Public Sub terminarVenta(ByRef rowIndex As Integer)
         If grilla.Rows(rowIndex).Cells(8).Value <> "Pendiente" Then
             MsgBox("La venta seleccionada ya se realizó.", vbCritical)
@@ -183,7 +192,65 @@ Public Class FrmVentas
         cargarGrilla()
 
         Dim valor As Single = FormatNumber(formatear(pagaCon.Trim) - grilla.Rows(rowIndex).Cells(9).Value, 2)
-        MsgBox("La venta se realizó correctamente. El vuelto es de $" & FormatNumber(valor, 2))
+        MsgBox("La venta se realizó correctamente. El vuelto es de $" & FormatNumber(valor, 2), vbInformation)
     End Sub
+
+    'Termina todas las ventas de la grilla que sean pendientes, y si solo hay de UNA SOLA PERSONA
+    Public Sub terminarventas()
+        If Not puedeActuarEnGrilla(grilla) Then Return
+
+        Dim primerTipoDoc As Object = grilla.Rows(0).Cells(2).Value
+        Dim primerDoc As Object = grilla.Rows(0).Cells(3).Value
+
+        'Si hay mas de uno verifico que sean todos iguales (mismos docs y mismos tipos dni), sino no hace falta
+        If grilla.Rows.Count > 0 Then
+            Dim i As Integer
+            For i = 1 To grilla.Rows.Count - 1
+                If grilla.Rows(i).Cells(2).Value <> primerTipoDoc Or grilla.Rows(i).Cells(3).Value <> primerDoc Then
+                    MsgBox("Debe filtrar primero por las ventas de un cliente en particular.", vbCritical)
+                    Return
+                End If
+            Next
+        End If
+
+        Dim monto As Single
+        Dim listaIds As New List(Of Integer)
+
+        For i = 0 To grilla.Rows.Count - 1
+
+            If grilla.Rows(i).Cells(8).Value <> "Pendiente" Then Continue For
+            monto += grilla.Rows(i).Cells(9).Value
+            listaIds.Add(grilla.Rows(i).Cells(0).Value)
+        Next
+
+
+        Dim mensaje As String = "El monto de las ventas del cliente: " & grilla.Rows(0).Cells(4).Value & " " & grilla.Rows(0).Cells(5).Value & " es de: $" & monto & ". ¿Con cuánto paga?"
+        Dim pagaCon As String
+        pagaCon = vInputBox(mensaje, , True)
+        If pagaCon.Trim = "" Then Return
+        While pagaCon.Trim = errString Or IIf(IsNumeric(Val(formatear(pagaCon.Trim))), Val(formatear(pagaCon.Trim)) < monto, True)
+            If Not pagaCon.Trim = errString Then
+                MsgBox("El valor ingresado es menor al monto total de las ventas", vbCritical)
+            End If
+
+            pagaCon = vInputBox(mensaje, , True)
+            If pagaCon.Trim = "" Then Return
+        End While
+
+
+        'A este paso está todo bien.. terminamos ventas:
+        db.iniciarTransaccion()
+        For Each index As Integer In listaIds
+            db.ejecutarSQL("UPDATE Ventas SET Realizada=1, Fecha=getDate() WHERE Id=" & index)
+        Next
+        db.terminarTransaccion()
+
+        cargarGrilla()
+
+        Dim valor As Single = FormatNumber(formatear(pagaCon.Trim) - monto, 2)
+        MsgBox("Las ventas se realizaron correctamente. El vuelto es de $" & FormatNumber(valor, 2), vbInformation)
+
+    End Sub
+
 
 End Class

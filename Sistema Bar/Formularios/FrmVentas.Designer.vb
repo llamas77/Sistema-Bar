@@ -27,16 +27,6 @@ Partial Class FrmVentas
         Me.cmdVer = New System.Windows.Forms.Button()
         Me.cmdNueva = New System.Windows.Forms.Button()
         Me.grilla = New System.Windows.Forms.DataGridView()
-        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Tipo_Doc_Cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nro_Doc_Cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AlCosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Realizada = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtBuscar = New Sistema_Bar.VTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cmdRealizar = New System.Windows.Forms.Button()
@@ -60,13 +50,24 @@ Partial Class FrmVentas
         Me.txtMontoMax = New Sistema_Bar.VTextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtDtoMin = New Sistema_Bar.VTextBox()
-        Me.txtDtoMax = New Sistema_Bar.VTextBox()
+        Me.txtRecMin = New Sistema_Bar.VTextBox()
+        Me.txtRecMax = New Sistema_Bar.VTextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.cmbTipoPrecio = New Sistema_Bar.VComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cmbEstado = New Sistema_Bar.VComboBox()
         Me.cmdLimpiar = New System.Windows.Forms.Button()
+        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Tipo_Doc_Cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nro_Doc_Cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Recargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AlCosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Realizada = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.chkBar = New System.Windows.Forms.CheckBox()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -94,83 +95,13 @@ Partial Class FrmVentas
         Me.grilla.AllowUserToDeleteRows = False
         Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Fecha, Me.Tipo_Doc_Cliente, Me.Nro_Doc_Cliente, Me.Nombre, Me.Apellido, Me.Descuento, Me.AlCosto, Me.Realizada, Me.Total})
+        Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Fecha, Me.Tipo_Doc_Cliente, Me.Nro_Doc_Cliente, Me.Nombre, Me.Apellido, Me.Recargo, Me.AlCosto, Me.Realizada, Me.Total})
         Me.grilla.Location = New System.Drawing.Point(22, 167)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
-        Me.grilla.Size = New System.Drawing.Size(870, 270)
+        Me.grilla.Size = New System.Drawing.Size(895, 270)
         Me.grilla.TabIndex = 14
-        '
-        'Id
-        '
-        Me.Id.HeaderText = "Código"
-        Me.Id.Name = "Id"
-        Me.Id.ReadOnly = True
-        Me.Id.Width = 70
-        '
-        'Fecha
-        '
-        Me.Fecha.HeaderText = "Fecha"
-        Me.Fecha.Name = "Fecha"
-        Me.Fecha.ReadOnly = True
-        Me.Fecha.Width = 120
-        '
-        'Tipo_Doc_Cliente
-        '
-        Me.Tipo_Doc_Cliente.HeaderText = "ID Tipo Doc"
-        Me.Tipo_Doc_Cliente.Name = "Tipo_Doc_Cliente"
-        Me.Tipo_Doc_Cliente.ReadOnly = True
-        Me.Tipo_Doc_Cliente.Visible = False
-        '
-        'Nro_Doc_Cliente
-        '
-        Me.Nro_Doc_Cliente.HeaderText = "Documento"
-        Me.Nro_Doc_Cliente.Name = "Nro_Doc_Cliente"
-        Me.Nro_Doc_Cliente.ReadOnly = True
-        Me.Nro_Doc_Cliente.Visible = False
-        '
-        'Nombre
-        '
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.ReadOnly = True
-        Me.Nombre.Width = 130
-        '
-        'Apellido
-        '
-        Me.Apellido.HeaderText = "Apellido"
-        Me.Apellido.Name = "Apellido"
-        Me.Apellido.ReadOnly = True
-        Me.Apellido.Width = 130
-        '
-        'Descuento
-        '
-        Me.Descuento.HeaderText = "Porc. Dto."
-        Me.Descuento.Name = "Descuento"
-        Me.Descuento.ReadOnly = True
-        Me.Descuento.Width = 80
-        '
-        'AlCosto
-        '
-        Me.AlCosto.HeaderText = "Precio"
-        Me.AlCosto.Name = "AlCosto"
-        Me.AlCosto.ReadOnly = True
-        '
-        'Realizada
-        '
-        Me.Realizada.HeaderText = "Estado"
-        Me.Realizada.Name = "Realizada"
-        Me.Realizada.ReadOnly = True
-        '
-        'Total
-        '
-        DataGridViewCellStyle1.Format = "C2"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.Total.DefaultCellStyle = DataGridViewCellStyle1
-        Me.Total.HeaderText = "Total"
-        Me.Total.Name = "Total"
-        Me.Total.ReadOnly = True
         '
         'txtBuscar
         '
@@ -218,7 +149,7 @@ Partial Class FrmVentas
         '
         'cmdFiltrar
         '
-        Me.cmdFiltrar.Location = New System.Drawing.Point(797, 138)
+        Me.cmdFiltrar.Location = New System.Drawing.Point(822, 138)
         Me.cmdFiltrar.Name = "cmdFiltrar"
         Me.cmdFiltrar.Size = New System.Drawing.Size(95, 25)
         Me.cmdFiltrar.TabIndex = 16
@@ -426,7 +357,7 @@ Partial Class FrmVentas
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(91, 18)
         Me.Label10.TabIndex = 15
-        Me.Label10.Text = "Descuento Mín:"
+        Me.Label10.Text = "Recargo Mín:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label11
@@ -435,42 +366,42 @@ Partial Class FrmVentas
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(91, 18)
         Me.Label11.TabIndex = 15
-        Me.Label11.Text = "Descuento Máx:"
+        Me.Label11.Text = "Recargo Máx:"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'txtDtoMin
+        'txtRecMin
         '
-        Me.txtDtoMin.EMensaje = Nothing
-        Me.txtDtoMin.Location = New System.Drawing.Point(679, 23)
-        Me.txtDtoMin.MaxLength = 50
-        Me.txtDtoMin.Name = "txtDtoMin"
-        Me.txtDtoMin.NombreVisual = "Descuento Mínimo"
-        Me.txtDtoMin.NumLimit = 999999999
-        Me.txtDtoMin.NumMin = 0
-        Me.txtDtoMin.Size = New System.Drawing.Size(81, 20)
-        Me.txtDtoMin.TabIndex = 13
-        Me.txtDtoMin.VNumero = True
-        Me.txtDtoMin.VNumLimit = True
-        Me.txtDtoMin.VNumMin = True
-        Me.txtDtoMin.VObligatorio = False
-        Me.txtDtoMin.VPositivo = True
+        Me.txtRecMin.EMensaje = Nothing
+        Me.txtRecMin.Location = New System.Drawing.Point(679, 23)
+        Me.txtRecMin.MaxLength = 50
+        Me.txtRecMin.Name = "txtRecMin"
+        Me.txtRecMin.NombreVisual = "Recargo Mínimo"
+        Me.txtRecMin.NumLimit = 999999999
+        Me.txtRecMin.NumMin = 0
+        Me.txtRecMin.Size = New System.Drawing.Size(81, 20)
+        Me.txtRecMin.TabIndex = 13
+        Me.txtRecMin.VNumero = True
+        Me.txtRecMin.VNumLimit = True
+        Me.txtRecMin.VNumMin = True
+        Me.txtRecMin.VObligatorio = False
+        Me.txtRecMin.VPositivo = True
         '
-        'txtDtoMax
+        'txtRecMax
         '
-        Me.txtDtoMax.EMensaje = Nothing
-        Me.txtDtoMax.Location = New System.Drawing.Point(679, 49)
-        Me.txtDtoMax.MaxLength = 50
-        Me.txtDtoMax.Name = "txtDtoMax"
-        Me.txtDtoMax.NombreVisual = "Descuento Máximo"
-        Me.txtDtoMax.NumLimit = 999999999
-        Me.txtDtoMax.NumMin = 0
-        Me.txtDtoMax.Size = New System.Drawing.Size(81, 20)
-        Me.txtDtoMax.TabIndex = 13
-        Me.txtDtoMax.VNumero = True
-        Me.txtDtoMax.VNumLimit = True
-        Me.txtDtoMax.VNumMin = True
-        Me.txtDtoMax.VObligatorio = False
-        Me.txtDtoMax.VPositivo = True
+        Me.txtRecMax.EMensaje = Nothing
+        Me.txtRecMax.Location = New System.Drawing.Point(679, 49)
+        Me.txtRecMax.MaxLength = 50
+        Me.txtRecMax.Name = "txtRecMax"
+        Me.txtRecMax.NombreVisual = "Recargo Máximo"
+        Me.txtRecMax.NumLimit = 999999999
+        Me.txtRecMax.NumMin = 0
+        Me.txtRecMax.Size = New System.Drawing.Size(81, 20)
+        Me.txtRecMax.TabIndex = 13
+        Me.txtRecMax.VNumero = True
+        Me.txtRecMax.VNumLimit = True
+        Me.txtRecMax.VNumMin = True
+        Me.txtRecMax.VObligatorio = False
+        Me.txtRecMax.VPositivo = True
         '
         'Label12
         '
@@ -522,18 +453,98 @@ Partial Class FrmVentas
         '
         'cmdLimpiar
         '
-        Me.cmdLimpiar.Location = New System.Drawing.Point(696, 138)
+        Me.cmdLimpiar.Location = New System.Drawing.Point(721, 138)
         Me.cmdLimpiar.Name = "cmdLimpiar"
         Me.cmdLimpiar.Size = New System.Drawing.Size(95, 25)
         Me.cmdLimpiar.TabIndex = 16
         Me.cmdLimpiar.Text = "Limpiar filtros"
         Me.cmdLimpiar.UseVisualStyleBackColor = True
         '
+        'Id
+        '
+        Me.Id.HeaderText = "Código"
+        Me.Id.Name = "Id"
+        Me.Id.ReadOnly = True
+        Me.Id.Width = 70
+        '
+        'Fecha
+        '
+        Me.Fecha.HeaderText = "Fecha"
+        Me.Fecha.Name = "Fecha"
+        Me.Fecha.ReadOnly = True
+        Me.Fecha.Width = 120
+        '
+        'Tipo_Doc_Cliente
+        '
+        Me.Tipo_Doc_Cliente.HeaderText = "ID Tipo Doc"
+        Me.Tipo_Doc_Cliente.Name = "Tipo_Doc_Cliente"
+        Me.Tipo_Doc_Cliente.ReadOnly = True
+        Me.Tipo_Doc_Cliente.Visible = False
+        '
+        'Nro_Doc_Cliente
+        '
+        Me.Nro_Doc_Cliente.HeaderText = "Documento"
+        Me.Nro_Doc_Cliente.Name = "Nro_Doc_Cliente"
+        Me.Nro_Doc_Cliente.ReadOnly = True
+        Me.Nro_Doc_Cliente.Visible = False
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        Me.Nombre.Width = 130
+        '
+        'Apellido
+        '
+        Me.Apellido.HeaderText = "Apellido"
+        Me.Apellido.Name = "Apellido"
+        Me.Apellido.ReadOnly = True
+        Me.Apellido.Width = 130
+        '
+        'Recargo
+        '
+        Me.Recargo.HeaderText = "Porc. Recargo"
+        Me.Recargo.Name = "Recargo"
+        Me.Recargo.ReadOnly = True
+        '
+        'AlCosto
+        '
+        Me.AlCosto.HeaderText = "Precio"
+        Me.AlCosto.Name = "AlCosto"
+        Me.AlCosto.ReadOnly = True
+        '
+        'Realizada
+        '
+        Me.Realizada.HeaderText = "Estado"
+        Me.Realizada.Name = "Realizada"
+        Me.Realizada.ReadOnly = True
+        '
+        'Total
+        '
+        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.Total.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Total.HeaderText = "Total"
+        Me.Total.Name = "Total"
+        Me.Total.ReadOnly = True
+        '
+        'chkBar
+        '
+        Me.chkBar.AutoSize = True
+        Me.chkBar.Location = New System.Drawing.Point(811, 26)
+        Me.chkBar.Name = "chkBar"
+        Me.chkBar.Size = New System.Drawing.Size(105, 17)
+        Me.chkBar.TabIndex = 30
+        Me.chkBar.Text = "Consumió en bar"
+        Me.chkBar.UseVisualStyleBackColor = True
+        '
         'FrmVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(904, 504)
+        Me.ClientSize = New System.Drawing.Size(929, 504)
+        Me.Controls.Add(Me.chkBar)
         Me.Controls.Add(Me.cmbEstado)
         Me.Controls.Add(Me.cmbTipoPrecio)
         Me.Controls.Add(Me.cmbTipoDoc)
@@ -548,9 +559,9 @@ Partial Class FrmVentas
         Me.Controls.Add(Me.grilla)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtApellido)
-        Me.Controls.Add(Me.txtDtoMax)
+        Me.Controls.Add(Me.txtRecMax)
         Me.Controls.Add(Me.txtMontoMax)
-        Me.Controls.Add(Me.txtDtoMin)
+        Me.Controls.Add(Me.txtRecMin)
         Me.Controls.Add(Me.txtMontoMin)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label11)
@@ -584,16 +595,6 @@ Partial Class FrmVentas
     Friend WithEvents grilla As DataGridView
     Friend WithEvents txtBuscar As VTextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents Id As DataGridViewTextBoxColumn
-    Friend WithEvents Fecha As DataGridViewTextBoxColumn
-    Friend WithEvents Tipo_Doc_Cliente As DataGridViewTextBoxColumn
-    Friend WithEvents Nro_Doc_Cliente As DataGridViewTextBoxColumn
-    Friend WithEvents Nombre As DataGridViewTextBoxColumn
-    Friend WithEvents Apellido As DataGridViewTextBoxColumn
-    Friend WithEvents Descuento As DataGridViewTextBoxColumn
-    Friend WithEvents AlCosto As DataGridViewTextBoxColumn
-    Friend WithEvents Realizada As DataGridViewTextBoxColumn
-    Friend WithEvents Total As DataGridViewTextBoxColumn
     Friend WithEvents cmdRealizar As Button
     Friend WithEvents txtTerminarPendientes As Button
     Friend WithEvents cmdFiltrar As Button
@@ -615,11 +616,22 @@ Partial Class FrmVentas
     Friend WithEvents txtMontoMax As VTextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents txtDtoMin As VTextBox
-    Friend WithEvents txtDtoMax As VTextBox
+    Friend WithEvents txtRecMin As VTextBox
+    Friend WithEvents txtRecMax As VTextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents cmbTipoPrecio As VComboBox
     Friend WithEvents Label13 As Label
     Friend WithEvents cmbEstado As VComboBox
     Friend WithEvents cmdLimpiar As Button
+    Friend WithEvents Id As DataGridViewTextBoxColumn
+    Friend WithEvents Fecha As DataGridViewTextBoxColumn
+    Friend WithEvents Tipo_Doc_Cliente As DataGridViewTextBoxColumn
+    Friend WithEvents Nro_Doc_Cliente As DataGridViewTextBoxColumn
+    Friend WithEvents Nombre As DataGridViewTextBoxColumn
+    Friend WithEvents Apellido As DataGridViewTextBoxColumn
+    Friend WithEvents Recargo As DataGridViewTextBoxColumn
+    Friend WithEvents AlCosto As DataGridViewTextBoxColumn
+    Friend WithEvents Realizada As DataGridViewTextBoxColumn
+    Friend WithEvents Total As DataGridViewTextBoxColumn
+    Friend WithEvents chkBar As CheckBox
 End Class

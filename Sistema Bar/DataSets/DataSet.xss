@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:ComprasConDetalle" ZOrder="3" X="30" Y="16" Height="181" Width="180" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="177" />
     <Shape ID="DesignTable:gastos" ZOrder="2" X="251" Y="20" Height="105" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
-    <Shape ID="DesignTable:VentasConDetalle" ZOrder="1" X="421" Y="20" Height="296" Width="169" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="292" />
+    <Shape ID="DesignTable:VentasConDetalle" ZOrder="1" X="421" Y="23" Height="296" Width="169" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="292" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

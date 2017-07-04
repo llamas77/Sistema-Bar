@@ -15,7 +15,7 @@
 
     Public Sub generar()
         Dim sql As String = ""
-        sql &= "SELECT v.Id as Id_Venta, v.Fecha, c.Nro_Doc, td.Nombre as 'Nombre_TipoDoc', c.Nombre as Nombre_Cliente, c.Apellido, (v.Descuento * 100) as Descuento, v.AlCosto, v.Realizada as 'Realizada', a.Id as Id_Articulo, a.Nombre as Articulo, dv.Cantidad, dv.Precio, (dv.Precio * dv.Cantidad) as Total "
+        sql &= "SELECT v.Id as Id_Venta, v.Fecha, c.Nro_Doc, td.Nombre as 'Nombre_TipoDoc', c.Nombre as Nombre_Cliente, c.Apellido, (v.Recargo * 100) as Recargo, v.AlCosto, v.Realizada as 'Realizada', a.Id as Id_Articulo, a.Nombre as Articulo, dv.Cantidad, dv.Precio, (dv.Precio * dv.Cantidad) as Total "
         sql &= "FROM Ventas v "
         sql &= "JOIN Detalles_Ventas dv ON (v.Id = dv.Id_Venta) "
         sql &= "JOIN Clientes c ON (c.Id_TipoDoc = v.Tipo_Doc_Cliente AND c.Nro_Doc = v.Nro_Doc_Cliente) "

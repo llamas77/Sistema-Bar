@@ -126,6 +126,12 @@
     <Compile Include="Formularios\FrmClientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmConfig.Designer.vb">
+      <DependentUpon>FrmConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmGastos.Designer.vb">
       <DependentUpon>FrmGastos.vb</DependentUpon>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCompras.resx">
       <DependentUpon>FrmCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmConfig.resx">
+      <DependentUpon>FrmConfig.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmGastos.resx">
       <DependentUpon>FrmGastos.vb</DependentUpon>

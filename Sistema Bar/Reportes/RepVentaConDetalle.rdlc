@@ -656,11 +656,11 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Descuento aplicado: </Value>
+                  <Value>Recargo aplicado: </Value>
                   <Style />
                 </TextRun>
                 <TextRun>
-                  <Value>=Fields!Descuento.Value</Value>
+                  <Value>=Fields!Recargo.Value</Value>
                   <Style />
                 </TextRun>
                 <TextRun>
@@ -855,8 +855,8 @@
           <DataField>Apellido</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Descuento">
-          <DataField>Descuento</DataField>
+        <Field Name="Recargo">
+          <DataField>Recargo</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="AlCosto">

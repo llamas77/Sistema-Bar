@@ -50,6 +50,8 @@ Partial Class FrmMenu
         Me.GastosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusTurno = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -57,7 +59,7 @@ Partial Class FrmMenu
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnoToolStripMenuItem, Me.ArtículosToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.GastosToolStripMenuItem, Me.ReportesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnoToolStripMenuItem, Me.ArtículosToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.GastosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.AyudaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(803, 24)
@@ -74,13 +76,13 @@ Partial Class FrmMenu
         'AbrirTurnoToolStripMenuItem
         '
         Me.AbrirTurnoToolStripMenuItem.Name = "AbrirTurnoToolStripMenuItem"
-        Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.AbrirTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AbrirTurnoToolStripMenuItem.Text = "Abrir turno"
         '
         'CerrarTurnoToolStripMenuItem
         '
         Me.CerrarTurnoToolStripMenuItem.Name = "CerrarTurnoToolStripMenuItem"
-        Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.CerrarTurnoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CerrarTurnoToolStripMenuItem.Text = "Cerrar turno"
         '
         'ArtículosToolStripMenuItem
@@ -150,7 +152,7 @@ Partial Class FrmMenu
         'ProveedoresToolStripMenuItem1
         '
         Me.ProveedoresToolStripMenuItem1.Name = "ProveedoresToolStripMenuItem1"
-        Me.ProveedoresToolStripMenuItem1.Size = New System.Drawing.Size(114, 22)
+        Me.ProveedoresToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ProveedoresToolStripMenuItem1.Text = "Gestión"
         '
         'ClientesToolStripMenuItem
@@ -233,6 +235,19 @@ Partial Class FrmMenu
         Me.ToolStripStatusTurno.Size = New System.Drawing.Size(93, 17)
         Me.ToolStripStatusTurno.Text = "Estado del turno"
         '
+        'AyudaToolStripMenuItem
+        '
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfiguracionesToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
+        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
+        Me.AyudaToolStripMenuItem.Text = "General"
+        '
+        'ConfiguracionesToolStripMenuItem
+        '
+        Me.ConfiguracionesToolStripMenuItem.Name = "ConfiguracionesToolStripMenuItem"
+        Me.ConfiguracionesToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ConfiguracionesToolStripMenuItem.Text = "Configuraciones"
+        '
         'FrmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -284,4 +299,6 @@ Partial Class FrmMenu
     Friend WithEvents ConsultarVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GastosToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfiguracionesToolStripMenuItem As ToolStripMenuItem
 End Class

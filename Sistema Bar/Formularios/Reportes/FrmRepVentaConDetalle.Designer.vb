@@ -25,10 +25,10 @@ Partial Class FrmRepVentaConDetalle
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.DataSet = New Sistema_Bar.DataSet()
         Me.VentasConDetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        CType(Me.DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataSet = New Sistema_Bar.DataSet()
         CType(Me.VentasConDetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ReportViewer1
@@ -46,15 +46,15 @@ Partial Class FrmRepVentaConDetalle
         Me.ReportViewer1.Size = New System.Drawing.Size(703, 446)
         Me.ReportViewer1.TabIndex = 0
         '
-        'DataSet
-        '
-        Me.DataSet.DataSetName = "DataSet"
-        Me.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'VentasConDetalleBindingSource
         '
         Me.VentasConDetalleBindingSource.DataMember = "VentasConDetalle"
         Me.VentasConDetalleBindingSource.DataSource = Me.DataSet
+        '
+        'DataSet
+        '
+        Me.DataSet.DataSetName = "DataSet"
+        Me.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FrmRepVentaConDetalle
         '
@@ -63,9 +63,10 @@ Partial Class FrmRepVentaConDetalle
         Me.ClientSize = New System.Drawing.Size(727, 470)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "FrmRepVentaConDetalle"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Venta"
-        CType(Me.DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VentasConDetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

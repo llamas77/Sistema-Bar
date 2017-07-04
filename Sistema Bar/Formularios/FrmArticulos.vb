@@ -99,7 +99,7 @@ Public Class FrmArticulos
         ' Actualizo precios de venta de ventas pendientes
         Dim sql As String = ""
         sql &= "UPDATE dv "
-        sql &= "SET dv.Precio = a.Precio_Venta * (1 - v.Descuento)"
+        sql &= "SET dv.Precio = a.Precio_Venta * (1 + v.Recargo)"
         sql &= "FROM Detalles_Ventas dv "
         sql &= "JOIN Ventas v ON (v.Id = dv.Id_Venta) "
         sql &= "JOIN Articulos a ON (dv.Id_Articulo = a.Id)"
@@ -111,7 +111,7 @@ Public Class FrmArticulos
         ' Actualizo precios de lista de ventas pendientes
         sql = ""
         sql &= "UPDATE dv "
-        sql &= "SET dv.Precio = a.Precio_Lista * (1 - v.Descuento)"
+        sql &= "SET dv.Precio = a.Precio_Lista * (1 + v.Recargo)"
         sql &= "FROM Detalles_Ventas dv "
         sql &= "JOIN Ventas v ON (v.Id = dv.Id_Venta) "
         sql &= "JOIN Articulos a ON (dv.Id_Articulo = a.Id)"

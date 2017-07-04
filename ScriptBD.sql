@@ -95,7 +95,7 @@ CREATE TABLE Ventas(
 	Nro_Doc_Cliente INT,
 	Fecha DATETIME DEFAULT getdate() NOT NULL,
 	AlCosto BIT,
-	Descuento DECIMAL(11, 2),
+	Recargo DECIMAL(11, 2),
 	Realizada BIT,
 	CONSTRAINT Ventas_pk PRIMARY KEY (Id),
 	CONSTRAINT Ventas_fk FOREIGN KEY (Tipo_Doc_Cliente, Nro_Doc_Cliente) REFERENCES Clientes(Id_TipoDoc, Nro_Doc)
@@ -111,14 +111,14 @@ CREATE TABLE Detalles_Ventas(
 	CONSTRAINT Detalles_Ventas_fk_2 FOREIGN KEY (Id_Venta) REFERENCES Ventas (Id) ON DELETE CASCADE
 )
 
-CREATE TABLE Extras (
+CREATE TABLE Configuraciones (
 	Id INT,
-	Descuento DECIMAL(11, 2)
+	Recargo DECIMAL(11, 2)
 	CONSTRAINT Extras_pk PRIMARY KEY (Id)
 )
 
-INSERT INTO Extras VALUES(1, 0.33)
 
+INSERT INTO Configuraciones (Id, Recargo) VALUES(1, 0)
 
 --DROP TABLE Detalles_Compras
 --DROP TABLE Compras
