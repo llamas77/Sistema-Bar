@@ -1,5 +1,5 @@
-﻿Public Class AccesoDatos
-    Private conString As New OleDb.OleDbConnectionStringBuilder
+﻿Imports System.Configuration
+Public Class AccesoDatos
     Private conexion As New OleDb.OleDbConnection
     Private comando As New OleDb.OleDbCommand
     Private transaccion As OleDb.OleDbTransaction
@@ -29,15 +29,19 @@
         Return instancia
     End Function
 
+
+    Private Shared Function getConnectionString() As String
+
+        Dim settings As ConnectionStringSettings =
+            ConfigurationManager.ConnectionStrings("Sistema_Bar.My.MySettings.ConnectionString")
+        Return settings.ConnectionString
+    End Function
+
     Public Sub New()
         ' Definición del string de conexión
-        conString("Provider") = "SQLNCLI11"
-        conString("Data Source") = "FRANCO-PC"
-        conString("Integrated Security") = "SSPI"
-        conString("Initial Catalog") = "BAR"
 
         ' Configuración de conexión y comando
-        conexion.ConnectionString = conString.ConnectionString
+        conexion.ConnectionString = getConnectionString()
         comando.Connection = conexion
         estadoActual = eEstado.desconectado
     End Sub

@@ -120,17 +120,22 @@ Public Class FrmCompra
 
     Private Sub modificarArticulo(sender As Object, e As EventArgs) Handles cmdModificar.Click
         If Not puedeActuarEnGrilla(grilla) Then Return
+
         Dim cantidad As String = vInputBox("Ingrese la nueva cantidad para: '" & grilla.Rows(grilla.CurrentCell.RowIndex).Cells(2).Value & "'", "Modificar cantidad", True, 1)
-        If cantidad <> "" Then
-            With grilla.Rows(grilla.CurrentCell.RowIndex)
-                .Cells(0).Value = Val(cantidad)
-                .Cells(4).Value = Val(cantidad) * .Cells(3).Value
-            End With
+        If cantidad.Trim = "" Then Return
+        While cantidad = errString
+            cantidad = vInputBox("Ingrese la nueva cantidad para: '" & grilla.Rows(grilla.CurrentCell.RowIndex).Cells(2).Value & "'", "Modificar cantidad", True, 1)
+            If cantidad.Trim = "" Then Return
+        End While
 
-            actualizarTotal()
+        With grilla.Rows(grilla.CurrentCell.RowIndex)
+            .Cells(0).Value = Val(cantidad)
+            .Cells(4).Value = Val(cantidad) * .Cells(3).Value
+        End With
 
-            FirstControl.Select()
-        End If
+        actualizarTotal()
+
+        FirstControl.Select()
     End Sub
 
     Private Sub borrarArticulo(sender As Object, e As EventArgs) Handles cmdBorrar.Click

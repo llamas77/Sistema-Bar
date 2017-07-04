@@ -428,6 +428,7 @@ Partial Class FrmVenta
         Me.Label11.TabIndex = 32
         Me.Label11.Text = "Vuelto:"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label11.Visible = False
         '
         'lblVuelto
         '
@@ -436,7 +437,6 @@ Partial Class FrmVenta
         Me.lblVuelto.Name = "lblVuelto"
         Me.lblVuelto.Size = New System.Drawing.Size(102, 20)
         Me.lblVuelto.TabIndex = 32
-        Me.lblVuelto.Text = "$ 0"
         Me.lblVuelto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cmdPendiente

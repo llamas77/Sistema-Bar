@@ -526,7 +526,7 @@ Partial Class FrmVentas
         Me.cmdLimpiar.Name = "cmdLimpiar"
         Me.cmdLimpiar.Size = New System.Drawing.Size(95, 25)
         Me.cmdLimpiar.TabIndex = 16
-        Me.cmdLimpiar.Text = "Limpiar"
+        Me.cmdLimpiar.Text = "Limpiar filtros"
         Me.cmdLimpiar.UseVisualStyleBackColor = True
         '
         'FrmVentas

@@ -165,17 +165,22 @@ Public Class FrmVenta
 
     Private Sub modificarArticulo(sender As Object, e As EventArgs) Handles cmdModificar.Click
         If Not puedeActuarEnGrilla(grilla) Then Return
+
         Dim cantidad As String = vInputBox("Ingrese la nueva cantidad para: '" & grilla.Rows(grilla.CurrentCell.RowIndex).Cells(2).Value & "'", "Modificar cantidad", True, 1)
-        If cantidad <> "" Then
-            With grilla.Rows(grilla.CurrentCell.RowIndex)
-                .Cells(0).Value = Val(cantidad)
-                .Cells(4).Value = Val(cantidad) * .Cells(3).Value
-            End With
+        If cantidad.Trim = "" Then Return
+        While cantidad = errString
+            cantidad = vInputBox("Ingrese la nueva cantidad para: '" & grilla.Rows(grilla.CurrentCell.RowIndex).Cells(2).Value & "'", "Modificar cantidad", True, 1)
+            If cantidad.Trim = "" Then Return
+        End While
 
-            actualizarTotal()
+        With grilla.Rows(grilla.CurrentCell.RowIndex)
+            .Cells(0).Value = Val(cantidad)
+            .Cells(4).Value = Val(cantidad) * .Cells(3).Value
+        End With
 
-            FirstControl.Select()
-        End If
+        actualizarTotal()
+
+        FirstControl.Select()
     End Sub
 
     Private Sub borrarArticulo(sender As Object, e As EventArgs) Handles cmdBorrar.Click
@@ -413,8 +418,8 @@ Public Class FrmVenta
             If IsNumeric(formatear(txtPagaCon.Text.Trim)) Then
                 If Val(formatear(txtPagaCon.Text.Trim)) >= cantTotal Then
                     Label11.Visible = True
-                    Dim val As Single = FormatNumber(txtPagaCon.Text.Trim - cantTotal, 2)
-                    lblVuelto.Text = "$ " & val
+                    Dim valor As Single = FormatNumber(Val(formatear(txtPagaCon.Text.Trim)) - cantTotal, 2)
+                    lblVuelto.Text = "$ " & valor
                     Exit Sub
                 End If
             End If

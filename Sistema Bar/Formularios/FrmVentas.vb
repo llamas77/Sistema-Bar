@@ -159,14 +159,31 @@ Public Class FrmVentas
         terminarVenta(grilla.CurrentCell.RowIndex)
     End Sub
 
-    Public Sub terminarVenta(ByRef rowIndex As Integer, Optional mensajeError As Boolean = True)
+    Public Sub terminarVenta(ByRef rowIndex As Integer)
         If grilla.Rows(rowIndex).Cells(8).Value <> "Pendiente" Then
-            If mensajeError Then MsgBox("La venta seleccionada ya se realizó.", vbCritical)
+            MsgBox("La venta seleccionada ya se realizó.", vbCritical)
             Return
         End If
 
+        Dim mensaje As String = "El monto de la venta N°: " & grilla.Rows(rowIndex).Cells(0).Value & " es de: $" & grilla.Rows(rowIndex).Cells(9).Value & ". ¿Con cuánto paga?"
+        Dim pagaCon As String
+        pagaCon = vInputBox(mensaje, , True)
+        If pagaCon.Trim = "" Then Return
+        While pagaCon.Trim = errString Or IIf(IsNumeric(Val(formatear(pagaCon.Trim))), Val(formatear(pagaCon.Trim)) < grilla.Rows(rowIndex).Cells(9).Value, True)
+            If Not pagaCon.Trim = errString Then
+                MsgBox("El valor ingresado es menor al monto de la venta", vbCritical)
+            End If
 
+            pagaCon = vInputBox(mensaje, , True)
+            If pagaCon.Trim = "" Then Return
+        End While
 
+        'A este paso está todo bien.. terminamos venta:
+        db.ejecutarSQL("UPDATE Ventas SET Realizada=1, Fecha=getDate() WHERE Id=" & grilla.Rows(rowIndex).Cells(0).Value)
+        cargarGrilla()
+
+        Dim valor As Single = FormatNumber(formatear(pagaCon.Trim) - grilla.Rows(rowIndex).Cells(9).Value, 2)
+        MsgBox("La venta se realizó correctamente. El vuelto es de $" & FormatNumber(valor, 2))
     End Sub
 
 End Class

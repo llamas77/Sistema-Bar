@@ -60,7 +60,7 @@ Partial Class FrmMenu
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnoToolStripMenuItem, Me.ArtículosToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.GastosToolStripMenuItem, Me.ReportesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(971, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(803, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -221,9 +221,9 @@ Partial Class FrmMenu
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusTurno})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 546)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 407)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(971, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(803, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -239,8 +239,8 @@ Partial Class FrmMenu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ClientSize = New System.Drawing.Size(971, 568)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(803, 429)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
