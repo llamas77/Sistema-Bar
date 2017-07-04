@@ -60,6 +60,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>kiosco.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -118,6 +121,9 @@
     <Compile Include="DataSets\DataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSet.vb">
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmClientes.Designer.vb">
@@ -205,16 +211,40 @@
     <Compile Include="Formularios\FrmVentas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepArticulos.Designer.vb">
+      <DependentUpon>FrmRepArticulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepArticulos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Reportes\FrmRepCompraConDetalle.Designer.vb">
       <DependentUpon>FrmRepCompraConDetalle.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Reportes\FrmRepCompraConDetalle.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepComprasA.Designer.vb">
+      <DependentUpon>FrmRepComprasA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepComprasA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepComprasR.Designer.vb">
+      <DependentUpon>FrmRepComprasR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepComprasR.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Reportes\FrmRepGastos.Designer.vb">
       <DependentUpon>FrmRepGastos.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Reportes\FrmRepGastos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepRubros.Designer.vb">
+      <DependentUpon>FrmRepRubros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepRubros.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Reportes\FrmRepVentaConDetalle.Designer.vb">
@@ -285,11 +315,23 @@
     <EmbeddedResource Include="Formularios\FrmVentas.resx">
       <DependentUpon>FrmVentas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FrmRepArticulos.resx">
+      <DependentUpon>FrmRepArticulos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\FrmRepCompraConDetalle.resx">
       <DependentUpon>FrmRepCompraConDetalle.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FrmRepComprasA.resx">
+      <DependentUpon>FrmRepComprasA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FrmRepComprasR.resx">
+      <DependentUpon>FrmRepComprasR.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\FrmRepGastos.resx">
       <DependentUpon>FrmRepGastos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FrmRepRubros.resx">
+      <DependentUpon>FrmRepRubros.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\FrmRepVentaConDetalle.resx">
       <DependentUpon>FrmRepVentaConDetalle.vb</DependentUpon>
@@ -300,9 +342,13 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepArticulos.rdlc" />
     <EmbeddedResource Include="Reportes\RepCompraConDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RepComprasConDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RepComprasR.rdlc" />
     <EmbeddedResource Include="Reportes\RepGastos.rdlc" />
+    <EmbeddedResource Include="Reportes\RepComprasA.rdlc" />
+    <EmbeddedResource Include="Reportes\RepRubros.rdlc" />
     <EmbeddedResource Include="Reportes\RepVentaConDetalle.rdlc" />
   </ItemGroup>
   <ItemGroup>
@@ -337,6 +383,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="kiosco.ico" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

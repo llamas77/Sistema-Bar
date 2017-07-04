@@ -147,6 +147,27 @@ Public Class FrmMenu
         frm.Show()
     End Sub
 
+    Private Sub ArtículosToolStripMenuItem1_Click(sender As Object, e As EventArgs)
+        Dim frm As New FrmRepArticulos
+        frm.Show()
+    End Sub
+
+    Private Sub RubrosToolStripMenuItem1_Click(sender As Object, e As EventArgs)
+        Dim frm As New FrmRepRubros
+        frm.Show()
+
+    End Sub
+
+    Private Sub PorRubrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PorRubrosToolStripMenuItem.Click
+        Dim frm As New FrmRepComprasR
+        frm.Show()
+    End Sub
+
+    Private Sub PorArtículosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PorArtículosToolStripMenuItem.Click
+        Dim frm As New FrmRepComprasA
+        frm.Show()
+    End Sub
+
     Private Sub ConsultarVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarVentasToolStripMenuItem.Click
         Dim frm As New FrmVentas
         frm.Show()
