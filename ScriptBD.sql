@@ -119,6 +119,9 @@ CREATE TABLE Extras (
 
 INSERT INTO Extras VALUES(1, 0.33)
 
+SELECT c.Fecha, p.Nombre, a.Id, a.Nombre, SUM(dc.Cantidad * dc.Precio_Lista) as 'Total' FROM Compras c JOIN Proveedores p ON (c.Id_Proveedor = p.Id) 
+	JOIN Detalles_Compras dc ON (c.Id = dc.Id_Compra) JOIN Articulos a ON (dc.Id_Articulo = a.Id) 
+	GROUP BY c.Fecha, p.Nombre, a.Id, a.Nombre
 
 --DROP TABLE Detalles_Compras
 --DROP TABLE Compras
@@ -138,3 +141,4 @@ INSERT INTO Extras VALUES(1, 0.33)
 --DROP TABLE Clientes
 --DROP TABLE Tipos_Cliente
 --DROP TABLE Tipos_Doc
+

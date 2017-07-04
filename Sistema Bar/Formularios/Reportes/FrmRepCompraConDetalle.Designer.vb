@@ -23,7 +23,8 @@ Partial Class FrmRepCompraConDetalle
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRepCompraConDetalle))
         Me.ComprasConDetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet = New Sistema_Bar.DataSet()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -46,22 +47,25 @@ Partial Class FrmRepCompraConDetalle
         Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.ComprasConDetalleBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.ComprasConDetalleBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepCompraConDetalle.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 12)
+        Me.ReportViewer1.Location = New System.Drawing.Point(16, 15)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(682, 441)
+        Me.ReportViewer1.Size = New System.Drawing.Size(909, 542)
         Me.ReportViewer1.TabIndex = 0
         '
         'FrmRepCompraConDetalle
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(706, 465)
+        Me.ClientSize = New System.Drawing.Size(941, 572)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FrmRepCompraConDetalle"
         Me.Text = "Reporte de compra"
         CType(Me.ComprasConDetalleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
