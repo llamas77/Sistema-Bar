@@ -1,10 +1,6 @@
 ﻿Imports Sistema_Bar.Util
 Public Class FrmMenu
 
-
-
-    Dim turnoAbierto As Boolean
-
     Dim db As AccesoDatos = AccesoDatos.getBDInstancia()
 
     Private Sub RubrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RubrosToolStripMenuItem.Click
@@ -50,7 +46,6 @@ Public Class FrmMenu
 
     Private Sub FrmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         turnoAbierto = setEstTurno(Nothing, False)
-        habilitarMenues()
 
         ' Chequea si ya había un turno abierto
         Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
@@ -59,6 +54,8 @@ Public Class FrmMenu
                 turnoAbierto = setEstTurno(tabla, True)
             End If
         End If
+
+        habilitarMenues()
     End Sub
 
     Private Sub AbrirTurnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirTurnoToolStripMenuItem.Click
@@ -185,7 +182,7 @@ Public Class FrmMenu
         logeado = True
         habilitarMenues()
 
-        MsgBox("Logeado al como administrador. Se habilitaron todas las funciones", vbInformation)
+        MsgBox("Logeado como administrador.", vbInformation)
     End Sub
 
     Private Sub SalirDelModoAdministradorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirDelModoAdministradorToolStripMenuItem.Click

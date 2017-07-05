@@ -26,9 +26,6 @@ Partial Class FrmVentas
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmVentas))
         Me.cmdVer = New System.Windows.Forms.Button()
         Me.cmdNueva = New System.Windows.Forms.Button()
-        Me.grilla = New System.Windows.Forms.DataGridView()
-        Me.txtBuscar = New Sistema_Bar.VTextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.cmdRealizar = New System.Windows.Forms.Button()
         Me.txtTerminarPendientes = New System.Windows.Forms.Button()
         Me.cmdFiltrar = New System.Windows.Forms.Button()
@@ -57,6 +54,11 @@ Partial Class FrmVentas
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cmbEstado = New Sistema_Bar.VComboBox()
         Me.cmdLimpiar = New System.Windows.Forms.Button()
+        Me.chkBar = New System.Windows.Forms.CheckBox()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.tabConsulta = New System.Windows.Forms.TabPage()
+        Me.tabReporte = New System.Windows.Forms.TabPage()
+        Me.grilla = New System.Windows.Forms.DataGridView()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Tipo_Doc_Cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,13 +69,18 @@ Partial Class FrmVentas
         Me.AlCosto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Realizada = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.chkBar = New System.Windows.Forms.CheckBox()
+        Me.txtBuscar = New Sistema_Bar.VTextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.TabControl1.SuspendLayout()
+        Me.tabConsulta.SuspendLayout()
+        Me.tabReporte.SuspendLayout()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmdVer
         '
-        Me.cmdVer.Location = New System.Drawing.Point(797, 467)
+        Me.cmdVer.Location = New System.Drawing.Point(805, 296)
         Me.cmdVer.Name = "cmdVer"
         Me.cmdVer.Size = New System.Drawing.Size(95, 25)
         Me.cmdVer.TabIndex = 16
@@ -82,56 +89,16 @@ Partial Class FrmVentas
         '
         'cmdNueva
         '
-        Me.cmdNueva.Location = New System.Drawing.Point(22, 467)
+        Me.cmdNueva.Location = New System.Drawing.Point(22, 492)
         Me.cmdNueva.Name = "cmdNueva"
         Me.cmdNueva.Size = New System.Drawing.Size(95, 25)
         Me.cmdNueva.TabIndex = 17
         Me.cmdNueva.Text = "Nueva venta"
         Me.cmdNueva.UseVisualStyleBackColor = True
         '
-        'grilla
-        '
-        Me.grilla.AllowUserToAddRows = False
-        Me.grilla.AllowUserToDeleteRows = False
-        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Fecha, Me.Tipo_Doc_Cliente, Me.Nro_Doc_Cliente, Me.Nombre, Me.Apellido, Me.Recargo, Me.AlCosto, Me.Realizada, Me.Total})
-        Me.grilla.Location = New System.Drawing.Point(22, 167)
-        Me.grilla.MultiSelect = False
-        Me.grilla.Name = "grilla"
-        Me.grilla.ReadOnly = True
-        Me.grilla.Size = New System.Drawing.Size(895, 270)
-        Me.grilla.TabIndex = 14
-        '
-        'txtBuscar
-        '
-        Me.txtBuscar.EMensaje = Nothing
-        Me.txtBuscar.Location = New System.Drawing.Point(74, 141)
-        Me.txtBuscar.MaxLength = 50
-        Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.NombreVisual = "Nombre"
-        Me.txtBuscar.NumLimit = 999999999
-        Me.txtBuscar.NumMin = 0
-        Me.txtBuscar.Size = New System.Drawing.Size(211, 20)
-        Me.txtBuscar.TabIndex = 13
-        Me.txtBuscar.VNumero = False
-        Me.txtBuscar.VNumLimit = False
-        Me.txtBuscar.VNumMin = False
-        Me.txtBuscar.VObligatorio = False
-        Me.txtBuscar.VPositivo = False
-        '
-        'Label7
-        '
-        Me.Label7.Location = New System.Drawing.Point(19, 142)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 16)
-        Me.Label7.TabIndex = 15
-        Me.Label7.Text = "Buscar:"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'cmdRealizar
         '
-        Me.cmdRealizar.Location = New System.Drawing.Point(696, 467)
+        Me.cmdRealizar.Location = New System.Drawing.Point(704, 296)
         Me.cmdRealizar.Name = "cmdRealizar"
         Me.cmdRealizar.Size = New System.Drawing.Size(95, 25)
         Me.cmdRealizar.TabIndex = 16
@@ -140,7 +107,7 @@ Partial Class FrmVentas
         '
         'txtTerminarPendientes
         '
-        Me.txtTerminarPendientes.Location = New System.Drawing.Point(526, 467)
+        Me.txtTerminarPendientes.Location = New System.Drawing.Point(534, 296)
         Me.txtTerminarPendientes.Name = "txtTerminarPendientes"
         Me.txtTerminarPendientes.Size = New System.Drawing.Size(164, 25)
         Me.txtTerminarPendientes.TabIndex = 16
@@ -149,7 +116,7 @@ Partial Class FrmVentas
         '
         'cmdFiltrar
         '
-        Me.cmdFiltrar.Location = New System.Drawing.Point(822, 138)
+        Me.cmdFiltrar.Location = New System.Drawing.Point(832, 97)
         Me.cmdFiltrar.Name = "cmdFiltrar"
         Me.cmdFiltrar.Size = New System.Drawing.Size(95, 25)
         Me.cmdFiltrar.TabIndex = 16
@@ -453,12 +420,73 @@ Partial Class FrmVentas
         '
         'cmdLimpiar
         '
-        Me.cmdLimpiar.Location = New System.Drawing.Point(721, 138)
+        Me.cmdLimpiar.Location = New System.Drawing.Point(832, 65)
         Me.cmdLimpiar.Name = "cmdLimpiar"
         Me.cmdLimpiar.Size = New System.Drawing.Size(95, 25)
         Me.cmdLimpiar.TabIndex = 16
         Me.cmdLimpiar.Text = "Limpiar filtros"
         Me.cmdLimpiar.UseVisualStyleBackColor = True
+        '
+        'chkBar
+        '
+        Me.chkBar.AutoSize = True
+        Me.chkBar.Location = New System.Drawing.Point(811, 26)
+        Me.chkBar.Name = "chkBar"
+        Me.chkBar.Size = New System.Drawing.Size(105, 17)
+        Me.chkBar.TabIndex = 30
+        Me.chkBar.Text = "Consumió en bar"
+        Me.chkBar.UseVisualStyleBackColor = True
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.tabConsulta)
+        Me.TabControl1.Controls.Add(Me.tabReporte)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 126)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(920, 365)
+        Me.TabControl1.TabIndex = 31
+        '
+        'tabConsulta
+        '
+        Me.tabConsulta.Controls.Add(Me.txtBuscar)
+        Me.tabConsulta.Controls.Add(Me.Label7)
+        Me.tabConsulta.Controls.Add(Me.grilla)
+        Me.tabConsulta.Controls.Add(Me.txtTerminarPendientes)
+        Me.tabConsulta.Controls.Add(Me.cmdRealizar)
+        Me.tabConsulta.Controls.Add(Me.cmdVer)
+        Me.tabConsulta.Location = New System.Drawing.Point(4, 22)
+        Me.tabConsulta.Name = "tabConsulta"
+        Me.tabConsulta.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabConsulta.Size = New System.Drawing.Size(912, 339)
+        Me.tabConsulta.TabIndex = 0
+        Me.tabConsulta.Text = "Consulta"
+        Me.tabConsulta.UseVisualStyleBackColor = True
+        '
+        'tabReporte
+        '
+        Me.tabReporte.Controls.Add(Me.ReportViewer1)
+        Me.tabReporte.Location = New System.Drawing.Point(4, 22)
+        Me.tabReporte.Name = "tabReporte"
+        Me.tabReporte.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabReporte.Size = New System.Drawing.Size(912, 339)
+        Me.tabReporte.TabIndex = 1
+        Me.tabReporte.Text = "Reporte"
+        Me.tabReporte.UseVisualStyleBackColor = True
+        '
+        'grilla
+        '
+        Me.grilla.AllowUserToAddRows = False
+        Me.grilla.AllowUserToDeleteRows = False
+        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Fecha, Me.Tipo_Doc_Cliente, Me.Nro_Doc_Cliente, Me.Nombre, Me.Apellido, Me.Recargo, Me.AlCosto, Me.Realizada, Me.Total})
+        Me.grilla.Location = New System.Drawing.Point(6, 32)
+        Me.grilla.MultiSelect = False
+        Me.grilla.Name = "grilla"
+        Me.grilla.ReadOnly = True
+        Me.grilla.Size = New System.Drawing.Size(895, 258)
+        Me.grilla.TabIndex = 15
         '
         'Id
         '
@@ -529,34 +557,58 @@ Partial Class FrmVentas
         Me.Total.Name = "Total"
         Me.Total.ReadOnly = True
         '
-        'chkBar
+        'txtBuscar
         '
-        Me.chkBar.AutoSize = True
-        Me.chkBar.Location = New System.Drawing.Point(811, 26)
-        Me.chkBar.Name = "chkBar"
-        Me.chkBar.Size = New System.Drawing.Size(105, 17)
-        Me.chkBar.TabIndex = 30
-        Me.chkBar.Text = "Consumió en bar"
-        Me.chkBar.UseVisualStyleBackColor = True
+        Me.txtBuscar.EMensaje = Nothing
+        Me.txtBuscar.Location = New System.Drawing.Point(57, 6)
+        Me.txtBuscar.MaxLength = 50
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.NombreVisual = "Nombre"
+        Me.txtBuscar.NumLimit = 999999999
+        Me.txtBuscar.NumMin = 0
+        Me.txtBuscar.Size = New System.Drawing.Size(211, 20)
+        Me.txtBuscar.TabIndex = 16
+        Me.txtBuscar.VNumero = False
+        Me.txtBuscar.VNumLimit = False
+        Me.txtBuscar.VNumMin = False
+        Me.txtBuscar.VObligatorio = False
+        Me.txtBuscar.VPositivo = False
+        '
+        'Label7
+        '
+        Me.Label7.Location = New System.Drawing.Point(2, 7)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(49, 16)
+        Me.Label7.TabIndex = 17
+        Me.Label7.Text = "Buscar:"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ReportViewer1.Location = New System.Drawing.Point(6, 6)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.Size = New System.Drawing.Size(900, 327)
+        Me.ReportViewer1.TabIndex = 0
         '
         'FrmVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(929, 504)
+        Me.ClientSize = New System.Drawing.Size(946, 524)
+        Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.chkBar)
         Me.Controls.Add(Me.cmbEstado)
         Me.Controls.Add(Me.cmbTipoPrecio)
         Me.Controls.Add(Me.cmbTipoDoc)
         Me.Controls.Add(Me.txtHasta)
         Me.Controls.Add(Me.txtDesde)
-        Me.Controls.Add(Me.txtTerminarPendientes)
         Me.Controls.Add(Me.cmdLimpiar)
         Me.Controls.Add(Me.cmdFiltrar)
-        Me.Controls.Add(Me.cmdRealizar)
-        Me.Controls.Add(Me.cmdVer)
         Me.Controls.Add(Me.cmdNueva)
-        Me.Controls.Add(Me.grilla)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtApellido)
         Me.Controls.Add(Me.txtRecMax)
@@ -576,14 +628,16 @@ Partial Class FrmVentas
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txtBuscar)
-        Me.Controls.Add(Me.Label7)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "FrmVentas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta de Ventas"
+        Me.TabControl1.ResumeLayout(False)
+        Me.tabConsulta.ResumeLayout(False)
+        Me.tabConsulta.PerformLayout()
+        Me.tabReporte.ResumeLayout(False)
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -592,9 +646,6 @@ Partial Class FrmVentas
 
     Friend WithEvents cmdVer As Button
     Friend WithEvents cmdNueva As Button
-    Friend WithEvents grilla As DataGridView
-    Friend WithEvents txtBuscar As VTextBox
-    Friend WithEvents Label7 As Label
     Friend WithEvents cmdRealizar As Button
     Friend WithEvents txtTerminarPendientes As Button
     Friend WithEvents cmdFiltrar As Button
@@ -623,6 +674,10 @@ Partial Class FrmVentas
     Friend WithEvents Label13 As Label
     Friend WithEvents cmbEstado As VComboBox
     Friend WithEvents cmdLimpiar As Button
+    Friend WithEvents chkBar As CheckBox
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents tabConsulta As TabPage
+    Friend WithEvents grilla As DataGridView
     Friend WithEvents Id As DataGridViewTextBoxColumn
     Friend WithEvents Fecha As DataGridViewTextBoxColumn
     Friend WithEvents Tipo_Doc_Cliente As DataGridViewTextBoxColumn
@@ -633,5 +688,8 @@ Partial Class FrmVentas
     Friend WithEvents AlCosto As DataGridViewTextBoxColumn
     Friend WithEvents Realizada As DataGridViewTextBoxColumn
     Friend WithEvents Total As DataGridViewTextBoxColumn
-    Friend WithEvents chkBar As CheckBox
+    Friend WithEvents tabReporte As TabPage
+    Friend WithEvents txtBuscar As VTextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
 End Class

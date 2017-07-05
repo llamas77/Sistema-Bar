@@ -25,6 +25,7 @@ Public Class FrmGastos
 
 
     Private Sub actualizar(sender As Object, e As EventArgs) Handles cmdActualizar.Click
+        If Not checkTurnoAbierto() Then Return
         If Not validarForm(Me) Then Return
 
         ' Validamos antes de insertar o updatear si las dependencias siguen existiendo, caso contrario actualizamos combos
@@ -52,6 +53,7 @@ Public Class FrmGastos
     End Sub
 
     Private Sub borrar(sender As Object, e As EventArgs) Handles cmdBorrar.Click
+        If Not checkLogeado() Then Return
         If Not puedeActuarEnGrilla(grilla) Then Return
 
         Dim elemento As DataGridViewRow = grilla.CurrentRow()

@@ -211,6 +211,8 @@ Public Class FrmCompra
     End Sub
 
     Private Sub cmdComprar_Click(sender As Object, e As EventArgs) Handles cmdComprar.Click
+        If Not checkTurnoAbierto() Then Return
+
         ' Verificar que el formulario esté completo (proveedores y grilla, el resto no importa)
         If Not puedeActuarEnGrilla(grilla) Then Return
         If cmbProveedores.SelectedIndex = -1 Then

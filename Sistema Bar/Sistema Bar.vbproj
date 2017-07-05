@@ -349,6 +349,7 @@
     <EmbeddedResource Include="Reportes\RepComprasA.rdlc" />
     <EmbeddedResource Include="Reportes\RepRubros.rdlc" />
     <EmbeddedResource Include="Reportes\RepVentaConDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RepVentas.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

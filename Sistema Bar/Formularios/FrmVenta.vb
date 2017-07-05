@@ -279,10 +279,12 @@ Public Class FrmVenta
     End Sub
 
     Private Sub cmdVender_Click(sender As Object, e As EventArgs) Handles cmdVender.Click
+        If Not checkTurnoAbierto() Then Return
         If vender(True) Then MsgBox("La venta se realizó correctamente.", vbInformation)
     End Sub
 
     Private Sub cmdPendiente_Click(sender As Object, e As EventArgs) Handles cmdPendiente.Click
+        If Not checkTurnoAbierto() Then Return
         If vender(False) Then MsgBox("La venta queda pendiente.", vbInformation)
     End Sub
 

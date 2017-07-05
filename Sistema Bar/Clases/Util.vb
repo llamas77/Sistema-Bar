@@ -8,6 +8,7 @@ Public Class Util
     End Enum
 
     Public Shared logeado As Boolean
+    Public Shared turnoAbierto As Boolean
 
     Public Shared errString As String = "%%ERR.COD%%"
 
@@ -168,5 +169,21 @@ Public Class Util
         HashEnBytes = md5.ComputeHash(TextoEnBytes)
         HashTexto = System.Text.Encoding.UTF8.GetString(HashEnBytes)
         Return HashTexto
+    End Function
+
+    Public Shared Function checkTurnoAbierto() As Boolean
+        If Not turnoAbierto Then
+            MsgBox("No se puede realizar esta acción porque no hay un turno abierto.", vbCritical)
+            Return False
+        End If
+        Return True
+    End Function
+
+    Public Shared Function checkLogeado() As Boolean
+        If Not logeado Then
+            MsgBox("Solo el administrador puede realizar esta acción.", vbCritical)
+            Return False
+        End If
+        Return True
     End Function
 End Class

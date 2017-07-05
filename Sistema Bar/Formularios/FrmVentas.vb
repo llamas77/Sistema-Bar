@@ -11,6 +11,7 @@ Public Class FrmVentas
         cargarCombo(cmbTipoDoc, db.cargarTabla("Tipos_Doc"), "Id", "Nombre")
         FirstControl = txtBuscar
         cargarGrilla()
+        Me.ReportViewer1.RefreshReport()
     End Sub
 
     Public Sub cargarGrilla()
@@ -125,11 +126,12 @@ Public Class FrmVentas
     End Sub
 
     Private Sub cmdNueva_Click(sender As Object, e As EventArgs) Handles cmdNueva.Click
+        If Not checkTurnoAbierto() Then Return
         Dim frm As New FrmVenta(Me)
         frm.Show()
     End Sub
 
-    Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
+    Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs)
         buscar(txtBuscar, grilla)
     End Sub
 
@@ -139,14 +141,14 @@ Public Class FrmVentas
         frm.Show()
     End Sub
 
-    Private Sub grilla_KeyDown(sender As Object, e As KeyEventArgs) Handles grilla.KeyDown
+    Private Sub grilla_KeyDown(sender As Object, e As KeyEventArgs)
         Select Case e.KeyCode
             Case Keys.Enter
                 ver(sender, e)
         End Select
     End Sub
 
-    Private Sub grilla_DoubleClick(sender As Object, e As EventArgs) Handles grilla.DoubleClick
+    Private Sub grilla_DoubleClick(sender As Object, e As EventArgs)
         ver(sender, e)
     End Sub
 
@@ -160,11 +162,15 @@ Public Class FrmVentas
     End Sub
 
     Private Sub cmdRealizar_Click(sender As Object, e As EventArgs) Handles cmdRealizar.Click
+        If Not checkTurnoAbierto() Then Return
+
         If Not puedeActuarEnGrilla(grilla) Then Return
         terminarVenta(grilla.CurrentCell.RowIndex)
     End Sub
 
     Private Sub txtTerminarPendientes_Click(sender As Object, e As EventArgs) Handles txtTerminarPendientes.Click
+        If Not checkTurnoAbierto() Then Return
+
         terminarventas()
     End Sub
 
@@ -252,5 +258,7 @@ Public Class FrmVentas
 
     End Sub
 
-
+    Private Sub txtBuscar_TextChanged_1(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
+        buscar(txtBuscar, grilla)
+    End Sub
 End Class

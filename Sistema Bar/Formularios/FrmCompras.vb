@@ -23,6 +23,7 @@ Public Class FrmCompras
     End Sub
 
     Private Sub cmdNueva_Click(sender As Object, e As EventArgs) Handles cmdNueva.Click
+        If Not checkTurnoAbierto() Then Return
         Dim frm As New FrmCompra(Me)
         frm.Show()
     End Sub
