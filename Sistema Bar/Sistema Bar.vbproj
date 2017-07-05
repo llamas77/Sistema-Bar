@@ -211,6 +211,12 @@
     <Compile Include="Formularios\FrmVentas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepComprasA.Designer.vb">
+      <DependentUpon>FrmRepComprasA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepComprasA.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Reportes\FrmRepArticulos.Designer.vb">
       <DependentUpon>FrmRepArticulos.vb</DependentUpon>
     </Compile>
@@ -221,12 +227,6 @@
       <DependentUpon>FrmRepCompraConDetalle.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Reportes\FrmRepCompraConDetalle.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Reportes\FrmRepComprasA.Designer.vb">
-      <DependentUpon>FrmRepComprasA.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Reportes\FrmRepComprasA.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Reportes\FrmRepComprasR.Designer.vb">
@@ -251,6 +251,18 @@
       <DependentUpon>FrmRepVentaConDetalle.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Reportes\FrmRepVentaConDetalle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepVentasA.Designer.vb">
+      <DependentUpon>FrmRepVentasA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepVentasA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepVentasR.Designer.vb">
+      <DependentUpon>FrmRepVentasR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmRepVentasR.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interfaces\Vaciable.vb" />
@@ -336,6 +348,12 @@
     <EmbeddedResource Include="Formularios\Reportes\FrmRepVentaConDetalle.resx">
       <DependentUpon>FrmRepVentaConDetalle.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FrmRepVentasA.resx">
+      <DependentUpon>FrmRepVentasA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FrmRepVentasR.resx">
+      <DependentUpon>FrmRepVentasR.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -344,11 +362,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepArticulos.rdlc" />
     <EmbeddedResource Include="Reportes\RepCompraConDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RepComprasA.rdlc" />
     <EmbeddedResource Include="Reportes\RepComprasR.rdlc" />
     <EmbeddedResource Include="Reportes\RepGastos.rdlc" />
-    <EmbeddedResource Include="Reportes\RepComprasA.rdlc" />
     <EmbeddedResource Include="Reportes\RepRubros.rdlc" />
     <EmbeddedResource Include="Reportes\RepVentaConDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RepVentasA.rdlc" />
+    <EmbeddedResource Include="Reportes\RepVentasR.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
