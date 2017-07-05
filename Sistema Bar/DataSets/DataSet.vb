@@ -1,8 +1,14 @@
 ﻿Partial Class DataSet
+    Partial Public Class VentasRDataTable
+
+    End Class
+
     Partial Public Class ComprasADataTable
         Private Sub ComprasADataTable_ComprasARowChanging(sender As Object, e As ComprasARowChangeEvent) Handles Me.ComprasARowChanging
 
         End Sub
+
+
 
     End Class
 

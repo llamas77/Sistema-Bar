@@ -1,4 +1,6 @@
-﻿CREATE TABLE Turnos (
+﻿CREATE DATABASE BAR
+
+CREATE TABLE Turnos (
 	Id INT IDENTITY(1, 1),
 	Hora_Inicio DATETIME,
 	Hora_Fin DATETIME,
@@ -119,6 +121,7 @@ CREATE TABLE Configuraciones (
 	Contraseña varchar(50),
 	CONSTRAINT Extras_pk PRIMARY KEY (Id)
 )
+
 
 INSERT INTO Configuraciones (Id, Recargo) VALUES(1, 0)
 INSERT INTO Configuraciones (Id, Doc) VALUES(2, '')
