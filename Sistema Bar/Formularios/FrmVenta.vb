@@ -27,6 +27,23 @@ Public Class FrmVenta
         txtCantidad.Text = "1"
         lblTotal.Text = "$ 0"
         txtFecha.Text = DateTime.Today
+        loadDefault()
+    End Sub
+
+    Private Sub loadDefault()
+        cargarCombo(cmbTiposDoc, db.cargarTabla("Tipos_Doc"), "Id", "Nombre")
+        txtDocumento.Text = db.ejecutarSQL("SELECT Doc FROM Configuraciones WHERE Id = 2")(0)(0)
+
+        Dim tabla As DataTable = db.ejecutarSQL("SELECT TipoDoc FROM Configuraciones WHERE Id = 3")
+        If tabla(0)(0) = -1 Then
+            cmbTiposDoc.SelectedIndex = -1
+        Else
+            If db.ejecutarSQL("SELECT Id FROM Tipos_Doc WHERE Id = " & tabla(0)(0)).Rows.Count = 1 Then
+                cmbTiposDoc.SelectedValue = tabla(0)(0)
+            Else
+                cmbTiposDoc.SelectedIndex = -1
+            End If
+        End If
     End Sub
 
     Private Sub cmbArticulos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbArticulos.SelectedIndexChanged

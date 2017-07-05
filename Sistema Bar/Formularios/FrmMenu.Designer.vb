@@ -56,6 +56,8 @@ Partial Class FrmMenu
         Me.GastosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogearAdminToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirDelModoAdministradorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusTurno = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1.SuspendLayout()
@@ -68,7 +70,7 @@ Partial Class FrmMenu
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnoToolStripMenuItem, Me.ArtículosToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.GastosToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.AyudaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(629, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(635, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -223,26 +225,26 @@ Partial Class FrmMenu
         '
         Me.InventarioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArtículosToolStripMenuItem1, Me.RubrosToolStripMenuItem1})
         Me.InventarioToolStripMenuItem.Name = "InventarioToolStripMenuItem"
-        Me.InventarioToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InventarioToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.InventarioToolStripMenuItem.Text = "Inventario"
         '
         'ArtículosToolStripMenuItem1
         '
         Me.ArtículosToolStripMenuItem1.Name = "ArtículosToolStripMenuItem1"
-        Me.ArtículosToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ArtículosToolStripMenuItem1.Size = New System.Drawing.Size(140, 22)
         Me.ArtículosToolStripMenuItem1.Text = "Por artículos"
         '
         'RubrosToolStripMenuItem1
         '
         Me.RubrosToolStripMenuItem1.Name = "RubrosToolStripMenuItem1"
-        Me.RubrosToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.RubrosToolStripMenuItem1.Size = New System.Drawing.Size(140, 22)
         Me.RubrosToolStripMenuItem1.Text = "Por rubros"
         '
         'ComprasToolStripMenuItem2
         '
         Me.ComprasToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PorArtículosToolStripMenuItem, Me.PorRubrosToolStripMenuItem})
         Me.ComprasToolStripMenuItem2.Name = "ComprasToolStripMenuItem2"
-        Me.ComprasToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.ComprasToolStripMenuItem2.Size = New System.Drawing.Size(127, 22)
         Me.ComprasToolStripMenuItem2.Text = "Compras"
         '
         'PorArtículosToolStripMenuItem
@@ -260,12 +262,12 @@ Partial Class FrmMenu
         'GastosToolStripMenuItem1
         '
         Me.GastosToolStripMenuItem1.Name = "GastosToolStripMenuItem1"
-        Me.GastosToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.GastosToolStripMenuItem1.Size = New System.Drawing.Size(127, 22)
         Me.GastosToolStripMenuItem1.Text = "Gastos"
         '
         'AyudaToolStripMenuItem
         '
-        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfiguracionesToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfiguracionesToolStripMenuItem, Me.LogearAdminToolStripMenuItem, Me.SalirDelModoAdministradorToolStripMenuItem})
         Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
         Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
         Me.AyudaToolStripMenuItem.Text = "General"
@@ -273,8 +275,20 @@ Partial Class FrmMenu
         'ConfiguracionesToolStripMenuItem
         '
         Me.ConfiguracionesToolStripMenuItem.Name = "ConfiguracionesToolStripMenuItem"
-        Me.ConfiguracionesToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ConfiguracionesToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
         Me.ConfiguracionesToolStripMenuItem.Text = "Configuraciones"
+        '
+        'LogearAdminToolStripMenuItem
+        '
+        Me.LogearAdminToolStripMenuItem.Name = "LogearAdminToolStripMenuItem"
+        Me.LogearAdminToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
+        Me.LogearAdminToolStripMenuItem.Text = "Entrar al modo administrador"
+        '
+        'SalirDelModoAdministradorToolStripMenuItem
+        '
+        Me.SalirDelModoAdministradorToolStripMenuItem.Name = "SalirDelModoAdministradorToolStripMenuItem"
+        Me.SalirDelModoAdministradorToolStripMenuItem.Size = New System.Drawing.Size(229, 22)
+        Me.SalirDelModoAdministradorToolStripMenuItem.Text = "Salir del modo administrador"
         '
         'StatusStrip1
         '
@@ -282,7 +296,7 @@ Partial Class FrmMenu
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusTurno})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 327)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(629, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(635, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -299,7 +313,7 @@ Partial Class FrmMenu
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(629, 349)
+        Me.ClientSize = New System.Drawing.Size(635, 349)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -351,4 +365,6 @@ Partial Class FrmMenu
     Friend WithEvents InventarioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ArtículosToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents RubrosToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents LogearAdminToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SalirDelModoAdministradorToolStripMenuItem As ToolStripMenuItem
 End Class

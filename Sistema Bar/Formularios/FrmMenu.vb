@@ -1,12 +1,9 @@
 ﻿Imports Sistema_Bar.Util
 Public Class FrmMenu
 
-    Enum eTurno
-        abierto
-        cerrado
-    End Enum
 
-    Dim estadoTurno As eTurno
+
+    Dim turnoAbierto As Boolean
 
     Dim db As AccesoDatos = AccesoDatos.getBDInstancia()
 
@@ -51,34 +48,21 @@ Public Class FrmMenu
         frm.Show()
     End Sub
 
-    'Poner todos los menues
-    Private Sub habilitarMenues(ByVal bool As Boolean)
-        AbrirTurnoToolStripMenuItem.Enabled = Not bool
-        CerrarTurnoToolStripMenuItem.Enabled = bool
-
-        ArtículosToolStripMenuItem.Enabled = bool
-        ComprasToolStripMenuItem.Enabled = bool
-        ProveedoresToolStripMenuItem.Enabled = bool
-        ClientesToolStripMenuItem.Enabled = bool
-        GastosToolStripMenuItem.Enabled = bool
-        VentasToolStripMenuItem.Enabled = bool
-        ReportesToolStripMenuItem.Enabled = bool
-    End Sub
-
     Private Sub FrmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        estadoTurno = setEstTurno(Nothing, eTurno.cerrado)
+        turnoAbierto = setEstTurno(Nothing, False)
+        habilitarMenues()
 
         ' Chequea si ya había un turno abierto
         Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
         If tabla.Rows.Count = 1 Then
             If TypeOf tabla(0)(2) Is DBNull Then
-                estadoTurno = setEstTurno(tabla, eTurno.abierto)
+                turnoAbierto = setEstTurno(tabla, True)
             End If
         End If
     End Sub
 
     Private Sub AbrirTurnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirTurnoToolStripMenuItem.Click
-        If estadoTurno = eTurno.abierto Then Return
+        If turnoAbierto Then Return
 
         Dim texto As String = vInputBox("Ingrese el monto que hay en caja",, True)
         If texto.Trim = "" Then Return
@@ -90,11 +74,12 @@ Public Class FrmMenu
         db.ejecutarSQL("INSERT INTO Turnos (Hora_Inicio, Caja_Inicial) VALUES (getDate(), " & formatear(texto) & ")")
 
         Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
-        estadoTurno = setEstTurno(tabla, eTurno.abierto)
+        turnoAbierto = setEstTurno(tabla, True)
+        habilitarMenues()
     End Sub
 
     Private Sub CerrarTurnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarTurnoToolStripMenuItem.Click
-        If estadoTurno = eTurno.cerrado Then Return
+        If Not turnoAbierto Then Return
 
         Dim texto As String = vInputBox("Ingrese el monto que hay en caja",, True)
         If texto.Trim = "" Then Return
@@ -111,20 +96,19 @@ Public Class FrmMenu
         sql &= "WHERE Id = " & tabla(0)(0)
         db.ejecutarSQL(sql)
 
-        estadoTurno = setEstTurno(tabla, eTurno.cerrado)
+        turnoAbierto = setEstTurno(Nothing, False)
+        habilitarMenues()
 
     End Sub
 
     ' Setea el turno, actualizando textos
-    Private Function setEstTurno(ByRef tabla As DataTable, ByVal estado As eTurno) As eTurno
-        If estado = eTurno.abierto Then
-            habilitarMenues(True)
+    Private Function setEstTurno(ByRef tabla As DataTable, ByVal estado As Boolean) As Boolean
+        If estado Then
             ToolStripStatusTurno.Text = "Turno abierto desde: " & tabla(0)(1)
-            Return eTurno.abierto
+            Return True
         End If
         ToolStripStatusTurno.Text = "No hay un turno abierto"
-        habilitarMenues(False)
-        Return eTurno.cerrado
+        Return False
     End Function
 
     Private Sub TiposDeGastoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TiposDeGastoToolStripMenuItem.Click
@@ -187,4 +171,64 @@ Public Class FrmMenu
         Dim frm As New FrmRepRubros
         frm.Show()
     End Sub
+
+    Private Sub LogearAdminToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogearAdminToolStripMenuItem.Click
+
+        Dim pass As String = vInputBox("Ingrese la contraseña de administrador: ")
+        If pass.Trim = "" Then Return
+
+        If pass.Trim <> db.ejecutarSQL("SELECT Contraseña FROM Configuraciones WHERE Id = 4")(0)(0) Then
+            MsgBox("La contraseña es incorrecta", vbCritical)
+            Return
+        End If
+
+        logeado = True
+        habilitarMenues()
+
+        MsgBox("Logeado al como administrador. Se habilitaron todas las funciones", vbInformation)
+    End Sub
+
+    Private Sub SalirDelModoAdministradorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirDelModoAdministradorToolStripMenuItem.Click
+        logeado = False
+        habilitarMenues()
+    End Sub
+
+    'Poner todos los menues
+    Private Sub habilitarMenues()
+        'Manejo de turnos (PARA REVISAR: SI SOLO LO HACE EL ADMIN, AGREGAR RESTRICCIÓN: And logeado)
+        AbrirTurnoToolStripMenuItem.Enabled = Not turnoAbierto
+        CerrarTurnoToolStripMenuItem.Enabled = turnoAbierto
+
+        'Articulos
+        ArtículosToolStripMenuItem.Enabled = logeado
+
+        'Ventas
+        VentasToolStripMenuItem.Enabled = turnoAbierto Or logeado
+        NuevaVentaToolStripMenuItem.Enabled = turnoAbierto
+        ConsultarVentasToolStripMenuItem.Enabled = logeado
+
+        'Compras
+        ComprasToolStripMenuItem.Enabled = turnoAbierto Or logeado
+        ComprasToolStripMenuItem1.Enabled = turnoAbierto
+        ConsultarCompraToolStripMenuItem.Enabled = logeado
+
+        ProveedoresToolStripMenuItem.Enabled = logeado
+        ClientesToolStripMenuItem.Enabled = logeado
+
+        'Gastos
+        GastosToolStripMenuItem.Enabled = logeado
+        GestiónToolStripMenuItem1.Enabled = turnoAbierto And logeado
+        TiposDeGastoToolStripMenuItem.Enabled = logeado
+
+        'Reportes
+        ReportesToolStripMenuItem.Enabled = logeado
+
+
+        'General: Manejo del login y configuraciones
+        ConfiguracionesToolStripMenuItem.Enabled = logeado
+        LogearAdminToolStripMenuItem.Enabled = Not logeado
+        SalirDelModoAdministradorToolStripMenuItem.Enabled = logeado
+    End Sub
+
+
 End Class

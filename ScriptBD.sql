@@ -1,4 +1,4 @@
-CREATE TABLE Turnos (
+﻿CREATE TABLE Turnos (
 	Id INT IDENTITY(1, 1),
 	Hora_Inicio DATETIME,
 	Hora_Fin DATETIME,
@@ -113,12 +113,17 @@ CREATE TABLE Detalles_Ventas(
 
 CREATE TABLE Configuraciones (
 	Id INT,
-	Recargo DECIMAL(11, 2)
+	Recargo DECIMAL(11, 2),
+	Doc VARCHAR(9),
+	TipoDoc INT,
+	Contraseña varchar(50),
 	CONSTRAINT Extras_pk PRIMARY KEY (Id)
 )
 
-
 INSERT INTO Configuraciones (Id, Recargo) VALUES(1, 0)
+INSERT INTO Configuraciones (Id, Doc) VALUES(2, '')
+INSERT INTO Configuraciones (Id, TipoDoc) VALUES(3, -1)
+INSERT INTO Configuraciones (Id, Contraseña) VALUES(4, '1234')
 
 --DROP TABLE Detalles_Compras
 --DROP TABLE Compras

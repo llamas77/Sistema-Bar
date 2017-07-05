@@ -1,9 +1,13 @@
-﻿Public Class Util
+﻿Imports System.Security.Cryptography
+
+Public Class Util
 
     Enum eTipoAct
         insertar
         modificar
     End Enum
+
+    Public Shared logeado As Boolean
 
     Public Shared errString As String = "%%ERR.COD%%"
 
@@ -151,5 +155,18 @@
         End If
         Return res
 
+    End Function
+
+    Public Shared Function convertToMD5(ByVal texto As String) As String
+        Dim TextoEnBytes As Byte()
+        Dim HashEnBytes As Byte() 'Resultado en Bytes
+        Dim HashTexto As String 'Resultado de HASH
+
+        Dim md5 As New MD5CryptoServiceProvider
+        TextoEnBytes = System.Text.Encoding.UTF8.GetBytes(texto)
+
+        HashEnBytes = md5.ComputeHash(TextoEnBytes)
+        HashTexto = System.Text.Encoding.UTF8.GetString(HashEnBytes)
+        Return HashTexto
     End Function
 End Class

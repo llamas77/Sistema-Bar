@@ -177,7 +177,28 @@ Public Class FrmArticulos
             Return
         End If
 
-        'TODO: Verificar que no hayan detalles_ventas apuntándole
+
+        ' Verifica si el artículo que se quiere eliminar no está siendo referenciado por la tabla Detalles_Ventas
+        Dim ventas As DataTable
+        sql = ""
+        sql &= "SELECT DISTINCT TOP 10 dv.Id_Venta "
+        sql &= "FROM Articulos a JOIN Detalles_Ventas dv ON (a.Id = dv.Id_Articulo) "
+        sql &= "WHERE a.Id=" & elemento.Cells(0).Value
+
+        ventas = db.ejecutarSQL(sql)
+        If ventas.Rows.Count > 0 Then
+            Dim stringArts As String = ""
+            Dim i As Integer
+            For i = 0 To ventas.Rows.Count - 1
+                stringArts &= "" & ventas.Rows(i)(0).ToString() & ", "
+            Next
+
+            MsgBox("Este artículo no puede ser borrado porque está presente en las ventas de código:" & Chr(13) &
+                    stringArts & "y/o entre otras.", vbCritical)
+            cargarGrilla()
+            FirstControl.Select()
+            Return
+        End If
 
         'Borrar
         db.ejecutarSQL("DELETE FROM Articulos WHERE Id=" & elemento.Cells(0).Value)
