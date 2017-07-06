@@ -38,11 +38,6 @@ Partial Class FrmClientes
         Me.cmbTipoDoc = New Sistema_Bar.VComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.grilla = New System.Windows.Forms.DataGridView()
-        Me.txtApellido = New Sistema_Bar.VTextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtFecha = New Sistema_Bar.VMaskedTextBox()
-        Me.txtNombre = New Sistema_Bar.VTextBox()
         Me.ID_TipoDoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ID_TipoCliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nro_Doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -51,6 +46,11 @@ Partial Class FrmClientes
         Me.Apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Tipo_Cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Fecha_Alta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtApellido = New Sistema_Bar.VTextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtFecha = New Sistema_Bar.VMaskedTextBox()
+        Me.txtNombre = New Sistema_Bar.VTextBox()
         CType(Me.grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -180,7 +180,7 @@ Partial Class FrmClientes
         Me.cmbTipoDoc.EMensaje = Nothing
         Me.cmbTipoDoc.FormattingEnabled = True
         Me.cmbTipoDoc.Location = New System.Drawing.Point(392, 24)
-        Me.cmbTipoDoc.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbTipoDoc.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbTipoDoc.Name = "cmbTipoDoc"
         Me.cmbTipoDoc.NombreVisual = "Tipo de Documento"
         Me.cmbTipoDoc.Size = New System.Drawing.Size(203, 21)
@@ -201,7 +201,7 @@ Partial Class FrmClientes
         '
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
-        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.grilla.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(185, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(234, Byte), Integer))
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_TipoDoc, Me.ID_TipoCliente, Me.Nro_Doc, Me.Tipo_DNI, Me.Nombre, Me.Apellido, Me.Tipo_Cliente, Me.Fecha_Alta})
         Me.grilla.Location = New System.Drawing.Point(14, 138)
@@ -210,6 +210,64 @@ Partial Class FrmClientes
         Me.grilla.RowTemplate.Height = 24
         Me.grilla.Size = New System.Drawing.Size(843, 275)
         Me.grilla.TabIndex = 30
+        '
+        'ID_TipoDoc
+        '
+        Me.ID_TipoDoc.HeaderText = "ID_TipoDoc"
+        Me.ID_TipoDoc.Name = "ID_TipoDoc"
+        Me.ID_TipoDoc.ReadOnly = True
+        Me.ID_TipoDoc.Visible = False
+        '
+        'ID_TipoCliente
+        '
+        Me.ID_TipoCliente.HeaderText = "ID_TipoCliente"
+        Me.ID_TipoCliente.Name = "ID_TipoCliente"
+        Me.ID_TipoCliente.ReadOnly = True
+        Me.ID_TipoCliente.Visible = False
+        '
+        'Nro_Doc
+        '
+        Me.Nro_Doc.HeaderText = "Documento"
+        Me.Nro_Doc.Name = "Nro_Doc"
+        Me.Nro_Doc.ReadOnly = True
+        Me.Nro_Doc.Width = 80
+        '
+        'Tipo_DNI
+        '
+        Me.Tipo_DNI.HeaderText = "Tipo Documento"
+        Me.Tipo_DNI.Name = "Tipo_DNI"
+        Me.Tipo_DNI.ReadOnly = True
+        Me.Tipo_DNI.Width = 110
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        Me.Nombre.Width = 180
+        '
+        'Apellido
+        '
+        Me.Apellido.HeaderText = "Apellido"
+        Me.Apellido.Name = "Apellido"
+        Me.Apellido.ReadOnly = True
+        Me.Apellido.Width = 180
+        '
+        'Tipo_Cliente
+        '
+        Me.Tipo_Cliente.HeaderText = "Tipo de Cliente"
+        Me.Tipo_Cliente.Name = "Tipo_Cliente"
+        Me.Tipo_Cliente.ReadOnly = True
+        Me.Tipo_Cliente.Width = 150
+        '
+        'Fecha_Alta
+        '
+        DataGridViewCellStyle1.Format = "d"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.Fecha_Alta.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Fecha_Alta.HeaderText = "Fecha de Alta"
+        Me.Fecha_Alta.Name = "Fecha_Alta"
+        Me.Fecha_Alta.ReadOnly = True
         '
         'txtApellido
         '
@@ -274,64 +332,6 @@ Partial Class FrmClientes
         Me.txtNombre.VObligatorio = True
         Me.txtNombre.VPositivo = False
         '
-        'ID_TipoDoc
-        '
-        Me.ID_TipoDoc.HeaderText = "ID_TipoDoc"
-        Me.ID_TipoDoc.Name = "ID_TipoDoc"
-        Me.ID_TipoDoc.ReadOnly = True
-        Me.ID_TipoDoc.Visible = False
-        '
-        'ID_TipoCliente
-        '
-        Me.ID_TipoCliente.HeaderText = "ID_TipoCliente"
-        Me.ID_TipoCliente.Name = "ID_TipoCliente"
-        Me.ID_TipoCliente.ReadOnly = True
-        Me.ID_TipoCliente.Visible = False
-        '
-        'Nro_Doc
-        '
-        Me.Nro_Doc.HeaderText = "Documento"
-        Me.Nro_Doc.Name = "Nro_Doc"
-        Me.Nro_Doc.ReadOnly = True
-        Me.Nro_Doc.Width = 80
-        '
-        'Tipo_DNI
-        '
-        Me.Tipo_DNI.HeaderText = "Tipo Documento"
-        Me.Tipo_DNI.Name = "Tipo_DNI"
-        Me.Tipo_DNI.ReadOnly = True
-        Me.Tipo_DNI.Width = 110
-        '
-        'Nombre
-        '
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.ReadOnly = True
-        Me.Nombre.Width = 180
-        '
-        'Apellido
-        '
-        Me.Apellido.HeaderText = "Apellido"
-        Me.Apellido.Name = "Apellido"
-        Me.Apellido.ReadOnly = True
-        Me.Apellido.Width = 180
-        '
-        'Tipo_Cliente
-        '
-        Me.Tipo_Cliente.HeaderText = "Tipo de Cliente"
-        Me.Tipo_Cliente.Name = "Tipo_Cliente"
-        Me.Tipo_Cliente.ReadOnly = True
-        Me.Tipo_Cliente.Width = 150
-        '
-        'Fecha_Alta
-        '
-        DataGridViewCellStyle1.Format = "d"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.Fecha_Alta.DefaultCellStyle = DataGridViewCellStyle1
-        Me.Fecha_Alta.HeaderText = "Fecha de Alta"
-        Me.Fecha_Alta.Name = "Fecha_Alta"
-        Me.Fecha_Alta.ReadOnly = True
-        '
         'FrmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -358,7 +358,7 @@ Partial Class FrmClientes
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.Name = "FrmClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

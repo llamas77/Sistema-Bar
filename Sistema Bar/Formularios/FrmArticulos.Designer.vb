@@ -242,7 +242,7 @@ Partial Class FrmArticulos
         '
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
-        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.grilla.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(185, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(234, Byte), Integer))
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Id_Rubro, Me.Nombre, Me.Nombre_Rubro, Me.Precio_Lista, Me.Precio_Venta, Me.Stock})
         Me.grilla.Location = New System.Drawing.Point(15, 119)
