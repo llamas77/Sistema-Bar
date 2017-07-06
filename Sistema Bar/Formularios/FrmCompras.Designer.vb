@@ -40,11 +40,11 @@ Partial Class FrmCompras
         '
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
-        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.grilla.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(185, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(234, Byte), Integer))
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Fecha, Me.Id_Proveedor, Me.Total})
         Me.grilla.Location = New System.Drawing.Point(20, 60)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
@@ -85,7 +85,7 @@ Partial Class FrmCompras
         '
         Me.txtBuscar.EMensaje = Nothing
         Me.txtBuscar.Location = New System.Drawing.Point(89, 28)
-        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Nombre"
@@ -112,7 +112,7 @@ Partial Class FrmCompras
         'cmdNueva
         '
         Me.cmdNueva.Location = New System.Drawing.Point(20, 412)
-        Me.cmdNueva.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdNueva.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdNueva.Name = "cmdNueva"
         Me.cmdNueva.Size = New System.Drawing.Size(127, 31)
         Me.cmdNueva.TabIndex = 12
@@ -122,7 +122,7 @@ Partial Class FrmCompras
         'cmdVer
         '
         Me.cmdVer.Location = New System.Drawing.Point(155, 412)
-        Me.cmdVer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdVer.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdVer.Name = "cmdVer"
         Me.cmdVer.Size = New System.Drawing.Size(127, 31)
         Me.cmdVer.TabIndex = 12
@@ -141,7 +141,7 @@ Partial Class FrmCompras
         Me.Controls.Add(Me.Label7)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "FrmCompras"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
