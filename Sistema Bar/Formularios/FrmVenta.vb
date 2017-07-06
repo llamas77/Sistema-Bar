@@ -239,7 +239,8 @@ Public Class FrmVenta
             Case Keys.Enter
                 e.Handled = True
                 agregarArticulo(sender, e)
-                FirstControl.Select()
+                cmdAgregar.Select()
+                txtCodigo.Select()
         End Select
     End Sub
 

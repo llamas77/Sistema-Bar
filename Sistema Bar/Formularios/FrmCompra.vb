@@ -174,6 +174,8 @@ Public Class FrmCompra
             Case Keys.Enter
                 e.Handled = True
                 agregarArticulo(sender, e)
+                cmdAgregar.Select()
+                txtCodigo.Select()
         End Select
     End Sub
 

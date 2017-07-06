@@ -95,12 +95,31 @@ Public Class FrmCompras
     Private Sub cmdBorrar_Click(sender As Object, e As EventArgs) Handles cmdBorrar.Click
         If Not puedeActuarEnGrilla(grilla) Then Return
 
+        If Not checkLogeado() Then Return
+
         Dim elemento As DataGridViewRow = grilla.CurrentRow()
 
         If MessageBox.Show("¿Está seguro que desea borrar la compra: " & elemento.Cells(0).Value & " del dia " &
                            elemento.Cells(1).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
 
+
+
+        'Verificar que no queden stocks vacios luego de borrar la compra....
+        Dim tabla As DataTable = db.ejecutarSQL("SELECT a.Stock - dc.Cantidad FROM Articulos a JOIN Detalles_Compras dc ON (dc.Id_Articulo = a.Id) JOIN Compras c ON (dc.Id_Compra = c.Id) WHERE c.Id =" & elemento.Cells(0).Value)
+        Dim i As Integer
+        For i = 0 To tabla.Rows.Count - 1
+            If tabla(i)(0) < 0 Then
+                MsgBox("La compra no se puede borrar. Uno o varios artículos de la compra quedarían con stock negativo si se borrara", vbCritical)
+                Return
+            End If
+        Next
+
+        db.iniciarTransaccion()
+
+        db.ejecutarSQL("UPDATE a SET a.Stock = a.Stock - dc.Cantidad FROM Articulos a JOIN Detalles_Compras dc ON (dc.Id_Articulo = a.Id) JOIN Compras c ON (dc.Id_Compra = c.Id) WHERE c.Id =" & elemento.Cells(0).Value)
         db.ejecutarSQL("DELETE FROM Compras WHERE Id=" & elemento.Cells(0).Value)
+        db.terminarTransaccion()
+
         cargarGrilla()
 
 

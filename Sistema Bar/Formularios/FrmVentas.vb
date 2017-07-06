@@ -290,13 +290,19 @@ Public Class FrmVentas
 
     Private Sub cmdBorrar_Click(sender As Object, e As EventArgs) Handles cmdBorrar.Click
         If Not puedeActuarEnGrilla(grilla) Then Return
+        If Not checkLogeado() Then Return
 
         Dim elemento As DataGridViewRow = grilla.CurrentRow()
 
         If MessageBox.Show("¿Está seguro que desea borrar la venta " & elemento.Cells(0).Value & " del dia " &
                            elemento.Cells(1).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
 
+        db.iniciarTransaccion()
+
+        db.ejecutarSQL("UPDATE a SET a.Stock = a.Stock + dv.Cantidad FROM Articulos a JOIN Detalles_Ventas dv ON (dv.Id_Articulo = a.Id) JOIN Ventas v ON (dv.Id_Venta = v.Id) WHERE v.Id =" & elemento.Cells(0).Value)
         db.ejecutarSQL("DELETE FROM Ventas WHERE Id=" & elemento.Cells(0).Value)
+
+        db.terminarTransaccion()
         cargarGrilla()
 
     End Sub
