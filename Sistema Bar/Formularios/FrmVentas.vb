@@ -288,4 +288,16 @@ Public Class FrmVentas
         buscar(txtBuscar, grilla)
     End Sub
 
+    Private Sub cmdBorrar_Click(sender As Object, e As EventArgs) Handles cmdBorrar.Click
+        If Not puedeActuarEnGrilla(grilla) Then Return
+
+        Dim elemento As DataGridViewRow = grilla.CurrentRow()
+
+        If MessageBox.Show("¿Está seguro que desea borrar la venta " & elemento.Cells(0).Value & " del dia " &
+                           elemento.Cells(1).Value & "?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Return
+
+        db.ejecutarSQL("DELETE FROM Ventas WHERE Id=" & elemento.Cells(0).Value)
+        cargarGrilla()
+
+    End Sub
 End Class
