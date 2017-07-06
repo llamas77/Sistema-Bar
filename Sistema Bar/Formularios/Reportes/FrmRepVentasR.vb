@@ -14,7 +14,7 @@ Public Class FrmRepVentasR
 
     Public Sub generar()
         Dim sql As String = ""
-        sql &= "SELECT v.Fecha, p.Nombre AS 'Proveedor', r.Nombre AS 'Rubro', SUM(dv.Cantidad * dv.Precio_Lista) as 'Total' FROM Ventas v JOIN 
+        sql &= "SELECT r.Nombre AS 'Rubro', SUM(dv.Cantidad * dv.Precio) as 'Total' FROM Ventas v JOIN 
         Detalles_Ventas dv ON (v.Id = dv.Id_Venta) JOIN Articulos a ON (dv.Id_Articulo = a.Id) JOIN Rubros r ON (a.Id_Rubro = r.Id)"
 
         Dim hay_where As Boolean
@@ -37,7 +37,7 @@ Public Class FrmRepVentasR
         End If
 
 
-        sql &= " GROUP BY v.Fecha, p.Nombre, r.Nombre "
+        sql &= " GROUP BY r.Nombre "
 
         Dim hay_having As Boolean
         If txtMontoMin.Text.Trim <> "" Then

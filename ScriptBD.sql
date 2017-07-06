@@ -132,8 +132,9 @@ INSERT INTO Configuraciones (Id, Contraseña) VALUES(4, '1234')
 --DROP TABLE Compras
 --DROP TABLE Proveedores
 
---DROP TABLE Detalles_Ventas
---DROP TABLE Ventas
+DROP TABLE Detalles_Ventas
+DROP TABLE Ventas
+DROP TABLE Configuraciones
 
 
 --DROP TABLE Articulos

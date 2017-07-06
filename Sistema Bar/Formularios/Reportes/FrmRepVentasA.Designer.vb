@@ -24,6 +24,7 @@ Partial Class FrmRepVentasA
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRepVentasA))
         Me.VentasABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet = New Sistema_Bar.DataSet()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -56,6 +57,9 @@ Partial Class FrmRepVentasA
         '
         'ReportViewer1
         '
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ReportDataSource1.Name = "DataSet1"
         ReportDataSource1.Value = Me.VentasABindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
@@ -231,8 +235,9 @@ Partial Class FrmRepVentasA
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmRepVentasA"
-        Me.Text = "FrmRepVentasA"
+        Me.Text = "Reporte de Ventas por artículo"
         CType(Me.VentasABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

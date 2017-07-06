@@ -1618,8 +1618,6 @@ Partial Public Class DataSet
     Partial Public Class ComprasRDataTable
         Inherits Global.System.Data.TypedTableBase(Of ComprasRRow)
         
-        Private columnFecha As Global.System.Data.DataColumn
-        
         Private columnProveedor As Global.System.Data.DataColumn
         
         Private columnTotal As Global.System.Data.DataColumn
@@ -1660,14 +1658,6 @@ Partial Public Class DataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FechaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFecha
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -1730,9 +1720,9 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddComprasRRow(ByVal Fecha As Date, ByVal Proveedor As String, ByVal Total As Decimal, ByVal Rubro As String) As ComprasRRow
+        Public Overloads Function AddComprasRRow(ByVal Proveedor As String, ByVal Total As Decimal, ByVal Rubro As String) As ComprasRRow
             Dim rowComprasRRow As ComprasRRow = CType(Me.NewRow,ComprasRRow)
-            Dim columnValuesArray() As Object = New Object() {Fecha, Proveedor, Total, Rubro}
+            Dim columnValuesArray() As Object = New Object() {Proveedor, Total, Rubro}
             rowComprasRRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowComprasRRow)
             Return rowComprasRRow
@@ -1755,7 +1745,6 @@ Partial Public Class DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnFecha = MyBase.Columns("Fecha")
             Me.columnProveedor = MyBase.Columns("Proveedor")
             Me.columnTotal = MyBase.Columns("Total")
             Me.columnRubro = MyBase.Columns("Rubro")
@@ -1764,8 +1753,6 @@ Partial Public Class DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnFecha = New Global.System.Data.DataColumn("Fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFecha)
             Me.columnProveedor = New Global.System.Data.DataColumn("Proveedor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProveedor)
             Me.columnTotal = New Global.System.Data.DataColumn("Total", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -2465,8 +2452,6 @@ Partial Public Class DataSet
     Partial Public Class ComprasADataTable
         Inherits Global.System.Data.TypedTableBase(Of ComprasARow)
         
-        Private columnFecha As Global.System.Data.DataColumn
-        
         Private columnProveedor As Global.System.Data.DataColumn
         
         Private columnId_Articulo As Global.System.Data.DataColumn
@@ -2509,14 +2494,6 @@ Partial Public Class DataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FechaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFecha
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2587,9 +2564,9 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddComprasARow(ByVal Fecha As Date, ByVal Proveedor As String, ByVal Id_Articulo As Integer, ByVal Articulo As String, ByVal Total As Decimal) As ComprasARow
+        Public Overloads Function AddComprasARow(ByVal Proveedor As String, ByVal Id_Articulo As Integer, ByVal Articulo As String, ByVal Total As Decimal) As ComprasARow
             Dim rowComprasARow As ComprasARow = CType(Me.NewRow,ComprasARow)
-            Dim columnValuesArray() As Object = New Object() {Fecha, Proveedor, Id_Articulo, Articulo, Total}
+            Dim columnValuesArray() As Object = New Object() {Proveedor, Id_Articulo, Articulo, Total}
             rowComprasARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowComprasARow)
             Return rowComprasARow
@@ -2612,7 +2589,6 @@ Partial Public Class DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnFecha = MyBase.Columns("Fecha")
             Me.columnProveedor = MyBase.Columns("Proveedor")
             Me.columnId_Articulo = MyBase.Columns("Id_Articulo")
             Me.columnArticulo = MyBase.Columns("Articulo")
@@ -2622,8 +2598,6 @@ Partial Public Class DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnFecha = New Global.System.Data.DataColumn("Fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFecha)
             Me.columnProveedor = New Global.System.Data.DataColumn("Proveedor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProveedor)
             Me.columnId_Articulo = New Global.System.Data.DataColumn("Id_Articulo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
@@ -2769,8 +2743,6 @@ Partial Public Class DataSet
     Partial Public Class VentasADataTable
         Inherits Global.System.Data.TypedTableBase(Of VentasARow)
         
-        Private columnFecha As Global.System.Data.DataColumn
-        
         Private columnArticulo As Global.System.Data.DataColumn
         
         Private columnTotal As Global.System.Data.DataColumn
@@ -2811,14 +2783,6 @@ Partial Public Class DataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FechaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFecha
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2881,9 +2845,9 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddVentasARow(ByVal Fecha As Date, ByVal Articulo As String, ByVal Total As Decimal, ByVal Id_Articulo As Integer) As VentasARow
+        Public Overloads Function AddVentasARow(ByVal Articulo As String, ByVal Total As Decimal, ByVal Id_Articulo As Integer) As VentasARow
             Dim rowVentasARow As VentasARow = CType(Me.NewRow,VentasARow)
-            Dim columnValuesArray() As Object = New Object() {Fecha, Articulo, Total, Id_Articulo}
+            Dim columnValuesArray() As Object = New Object() {Articulo, Total, Id_Articulo}
             rowVentasARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVentasARow)
             Return rowVentasARow
@@ -2906,7 +2870,6 @@ Partial Public Class DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnFecha = MyBase.Columns("Fecha")
             Me.columnArticulo = MyBase.Columns("Articulo")
             Me.columnTotal = MyBase.Columns("Total")
             Me.columnId_Articulo = MyBase.Columns("Id_Articulo")
@@ -2915,8 +2878,6 @@ Partial Public Class DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnFecha = New Global.System.Data.DataColumn("Fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFecha)
             Me.columnArticulo = New Global.System.Data.DataColumn("Articulo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnArticulo)
             Me.columnTotal = New Global.System.Data.DataColumn("Total", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -3060,8 +3021,6 @@ Partial Public Class DataSet
     Partial Public Class VentasRDataTable
         Inherits Global.System.Data.TypedTableBase(Of VentasRRow)
         
-        Private columnFecha As Global.System.Data.DataColumn
-        
         Private columnRubro As Global.System.Data.DataColumn
         
         Private columnTotal As Global.System.Data.DataColumn
@@ -3100,14 +3059,6 @@ Partial Public Class DataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FechaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFecha
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -3162,9 +3113,9 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddVentasRRow(ByVal Fecha As Date, ByVal Rubro As String, ByVal Total As Decimal) As VentasRRow
+        Public Overloads Function AddVentasRRow(ByVal Rubro As String, ByVal Total As Decimal) As VentasRRow
             Dim rowVentasRRow As VentasRRow = CType(Me.NewRow,VentasRRow)
-            Dim columnValuesArray() As Object = New Object() {Fecha, Rubro, Total}
+            Dim columnValuesArray() As Object = New Object() {Rubro, Total}
             rowVentasRRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVentasRRow)
             Return rowVentasRRow
@@ -3187,7 +3138,6 @@ Partial Public Class DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnFecha = MyBase.Columns("Fecha")
             Me.columnRubro = MyBase.Columns("Rubro")
             Me.columnTotal = MyBase.Columns("Total")
         End Sub
@@ -3195,8 +3145,6 @@ Partial Public Class DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnFecha = New Global.System.Data.DataColumn("Fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFecha)
             Me.columnRubro = New Global.System.Data.DataColumn("Rubro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRubro)
             Me.columnTotal = New Global.System.Data.DataColumn("Total", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -4099,21 +4047,6 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Fecha() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableComprasR.FechaColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Fecha' de la tabla 'ComprasR' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableComprasR.FechaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Proveedor() As String
             Get
                 Try 
@@ -4156,18 +4089,6 @@ Partial Public Class DataSet
                 Me(Me.tableComprasR.RubroColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsFechaNull() As Boolean
-            Return Me.IsNull(Me.tableComprasR.FechaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetFechaNull()
-            Me(Me.tableComprasR.FechaColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -4417,21 +4338,6 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Fecha() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableComprasA.FechaColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Fecha' de la tabla 'ComprasA' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableComprasA.FechaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Proveedor() As String
             Get
                 Try 
@@ -4489,18 +4395,6 @@ Partial Public Class DataSet
                 Me(Me.tableComprasA.TotalColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsFechaNull() As Boolean
-            Return Me.IsNull(Me.tableComprasA.FechaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetFechaNull()
-            Me(Me.tableComprasA.FechaColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -4568,21 +4462,6 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Fecha() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableVentasA.FechaColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Fecha' de la tabla 'VentasA' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableVentasA.FechaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Articulo() As String
             Get
                 Try 
@@ -4625,18 +4504,6 @@ Partial Public Class DataSet
                 Me(Me.tableVentasA.Id_ArticuloColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsFechaNull() As Boolean
-            Return Me.IsNull(Me.tableVentasA.FechaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetFechaNull()
-            Me(Me.tableVentasA.FechaColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -4692,21 +4559,6 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Fecha() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableVentasR.FechaColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Fecha' de la tabla 'VentasR' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableVentasR.FechaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Rubro() As String
             Get
                 Try 
@@ -4734,18 +4586,6 @@ Partial Public Class DataSet
                 Me(Me.tableVentasR.TotalColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsFechaNull() As Boolean
-            Return Me.IsNull(Me.tableVentasR.FechaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetFechaNull()
-            Me(Me.tableVentasR.FechaColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
