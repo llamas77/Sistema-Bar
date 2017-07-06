@@ -13,7 +13,7 @@ Public Class FrmRepRubros
 
     Public Sub generar()
         Dim sql As String = ""
-        sql &= "SELECT r.Nombre, SUM(a.Stock) AS 'Stock_de_Rubro' FROM Rubros r JOIN Articulos a ON (r.Id = a.Id_Rubro)"
+        sql &= "SELECT r.Nombre, SUM(a.Stock) AS 'Stock_de_Rubro' FROM Rubros r LEFT JOIN Articulos a ON (r.Id = a.Id_Rubro)"
 
         Dim hay_where As Boolean
         If cmbRubro.SelectedIndex > -1 Then

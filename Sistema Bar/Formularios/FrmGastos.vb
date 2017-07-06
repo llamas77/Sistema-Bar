@@ -35,7 +35,6 @@ Public Class FrmGastos
             Return
         End If
 
-
         If tipoAct = eTipoAct.insertar Then
             'Insertar
 
@@ -43,6 +42,7 @@ Public Class FrmGastos
             sqlInsert &= "Id_TipoGasto=" & cmbTipoGasto.SelectedValue
             sqlInsert &= "; Monto=" & formatear(txtMonto.Text.Trim)
             sqlInsert &= "; Descripcion=" & txtDescripcion.Text.Trim
+
             db.insertar("Gastos", sqlInsert)
         End If
 

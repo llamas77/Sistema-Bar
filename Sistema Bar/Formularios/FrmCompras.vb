@@ -8,6 +8,7 @@ Public Class FrmCompras
     Public Property FirstControl As Control Implements Vaciable.FirstControl
 
     Private Sub FrmCompras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargarCombo(cmbProveedor, db.cargarTabla("Proveedores"), "Id", "Nombre")
         FirstControl = txtBuscar
         cargarGrilla()
     End Sub
@@ -17,7 +18,40 @@ Public Class FrmCompras
         sql &= "SELECT c.Id, c.Fecha, p.Nombre, SUM(dc.Cantidad * dc.Precio_Lista) as Total "
         sql &= "FROM Compras c JOIN Proveedores p ON (c.Id_Proveedor = p.Id) "
         sql &= "JOIN Detalles_Compras dc ON (c.Id = dc.Id_Compra) "
-        sql &= "GROUP BY c.Id, c.Fecha, p.Nombre"
+
+        Dim hay_where As Boolean
+        If cmbProveedor.SelectedIndex > -1 Then
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " p.Id = " & cmbProveedor.SelectedValue
+            hay_where = True
+        End If
+
+        If txtDesde.Text.Trim <> "/  /" Then
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " c.Fecha >= '" & txtDesde.Text.Trim & "'"
+
+            hay_where = True
+        End If
+
+        If txtHasta.Text.Trim <> "/  /" Then
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " convert(date, c.Fecha, 103) <= '" & txtHasta.Text.Trim & "'"
+
+            hay_where = True
+        End If
+
+        sql &= " GROUP BY c.Id, c.Fecha, p.Nombre"
+
+        Dim hay_having As Boolean
+        If txtMontoMin.Text.Trim <> "" Then
+            sql &= IIf(hay_having, " AND ", " HAVING ") & " SUM(dc.Cantidad * dc.Precio_Lista) >= " & formatear(txtMontoMin.Text.Trim)
+
+            hay_having = True
+        End If
+
+        If txtMontoMax.Text.Trim <> "" Then
+            sql &= IIf(hay_having, " AND ", " HAVING ") & " SUM(dc.Cantidad * dc.Precio_Lista) <= " & formatear(txtMontoMax.Text.Trim)
+
+            hay_having = True
+        End If
+
 
         Util.cargarGrilla(db, sql, grilla)
     End Sub
@@ -49,4 +83,12 @@ Public Class FrmCompras
         ver(sender, e)
     End Sub
 
+    Private Sub cmdLimpiar_Click(sender As Object, e As EventArgs) Handles cmdLimpiar.Click
+        vaciarForm(Me)
+    End Sub
+
+    Private Sub cmdFiltrar_Click(sender As Object, e As EventArgs) Handles cmdFiltrar.Click
+        If Not validarForm(Me) Then Return
+        cargarGrilla()
+    End Sub
 End Class

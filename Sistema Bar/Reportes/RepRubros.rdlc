@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.72456in</Width>
+              <Width>3.99567in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.72456in</Width>
+              <Width>1.35998in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -173,11 +173,12 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.74667in</Top>
-        <Left>0.12589in</Left>
+        <Top>0.06944in</Top>
+        <Left>0.14138in</Left>
         <Height>0.5in</Height>
-        <Width>5.44912in</Width>
+        <Width>5.35565in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -185,13 +186,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>0.65625in</Height>
     <Style />
   </Body>
   <Width>5.88333in</Width>
   <Page>
     <PageHeader>
-      <Height>1in</Height>
+      <Height>1.19792in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -215,7 +216,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.50257cm</Top>
+          <Top>0.79361cm</Top>
           <Left>2.42125cm</Left>
           <Height>0.78521cm</Height>
           <Width>10.60684cm</Width>
@@ -230,8 +231,8 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>2.03743cm</Top>
-          <Left>1.24883cm</Left>
+          <Top>2.40785cm</Top>
+          <Left>1.3282cm</Left>
           <Height>0cm</Height>
           <Width>12.63425cm</Width>
           <ZIndex>1</ZIndex>
@@ -241,6 +242,38 @@
             </Border>
           </Style>
         </Line>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Generado el " &amp; Format(DateTime.Now, "dd/MM/yyyy") &amp; " a las " &amp; Format(DateTime.Now, "h:mm:ss")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>1.70201cm</Top>
+          <Left>1.3282cm</Left>
+          <Height>0.6cm</Height>
+          <Width>12.87167cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -249,7 +282,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1in</Height>
+      <Height>0.64583in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -268,8 +301,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>1.224cm</Top>
-          <Left>11.66053cm</Left>
+          <Top>0.50962cm</Top>
+          <Left>11.69988cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>

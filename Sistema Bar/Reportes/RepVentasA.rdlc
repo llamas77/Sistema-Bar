@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.04107in</Width>
+              <Width>1.50119in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.04107in</Width>
+              <Width>3.07054in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.04107in</Width>
+              <Width>1.55149in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -28,7 +28,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Id_Articulo</Value>
+                              <Value>Cód. Artículo</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
@@ -64,7 +64,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Articulo</Value>
+                              <Value>Artículo</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
@@ -201,11 +201,17 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Total.Value</Value>
+                              <Value>$</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
+                              <Value>=FormatNumber(Fields!Total.Value, 2)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Total</rd:DefaultName>
@@ -243,6 +249,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.16333in</Top>
         <Left>0.18839in</Left>
@@ -258,7 +265,7 @@
     <Height>0.98333in</Height>
     <Style />
   </Body>
-  <Width>6.78833in</Width>
+  <Width>6.49666in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -272,7 +279,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>LISTADO DE VENTAS POR ARTICULO</Value>
+                  <Value>LISTADO DE VENTAS POR ARTÍCULO</Value>
                   <Style>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -300,8 +307,8 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>2.03743cm</Top>
-          <Left>0.4785cm</Left>
+          <Top>2.16972cm</Top>
+          <Left>0.50496cm</Left>
           <Height>0cm</Height>
           <Width>15.55299cm</Width>
           <ZIndex>1</ZIndex>
@@ -311,6 +318,38 @@
             </Border>
           </Style>
         </Line>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Generado el " &amp; Format(DateTime.Now, "dd/MM/yyyy") &amp; " a las " &amp; Format(DateTime.Now, "h:mm:ss")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>1.39333cm</Top>
+          <Left>1.81493cm</Left>
+          <Height>0.6cm</Height>
+          <Width>12.87167cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>

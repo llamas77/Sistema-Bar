@@ -37,12 +37,16 @@ Public Class FrmConfig
 
             If txtActual.Text <> db.ejecutarSQL("SELECT Contraseña FROM Configuraciones WHERE Id=4")(0)(0) Then
                 MsgBox("La contraseña actual ingresada no es correcta.", vbCritical)
+                txtNueva.VObligatorio = False
+                txtNueva2.VObligatorio = False
                 Return
             End If
 
 
             If txtNueva.Text <> txtNueva2.Text Then
                 MsgBox("La nueva contraseña debe coincidir en ambos campos.", vbCritical)
+                txtNueva.VObligatorio = False
+                txtNueva2.VObligatorio = False
                 Return
             End If
 

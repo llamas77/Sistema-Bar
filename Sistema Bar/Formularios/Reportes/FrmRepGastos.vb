@@ -20,6 +20,11 @@ Public Class FrmRepGastos
             hay_where = True
         End If
 
+        If txtDesc.Text.Trim <> "" Then
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " g.Descripcion LIKE '%" & txtDesc.Text.Trim & "%'"
+            hay_where = True
+        End If
+
         If txtDesde.Text.Trim <> "/  /" Then
             sql &= IIf(hay_where, " AND ", " WHERE ") & " g.Fecha >= '" & txtDesde.Text.Trim & "'"
 
@@ -38,6 +43,7 @@ Public Class FrmRepGastos
     End Sub
 
     Private Sub cmdGenerar_Click(sender As Object, e As EventArgs) Handles cmdGenerar.Click
+        If Not validarForm(Me) Then Return
         generar()
     End Sub
 End Class

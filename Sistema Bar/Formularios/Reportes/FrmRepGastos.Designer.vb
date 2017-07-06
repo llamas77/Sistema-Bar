@@ -23,10 +23,11 @@ Partial Class FrmRepGastos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.DataSet = New Sistema_Bar.DataSet()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRepGastos))
         Me.gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet = New Sistema_Bar.DataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.cmbTipoGasto = New Sistema_Bar.VComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmdGenerar = New System.Windows.Forms.Button()
@@ -34,34 +35,36 @@ Partial Class FrmRepGastos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtHasta = New Sistema_Bar.VMaskedTextBox()
-        CType(Me.DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.txtDesc = New Sistema_Bar.VTextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.gastosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ReportViewer1
+        'gastosBindingSource
         '
-        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReportDataSource3.Name = "DataSet1"
-        ReportDataSource3.Value = Me.gastosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepGastos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 86)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(579, 278)
-        Me.ReportViewer1.TabIndex = 0
+        Me.gastosBindingSource.DataMember = "gastos"
+        Me.gastosBindingSource.DataSource = Me.DataSet
         '
         'DataSet
         '
         Me.DataSet.DataSetName = "DataSet"
         Me.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'gastosBindingSource
+        'ReportViewer1
         '
-        Me.gastosBindingSource.DataMember = "gastos"
-        Me.gastosBindingSource.DataSource = Me.DataSet
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ReportDataSource4.Name = "DataSet1"
+        ReportDataSource4.Value = Me.gastosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepGastos.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 86)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.Size = New System.Drawing.Size(651, 417)
+        Me.ReportViewer1.TabIndex = 0
         '
         'cmbTipoGasto
         '
@@ -75,7 +78,7 @@ Partial Class FrmRepGastos
         Me.cmbTipoGasto.NombreVisual = "Tipo de Gasto"
         Me.cmbTipoGasto.Size = New System.Drawing.Size(140, 21)
         Me.cmbTipoGasto.TabIndex = 3
-        Me.cmbTipoGasto.VObligatorio = True
+        Me.cmbTipoGasto.VObligatorio = False
         '
         'Label1
         '
@@ -88,7 +91,7 @@ Partial Class FrmRepGastos
         '
         'cmdGenerar
         '
-        Me.cmdGenerar.Location = New System.Drawing.Point(499, 53)
+        Me.cmdGenerar.Location = New System.Drawing.Point(563, 53)
         Me.cmdGenerar.Name = "cmdGenerar"
         Me.cmdGenerar.Size = New System.Drawing.Size(92, 27)
         Me.cmdGenerar.TabIndex = 4
@@ -98,10 +101,10 @@ Partial Class FrmRepGastos
         'txtDesde
         '
         Me.txtDesde.EMensaje = Nothing
-        Me.txtDesde.Location = New System.Drawing.Point(87, 45)
+        Me.txtDesde.Location = New System.Drawing.Point(310, 12)
         Me.txtDesde.Mask = "00/00/0000"
         Me.txtDesde.Name = "txtDesde"
-        Me.txtDesde.NombreVisual = "sin nombre"
+        Me.txtDesde.NombreVisual = "Desde"
         Me.txtDesde.Size = New System.Drawing.Size(100, 20)
         Me.txtDesde.TabIndex = 5
         Me.txtDesde.ValidatingType = GetType(Date)
@@ -109,7 +112,7 @@ Partial Class FrmRepGastos
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(38, 48)
+        Me.Label2.Location = New System.Drawing.Point(261, 15)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 24)
@@ -118,7 +121,7 @@ Partial Class FrmRepGastos
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(238, 48)
+        Me.Label3.Location = New System.Drawing.Point(261, 47)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 24)
@@ -128,20 +131,48 @@ Partial Class FrmRepGastos
         'txtHasta
         '
         Me.txtHasta.EMensaje = Nothing
-        Me.txtHasta.Location = New System.Drawing.Point(287, 45)
+        Me.txtHasta.Location = New System.Drawing.Point(310, 44)
         Me.txtHasta.Mask = "00/00/0000"
         Me.txtHasta.Name = "txtHasta"
-        Me.txtHasta.NombreVisual = "sin nombre"
+        Me.txtHasta.NombreVisual = "Hasta"
         Me.txtHasta.Size = New System.Drawing.Size(100, 20)
         Me.txtHasta.TabIndex = 5
         Me.txtHasta.ValidatingType = GetType(Date)
         Me.txtHasta.VObligatorio = False
         '
+        'txtDesc
+        '
+        Me.txtDesc.EMensaje = Nothing
+        Me.txtDesc.Location = New System.Drawing.Point(87, 44)
+        Me.txtDesc.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtDesc.Name = "txtDesc"
+        Me.txtDesc.NombreVisual = "Descripción"
+        Me.txtDesc.NumLimit = 999999999
+        Me.txtDesc.NumMin = 0
+        Me.txtDesc.Size = New System.Drawing.Size(140, 20)
+        Me.txtDesc.TabIndex = 55
+        Me.txtDesc.VNumero = True
+        Me.txtDesc.VNumLimit = True
+        Me.txtDesc.VNumMin = True
+        Me.txtDesc.VObligatorio = False
+        Me.txtDesc.VPositivo = True
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(15, 50)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(78, 23)
+        Me.Label4.TabIndex = 54
+        Me.Label4.Text = "Descripción:"
+        '
         'FrmRepGastos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(603, 376)
+        Me.ClientSize = New System.Drawing.Size(675, 515)
+        Me.Controls.Add(Me.txtDesc)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtHasta)
         Me.Controls.Add(Me.txtDesde)
         Me.Controls.Add(Me.cmdGenerar)
@@ -150,11 +181,12 @@ Partial Class FrmRepGastos
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmRepGastos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Gastos"
-        CType(Me.DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gastosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -170,4 +202,6 @@ Partial Class FrmRepGastos
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents txtHasta As VMaskedTextBox
+    Friend WithEvents txtDesc As VTextBox
+    Friend WithEvents Label4 As Label
 End Class

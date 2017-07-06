@@ -24,12 +24,22 @@ Partial Class FrmRepVentaConDetalle
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.VentasConDetalleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet = New Sistema_Bar.DataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.VentasConDetalleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'VentasConDetalleBindingSource
+        '
+        Me.VentasConDetalleBindingSource.DataMember = "VentasConDetalle"
+        Me.VentasConDetalleBindingSource.DataSource = Me.DataSet
+        '
+        'DataSet
+        '
+        Me.DataSet.DataSetName = "DataSet"
+        Me.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -43,24 +53,14 @@ Partial Class FrmRepVentaConDetalle
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 12)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(703, 446)
+        Me.ReportViewer1.Size = New System.Drawing.Size(703, 532)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'VentasConDetalleBindingSource
-        '
-        Me.VentasConDetalleBindingSource.DataMember = "VentasConDetalle"
-        Me.VentasConDetalleBindingSource.DataSource = Me.DataSet
-        '
-        'DataSet
-        '
-        Me.DataSet.DataSetName = "DataSet"
-        Me.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FrmRepVentaConDetalle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(727, 470)
+        Me.ClientSize = New System.Drawing.Size(727, 556)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "FrmRepVentaConDetalle"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

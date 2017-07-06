@@ -8,10 +8,6 @@ Public Class FrmRepComprasR
         cargarCombo(cmbProveedores, db.cargarTabla("Proveedores"), "Id", "Nombre")
 
         generar()
-        Me.ReportViewer1.RefreshReport()
-        Me.ReportViewer1.RefreshReport()
-        Me.ReportViewer1.RefreshReport()
-        Me.ReportViewer1.RefreshReport()
     End Sub
 
     Public Sub generar()
@@ -36,7 +32,7 @@ Public Class FrmRepComprasR
         End If
 
         If txtHasta.Text.Trim <> "/  /" Then
-            sql &= IIf(hay_where, " AND ", " WHERE ") & " c.Fecha <= '" & txtHasta.Text.Trim & "'"
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " convert(date, c.Fecha, 103) <= '" & txtHasta.Text.Trim & "'"
 
             hay_where = True
         End If
@@ -77,7 +73,7 @@ Public Class FrmRepComprasR
     End Sub
 
     Private Sub cmdGenerar_Click(sender As Object, e As EventArgs) Handles cmdGenerar.Click
-
+        If Not validarForm(Me) Then Return
         generar()
     End Sub
 

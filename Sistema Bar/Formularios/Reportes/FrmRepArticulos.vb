@@ -16,7 +16,7 @@ Public Class FrmRepArticulos
     Public Sub generar()
 
         Dim sql As String = ""
-        sql &= "SELECT a.Nombre, a.Precio_Lista, a.Precio_Venta, a.Stock FROM Articulos a "
+        sql &= "SELECT a.Id, a.Nombre, a.Precio_Lista, a.Precio_Venta, a.Stock FROM Articulos a "
 
 
         Dim hay_where As Boolean
@@ -27,7 +27,7 @@ Public Class FrmRepArticulos
         End If
 
         If txtNombre.Text.Trim <> "" Then
-            sql &= IIf(hay_where, " AND ", " WHERE ") & " a.Nombre LIKE '" & txtNombre.Text.Trim & "'"
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " a.Nombre LIKE '%" & txtNombre.Text.Trim & "%'"
 
             hay_where = True
 
@@ -60,13 +60,13 @@ Public Class FrmRepArticulos
         End If
 
         If txtPrecVMin.Text.Trim <> "" Then
-            sql &= IIf(hay_where, " AND ", " WHERE ") & " a.Precio_Venta >= " & formatear(txtPrecLMax.Text.Trim)
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " a.Precio_Venta >= " & formatear(txtPrecVMin.Text.Trim)
 
             hay_where = True
         End If
 
         If txtPrecVMax.Text.Trim <> "" Then
-            sql &= IIf(hay_where, " AND ", " WHERE ") & " a.Precio_Venta <= " & formatear(txtPrecLMax.Text.Trim)
+            sql &= IIf(hay_where, " AND ", " WHERE ") & " a.Precio_Venta <= " & formatear(txtPrecVMax.Text.Trim)
 
             hay_where = True
         End If

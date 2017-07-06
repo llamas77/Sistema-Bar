@@ -199,6 +199,12 @@
     <Compile Include="Formularios\FrmTiposGasto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmTurnos.Designer.vb">
+      <DependentUpon>FrmTurnos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmTurnos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmVenta.Designer.vb">
       <DependentUpon>FrmVenta.vb</DependentUpon>
     </Compile>
@@ -320,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmTiposGasto.resx">
       <DependentUpon>FrmTiposGasto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTurnos.resx">
+      <DependentUpon>FrmTurnos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmVenta.resx">
       <DependentUpon>FrmVenta.vb</DependentUpon>

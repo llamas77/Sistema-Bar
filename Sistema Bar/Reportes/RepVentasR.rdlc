@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.06161in</Width>
+              <Width>4.31161in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.06161in</Width>
+              <Width>1.80119in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -132,11 +132,17 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Total.Value</Value>
+                              <Value>$</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
+                              <Value>=FormatNumber(Fields!Total.Value, 2)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Total</rd:DefaultName>
@@ -173,11 +179,12 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.27167in</Top>
         <Left>0.18839in</Left>
         <Height>0.5in</Height>
-        <Width>6.12322in</Width>
+        <Width>6.1128in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -230,8 +237,8 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>2.03743cm</Top>
-          <Left>0.4785cm</Left>
+          <Top>2.16972cm</Top>
+          <Left>0.45204cm</Left>
           <Height>0cm</Height>
           <Width>15.55299cm</Width>
           <ZIndex>1</ZIndex>
@@ -241,6 +248,38 @@
             </Border>
           </Style>
         </Line>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Generado el " &amp; Format(DateTime.Now, "dd/MM/yyyy") &amp; " a las " &amp; Format(DateTime.Now, "h:mm:ss")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>1.39333cm</Top>
+          <Left>1.81916cm</Left>
+          <Height>0.6cm</Height>
+          <Width>12.87167cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>

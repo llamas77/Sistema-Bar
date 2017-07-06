@@ -22,6 +22,7 @@ Partial Class FrmConfig
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmConfig))
         Me.cmdActualizar = New System.Windows.Forms.Button()
         Me.txtNueva2 = New Sistema_Bar.VTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -49,7 +50,7 @@ Partial Class FrmConfig
         'txtNueva2
         '
         Me.txtNueva2.EMensaje = Nothing
-        Me.txtNueva2.Location = New System.Drawing.Point(142, 78)
+        Me.txtNueva2.Location = New System.Drawing.Point(144, 211)
         Me.txtNueva2.MaxLength = 50
         Me.txtNueva2.Name = "txtNueva2"
         Me.txtNueva2.NombreVisual = "Repetir contraseña"
@@ -66,7 +67,7 @@ Partial Class FrmConfig
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(20, 80)
+        Me.Label2.Location = New System.Drawing.Point(22, 213)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(117, 18)
@@ -77,7 +78,7 @@ Partial Class FrmConfig
         'txtNueva
         '
         Me.txtNueva.EMensaje = Nothing
-        Me.txtNueva.Location = New System.Drawing.Point(142, 52)
+        Me.txtNueva.Location = New System.Drawing.Point(144, 185)
         Me.txtNueva.MaxLength = 50
         Me.txtNueva.Name = "txtNueva"
         Me.txtNueva.NombreVisual = "Nueva contraseña"
@@ -94,7 +95,7 @@ Partial Class FrmConfig
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(17, 54)
+        Me.Label1.Location = New System.Drawing.Point(19, 187)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(120, 18)
@@ -105,7 +106,7 @@ Partial Class FrmConfig
         'txtActual
         '
         Me.txtActual.EMensaje = Nothing
-        Me.txtActual.Location = New System.Drawing.Point(142, 12)
+        Me.txtActual.Location = New System.Drawing.Point(144, 145)
         Me.txtActual.MaxLength = 50
         Me.txtActual.Name = "txtActual"
         Me.txtActual.NombreVisual = "Contraseña actual"
@@ -122,7 +123,7 @@ Partial Class FrmConfig
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(11, 14)
+        Me.Label4.Location = New System.Drawing.Point(13, 147)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(126, 18)
@@ -136,35 +137,35 @@ Partial Class FrmConfig
         Me.cmbTipoDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTipoDoc.EMensaje = Nothing
         Me.cmbTipoDoc.FormattingEnabled = True
-        Me.cmbTipoDoc.Location = New System.Drawing.Point(142, 185)
+        Me.cmbTipoDoc.Location = New System.Drawing.Point(144, 66)
         Me.cmbTipoDoc.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbTipoDoc.Name = "cmbTipoDoc"
         Me.cmbTipoDoc.NombreVisual = "Tipo Doc. por defecto"
         Me.cmbTipoDoc.Size = New System.Drawing.Size(145, 21)
-        Me.cmbTipoDoc.TabIndex = 35
+        Me.cmbTipoDoc.TabIndex = 41
         Me.cmbTipoDoc.VObligatorio = False
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(23, 185)
+        Me.Label6.Location = New System.Drawing.Point(25, 66)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(114, 18)
-        Me.Label6.TabIndex = 30
+        Me.Label6.TabIndex = 36
         Me.Label6.Text = "Tipo Doc. por defecto:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtDoc
         '
         Me.txtDoc.EMensaje = Nothing
-        Me.txtDoc.Location = New System.Drawing.Point(142, 157)
+        Me.txtDoc.Location = New System.Drawing.Point(144, 38)
         Me.txtDoc.MaxLength = 9
         Me.txtDoc.Name = "txtDoc"
         Me.txtDoc.NombreVisual = "Doc. por defecto"
         Me.txtDoc.NumLimit = 999999999
         Me.txtDoc.NumMin = 0
         Me.txtDoc.Size = New System.Drawing.Size(145, 20)
-        Me.txtDoc.TabIndex = 33
+        Me.txtDoc.TabIndex = 39
         Me.txtDoc.VNumero = False
         Me.txtDoc.VNumLimit = False
         Me.txtDoc.VNumMin = False
@@ -173,24 +174,24 @@ Partial Class FrmConfig
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(23, 159)
+        Me.Label5.Location = New System.Drawing.Point(25, 40)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(114, 18)
-        Me.Label5.TabIndex = 31
+        Me.Label5.TabIndex = 37
         Me.Label5.Text = "Doc. por defecto:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtPorcRecargo
         '
         Me.txtPorcRecargo.EMensaje = Nothing
-        Me.txtPorcRecargo.Location = New System.Drawing.Point(142, 131)
+        Me.txtPorcRecargo.Location = New System.Drawing.Point(144, 12)
         Me.txtPorcRecargo.Name = "txtPorcRecargo"
         Me.txtPorcRecargo.NombreVisual = "Porcentaje recargo"
         Me.txtPorcRecargo.NumLimit = 999999999
         Me.txtPorcRecargo.NumMin = 0
         Me.txtPorcRecargo.Size = New System.Drawing.Size(89, 20)
-        Me.txtPorcRecargo.TabIndex = 34
+        Me.txtPorcRecargo.TabIndex = 40
         Me.txtPorcRecargo.VNumero = True
         Me.txtPorcRecargo.VNumLimit = True
         Me.txtPorcRecargo.VNumMin = True
@@ -199,11 +200,11 @@ Partial Class FrmConfig
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(23, 131)
+        Me.Label3.Location = New System.Drawing.Point(25, 12)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(114, 18)
-        Me.Label3.TabIndex = 32
+        Me.Label3.TabIndex = 38
         Me.Label3.Text = "Porcentaje Recargo:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -226,8 +227,11 @@ Partial Class FrmConfig
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cmdActualizar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmConfig"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Configuraciones"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

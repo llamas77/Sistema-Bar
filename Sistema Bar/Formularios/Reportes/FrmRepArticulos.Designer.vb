@@ -23,7 +23,7 @@ Partial Class FrmRepArticulos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRepArticulos))
         Me.ArticulosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet = New Sistema_Bar.DataSet()
@@ -64,21 +64,23 @@ Partial Class FrmRepArticulos
         Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReportDataSource4.Name = "DataSet1"
-        ReportDataSource4.Value = Me.ArticulosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.ArticulosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepArticulos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 178)
+        Me.ReportViewer1.Location = New System.Drawing.Point(9, 127)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(1044, 368)
+        Me.ReportViewer1.Size = New System.Drawing.Size(784, 389)
         Me.ReportViewer1.TabIndex = 0
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(12, 72)
+        Me.Label1.Location = New System.Drawing.Point(11, 62)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 26)
+        Me.Label1.Size = New System.Drawing.Size(45, 21)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Rubro:"
         '
@@ -86,70 +88,78 @@ Partial Class FrmRepArticulos
         '
         Me.cmbRubro.EMensaje = Nothing
         Me.cmbRubro.FormattingEnabled = True
-        Me.cmbRubro.Location = New System.Drawing.Point(73, 72)
+        Me.cmbRubro.Location = New System.Drawing.Point(60, 59)
+        Me.cmbRubro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cmbRubro.Name = "cmbRubro"
         Me.cmbRubro.NombreVisual = "Rubro"
-        Me.cmbRubro.Size = New System.Drawing.Size(206, 24)
+        Me.cmbRubro.Size = New System.Drawing.Size(156, 21)
         Me.cmbRubro.TabIndex = 1
         Me.cmbRubro.VObligatorio = False
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(294, 21)
+        Me.Label2.Location = New System.Drawing.Point(239, 20)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(95, 26)
+        Me.Label2.Size = New System.Drawing.Size(72, 21)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Stock Mínimo:"
+        Me.Label2.Text = "Stock Mín:"
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(294, 69)
+        Me.Label3.Location = New System.Drawing.Point(239, 62)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(107, 26)
+        Me.Label3.Size = New System.Drawing.Size(80, 21)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Stock Máximo:"
+        Me.Label3.Text = "Stock Máx:"
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(516, 21)
+        Me.Label4.Location = New System.Drawing.Point(387, 20)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(156, 26)
+        Me.Label4.Size = New System.Drawing.Size(105, 21)
         Me.Label4.TabIndex = 5
-        Me.Label4.Text = "Precio de Lista Mínimo:"
+        Me.Label4.Text = "Precio de Lista Mín:"
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(797, 24)
+        Me.Label6.Location = New System.Drawing.Point(598, 20)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(170, 26)
+        Me.Label6.Size = New System.Drawing.Size(120, 21)
         Me.Label6.TabIndex = 7
-        Me.Label6.Text = "Precio de Venta Mínimo:"
+        Me.Label6.Text = "Precio de Venta Mín:"
         '
         'Label7
         '
-        Me.Label7.Location = New System.Drawing.Point(797, 69)
+        Me.Label7.Location = New System.Drawing.Point(598, 62)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(170, 26)
+        Me.Label7.Size = New System.Drawing.Size(120, 21)
         Me.Label7.TabIndex = 8
-        Me.Label7.Text = "Precio de Venta Máximo:"
+        Me.Label7.Text = "Precio de Venta Máx:"
         '
         'Label8
         '
-        Me.Label8.Location = New System.Drawing.Point(12, 24)
+        Me.Label8.Location = New System.Drawing.Point(11, 20)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(78, 26)
+        Me.Label8.Size = New System.Drawing.Size(47, 21)
         Me.Label8.TabIndex = 9
         Me.Label8.Text = "Nombre:"
         '
         'txtNombre
         '
         Me.txtNombre.EMensaje = Nothing
-        Me.txtNombre.Location = New System.Drawing.Point(73, 24)
+        Me.txtNombre.Location = New System.Drawing.Point(60, 17)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.NombreVisual = "Nombre"
         Me.txtNombre.NumLimit = 999999999
         Me.txtNombre.NumMin = 0
-        Me.txtNombre.Size = New System.Drawing.Size(206, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(156, 20)
         Me.txtNombre.TabIndex = 10
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
@@ -160,12 +170,13 @@ Partial Class FrmRepArticulos
         'txtStockMin
         '
         Me.txtStockMin.EMensaje = Nothing
-        Me.txtStockMin.Location = New System.Drawing.Point(395, 21)
+        Me.txtStockMin.Location = New System.Drawing.Point(298, 17)
+        Me.txtStockMin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtStockMin.Name = "txtStockMin"
         Me.txtStockMin.NombreVisual = "Stock Mínimo"
         Me.txtStockMin.NumLimit = 999999999
         Me.txtStockMin.NumMin = 0
-        Me.txtStockMin.Size = New System.Drawing.Size(88, 22)
+        Me.txtStockMin.Size = New System.Drawing.Size(67, 20)
         Me.txtStockMin.TabIndex = 11
         Me.txtStockMin.VNumero = True
         Me.txtStockMin.VNumLimit = True
@@ -176,12 +187,13 @@ Partial Class FrmRepArticulos
         'txtStockMax
         '
         Me.txtStockMax.EMensaje = Nothing
-        Me.txtStockMax.Location = New System.Drawing.Point(395, 69)
+        Me.txtStockMax.Location = New System.Drawing.Point(298, 59)
+        Me.txtStockMax.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtStockMax.Name = "txtStockMax"
         Me.txtStockMax.NombreVisual = "Stock Máximo"
         Me.txtStockMax.NumLimit = 999999999
         Me.txtStockMax.NumMin = 0
-        Me.txtStockMax.Size = New System.Drawing.Size(88, 22)
+        Me.txtStockMax.Size = New System.Drawing.Size(67, 20)
         Me.txtStockMax.TabIndex = 11
         Me.txtStockMax.VNumero = True
         Me.txtStockMax.VNumLimit = True
@@ -192,12 +204,13 @@ Partial Class FrmRepArticulos
         'txtPrecLMin
         '
         Me.txtPrecLMin.EMensaje = Nothing
-        Me.txtPrecLMin.Location = New System.Drawing.Point(687, 21)
+        Me.txtPrecLMin.Location = New System.Drawing.Point(496, 17)
+        Me.txtPrecLMin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPrecLMin.Name = "txtPrecLMin"
         Me.txtPrecLMin.NombreVisual = "Precio de Lista Mínimo"
         Me.txtPrecLMin.NumLimit = 999999999
         Me.txtPrecLMin.NumMin = 0
-        Me.txtPrecLMin.Size = New System.Drawing.Size(88, 22)
+        Me.txtPrecLMin.Size = New System.Drawing.Size(67, 20)
         Me.txtPrecLMin.TabIndex = 11
         Me.txtPrecLMin.VNumero = True
         Me.txtPrecLMin.VNumLimit = True
@@ -208,12 +221,13 @@ Partial Class FrmRepArticulos
         'txtPrecLMax
         '
         Me.txtPrecLMax.EMensaje = Nothing
-        Me.txtPrecLMax.Location = New System.Drawing.Point(687, 65)
+        Me.txtPrecLMax.Location = New System.Drawing.Point(496, 59)
+        Me.txtPrecLMax.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPrecLMax.Name = "txtPrecLMax"
         Me.txtPrecLMax.NombreVisual = "Precio de Lista Máximo"
         Me.txtPrecLMax.NumLimit = 999999999
         Me.txtPrecLMax.NumMin = 0
-        Me.txtPrecLMax.Size = New System.Drawing.Size(88, 22)
+        Me.txtPrecLMax.Size = New System.Drawing.Size(67, 20)
         Me.txtPrecLMax.TabIndex = 11
         Me.txtPrecLMax.VNumero = True
         Me.txtPrecLMax.VNumLimit = True
@@ -224,12 +238,13 @@ Partial Class FrmRepArticulos
         'txtPrecVMin
         '
         Me.txtPrecVMin.EMensaje = Nothing
-        Me.txtPrecVMin.Location = New System.Drawing.Point(962, 25)
+        Me.txtPrecVMin.Location = New System.Drawing.Point(709, 17)
+        Me.txtPrecVMin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPrecVMin.Name = "txtPrecVMin"
         Me.txtPrecVMin.NombreVisual = "Precio de Venta Mínimo"
         Me.txtPrecVMin.NumLimit = 999999999
         Me.txtPrecVMin.NumMin = 0
-        Me.txtPrecVMin.Size = New System.Drawing.Size(88, 22)
+        Me.txtPrecVMin.Size = New System.Drawing.Size(67, 20)
         Me.txtPrecVMin.TabIndex = 11
         Me.txtPrecVMin.VNumero = True
         Me.txtPrecVMin.VNumLimit = True
@@ -240,12 +255,13 @@ Partial Class FrmRepArticulos
         'txtPrecVMax
         '
         Me.txtPrecVMax.EMensaje = Nothing
-        Me.txtPrecVMax.Location = New System.Drawing.Point(962, 69)
+        Me.txtPrecVMax.Location = New System.Drawing.Point(709, 59)
+        Me.txtPrecVMax.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPrecVMax.Name = "txtPrecVMax"
         Me.txtPrecVMax.NombreVisual = "Precio de Venta Máximo"
         Me.txtPrecVMax.NumLimit = 999999999
         Me.txtPrecVMax.NumMin = 0
-        Me.txtPrecVMax.Size = New System.Drawing.Size(88, 22)
+        Me.txtPrecVMax.Size = New System.Drawing.Size(67, 20)
         Me.txtPrecVMax.TabIndex = 11
         Me.txtPrecVMax.VNumero = True
         Me.txtPrecVMax.VNumLimit = True
@@ -255,27 +271,27 @@ Partial Class FrmRepArticulos
         '
         'Label9
         '
-        Me.Label9.Location = New System.Drawing.Point(516, 65)
+        Me.Label9.Location = New System.Drawing.Point(387, 62)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(165, 26)
+        Me.Label9.Size = New System.Drawing.Size(105, 21)
         Me.Label9.TabIndex = 12
-        Me.Label9.Text = "Precio de Lista Máximo:"
+        Me.Label9.Text = "Precio de Lista Máx:"
         '
         'cmdGenerar
         '
-        Me.cmdGenerar.Location = New System.Drawing.Point(927, 138)
-        Me.cmdGenerar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdGenerar.Location = New System.Drawing.Point(701, 95)
         Me.cmdGenerar.Name = "cmdGenerar"
-        Me.cmdGenerar.Size = New System.Drawing.Size(123, 33)
+        Me.cmdGenerar.Size = New System.Drawing.Size(92, 27)
         Me.cmdGenerar.TabIndex = 13
         Me.cmdGenerar.Text = "Generar"
         Me.cmdGenerar.UseVisualStyleBackColor = True
         '
         'FrmRepArticulos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1068, 549)
+        Me.ClientSize = New System.Drawing.Size(801, 518)
         Me.Controls.Add(Me.cmdGenerar)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtPrecVMax)
@@ -295,7 +311,9 @@ Partial Class FrmRepArticulos
         Me.Controls.Add(Me.cmbRubro)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "FrmRepArticulos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Articulos"
         CType(Me.ArticulosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet, System.ComponentModel.ISupportInitialize).EndInit()

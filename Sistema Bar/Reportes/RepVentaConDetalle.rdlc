@@ -313,11 +313,13 @@
                               <Style />
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!Precio.Value</Value>
+                              <Value>=FormatNumber(Fields!Precio.Value, 2)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Precio</rd:DefaultName>
@@ -347,11 +349,13 @@
                               <Style />
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!Total.Value</Value>
+                              <Value>=FormatNumber(Fields!Total.Value, 2)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Total1</rd:DefaultName>
@@ -492,8 +496,8 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>2.19625cm</Top>
-          <Left>0.22602cm</Left>
+          <Top>2.31931cm</Top>
+          <Left>0.25248cm</Left>
           <Height>0cm</Height>
           <Width>16.19025cm</Width>
           <ZIndex>1</ZIndex>
@@ -510,7 +514,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>DNI: </Value>
+                  <Value>Documento: </Value>
                   <Style />
                 </TextRun>
                 <TextRun>
@@ -593,9 +597,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox17</rd:DefaultName>
           <Top>2.62799cm</Top>
-          <Left>4.64456cm</Left>
+          <Left>5.70289cm</Left>
           <Height>0.6cm</Height>
-          <Width>5.8274cm</Width>
+          <Width>4.76907cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -694,11 +698,11 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Al costo: </Value>
+                  <Value>Tipo de precio: </Value>
                   <Style />
                 </TextRun>
                 <TextRun>
-                  <Value>=Fields!AlCosto.Value</Value>
+                  <Value>=IIf(Fields!AlCosto.Value, "Precio de costo", "Precio de venta")</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -728,11 +732,11 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Realizada: </Value>
+                  <Value>Estado: </Value>
                   <Style />
                 </TextRun>
                 <TextRun>
-                  <Value>=Fields!Realizada.Value</Value>
+                  <Value>=IIf(Fields!Realizada.Value, "Realizada", "Pendiente")</Value>
                   <Style />
                 </TextRun>
               </TextRuns>

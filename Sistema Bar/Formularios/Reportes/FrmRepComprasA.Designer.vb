@@ -25,8 +25,6 @@ Partial Class FrmRepComprasA
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRepComprasA))
-        Me.ComprasABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet = New Sistema_Bar.DataSet()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.cmdGenerar = New System.Windows.Forms.Button()
         Me.txtHasta = New Sistema_Bar.VMaskedTextBox()
@@ -39,13 +37,197 @@ Partial Class FrmRepComprasA
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.cmbProveedores = New Sistema_Bar.VComboBox()
         Me.txtArticulo = New Sistema_Bar.VTextBox()
         Me.txtCodigo = New Sistema_Bar.VTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.ComprasABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet = New Sistema_Bar.DataSet()
+        Me.cmbProveedores = New Sistema_Bar.VComboBox()
         CType(Me.ComprasABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.ComprasABindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepComprasA.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(11, 136)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.Size = New System.Drawing.Size(640, 386)
+        Me.ReportViewer1.TabIndex = 0
+        '
+        'cmdGenerar
+        '
+        Me.cmdGenerar.Location = New System.Drawing.Point(557, 104)
+        Me.cmdGenerar.Name = "cmdGenerar"
+        Me.cmdGenerar.Size = New System.Drawing.Size(92, 27)
+        Me.cmdGenerar.TabIndex = 28
+        Me.cmdGenerar.Text = "Generar"
+        Me.cmdGenerar.UseVisualStyleBackColor = True
+        '
+        'txtHasta
+        '
+        Me.txtHasta.EMensaje = Nothing
+        Me.txtHasta.Location = New System.Drawing.Point(565, 55)
+        Me.txtHasta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtHasta.Mask = "00/00/0000"
+        Me.txtHasta.Name = "txtHasta"
+        Me.txtHasta.NombreVisual = "Hasta"
+        Me.txtHasta.Size = New System.Drawing.Size(84, 20)
+        Me.txtHasta.TabIndex = 27
+        Me.txtHasta.ValidatingType = GetType(Date)
+        Me.txtHasta.VObligatorio = False
+        '
+        'txtDesde
+        '
+        Me.txtDesde.EMensaje = Nothing
+        Me.txtDesde.Location = New System.Drawing.Point(565, 22)
+        Me.txtDesde.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDesde.Mask = "00/00/0000"
+        Me.txtDesde.Name = "txtDesde"
+        Me.txtDesde.NombreVisual = "Desde"
+        Me.txtDesde.Size = New System.Drawing.Size(84, 20)
+        Me.txtDesde.TabIndex = 26
+        Me.txtDesde.ValidatingType = GetType(Date)
+        Me.txtDesde.VObligatorio = False
+        '
+        'txtMontoMax
+        '
+        Me.txtMontoMax.EMensaje = Nothing
+        Me.txtMontoMax.Location = New System.Drawing.Point(335, 55)
+        Me.txtMontoMax.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtMontoMax.Name = "txtMontoMax"
+        Me.txtMontoMax.NombreVisual = "Monto máximo"
+        Me.txtMontoMax.NumLimit = 999999999
+        Me.txtMontoMax.NumMin = 0
+        Me.txtMontoMax.Size = New System.Drawing.Size(116, 20)
+        Me.txtMontoMax.TabIndex = 25
+        Me.txtMontoMax.VNumero = True
+        Me.txtMontoMax.VNumLimit = True
+        Me.txtMontoMax.VNumMin = True
+        Me.txtMontoMax.VObligatorio = False
+        Me.txtMontoMax.VPositivo = True
+        '
+        'txtMontoMin
+        '
+        Me.txtMontoMin.EMensaje = Nothing
+        Me.txtMontoMin.Location = New System.Drawing.Point(335, 20)
+        Me.txtMontoMin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtMontoMin.Name = "txtMontoMin"
+        Me.txtMontoMin.NombreVisual = "Monto mínimo"
+        Me.txtMontoMin.NumLimit = 999999999
+        Me.txtMontoMin.NumMin = 0
+        Me.txtMontoMin.Size = New System.Drawing.Size(116, 20)
+        Me.txtMontoMin.TabIndex = 24
+        Me.txtMontoMin.VNumero = True
+        Me.txtMontoMin.VNumLimit = True
+        Me.txtMontoMin.VNumMin = True
+        Me.txtMontoMin.VObligatorio = False
+        Me.txtMontoMin.VPositivo = True
+        '
+        'Label5
+        '
+        Me.Label5.Location = New System.Drawing.Point(267, 58)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(83, 23)
+        Me.Label5.TabIndex = 23
+        Me.Label5.Text = "Monto Máx:"
+        '
+        'Label6
+        '
+        Me.Label6.Location = New System.Drawing.Point(267, 23)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(64, 23)
+        Me.Label6.TabIndex = 22
+        Me.Label6.Text = "Monto Mín:"
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(521, 60)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(40, 23)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "Hasta:"
+        '
+        'Label3
+        '
+        Me.Label3.Location = New System.Drawing.Point(521, 23)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 23)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Desde:"
+        '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(11, 86)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(59, 23)
+        Me.Label2.TabIndex = 19
+        Me.Label2.Text = "Proveedor:"
+        '
+        'Label1
+        '
+        Me.Label1.Location = New System.Drawing.Point(21, 55)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(48, 23)
+        Me.Label1.TabIndex = 18
+        Me.Label1.Text = "Artículo:"
+        '
+        'txtArticulo
+        '
+        Me.txtArticulo.EMensaje = Nothing
+        Me.txtArticulo.Location = New System.Drawing.Point(73, 52)
+        Me.txtArticulo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtArticulo.Name = "txtArticulo"
+        Me.txtArticulo.NombreVisual = "Artículo"
+        Me.txtArticulo.NumLimit = 999999999
+        Me.txtArticulo.NumMin = 0
+        Me.txtArticulo.Size = New System.Drawing.Size(122, 20)
+        Me.txtArticulo.TabIndex = 29
+        Me.txtArticulo.VNumero = True
+        Me.txtArticulo.VNumLimit = True
+        Me.txtArticulo.VNumMin = True
+        Me.txtArticulo.VObligatorio = False
+        Me.txtArticulo.VPositivo = True
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.EMensaje = Nothing
+        Me.txtCodigo.Location = New System.Drawing.Point(73, 22)
+        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.NombreVisual = "Código"
+        Me.txtCodigo.NumLimit = 999999999
+        Me.txtCodigo.NumMin = 0
+        Me.txtCodigo.Size = New System.Drawing.Size(122, 20)
+        Me.txtCodigo.TabIndex = 31
+        Me.txtCodigo.VNumero = True
+        Me.txtCodigo.VNumLimit = True
+        Me.txtCodigo.VNumMin = True
+        Me.txtCodigo.VObligatorio = False
+        Me.txtCodigo.VPositivo = True
+        '
+        'Label7
+        '
+        Me.Label7.Location = New System.Drawing.Point(26, 25)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(43, 23)
+        Me.Label7.TabIndex = 30
+        Me.Label7.Text = "Código:"
         '
         'ComprasABindingSource
         '
@@ -57,191 +239,24 @@ Partial Class FrmRepComprasA
         Me.DataSet.DataSetName = "DataSet"
         Me.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.ComprasABindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepComprasA.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(15, 195)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(853, 381)
-        Me.ReportViewer1.TabIndex = 0
-        '
-        'cmdGenerar
-        '
-        Me.cmdGenerar.Location = New System.Drawing.Point(735, 155)
-        Me.cmdGenerar.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmdGenerar.Name = "cmdGenerar"
-        Me.cmdGenerar.Size = New System.Drawing.Size(123, 33)
-        Me.cmdGenerar.TabIndex = 28
-        Me.cmdGenerar.Text = "Generar"
-        Me.cmdGenerar.UseVisualStyleBackColor = True
-        '
-        'txtHasta
-        '
-        Me.txtHasta.EMensaje = Nothing
-        Me.txtHasta.Location = New System.Drawing.Point(399, 80)
-        Me.txtHasta.Mask = "00/00/0000"
-        Me.txtHasta.Name = "txtHasta"
-        Me.txtHasta.NombreVisual = "Hasta"
-        Me.txtHasta.Size = New System.Drawing.Size(111, 22)
-        Me.txtHasta.TabIndex = 27
-        Me.txtHasta.ValidatingType = GetType(Date)
-        Me.txtHasta.VObligatorio = False
-        '
-        'txtDesde
-        '
-        Me.txtDesde.EMensaje = Nothing
-        Me.txtDesde.Location = New System.Drawing.Point(399, 34)
-        Me.txtDesde.Mask = "00/00/0000"
-        Me.txtDesde.Name = "txtDesde"
-        Me.txtDesde.NombreVisual = "Desde"
-        Me.txtDesde.Size = New System.Drawing.Size(111, 22)
-        Me.txtDesde.TabIndex = 26
-        Me.txtDesde.ValidatingType = GetType(Date)
-        Me.txtDesde.VObligatorio = False
-        '
-        'txtMontoMax
-        '
-        Me.txtMontoMax.EMensaje = Nothing
-        Me.txtMontoMax.Location = New System.Drawing.Point(663, 84)
-        Me.txtMontoMax.Name = "txtMontoMax"
-        Me.txtMontoMax.NombreVisual = "Monto máximo"
-        Me.txtMontoMax.NumLimit = 999999999
-        Me.txtMontoMax.NumMin = 0
-        Me.txtMontoMax.Size = New System.Drawing.Size(153, 22)
-        Me.txtMontoMax.TabIndex = 25
-        Me.txtMontoMax.VNumero = True
-        Me.txtMontoMax.VNumLimit = True
-        Me.txtMontoMax.VNumMin = True
-        Me.txtMontoMax.VObligatorio = False
-        Me.txtMontoMax.VPositivo = True
-        '
-        'txtMontoMin
-        '
-        Me.txtMontoMin.EMensaje = Nothing
-        Me.txtMontoMin.Location = New System.Drawing.Point(663, 34)
-        Me.txtMontoMin.Name = "txtMontoMin"
-        Me.txtMontoMin.NombreVisual = "Monto mínimo"
-        Me.txtMontoMin.NumLimit = 999999999
-        Me.txtMontoMin.NumMin = 0
-        Me.txtMontoMin.Size = New System.Drawing.Size(153, 22)
-        Me.txtMontoMin.TabIndex = 24
-        Me.txtMontoMin.VNumero = True
-        Me.txtMontoMin.VNumLimit = True
-        Me.txtMontoMin.VNumMin = True
-        Me.txtMontoMin.VObligatorio = False
-        Me.txtMontoMin.VPositivo = True
-        '
-        'Label5
-        '
-        Me.Label5.Location = New System.Drawing.Point(556, 83)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(111, 28)
-        Me.Label5.TabIndex = 23
-        Me.Label5.Text = "Monto Máximo:"
-        '
-        'Label6
-        '
-        Me.Label6.Location = New System.Drawing.Point(553, 37)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(104, 28)
-        Me.Label6.TabIndex = 22
-        Me.Label6.Text = "Monto Mínimo:"
-        '
-        'Label4
-        '
-        Me.Label4.Location = New System.Drawing.Point(339, 83)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(54, 28)
-        Me.Label4.TabIndex = 21
-        Me.Label4.Text = "Hasta:"
-        '
-        'Label3
-        '
-        Me.Label3.Location = New System.Drawing.Point(339, 37)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(54, 28)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Desde:"
-        '
-        'Label2
-        '
-        Me.Label2.Location = New System.Drawing.Point(34, 151)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(89, 28)
-        Me.Label2.TabIndex = 19
-        Me.Label2.Text = "Proveedor:"
-        '
-        'Label1
-        '
-        Me.Label1.Location = New System.Drawing.Point(34, 96)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 28)
-        Me.Label1.TabIndex = 18
-        Me.Label1.Text = "Artículo:"
-        '
         'cmbProveedores
         '
         Me.cmbProveedores.EMensaje = Nothing
         Me.cmbProveedores.FormattingEnabled = True
-        Me.cmbProveedores.Location = New System.Drawing.Point(129, 148)
+        Me.cmbProveedores.Location = New System.Drawing.Point(73, 83)
+        Me.cmbProveedores.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbProveedores.Name = "cmbProveedores"
-        Me.cmbProveedores.NombreVisual = "Proveedores"
-        Me.cmbProveedores.Size = New System.Drawing.Size(162, 24)
-        Me.cmbProveedores.TabIndex = 17
+        Me.cmbProveedores.NombreVisual = "Proveedor"
+        Me.cmbProveedores.Size = New System.Drawing.Size(122, 21)
+        Me.cmbProveedores.TabIndex = 32
         Me.cmbProveedores.VObligatorio = False
-        '
-        'txtArticulo
-        '
-        Me.txtArticulo.EMensaje = Nothing
-        Me.txtArticulo.Location = New System.Drawing.Point(129, 96)
-        Me.txtArticulo.Name = "txtArticulo"
-        Me.txtArticulo.NombreVisual = "Artículo"
-        Me.txtArticulo.NumLimit = 999999999
-        Me.txtArticulo.NumMin = 0
-        Me.txtArticulo.Size = New System.Drawing.Size(162, 22)
-        Me.txtArticulo.TabIndex = 29
-        Me.txtArticulo.VNumero = True
-        Me.txtArticulo.VNumLimit = True
-        Me.txtArticulo.VNumMin = True
-        Me.txtArticulo.VObligatorio = False
-        Me.txtArticulo.VPositivo = True
-        '
-        'txtCodigo
-        '
-        Me.txtCodigo.EMensaje = Nothing
-        Me.txtCodigo.Location = New System.Drawing.Point(129, 37)
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.NombreVisual = "Código"
-        Me.txtCodigo.NumLimit = 999999999
-        Me.txtCodigo.NumMin = 0
-        Me.txtCodigo.Size = New System.Drawing.Size(162, 22)
-        Me.txtCodigo.TabIndex = 31
-        Me.txtCodigo.VNumero = True
-        Me.txtCodigo.VNumLimit = True
-        Me.txtCodigo.VNumMin = True
-        Me.txtCodigo.VObligatorio = False
-        Me.txtCodigo.VPositivo = True
-        '
-        'Label7
-        '
-        Me.Label7.Location = New System.Drawing.Point(34, 37)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 28)
-        Me.Label7.TabIndex = 30
-        Me.Label7.Text = "Código:"
         '
         'FrmRepComprasA
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(881, 584)
+        Me.ClientSize = New System.Drawing.Size(661, 528)
+        Me.Controls.Add(Me.cmbProveedores)
         Me.Controls.Add(Me.txtCodigo)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txtArticulo)
@@ -256,10 +271,11 @@ Partial Class FrmRepComprasA
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.cmbProveedores)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "FrmRepComprasA"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Compras por Articulo"
         CType(Me.ComprasABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -282,8 +298,8 @@ Partial Class FrmRepComprasA
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents cmbProveedores As VComboBox
     Friend WithEvents txtArticulo As VTextBox
     Friend WithEvents txtCodigo As VTextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents cmbProveedores As VComboBox
 End Class

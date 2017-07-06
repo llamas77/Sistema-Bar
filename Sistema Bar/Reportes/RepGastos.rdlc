@@ -274,11 +274,13 @@
                               <Style />
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!Monto.Value</Value>
+                              <Value>=FormatNumber(Fields!Monto.Value, 2)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Monto</rd:DefaultName>
@@ -317,6 +319,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.17639cm</Top>
         <Left>0.27228cm</Left>
@@ -350,9 +353,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
         <Top>1.80481cm</Top>
-        <Left>12.55367cm</Left>
+        <Left>11.99805cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.90229cm</Width>
+        <Width>4.45792cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -421,6 +424,38 @@
             </Border>
           </Style>
         </Line>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Generado el " &amp; Format(DateTime.Now, "dd/MM/yyyy") &amp; " a las " &amp; Format(DateTime.Now, "h:mm:ss")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>1.61822cm</Top>
+          <Left>2.36946cm</Left>
+          <Height>0.6cm</Height>
+          <Width>12.87167cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>

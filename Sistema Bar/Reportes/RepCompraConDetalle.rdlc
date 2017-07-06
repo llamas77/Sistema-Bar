@@ -313,11 +313,13 @@
                               <Style />
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!Precio_Lista.Value</Value>
+                              <Value>=FormatNumber(Fields!Precio_Lista.Value, 2)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Precio_Lista</rd:DefaultName>
@@ -347,11 +349,13 @@
                               <Style />
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!Total.Value</Value>
+                              <Value>=FormatNumber(Fields!Total.Value, 2)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Total1</rd:DefaultName>

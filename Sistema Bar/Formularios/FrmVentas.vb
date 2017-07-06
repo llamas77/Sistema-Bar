@@ -11,12 +11,11 @@ Public Class FrmVentas
         cargarCombo(cmbTipoDoc, db.cargarTabla("Tipos_Doc"), "Id", "Nombre")
         FirstControl = txtBuscar
         cargarGrilla()
-        Me.ReportViewer1.RefreshReport()
     End Sub
 
     Public Sub cargarGrilla()
         Dim sql As String = ""
-        sql &= "SELECT v.Id, v.Fecha, td.Nombre, c.Nro_Doc, c.Nombre, c.Apellido, (v.Recargo * 100) as Recargo, v.AlCosto, v.Realizada, SUM(dv.Cantidad * dv.Precio) as Total "
+        sql &= "SELECT v.Id, v.Fecha, td.Nombre as NombreTd, c.Nro_Doc, c.Nombre, c.Apellido, (v.Recargo * 100) as Recargo, v.AlCosto, v.Realizada, SUM(dv.Cantidad * dv.Precio) as Total "
         sql &= "FROM Ventas v JOIN Clientes c ON (v.Tipo_Doc_Cliente = c.Id_TipoDoc AND v.Nro_Doc_Cliente = c.Nro_Doc) "
         sql &= "JOIN Tipos_Doc td ON (c.Id_TipoDoc = td.Id)"
         sql &= "JOIN Detalles_Ventas dv ON (v.Id = dv.Id_Venta) "
@@ -116,6 +115,9 @@ Public Class FrmVentas
             Next
         Next
 
+        ReportViewer1.Visible = False
+        lblMensaje.Visible = True
+
         ' Posiciona la selección donde estaba
         If grilla.Rows.Count > 0 Then
             If grilla.Rows.Count() <= index Then ' Si tenia la ultima celda y tengo menos valores selecciono el ultimo.
@@ -123,6 +125,23 @@ Public Class FrmVentas
             End If
             grilla.CurrentCell = grilla.Rows(index).Cells(grilla.FirstDisplayedCell.ColumnIndex)
         End If
+
+        'Listo, hasta acá se cargo la grilla
+
+        'Comienza a cargar el reporte si es necesario
+        'Detecto si la grilla tiene algo...
+        If Not puedeActuarEnGrilla(grilla, False) Then Return
+
+
+        If Not mismoCliente() Then Return
+
+        lblMensaje.Visible = False
+        ReportViewer1.Visible = True
+
+        VentasBindingSource.DataSource = tabla
+        ReportViewer1.RefreshReport()
+
+
     End Sub
 
     Private Sub cmdNueva_Click(sender As Object, e As EventArgs) Handles cmdNueva.Click
@@ -148,7 +167,7 @@ Public Class FrmVentas
         End Select
     End Sub
 
-    Private Sub grilla_DoubleClick(sender As Object, e As EventArgs)
+    Private Sub grilla_DoubleClick(sender As Object, e As EventArgs) Handles grilla.DoubleClick
         ver(sender, e)
     End Sub
 
@@ -201,22 +220,29 @@ Public Class FrmVentas
         MsgBox("La venta se realizó correctamente. El vuelto es de $" & FormatNumber(valor, 2), vbInformation)
     End Sub
 
-    'Termina todas las ventas de la grilla que sean pendientes, y si solo hay de UNA SOLA PERSONA
-    Public Sub terminarventas()
-        If Not puedeActuarEnGrilla(grilla) Then Return
-
+    Public Function mismoCliente() As Boolean
         Dim primerTipoDoc As Object = grilla.Rows(0).Cells(2).Value
         Dim primerDoc As Object = grilla.Rows(0).Cells(3).Value
 
         'Si hay mas de uno verifico que sean todos iguales (mismos docs y mismos tipos dni), sino no hace falta
-        If grilla.Rows.Count > 0 Then
+        If grilla.Rows.Count > 1 Then
             Dim i As Integer
             For i = 1 To grilla.Rows.Count - 1
                 If grilla.Rows(i).Cells(2).Value <> primerTipoDoc Or grilla.Rows(i).Cells(3).Value <> primerDoc Then
-                    MsgBox("Debe filtrar primero por las ventas de un cliente en particular.", vbCritical)
-                    Return
+                    Return False
                 End If
             Next
+        End If
+        Return True
+    End Function
+
+    'Termina todas las ventas de la grilla que sean pendientes, y si solo hay de UNA SOLA PERSONA
+    Public Sub terminarventas()
+        If Not puedeActuarEnGrilla(grilla) Then Return
+
+        If Not mismoCliente() Then
+            MsgBox("Debe filtrar primero por las ventas de un cliente en particular.", vbCritical)
+            Return
         End If
 
         Dim monto As Single
@@ -261,4 +287,5 @@ Public Class FrmVentas
     Private Sub txtBuscar_TextChanged_1(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
         buscar(txtBuscar, grilla)
     End Sub
+
 End Class

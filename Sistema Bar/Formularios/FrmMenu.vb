@@ -195,6 +195,7 @@ Public Class FrmMenu
         'Manejo de turnos (PARA REVISAR: SI SOLO LO HACE EL ADMIN, AGREGAR RESTRICCIÓN: And logeado)
         AbrirTurnoToolStripMenuItem.Enabled = Not turnoAbierto
         CerrarTurnoToolStripMenuItem.Enabled = turnoAbierto
+        ConsultarTurnosToolStripMenuItem.Enabled = logeado
 
         'Articulos
         ArtículosToolStripMenuItem.Enabled = logeado
@@ -236,6 +237,11 @@ Public Class FrmMenu
 
     Private Sub PorRubroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PorRubroToolStripMenuItem.Click
         Dim frm As New FrmRepVentasR
+        frm.Show()
+    End Sub
+
+    Private Sub ConsultarTurnosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarTurnosToolStripMenuItem.Click
+        Dim frm As New FrmTurnos
         frm.Show()
     End Sub
 End Class
