@@ -46,7 +46,7 @@ Partial Class FrmTiposGasto
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre})
         Me.grilla.Location = New System.Drawing.Point(23, 121)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
@@ -72,7 +72,7 @@ Partial Class FrmTiposGasto
         Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(115, 32)
-        Me.cmdCancelar.TabIndex = 14
+        Me.cmdCancelar.TabIndex = 5
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '
@@ -82,7 +82,7 @@ Partial Class FrmTiposGasto
         Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(115, 32)
-        Me.cmdBorrar.TabIndex = 15
+        Me.cmdBorrar.TabIndex = 4
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
@@ -92,7 +92,7 @@ Partial Class FrmTiposGasto
         Me.cmdModificar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmdModificar.Name = "cmdModificar"
         Me.cmdModificar.Size = New System.Drawing.Size(115, 32)
-        Me.cmdModificar.TabIndex = 16
+        Me.cmdModificar.TabIndex = 3
         Me.cmdModificar.Text = "Modificar "
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
@@ -102,7 +102,7 @@ Partial Class FrmTiposGasto
         Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(116, 32)
-        Me.cmdActualizar.TabIndex = 13
+        Me.cmdActualizar.TabIndex = 1
         Me.cmdActualizar.Text = "Agregar"
         Me.cmdActualizar.UseVisualStyleBackColor = True
         '
@@ -116,7 +116,7 @@ Partial Class FrmTiposGasto
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
         Me.txtBuscar.Size = New System.Drawing.Size(384, 22)
-        Me.txtBuscar.TabIndex = 12
+        Me.txtBuscar.TabIndex = 2
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
         Me.txtBuscar.VNumMin = False
@@ -134,7 +134,7 @@ Partial Class FrmTiposGasto
         Me.txtNombre.NumLimit = 999999999
         Me.txtNombre.NumMin = 0
         Me.txtNombre.Size = New System.Drawing.Size(228, 22)
-        Me.txtNombre.TabIndex = 11
+        Me.txtNombre.TabIndex = 0
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
         Me.txtNombre.VNumMin = False

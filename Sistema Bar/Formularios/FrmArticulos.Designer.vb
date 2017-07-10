@@ -58,7 +58,7 @@ Partial Class FrmArticulos
         '
         Me.txtCodigo.EMensaje = Nothing
         Me.txtCodigo.Location = New System.Drawing.Point(89, 15)
-        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.NombreVisual = "Código"
         Me.txtCodigo.NumLimit = 999999999
@@ -74,37 +74,37 @@ Partial Class FrmArticulos
         'cmdCancelar
         '
         Me.cmdCancelar.Location = New System.Drawing.Point(1032, 526)
-        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdCancelar.TabIndex = 11
+        Me.cmdCancelar.TabIndex = 10
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '
         'cmdBorrar
         '
         Me.cmdBorrar.Location = New System.Drawing.Point(155, 526)
-        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdBorrar.TabIndex = 10
+        Me.cmdBorrar.TabIndex = 9
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
         'cmdModificar
         '
         Me.cmdModificar.Location = New System.Drawing.Point(20, 526)
-        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdModificar.Name = "cmdModificar"
         Me.cmdModificar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdModificar.TabIndex = 9
+        Me.cmdModificar.TabIndex = 8
         Me.cmdModificar.Text = "Modificar"
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
         'cmdActualizar
         '
         Me.cmdActualizar.Location = New System.Drawing.Point(1032, 111)
-        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(127, 31)
         Me.cmdActualizar.TabIndex = 6
@@ -135,7 +135,7 @@ Partial Class FrmArticulos
         '
         Me.txtNombre.EMensaje = Nothing
         Me.txtNombre.Location = New System.Drawing.Point(89, 47)
-        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.NombreVisual = "Nombre"
@@ -166,7 +166,7 @@ Partial Class FrmArticulos
         Me.cmbRubro.EMensaje = Nothing
         Me.cmbRubro.FormattingEnabled = True
         Me.cmbRubro.Location = New System.Drawing.Point(424, 15)
-        Me.cmbRubro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbRubro.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbRubro.Name = "cmbRubro"
         Me.cmbRubro.NombreVisual = "Rubro"
         Me.cmbRubro.Size = New System.Drawing.Size(204, 24)
@@ -187,7 +187,7 @@ Partial Class FrmArticulos
         '
         Me.txtPrecioLista.EMensaje = Nothing
         Me.txtPrecioLista.Location = New System.Drawing.Point(781, 16)
-        Me.txtPrecioLista.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtPrecioLista.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPrecioLista.Name = "txtPrecioLista"
         Me.txtPrecioLista.NombreVisual = "Precio de lista"
         Me.txtPrecioLista.NumLimit = 999999999
@@ -214,7 +214,7 @@ Partial Class FrmArticulos
         '
         Me.txtPrecioVenta.EMensaje = Nothing
         Me.txtPrecioVenta.Location = New System.Drawing.Point(781, 48)
-        Me.txtPrecioVenta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtPrecioVenta.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPrecioVenta.Name = "txtPrecioVenta"
         Me.txtPrecioVenta.NombreVisual = "Precio de venta"
         Me.txtPrecioVenta.NumLimit = 999999999
@@ -241,7 +241,7 @@ Partial Class FrmArticulos
         '
         Me.txtStock.EMensaje = Nothing
         Me.txtStock.Location = New System.Drawing.Point(424, 49)
-        Me.txtStock.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtStock.Margin = New System.Windows.Forms.Padding(4)
         Me.txtStock.Name = "txtStock"
         Me.txtStock.NombreVisual = "Stock"
         Me.txtStock.NumLimit = 999999999
@@ -262,7 +262,7 @@ Partial Class FrmArticulos
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Id_Rubro, Me.Nombre, Me.Nombre_Rubro, Me.Precio_Lista, Me.Precio_Venta, Me.Stock})
         Me.grilla.Location = New System.Drawing.Point(20, 146)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
@@ -337,7 +337,7 @@ Partial Class FrmArticulos
         '
         Me.txtBuscar.EMensaje = Nothing
         Me.txtBuscar.Location = New System.Drawing.Point(89, 114)
-        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Nombre"
@@ -378,7 +378,7 @@ Partial Class FrmArticulos
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "FrmArticulos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

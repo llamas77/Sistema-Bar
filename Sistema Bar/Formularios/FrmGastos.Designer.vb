@@ -85,7 +85,7 @@ Partial Class FrmGastos
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
         Me.txtBuscar.Size = New System.Drawing.Size(544, 22)
-        Me.txtBuscar.TabIndex = 3
+        Me.txtBuscar.TabIndex = 4
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
         Me.txtBuscar.VNumMin = False
@@ -95,30 +95,30 @@ Partial Class FrmGastos
         'cmdCancelar
         '
         Me.cmdCancelar.Location = New System.Drawing.Point(677, 506)
-        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdCancelar.TabIndex = 10
+        Me.cmdCancelar.TabIndex = 5
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '
         'cmdBorrar
         '
         Me.cmdBorrar.Location = New System.Drawing.Point(27, 506)
-        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdBorrar.TabIndex = 9
+        Me.cmdBorrar.TabIndex = 6
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
         'cmdActualizar
         '
         Me.cmdActualizar.Location = New System.Drawing.Point(677, 108)
-        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdActualizar.TabIndex = 7
+        Me.cmdActualizar.TabIndex = 3
         Me.cmdActualizar.Text = "Agregar"
         Me.cmdActualizar.UseVisualStyleBackColor = True
         '
@@ -131,7 +131,7 @@ Partial Class FrmGastos
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Id_TipoGasto, Me.Fecha, Me.Tipo_Gasto, Me.Descripcion, Me.Monto})
         Me.grilla.Location = New System.Drawing.Point(27, 146)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
@@ -197,7 +197,7 @@ Partial Class FrmGastos
         Me.txtMonto.NumLimit = 999999999
         Me.txtMonto.NumMin = 0
         Me.txtMonto.Size = New System.Drawing.Size(133, 22)
-        Me.txtMonto.TabIndex = 13
+        Me.txtMonto.TabIndex = 0
         Me.txtMonto.VNumero = True
         Me.txtMonto.VNumLimit = True
         Me.txtMonto.VNumMin = True
@@ -222,7 +222,7 @@ Partial Class FrmGastos
         Me.txtDescripcion.NumLimit = 999999999
         Me.txtDescripcion.NumMin = 0
         Me.txtDescripcion.Size = New System.Drawing.Size(503, 22)
-        Me.txtDescripcion.TabIndex = 15
+        Me.txtDescripcion.TabIndex = 2
         Me.txtDescripcion.VNumero = False
         Me.txtDescripcion.VNumLimit = False
         Me.txtDescripcion.VNumMin = False

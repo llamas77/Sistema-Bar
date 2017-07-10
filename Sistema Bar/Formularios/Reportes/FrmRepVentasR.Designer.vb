@@ -66,28 +66,28 @@ Partial Class FrmRepVentasR
         ReportDataSource1.Value = Me.VentasRBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepVentasR.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(4, 118)
-        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ReportViewer1.Location = New System.Drawing.Point(5, 145)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(674, 394)
+        Me.ReportViewer1.Size = New System.Drawing.Size(898, 484)
         Me.ReportViewer1.TabIndex = 0
         '
         'cmdGenerar
         '
-        Me.cmdGenerar.Location = New System.Drawing.Point(586, 86)
+        Me.cmdGenerar.Location = New System.Drawing.Point(781, 106)
+        Me.cmdGenerar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdGenerar.Name = "cmdGenerar"
-        Me.cmdGenerar.Size = New System.Drawing.Size(92, 27)
-        Me.cmdGenerar.TabIndex = 28
+        Me.cmdGenerar.Size = New System.Drawing.Size(123, 33)
+        Me.cmdGenerar.TabIndex = 7
         Me.cmdGenerar.Text = "Generar"
         Me.cmdGenerar.UseVisualStyleBackColor = True
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(192, 12)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(256, 15)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 23)
+        Me.Label1.Size = New System.Drawing.Size(57, 28)
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "Rubro:"
         '
@@ -95,12 +95,12 @@ Partial Class FrmRepVentasR
         '
         Me.cmbRubros.EMensaje = Nothing
         Me.cmbRubros.FormattingEnabled = True
-        Me.cmbRubros.Location = New System.Drawing.Point(239, 10)
-        Me.cmbRubros.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbRubros.Location = New System.Drawing.Point(319, 12)
+        Me.cmbRubros.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbRubros.Name = "cmbRubros"
         Me.cmbRubros.NombreVisual = "Rubro"
-        Me.cmbRubros.Size = New System.Drawing.Size(122, 21)
-        Me.cmbRubros.TabIndex = 16
+        Me.cmbRubros.Size = New System.Drawing.Size(161, 24)
+        Me.cmbRubros.TabIndex = 2
         Me.cmbRubros.VObligatorio = False
         '
         'cmbTipoDoc
@@ -109,25 +109,25 @@ Partial Class FrmRepVentasR
         Me.cmbTipoDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTipoDoc.EMensaje = Nothing
         Me.cmbTipoDoc.FormattingEnabled = True
-        Me.cmbTipoDoc.Location = New System.Drawing.Point(63, 40)
-        Me.cmbTipoDoc.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbTipoDoc.Location = New System.Drawing.Point(84, 49)
+        Me.cmbTipoDoc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbTipoDoc.Name = "cmbTipoDoc"
         Me.cmbTipoDoc.NombreVisual = "Tipo de Documento"
-        Me.cmbTipoDoc.Size = New System.Drawing.Size(117, 21)
-        Me.cmbTipoDoc.TabIndex = 75
+        Me.cmbTipoDoc.Size = New System.Drawing.Size(155, 24)
+        Me.cmbTipoDoc.TabIndex = 1
         Me.cmbTipoDoc.VObligatorio = True
         '
         'txtDoc
         '
         Me.txtDoc.EMensaje = Nothing
-        Me.txtDoc.Location = New System.Drawing.Point(63, 11)
-        Me.txtDoc.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtDoc.Location = New System.Drawing.Point(84, 14)
+        Me.txtDoc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtDoc.Name = "txtDoc"
         Me.txtDoc.NombreVisual = "Documento"
         Me.txtDoc.NumLimit = 999999999
         Me.txtDoc.NumMin = 0
-        Me.txtDoc.Size = New System.Drawing.Size(117, 20)
-        Me.txtDoc.TabIndex = 74
+        Me.txtDoc.Size = New System.Drawing.Size(155, 22)
+        Me.txtDoc.TabIndex = 0
         Me.txtDoc.VNumero = True
         Me.txtDoc.VNumLimit = True
         Me.txtDoc.VNumMin = True
@@ -137,59 +137,57 @@ Partial Class FrmRepVentasR
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(5, 43)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Location = New System.Drawing.Point(7, 53)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(54, 13)
+        Me.Label8.Size = New System.Drawing.Size(69, 17)
         Me.Label8.TabIndex = 73
         Me.Label8.Text = "Tipo Doc:"
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(27, 13)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(36, 16)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(43, 23)
+        Me.Label2.Size = New System.Drawing.Size(57, 28)
         Me.Label2.TabIndex = 70
         Me.Label2.Text = "Doc:"
         '
         'txtHasta
         '
         Me.txtHasta.EMensaje = Nothing
-        Me.txtHasta.Location = New System.Drawing.Point(594, 46)
-        Me.txtHasta.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtHasta.Location = New System.Drawing.Point(792, 57)
+        Me.txtHasta.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtHasta.Mask = "00/00/0000"
         Me.txtHasta.Name = "txtHasta"
         Me.txtHasta.NombreVisual = "Hasta"
-        Me.txtHasta.Size = New System.Drawing.Size(84, 20)
-        Me.txtHasta.TabIndex = 68
+        Me.txtHasta.Size = New System.Drawing.Size(111, 22)
+        Me.txtHasta.TabIndex = 6
         Me.txtHasta.ValidatingType = GetType(Date)
         Me.txtHasta.VObligatorio = False
         '
         'txtDesde
         '
         Me.txtDesde.EMensaje = Nothing
-        Me.txtDesde.Location = New System.Drawing.Point(594, 11)
-        Me.txtDesde.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtDesde.Location = New System.Drawing.Point(792, 14)
+        Me.txtDesde.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtDesde.Mask = "00/00/0000"
         Me.txtDesde.Name = "txtDesde"
         Me.txtDesde.NombreVisual = "Desde"
-        Me.txtDesde.Size = New System.Drawing.Size(84, 20)
-        Me.txtDesde.TabIndex = 67
+        Me.txtDesde.Size = New System.Drawing.Size(111, 22)
+        Me.txtDesde.TabIndex = 5
         Me.txtDesde.ValidatingType = GetType(Date)
         Me.txtDesde.VObligatorio = False
         '
         'txtMontoMax
         '
         Me.txtMontoMax.EMensaje = Nothing
-        Me.txtMontoMax.Location = New System.Drawing.Point(442, 46)
-        Me.txtMontoMax.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtMontoMax.Location = New System.Drawing.Point(589, 57)
+        Me.txtMontoMax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtMontoMax.Name = "txtMontoMax"
         Me.txtMontoMax.NombreVisual = "Monto máximo"
         Me.txtMontoMax.NumLimit = 999999999
         Me.txtMontoMax.NumMin = 0
-        Me.txtMontoMax.Size = New System.Drawing.Size(77, 20)
-        Me.txtMontoMax.TabIndex = 66
+        Me.txtMontoMax.Size = New System.Drawing.Size(101, 22)
+        Me.txtMontoMax.TabIndex = 4
         Me.txtMontoMax.VNumero = True
         Me.txtMontoMax.VNumLimit = True
         Me.txtMontoMax.VNumMin = True
@@ -199,14 +197,14 @@ Partial Class FrmRepVentasR
         'txtMontoMin
         '
         Me.txtMontoMin.EMensaje = Nothing
-        Me.txtMontoMin.Location = New System.Drawing.Point(442, 11)
-        Me.txtMontoMin.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtMontoMin.Location = New System.Drawing.Point(589, 14)
+        Me.txtMontoMin.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtMontoMin.Name = "txtMontoMin"
         Me.txtMontoMin.NombreVisual = "Monto mínimo"
         Me.txtMontoMin.NumLimit = 999999999
         Me.txtMontoMin.NumMin = 0
-        Me.txtMontoMin.Size = New System.Drawing.Size(77, 20)
-        Me.txtMontoMin.TabIndex = 65
+        Me.txtMontoMin.Size = New System.Drawing.Size(101, 22)
+        Me.txtMontoMin.TabIndex = 3
         Me.txtMontoMin.VNumero = True
         Me.txtMontoMin.VNumLimit = True
         Me.txtMontoMin.VNumMin = True
@@ -215,45 +213,41 @@ Partial Class FrmRepVentasR
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(374, 49)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Location = New System.Drawing.Point(499, 60)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(83, 23)
+        Me.Label5.Size = New System.Drawing.Size(111, 28)
         Me.Label5.TabIndex = 64
         Me.Label5.Text = "Monto Máx:"
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(374, 14)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Location = New System.Drawing.Point(499, 17)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(64, 23)
+        Me.Label6.Size = New System.Drawing.Size(85, 28)
         Me.Label6.TabIndex = 63
         Me.Label6.Text = "Monto Mín:"
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(550, 51)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Location = New System.Drawing.Point(733, 63)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(40, 23)
+        Me.Label4.Size = New System.Drawing.Size(53, 28)
         Me.Label4.TabIndex = 62
         Me.Label4.Text = "Hasta:"
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(550, 14)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(733, 17)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(53, 23)
+        Me.Label3.Size = New System.Drawing.Size(71, 28)
         Me.Label3.TabIndex = 61
         Me.Label3.Text = "Desde:"
         '
         'FrmRepVentasR
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(686, 522)
+        Me.ClientSize = New System.Drawing.Size(915, 642)
         Me.Controls.Add(Me.cmbTipoDoc)
         Me.Controls.Add(Me.txtDoc)
         Me.Controls.Add(Me.Label8)
@@ -271,7 +265,7 @@ Partial Class FrmRepVentasR
         Me.Controls.Add(Me.cmbRubros)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FrmRepVentasR"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Ventas por Rubros"

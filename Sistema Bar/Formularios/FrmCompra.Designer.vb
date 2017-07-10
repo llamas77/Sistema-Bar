@@ -79,7 +79,7 @@ Partial Class FrmCompra
         '
         Me.txtCodigo.EMensaje = Nothing
         Me.txtCodigo.Location = New System.Drawing.Point(123, 74)
-        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCodigo.MaxLength = 50
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.NombreVisual = "Artículo"
@@ -100,7 +100,7 @@ Partial Class FrmCompra
         Me.cmbArticulos.EMensaje = Nothing
         Me.cmbArticulos.FormattingEnabled = True
         Me.cmbArticulos.Location = New System.Drawing.Point(355, 73)
-        Me.cmbArticulos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbArticulos.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbArticulos.Name = "cmbArticulos"
         Me.cmbArticulos.NombreVisual = "Artículo"
         Me.cmbArticulos.Size = New System.Drawing.Size(343, 24)
@@ -122,7 +122,7 @@ Partial Class FrmCompra
         Me.txtPrecio.EMensaje = Nothing
         Me.txtPrecio.Enabled = False
         Me.txtPrecio.Location = New System.Drawing.Point(123, 106)
-        Me.txtPrecio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtPrecio.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPrecio.MaxLength = 50
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.NombreVisual = "Precio unitario"
@@ -150,14 +150,14 @@ Partial Class FrmCompra
         '
         Me.txtCantidad.EMensaje = Nothing
         Me.txtCantidad.Location = New System.Drawing.Point(591, 106)
-        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCantidad.MaxLength = 50
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.NombreVisual = "Cantidad"
         Me.txtCantidad.NumLimit = 999999999
         Me.txtCantidad.NumMin = 1
         Me.txtCantidad.Size = New System.Drawing.Size(107, 22)
-        Me.txtCantidad.TabIndex = 1
+        Me.txtCantidad.TabIndex = 2
         Me.txtCantidad.VNumero = True
         Me.txtCantidad.VNumLimit = True
         Me.txtCantidad.VNumMin = True
@@ -172,7 +172,7 @@ Partial Class FrmCompra
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Cantidad, Me.Id_Articulo, Me.Nombre, Me.Precio_Lista, Me.Total})
         Me.grilla.Location = New System.Drawing.Point(24, 212)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
@@ -233,7 +233,7 @@ Partial Class FrmCompra
         Me.txtStock.EMensaje = Nothing
         Me.txtStock.Enabled = False
         Me.txtStock.Location = New System.Drawing.Point(355, 106)
-        Me.txtStock.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtStock.Margin = New System.Windows.Forms.Padding(4)
         Me.txtStock.MaxLength = 50
         Me.txtStock.Name = "txtStock"
         Me.txtStock.NombreVisual = "Stock"
@@ -250,10 +250,10 @@ Partial Class FrmCompra
         'cmdAgregar
         '
         Me.cmdAgregar.Location = New System.Drawing.Point(784, 174)
-        Me.cmdAgregar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdAgregar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdAgregar.Name = "cmdAgregar"
         Me.cmdAgregar.Size = New System.Drawing.Size(152, 31)
-        Me.cmdAgregar.TabIndex = 2
+        Me.cmdAgregar.TabIndex = 3
         Me.cmdAgregar.Text = "Agregar artículo"
         Me.cmdAgregar.UseVisualStyleBackColor = True
         '
@@ -261,14 +261,14 @@ Partial Class FrmCompra
         '
         Me.txtBuscar.EMensaje = Nothing
         Me.txtBuscar.Location = New System.Drawing.Point(93, 177)
-        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Buscar"
         Me.txtBuscar.NumLimit = 0
         Me.txtBuscar.NumMin = 0
         Me.txtBuscar.Size = New System.Drawing.Size(393, 22)
-        Me.txtBuscar.TabIndex = 3
+        Me.txtBuscar.TabIndex = 5
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
         Me.txtBuscar.VNumMin = False
@@ -292,11 +292,11 @@ Partial Class FrmCompra
         Me.cmbProveedores.EMensaje = Nothing
         Me.cmbProveedores.FormattingEnabled = True
         Me.cmbProveedores.Location = New System.Drawing.Point(123, 15)
-        Me.cmbProveedores.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbProveedores.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbProveedores.Name = "cmbProveedores"
         Me.cmbProveedores.NombreVisual = "Proveedor"
         Me.cmbProveedores.Size = New System.Drawing.Size(343, 24)
-        Me.cmbProveedores.TabIndex = 7
+        Me.cmbProveedores.TabIndex = 4
         Me.cmbProveedores.VObligatorio = False
         '
         'Label8
@@ -314,40 +314,40 @@ Partial Class FrmCompra
         Me.txtFecha.EMensaje = Nothing
         Me.txtFecha.Enabled = False
         Me.txtFecha.Location = New System.Drawing.Point(591, 16)
-        Me.txtFecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtFecha.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFecha.Name = "txtFecha"
         Me.txtFecha.NombreVisual = "Fecha"
         Me.txtFecha.Size = New System.Drawing.Size(105, 22)
-        Me.txtFecha.TabIndex = 17
+        Me.txtFecha.TabIndex = 1
         Me.txtFecha.VObligatorio = False
         '
         'cmdBorrar
         '
         Me.cmdBorrar.Location = New System.Drawing.Point(180, 591)
-        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(152, 31)
-        Me.cmdBorrar.TabIndex = 6
+        Me.cmdBorrar.TabIndex = 8
         Me.cmdBorrar.Text = "Borrar artículo"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
         'cmdModificar
         '
         Me.cmdModificar.Location = New System.Drawing.Point(20, 591)
-        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdModificar.Name = "cmdModificar"
         Me.cmdModificar.Size = New System.Drawing.Size(152, 31)
-        Me.cmdModificar.TabIndex = 5
+        Me.cmdModificar.TabIndex = 7
         Me.cmdModificar.Text = "Modificar artículo"
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
         'cmdComprar
         '
         Me.cmdComprar.Location = New System.Drawing.Point(801, 591)
-        Me.cmdComprar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdComprar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdComprar.Name = "cmdComprar"
         Me.cmdComprar.Size = New System.Drawing.Size(135, 31)
-        Me.cmdComprar.TabIndex = 8
+        Me.cmdComprar.TabIndex = 6
         Me.cmdComprar.Text = "Realizar Compra"
         Me.cmdComprar.UseVisualStyleBackColor = True
         '
@@ -401,7 +401,7 @@ Partial Class FrmCompra
         Me.Controls.Add(Me.Label2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "FrmCompra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

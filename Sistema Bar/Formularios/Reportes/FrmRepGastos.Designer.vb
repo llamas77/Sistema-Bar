@@ -23,7 +23,7 @@ Partial Class FrmRepGastos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRepGastos))
         Me.gastosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet = New Sistema_Bar.DataSet()
@@ -56,14 +56,15 @@ Partial Class FrmRepGastos
         Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReportDataSource4.Name = "DataSet1"
-        ReportDataSource4.Value = Me.gastosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.gastosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepGastos.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 86)
+        Me.ReportViewer1.Location = New System.Drawing.Point(16, 106)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(651, 417)
+        Me.ReportViewer1.Size = New System.Drawing.Size(867, 513)
         Me.ReportViewer1.TabIndex = 0
         '
         'cmbTipoGasto
@@ -72,28 +73,28 @@ Partial Class FrmRepGastos
         Me.cmbTipoGasto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTipoGasto.EMensaje = Nothing
         Me.cmbTipoGasto.FormattingEnabled = True
-        Me.cmbTipoGasto.Location = New System.Drawing.Point(87, 14)
-        Me.cmbTipoGasto.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbTipoGasto.Location = New System.Drawing.Point(116, 17)
+        Me.cmbTipoGasto.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbTipoGasto.Name = "cmbTipoGasto"
         Me.cmbTipoGasto.NombreVisual = "Tipo de Gasto"
-        Me.cmbTipoGasto.Size = New System.Drawing.Size(140, 21)
-        Me.cmbTipoGasto.TabIndex = 3
+        Me.cmbTipoGasto.Size = New System.Drawing.Size(185, 24)
+        Me.cmbTipoGasto.TabIndex = 0
         Me.cmbTipoGasto.VObligatorio = False
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(11, 18)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(15, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(82, 24)
+        Me.Label1.Size = New System.Drawing.Size(109, 30)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Tipo de Gasto:"
         '
         'cmdGenerar
         '
-        Me.cmdGenerar.Location = New System.Drawing.Point(563, 53)
+        Me.cmdGenerar.Location = New System.Drawing.Point(751, 65)
+        Me.cmdGenerar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdGenerar.Name = "cmdGenerar"
-        Me.cmdGenerar.Size = New System.Drawing.Size(92, 27)
+        Me.cmdGenerar.Size = New System.Drawing.Size(123, 33)
         Me.cmdGenerar.TabIndex = 4
         Me.cmdGenerar.Text = "Generar"
         Me.cmdGenerar.UseVisualStyleBackColor = True
@@ -101,56 +102,56 @@ Partial Class FrmRepGastos
         'txtDesde
         '
         Me.txtDesde.EMensaje = Nothing
-        Me.txtDesde.Location = New System.Drawing.Point(310, 12)
+        Me.txtDesde.Location = New System.Drawing.Point(413, 15)
+        Me.txtDesde.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtDesde.Mask = "00/00/0000"
         Me.txtDesde.Name = "txtDesde"
         Me.txtDesde.NombreVisual = "Desde"
-        Me.txtDesde.Size = New System.Drawing.Size(100, 20)
-        Me.txtDesde.TabIndex = 5
+        Me.txtDesde.Size = New System.Drawing.Size(132, 22)
+        Me.txtDesde.TabIndex = 2
         Me.txtDesde.ValidatingType = GetType(Date)
         Me.txtDesde.VObligatorio = False
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(261, 15)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(348, 18)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 24)
+        Me.Label2.Size = New System.Drawing.Size(59, 30)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Desde:"
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(261, 47)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(348, 58)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(44, 24)
+        Me.Label3.Size = New System.Drawing.Size(59, 30)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Hasta:"
         '
         'txtHasta
         '
         Me.txtHasta.EMensaje = Nothing
-        Me.txtHasta.Location = New System.Drawing.Point(310, 44)
+        Me.txtHasta.Location = New System.Drawing.Point(413, 54)
+        Me.txtHasta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtHasta.Mask = "00/00/0000"
         Me.txtHasta.Name = "txtHasta"
         Me.txtHasta.NombreVisual = "Hasta"
-        Me.txtHasta.Size = New System.Drawing.Size(100, 20)
-        Me.txtHasta.TabIndex = 5
+        Me.txtHasta.Size = New System.Drawing.Size(132, 22)
+        Me.txtHasta.TabIndex = 3
         Me.txtHasta.ValidatingType = GetType(Date)
         Me.txtHasta.VObligatorio = False
         '
         'txtDesc
         '
         Me.txtDesc.EMensaje = Nothing
-        Me.txtDesc.Location = New System.Drawing.Point(87, 44)
-        Me.txtDesc.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtDesc.Location = New System.Drawing.Point(116, 54)
+        Me.txtDesc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtDesc.Name = "txtDesc"
         Me.txtDesc.NombreVisual = "Descripción"
         Me.txtDesc.NumLimit = 999999999
         Me.txtDesc.NumMin = 0
-        Me.txtDesc.Size = New System.Drawing.Size(140, 20)
-        Me.txtDesc.TabIndex = 55
+        Me.txtDesc.Size = New System.Drawing.Size(185, 22)
+        Me.txtDesc.TabIndex = 1
         Me.txtDesc.VNumero = True
         Me.txtDesc.VNumLimit = True
         Me.txtDesc.VNumMin = True
@@ -159,18 +160,17 @@ Partial Class FrmRepGastos
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(15, 50)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Location = New System.Drawing.Point(20, 62)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(78, 23)
+        Me.Label4.Size = New System.Drawing.Size(104, 28)
         Me.Label4.TabIndex = 54
         Me.Label4.Text = "Descripción:"
         '
         'FrmRepGastos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(675, 515)
+        Me.ClientSize = New System.Drawing.Size(900, 634)
         Me.Controls.Add(Me.txtDesc)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtHasta)
@@ -182,6 +182,7 @@ Partial Class FrmRepGastos
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FrmRepGastos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Gastos"

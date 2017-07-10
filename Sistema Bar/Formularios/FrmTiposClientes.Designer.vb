@@ -68,7 +68,7 @@ Partial Class FrmTiposClientes
         Me.txtNombre.NumLimit = 999999999
         Me.txtNombre.NumMin = 0
         Me.txtNombre.Size = New System.Drawing.Size(315, 22)
-        Me.txtNombre.TabIndex = 3
+        Me.txtNombre.TabIndex = 0
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
         Me.txtNombre.VNumMin = False
@@ -85,7 +85,7 @@ Partial Class FrmTiposClientes
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
         Me.txtBuscar.Size = New System.Drawing.Size(315, 22)
-        Me.txtBuscar.TabIndex = 4
+        Me.txtBuscar.TabIndex = 3
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
         Me.txtBuscar.VNumMin = False
@@ -98,7 +98,7 @@ Partial Class FrmTiposClientes
         Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(116, 32)
-        Me.cmdActualizar.TabIndex = 5
+        Me.cmdActualizar.TabIndex = 2
         Me.cmdActualizar.Text = "Agregar"
         Me.cmdActualizar.UseVisualStyleBackColor = True
         '
@@ -108,7 +108,7 @@ Partial Class FrmTiposClientes
         Me.cmdModificar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmdModificar.Name = "cmdModificar"
         Me.cmdModificar.Size = New System.Drawing.Size(139, 33)
-        Me.cmdModificar.TabIndex = 7
+        Me.cmdModificar.TabIndex = 4
         Me.cmdModificar.Text = "Modificar "
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
@@ -118,7 +118,7 @@ Partial Class FrmTiposClientes
         Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(139, 33)
-        Me.cmdBorrar.TabIndex = 7
+        Me.cmdBorrar.TabIndex = 5
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
@@ -128,7 +128,7 @@ Partial Class FrmTiposClientes
         Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(139, 33)
-        Me.cmdCancelar.TabIndex = 7
+        Me.cmdCancelar.TabIndex = 6
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '
@@ -140,7 +140,7 @@ Partial Class FrmTiposClientes
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre, Me.Precio})
         Me.grilla.Location = New System.Drawing.Point(21, 135)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
         Me.grilla.MultiSelect = False
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
@@ -176,7 +176,7 @@ Partial Class FrmTiposClientes
         Me.chkAlCosto.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkAlCosto.Name = "chkAlCosto"
         Me.chkAlCosto.Size = New System.Drawing.Size(80, 21)
-        Me.chkAlCosto.TabIndex = 9
+        Me.chkAlCosto.TabIndex = 1
         Me.chkAlCosto.Text = "Al costo"
         Me.chkAlCosto.UseVisualStyleBackColor = True
         '

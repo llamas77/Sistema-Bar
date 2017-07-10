@@ -92,7 +92,7 @@ Partial Class FrmRubros
         Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdModificar.Name = "cmdModificar"
         Me.cmdModificar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdModificar.TabIndex = 4
+        Me.cmdModificar.TabIndex = 3
         Me.cmdModificar.Text = "Modificar"
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
@@ -102,7 +102,7 @@ Partial Class FrmRubros
         Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdBorrar.TabIndex = 5
+        Me.cmdBorrar.TabIndex = 4
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
@@ -112,7 +112,7 @@ Partial Class FrmRubros
         Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdCancelar.TabIndex = 6
+        Me.cmdCancelar.TabIndex = 5
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '

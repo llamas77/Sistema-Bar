@@ -58,63 +58,60 @@ Partial Class FrmRepRubros
         ReportDataSource1.Value = Me.RubrosBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Bar.RepRubros.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(7, 94)
-        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ReportViewer1.Location = New System.Drawing.Point(9, 116)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(619, 435)
+        Me.ReportViewer1.Size = New System.Drawing.Size(825, 535)
         Me.ReportViewer1.TabIndex = 0
         '
         'cmbRubro
         '
         Me.cmbRubro.EMensaje = Nothing
         Me.cmbRubro.FormattingEnabled = True
-        Me.cmbRubro.Location = New System.Drawing.Point(58, 25)
-        Me.cmbRubro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbRubro.Location = New System.Drawing.Point(77, 31)
+        Me.cmbRubro.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbRubro.Name = "cmbRubro"
         Me.cmbRubro.NombreVisual = "Rubro"
-        Me.cmbRubro.Size = New System.Drawing.Size(167, 21)
-        Me.cmbRubro.TabIndex = 1
+        Me.cmbRubro.Size = New System.Drawing.Size(221, 24)
+        Me.cmbRubro.TabIndex = 0
         Me.cmbRubro.VObligatorio = False
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(13, 28)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(17, 34)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(41, 24)
+        Me.Label1.Size = New System.Drawing.Size(55, 30)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Rubro:"
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(468, 28)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(624, 34)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(62, 24)
+        Me.Label2.Size = New System.Drawing.Size(83, 30)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Stock Máx:"
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(309, 28)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(412, 34)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 24)
+        Me.Label3.Size = New System.Drawing.Size(81, 30)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Stock Mín:"
         '
         'txtStockMin
         '
         Me.txtStockMin.EMensaje = Nothing
-        Me.txtStockMin.Location = New System.Drawing.Point(374, 25)
-        Me.txtStockMin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtStockMin.Location = New System.Drawing.Point(499, 31)
+        Me.txtStockMin.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtStockMin.Name = "txtStockMin"
         Me.txtStockMin.NombreVisual = "Stock Mínimo"
         Me.txtStockMin.NumLimit = 999999999
         Me.txtStockMin.NumMin = 0
-        Me.txtStockMin.Size = New System.Drawing.Size(90, 20)
-        Me.txtStockMin.TabIndex = 5
+        Me.txtStockMin.Size = New System.Drawing.Size(119, 22)
+        Me.txtStockMin.TabIndex = 1
         Me.txtStockMin.VNumero = True
         Me.txtStockMin.VNumLimit = True
         Me.txtStockMin.VNumMin = True
@@ -124,14 +121,14 @@ Partial Class FrmRepRubros
         'txtStockMax
         '
         Me.txtStockMax.EMensaje = Nothing
-        Me.txtStockMax.Location = New System.Drawing.Point(534, 25)
-        Me.txtStockMax.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtStockMax.Location = New System.Drawing.Point(712, 31)
+        Me.txtStockMax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtStockMax.Name = "txtStockMax"
         Me.txtStockMax.NombreVisual = "Stock Máximo"
         Me.txtStockMax.NumLimit = 999999999
         Me.txtStockMax.NumMin = 0
-        Me.txtStockMax.Size = New System.Drawing.Size(90, 20)
-        Me.txtStockMax.TabIndex = 6
+        Me.txtStockMax.Size = New System.Drawing.Size(119, 22)
+        Me.txtStockMax.TabIndex = 2
         Me.txtStockMax.VNumero = True
         Me.txtStockMax.VNumLimit = True
         Me.txtStockMax.VNumMin = True
@@ -140,18 +137,19 @@ Partial Class FrmRepRubros
         '
         'cmdGenerar
         '
-        Me.cmdGenerar.Location = New System.Drawing.Point(532, 62)
+        Me.cmdGenerar.Location = New System.Drawing.Point(709, 76)
+        Me.cmdGenerar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmdGenerar.Name = "cmdGenerar"
-        Me.cmdGenerar.Size = New System.Drawing.Size(92, 27)
-        Me.cmdGenerar.TabIndex = 7
+        Me.cmdGenerar.Size = New System.Drawing.Size(123, 33)
+        Me.cmdGenerar.TabIndex = 3
         Me.cmdGenerar.Text = "Generar"
         Me.cmdGenerar.UseVisualStyleBackColor = True
         '
         'FrmRepRubros
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(638, 534)
+        Me.ClientSize = New System.Drawing.Size(851, 657)
         Me.Controls.Add(Me.cmdGenerar)
         Me.Controls.Add(Me.txtStockMax)
         Me.Controls.Add(Me.txtStockMin)
@@ -161,7 +159,7 @@ Partial Class FrmRepRubros
         Me.Controls.Add(Me.cmbRubro)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FrmRepRubros"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Rubros"

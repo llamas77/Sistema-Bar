@@ -61,25 +61,25 @@ Partial Class FrmClientes
         Me.cmbTipoCliente.EMensaje = Nothing
         Me.cmbTipoCliente.FormattingEnabled = True
         Me.cmbTipoCliente.Location = New System.Drawing.Point(944, 30)
-        Me.cmbTipoCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbTipoCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbTipoCliente.Name = "cmbTipoCliente"
         Me.cmbTipoCliente.NombreVisual = "Tipo Cliente"
         Me.cmbTipoCliente.Size = New System.Drawing.Size(204, 24)
-        Me.cmbTipoCliente.TabIndex = 11
+        Me.cmbTipoCliente.TabIndex = 4
         Me.cmbTipoCliente.VObligatorio = True
         '
         'txtDni
         '
         Me.txtDni.EMensaje = Nothing
         Me.txtDni.Location = New System.Drawing.Point(117, 32)
-        Me.txtDni.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtDni.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDni.MaxLength = 9
         Me.txtDni.Name = "txtDni"
         Me.txtDni.NombreVisual = "Dni"
         Me.txtDni.NumLimit = 999999999
         Me.txtDni.NumMin = 0
         Me.txtDni.Size = New System.Drawing.Size(244, 22)
-        Me.txtDni.TabIndex = 9
+        Me.txtDni.TabIndex = 0
         Me.txtDni.VNumero = True
         Me.txtDni.VNumLimit = True
         Me.txtDni.VNumMin = True
@@ -119,20 +119,20 @@ Partial Class FrmClientes
         'cmdActualizar
         '
         Me.cmdActualizar.Location = New System.Drawing.Point(1016, 134)
-        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdActualizar.Name = "cmdActualizar"
         Me.cmdActualizar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdActualizar.TabIndex = 22
+        Me.cmdActualizar.TabIndex = 6
         Me.cmdActualizar.Text = "Agregar"
         Me.cmdActualizar.UseVisualStyleBackColor = True
         '
         'cmdCancelar
         '
         Me.cmdCancelar.Location = New System.Drawing.Point(1016, 527)
-        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdCancelar.TabIndex = 23
+        Me.cmdCancelar.TabIndex = 10
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
         '
@@ -140,14 +140,14 @@ Partial Class FrmClientes
         '
         Me.txtBuscar.EMensaje = Nothing
         Me.txtBuscar.Location = New System.Drawing.Point(79, 138)
-        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Buscar"
         Me.txtBuscar.NumLimit = 999999999
         Me.txtBuscar.NumMin = 0
         Me.txtBuscar.Size = New System.Drawing.Size(393, 22)
-        Me.txtBuscar.TabIndex = 24
+        Me.txtBuscar.TabIndex = 7
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
         Me.txtBuscar.VNumMin = False
@@ -167,20 +167,20 @@ Partial Class FrmClientes
         'cmdModificar
         '
         Me.cmdModificar.Location = New System.Drawing.Point(25, 527)
-        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdModificar.Name = "cmdModificar"
         Me.cmdModificar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdModificar.TabIndex = 26
+        Me.cmdModificar.TabIndex = 8
         Me.cmdModificar.Text = "Modificar"
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
         'cmdBorrar
         '
         Me.cmdBorrar.Location = New System.Drawing.Point(160, 527)
-        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(127, 31)
-        Me.cmdBorrar.TabIndex = 27
+        Me.cmdBorrar.TabIndex = 9
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
         '
@@ -195,7 +195,7 @@ Partial Class FrmClientes
         Me.cmbTipoDoc.Name = "cmbTipoDoc"
         Me.cmbTipoDoc.NombreVisual = "Tipo de Documento"
         Me.cmbTipoDoc.Size = New System.Drawing.Size(269, 24)
-        Me.cmbTipoDoc.TabIndex = 28
+        Me.cmbTipoDoc.TabIndex = 2
         Me.cmbTipoDoc.VObligatorio = True
         '
         'Label4
@@ -215,7 +215,7 @@ Partial Class FrmClientes
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_TipoDoc, Me.ID_TipoCliente, Me.Nro_Doc, Me.Tipo_DNI, Me.Nombre, Me.Apellido, Me.Tipo_Cliente, Me.Fecha_Alta})
         Me.grilla.Location = New System.Drawing.Point(19, 170)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
         Me.grilla.RowTemplate.Height = 24
@@ -284,14 +284,14 @@ Partial Class FrmClientes
         '
         Me.txtApellido.EMensaje = Nothing
         Me.txtApellido.Location = New System.Drawing.Point(523, 69)
-        Me.txtApellido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtApellido.Margin = New System.Windows.Forms.Padding(4)
         Me.txtApellido.MaxLength = 50
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.NombreVisual = "Apellido"
         Me.txtApellido.NumLimit = 999999999
         Me.txtApellido.NumMin = 0
         Me.txtApellido.Size = New System.Drawing.Size(269, 22)
-        Me.txtApellido.TabIndex = 31
+        Me.txtApellido.TabIndex = 3
         Me.txtApellido.VNumero = False
         Me.txtApellido.VNumLimit = False
         Me.txtApellido.VNumMin = False
@@ -323,25 +323,25 @@ Partial Class FrmClientes
         Me.txtFecha.EMensaje = Nothing
         Me.txtFecha.Enabled = False
         Me.txtFecha.Location = New System.Drawing.Point(944, 68)
-        Me.txtFecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtFecha.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFecha.Name = "txtFecha"
         Me.txtFecha.NombreVisual = "Fecha"
         Me.txtFecha.Size = New System.Drawing.Size(105, 22)
-        Me.txtFecha.TabIndex = 35
+        Me.txtFecha.TabIndex = 5
         Me.txtFecha.VObligatorio = False
         '
         'txtNombre
         '
         Me.txtNombre.EMensaje = Nothing
         Me.txtNombre.Location = New System.Drawing.Point(117, 70)
-        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.NombreVisual = "Nombre"
         Me.txtNombre.NumLimit = 999999999
         Me.txtNombre.NumMin = 0
         Me.txtNombre.Size = New System.Drawing.Size(244, 22)
-        Me.txtNombre.TabIndex = 36
+        Me.txtNombre.TabIndex = 1
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
         Me.txtNombre.VNumMin = False
