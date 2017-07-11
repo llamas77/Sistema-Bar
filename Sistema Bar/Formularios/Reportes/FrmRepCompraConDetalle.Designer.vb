@@ -44,8 +44,8 @@ Partial Class FrmRepCompraConDetalle
         'ReportViewer1
         '
         Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ReportDataSource1.Name = "DataSet1"
         ReportDataSource1.Value = Me.ComprasConDetalleBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
@@ -53,14 +53,14 @@ Partial Class FrmRepCompraConDetalle
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 12)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(682, 537)
+        Me.ReportViewer1.Size = New System.Drawing.Size(687, 537)
         Me.ReportViewer1.TabIndex = 0
         '
         'FrmRepCompraConDetalle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(706, 561)
+        Me.ClientSize = New System.Drawing.Size(711, 561)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "FrmRepCompraConDetalle"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

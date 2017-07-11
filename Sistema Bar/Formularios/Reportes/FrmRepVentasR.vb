@@ -11,8 +11,7 @@ Public Class FrmRepVentasR
 
     Public Sub generar()
         Dim sql As String = ""
-        sql &= "SELECT r.Nombre AS 'Rubro', SUM(dv.Cantidad * dv.Precio) as 'Total' FROM Ventas v JOIN 
-        Detalles_Ventas dv ON (v.Id = dv.Id_Venta) JOIN Articulos a ON (dv.Id_Articulo = a.Id) JOIN Rubros r ON (a.Id_Rubro = r.Id) JOIN Clientes c ON (c.Nro_Doc = v.Nro_Doc_Cliente AND c.Id_TipoDoc = v.Tipo_Doc_Cliente) "
+        sql &= "SELECT r.Nombre AS 'Rubro', SUM(dv.Cantidad * dv.Precio) as 'Total' FROM Ventas v JOIN Detalles_Ventas dv ON (v.Id = dv.Id_Venta) JOIN Articulos a ON (dv.Id_Articulo = a.Id) JOIN Rubros r ON (a.Id_Rubro = r.Id) JOIN Clientes c ON (c.Nro_Doc = v.Nro_Doc_Cliente AND c.Id_TipoDoc = v.Tipo_Doc_Cliente) "
 
         Dim hay_where As Boolean
         If cmbRubros.SelectedIndex > -1 Then

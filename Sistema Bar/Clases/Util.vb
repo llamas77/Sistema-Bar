@@ -158,6 +158,14 @@ Public Class Util
 
     End Function
 
+    Public Shared Function vInputBoxPass() As String
+        Dim frm As New FrmInputBox
+        frm.Show()
+        Dim res As String = frm.getPassword()
+        frm.Close()
+        Return res
+    End Function
+
     Public Shared Function convertToMD5(ByVal texto As String) As String
         Dim TextoEnBytes As Byte()
         Dim HashEnBytes As Byte() 'Resultado en Bytes

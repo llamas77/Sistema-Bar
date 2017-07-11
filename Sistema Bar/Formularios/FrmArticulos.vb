@@ -58,6 +58,8 @@ Public Class FrmArticulos
             db.insertar("Articulos", sqlInsert)
 
         Else
+            If Not checkLogeado() Then Return
+
             'Actualizar
 
             If db.ejecutarSQL("SELECT Id FROM Articulos WHERE Id=" & txtCodigo.Text.Trim).Rows.Count = 0 Then
@@ -92,7 +94,7 @@ Public Class FrmArticulos
     End Sub
 
     ' Actualiza los precios de todas las ventas y detalles de ventas pendientes
-    Public Sub actualizarPreciosVenta(ByVal idArt As Integer)
+    Public Sub actualizarPreciosVenta(ByVal idArt As Long)
 
         db.iniciarTransaccion()
 
@@ -123,11 +125,9 @@ Public Class FrmArticulos
         db.terminarTransaccion()
     End Sub
 
-    Private Sub modificar(sender As Object, e As EventArgs) Handles cmdModificar.Click
+    Private Sub modificar(ByRef elemento As DataGridViewRow)
         If Not puedeActuarEnGrilla(grilla) Then Return
         tipoAct = setTipoAct(eTipoAct.modificar, cmdActualizar)
-
-        Dim elemento As DataGridViewRow = grilla.CurrentRow()
         txtCodigo.Enabled = False
         txtStock.Enabled = False
         txtCodigo.Text = elemento.Cells(0).Value
@@ -140,6 +140,8 @@ Public Class FrmArticulos
     End Sub
 
     Private Sub borrar(sender As Object, e As EventArgs) Handles cmdBorrar.Click
+        If Not checkLogeado() Then Return
+
         If Not puedeActuarEnGrilla(grilla) Then Return
 
         Dim elemento As DataGridViewRow = grilla.CurrentRow()
@@ -208,7 +210,7 @@ Public Class FrmArticulos
     End Sub
 
     ' Cancela toda operación pendiente y vacía el formulario
-    Private Sub cancelar(sender As Object, e As EventArgs) Handles cmdCancelar.Click
+    Private Sub cancelar()
         tipoAct = setTipoAct(eTipoAct.insertar, cmdActualizar)
 
         txtCodigo.Enabled = True
@@ -216,32 +218,72 @@ Public Class FrmArticulos
         vaciarForm(Me)
     End Sub
 
-    Private Sub anyTxt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodigo.KeyPress, txtNombre.KeyPress, txtPrecioLista.KeyPress, txtPrecioVenta.KeyPress, txtStock.KeyPress
+    Private Sub txtCodigo_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtCodigo.KeyPress
+        Select Asc(e.KeyChar)
+            Case Keys.Enter
+                e.Handled = True
+                If txtCodigo.Text.Trim <> "" Then
+                    If IsNumeric(txtCodigo.Text.Trim) Then
+                        If Val(txtCodigo.Text.Trim) >= 0 Then
+                            If db.ejecutarSQL("SELECT Id FROM Articulos WHERE Id=" & txtCodigo.Text.Trim).Rows.Count = 1 Then
+                                cargarGrilla()
+                                Dim i As Integer
+                                For i = 0 To grilla.Rows.Count - 1
+                                    If grilla.Rows(i).Cells(0).Value = txtCodigo.Text.Trim Then
+                                        modificar(grilla.Rows(i))
+                                        Return
+                                    End If
+                                Next
+                            End If
+                        End If
+                    End If
+                End If
+
+                txtNombre.Select()
+
+            Case Keys.Escape
+                e.Handled = True
+                cancelar()
+        End Select
+    End Sub
+
+
+    Private Sub anyTxt_KeyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles txtNombre.KeyPress, txtPrecioLista.KeyPress, txtPrecioVenta.KeyPress, txtStock.KeyPress
         Select Case Asc(e.KeyChar)
             Case Keys.Enter
                 e.Handled = True
                 actualizar(sender, e)
+            Case Keys.Escape
+                e.Handled = True
+                cancelar()
         End Select
     End Sub
 
     Private Sub grilla_KeyDown(sender As Object, e As KeyEventArgs) Handles grilla.KeyDown
         Select Case e.KeyCode
             Case Keys.Enter
-                modificar(sender, e)
+                modificar(grilla.CurrentRow)
             Case Keys.Delete
                 borrar(sender, e)
             Case Keys.Escape
-                cancelar(sender, e)
+                cancelar()
         End Select
     End Sub
 
     Private Sub grilla_DoubleClick(sender As Object, e As EventArgs) Handles grilla.DoubleClick
-        modificar(sender, e)
+        modificar(grilla.CurrentRow)
     End Sub
 
     Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
         buscar(txtBuscar, grilla)
     End Sub
 
+    Private Sub cmdModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdModificar.Click
+        modificar(grilla.CurrentRow)
+    End Sub
 
+
+    Private Sub cmdCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCancelar.Click
+        cancelar()
+    End Sub
 End Class

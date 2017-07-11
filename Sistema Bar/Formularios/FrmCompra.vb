@@ -243,20 +243,30 @@ Public Class FrmCompra
         Dim listaFilas As New List(Of Integer)
         For i = 0 To grilla.Rows.Count - 1
             If db.ejecutarSQL("SELECT Id FROM Articulos WHERE Id=" & grilla.Rows(i).Cells(1).Value).Rows.Count = 0 Then
-                listaFilas.Add(i)
+                listaFilas.Add(grilla.Rows(i).Cells(1).Value)
             End If
         Next
+
+
+        ' Borro filas detectadas para borrar
         If listaFilas.Count > 0 Then
-            MsgBox("Hay uno o varios artículos agregados que no existen más. Se borrarán del detalle.", vbCritical)
-            For Each index As Integer In listaFilas
-                grilla.Rows.RemoveAt(index)
-            Next
+            MsgBox("Hay uno o varios artículos agregados que ya no existen. Se borrarán del detalle.", vbCritical)
+            i = 0
+            While i < grilla.Rows.Count
+                For Each j In listaFilas
+                    If grilla.Rows(i).Cells(1).Value = j Then
+                        grilla.Rows.RemoveAt(i)
+                        Continue While
+                    End If
+                Next
+                i += 1
+            End While
+
             cargarCombo(cmbArticulos, db.cargarTabla("Articulos"), "Id", "Nombre")
             actualizarPrecios()
+            actualizarTotal()
             Return
         End If
-
-        'TODO: Si esto fuese ventas, validar que haya stock para cada artículo de la grilla
 
         ' Inicia transacción
         ' A partir de ahora, si se produce un error se cancela todo lo hecho

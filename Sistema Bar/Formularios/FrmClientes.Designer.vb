@@ -60,25 +60,23 @@ Partial Class FrmClientes
         Me.cmbTipoCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTipoCliente.EMensaje = Nothing
         Me.cmbTipoCliente.FormattingEnabled = True
-        Me.cmbTipoCliente.Location = New System.Drawing.Point(944, 30)
-        Me.cmbTipoCliente.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbTipoCliente.Location = New System.Drawing.Point(708, 24)
         Me.cmbTipoCliente.Name = "cmbTipoCliente"
         Me.cmbTipoCliente.NombreVisual = "Tipo Cliente"
-        Me.cmbTipoCliente.Size = New System.Drawing.Size(204, 24)
+        Me.cmbTipoCliente.Size = New System.Drawing.Size(154, 21)
         Me.cmbTipoCliente.TabIndex = 4
         Me.cmbTipoCliente.VObligatorio = True
         '
         'txtDni
         '
         Me.txtDni.EMensaje = Nothing
-        Me.txtDni.Location = New System.Drawing.Point(117, 32)
-        Me.txtDni.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtDni.MaxLength = 9
+        Me.txtDni.Location = New System.Drawing.Point(88, 26)
+        Me.txtDni.MaxLength = 18
         Me.txtDni.Name = "txtDni"
         Me.txtDni.NombreVisual = "Dni"
-        Me.txtDni.NumLimit = 999999999
+        Me.txtDni.NumLimit = CType(9223372036854775807, Long)
         Me.txtDni.NumMin = 0
-        Me.txtDni.Size = New System.Drawing.Size(244, 22)
+        Me.txtDni.Size = New System.Drawing.Size(184, 20)
         Me.txtDni.TabIndex = 0
         Me.txtDni.VNumero = True
         Me.txtDni.VNumLimit = True
@@ -88,50 +86,45 @@ Partial Class FrmClientes
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(817, 33)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(613, 27)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(119, 20)
+        Me.Label3.Size = New System.Drawing.Size(89, 16)
         Me.Label3.TabIndex = 16
         Me.Label3.Text = "Tipo de Cliente:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(44, 70)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(33, 57)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(65, 20)
+        Me.Label2.Size = New System.Drawing.Size(49, 16)
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Nombre:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(15, 32)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(11, 26)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 20)
+        Me.Label1.Size = New System.Drawing.Size(71, 16)
         Me.Label1.TabIndex = 21
         Me.Label1.Text = "Documento:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmdActualizar
         '
-        Me.cmdActualizar.Location = New System.Drawing.Point(1016, 134)
-        Me.cmdActualizar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdActualizar.Location = New System.Drawing.Point(762, 109)
         Me.cmdActualizar.Name = "cmdActualizar"
-        Me.cmdActualizar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdActualizar.Size = New System.Drawing.Size(95, 25)
         Me.cmdActualizar.TabIndex = 6
         Me.cmdActualizar.Text = "Agregar"
         Me.cmdActualizar.UseVisualStyleBackColor = True
         '
         'cmdCancelar
         '
-        Me.cmdCancelar.Location = New System.Drawing.Point(1016, 527)
-        Me.cmdCancelar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdCancelar.Location = New System.Drawing.Point(762, 428)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdCancelar.Size = New System.Drawing.Size(95, 25)
         Me.cmdCancelar.TabIndex = 10
         Me.cmdCancelar.Text = "Cancelar"
         Me.cmdCancelar.UseVisualStyleBackColor = True
@@ -139,14 +132,13 @@ Partial Class FrmClientes
         'txtBuscar
         '
         Me.txtBuscar.EMensaje = Nothing
-        Me.txtBuscar.Location = New System.Drawing.Point(79, 138)
-        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtBuscar.Location = New System.Drawing.Point(59, 112)
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.NombreVisual = "Buscar"
-        Me.txtBuscar.NumLimit = 999999999
+        Me.txtBuscar.NumLimit = CType(999999999, Long)
         Me.txtBuscar.NumMin = 0
-        Me.txtBuscar.Size = New System.Drawing.Size(393, 22)
+        Me.txtBuscar.Size = New System.Drawing.Size(296, 20)
         Me.txtBuscar.TabIndex = 7
         Me.txtBuscar.VNumero = False
         Me.txtBuscar.VNumLimit = False
@@ -156,30 +148,27 @@ Partial Class FrmClientes
         '
         'Label7
         '
-        Me.Label7.Location = New System.Drawing.Point(7, 138)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(5, 112)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(65, 20)
+        Me.Label7.Size = New System.Drawing.Size(49, 16)
         Me.Label7.TabIndex = 25
         Me.Label7.Text = "Buscar:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmdModificar
         '
-        Me.cmdModificar.Location = New System.Drawing.Point(25, 527)
-        Me.cmdModificar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdModificar.Location = New System.Drawing.Point(19, 428)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdModificar.Size = New System.Drawing.Size(95, 25)
         Me.cmdModificar.TabIndex = 8
         Me.cmdModificar.Text = "Modificar"
         Me.cmdModificar.UseVisualStyleBackColor = True
         '
         'cmdBorrar
         '
-        Me.cmdBorrar.Location = New System.Drawing.Point(160, 527)
-        Me.cmdBorrar.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdBorrar.Location = New System.Drawing.Point(120, 428)
         Me.cmdBorrar.Name = "cmdBorrar"
-        Me.cmdBorrar.Size = New System.Drawing.Size(127, 31)
+        Me.cmdBorrar.Size = New System.Drawing.Size(95, 25)
         Me.cmdBorrar.TabIndex = 9
         Me.cmdBorrar.Text = "Borrar"
         Me.cmdBorrar.UseVisualStyleBackColor = True
@@ -190,20 +179,21 @@ Partial Class FrmClientes
         Me.cmbTipoDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTipoDoc.EMensaje = Nothing
         Me.cmbTipoDoc.FormattingEnabled = True
-        Me.cmbTipoDoc.Location = New System.Drawing.Point(523, 30)
-        Me.cmbTipoDoc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cmbTipoDoc.Location = New System.Drawing.Point(392, 24)
+        Me.cmbTipoDoc.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbTipoDoc.Name = "cmbTipoDoc"
         Me.cmbTipoDoc.NombreVisual = "Tipo de Documento"
-        Me.cmbTipoDoc.Size = New System.Drawing.Size(269, 24)
+        Me.cmbTipoDoc.Size = New System.Drawing.Size(203, 21)
         Me.cmbTipoDoc.TabIndex = 2
         Me.cmbTipoDoc.VObligatorio = True
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(396, 36)
+        Me.Label4.Location = New System.Drawing.Point(297, 29)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(116, 17)
+        Me.Label4.Size = New System.Drawing.Size(89, 13)
         Me.Label4.TabIndex = 29
         Me.Label4.Text = "Tipo Documento:"
         '
@@ -214,13 +204,12 @@ Partial Class FrmClientes
         Me.grilla.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(185, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(234, Byte), Integer))
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_TipoDoc, Me.ID_TipoCliente, Me.Nro_Doc, Me.Tipo_DNI, Me.Nombre, Me.Apellido, Me.Tipo_Cliente, Me.Fecha_Alta})
-        Me.grilla.Location = New System.Drawing.Point(19, 170)
-        Me.grilla.Margin = New System.Windows.Forms.Padding(4)
+        Me.grilla.Location = New System.Drawing.Point(14, 138)
         Me.grilla.Name = "grilla"
         Me.grilla.ReadOnly = True
         Me.grilla.RowTemplate.Height = 24
-        Me.grilla.Size = New System.Drawing.Size(1124, 338)
-        Me.grilla.TabIndex = 30
+        Me.grilla.Size = New System.Drawing.Size(843, 275)
+        Me.grilla.TabIndex = 11
         '
         'ID_TipoDoc
         '
@@ -283,14 +272,13 @@ Partial Class FrmClientes
         'txtApellido
         '
         Me.txtApellido.EMensaje = Nothing
-        Me.txtApellido.Location = New System.Drawing.Point(523, 69)
-        Me.txtApellido.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtApellido.Location = New System.Drawing.Point(392, 56)
         Me.txtApellido.MaxLength = 50
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.NombreVisual = "Apellido"
-        Me.txtApellido.NumLimit = 999999999
+        Me.txtApellido.NumLimit = CType(999999999, Long)
         Me.txtApellido.NumMin = 0
-        Me.txtApellido.Size = New System.Drawing.Size(269, 22)
+        Me.txtApellido.Size = New System.Drawing.Size(203, 20)
         Me.txtApellido.TabIndex = 3
         Me.txtApellido.VNumero = False
         Me.txtApellido.VNumLimit = False
@@ -300,20 +288,18 @@ Partial Class FrmClientes
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(449, 70)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(337, 57)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(65, 20)
+        Me.Label5.Size = New System.Drawing.Size(49, 16)
         Me.Label5.TabIndex = 32
         Me.Label5.Text = "Apellido:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(817, 69)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(613, 56)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(123, 20)
+        Me.Label6.Size = New System.Drawing.Size(92, 16)
         Me.Label6.TabIndex = 34
         Me.Label6.Text = "Fecha de Alta:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -322,25 +308,23 @@ Partial Class FrmClientes
         '
         Me.txtFecha.EMensaje = Nothing
         Me.txtFecha.Enabled = False
-        Me.txtFecha.Location = New System.Drawing.Point(944, 68)
-        Me.txtFecha.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtFecha.Location = New System.Drawing.Point(708, 55)
         Me.txtFecha.Name = "txtFecha"
         Me.txtFecha.NombreVisual = "Fecha"
-        Me.txtFecha.Size = New System.Drawing.Size(105, 22)
+        Me.txtFecha.Size = New System.Drawing.Size(80, 20)
         Me.txtFecha.TabIndex = 5
         Me.txtFecha.VObligatorio = False
         '
         'txtNombre
         '
         Me.txtNombre.EMensaje = Nothing
-        Me.txtNombre.Location = New System.Drawing.Point(117, 70)
-        Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtNombre.Location = New System.Drawing.Point(88, 57)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.NombreVisual = "Nombre"
-        Me.txtNombre.NumLimit = 999999999
+        Me.txtNombre.NumLimit = CType(999999999, Long)
         Me.txtNombre.NumMin = 0
-        Me.txtNombre.Size = New System.Drawing.Size(244, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(184, 20)
         Me.txtNombre.TabIndex = 1
         Me.txtNombre.VNumero = False
         Me.txtNombre.VNumLimit = False
@@ -350,9 +334,9 @@ Partial Class FrmClientes
         '
         'FrmClientes
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1167, 571)
+        Me.ClientSize = New System.Drawing.Size(874, 464)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.txtFecha)
         Me.Controls.Add(Me.Label6)
@@ -374,7 +358,7 @@ Partial Class FrmClientes
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.Name = "FrmClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

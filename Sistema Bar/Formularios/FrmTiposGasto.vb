@@ -42,6 +42,7 @@ Public Class FrmTiposGasto
             db.insertar("Tipos_Gasto", "Nombre=" & txtNombre.Text)
         Else
             'Actualizar
+            If Not checkLogeado() Then Return
 
             'Si encuentra un tipo de gasto con el mismo Id, lo actualiza. De lo contrario ya se borró
             If db.ejecutarSQL("SELECT Id FROM Tipos_Gasto WHERE Id=" & idActual).Rows.Count = 0 Then
@@ -76,6 +77,8 @@ Public Class FrmTiposGasto
 
     ' Borra un elemento seleccionado de la grilla
     Private Sub borrar(sender As Object, e As EventArgs) Handles cmdBorrar.Click
+        If Not checkLogeado() Then Return
+
         If Not puedeActuarEnGrilla(grilla) Then Return
 
         Dim elemento As DataGridViewRow = grilla.CurrentRow()

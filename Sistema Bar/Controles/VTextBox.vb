@@ -7,7 +7,7 @@ Public Class VTextBox
     Public Property NombreVisual As String Implements Validable.NombreVisual
 
     Public Property NumMin As Integer
-    Public Property NumLimit As Integer
+    Public Property NumLimit As Long
 
     Public Property VNumero As Boolean
     Public Property VPositivo As Boolean

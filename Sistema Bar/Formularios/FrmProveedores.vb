@@ -40,6 +40,7 @@ Public Class FrmProveedores
             db.insertar("Proveedores", "Nombre=" & txtNombre.Text)
         Else
             'Actualizar
+            If Not checkLogeado() Then Return
 
             'Si encuentra un proveedor con el mismo Id, lo actualiza. De lo contrario ya se borró
             If db.ejecutarSQL("SELECT Id FROM Proveedores WHERE Id=" & idActual).Rows.Count = 0 Then
@@ -74,6 +75,8 @@ Public Class FrmProveedores
 
     ' Borra un elemento seleccionado de la grilla
     Private Sub borrar(sender As Object, e As EventArgs) Handles cmdBorrar.Click
+        If Not checkLogeado() Then Return
+
         If Not puedeActuarEnGrilla(grilla) Then Return
 
         Dim elemento As DataGridViewRow = grilla.CurrentRow()

@@ -11,8 +11,7 @@ Public Class FrmRepComprasA
 
     Public Sub generar()
         Dim sql As String = ""
-        sql &= " SELECT a.Id as 'Id_Articulo', a.Nombre AS 'Articulo', SUM(dc.Cantidad * dc.Precio_Lista) as 'Total' FROM Compras c JOIN Proveedores p ON (c.Id_Proveedor = p.Id) 
-	JOIN Detalles_Compras dc ON (c.Id = dc.Id_Compra) JOIN Articulos a ON (dc.Id_Articulo = a.Id) "
+        sql &= " SELECT a.Id as 'Id_Articulo', a.Nombre AS 'Articulo', SUM(dc.Cantidad * dc.Precio_Lista) as 'Total' FROM Compras c JOIN Proveedores p ON (c.Id_Proveedor = p.Id) JOIN Detalles_Compras dc ON (c.Id = dc.Id_Compra) JOIN Articulos a ON (dc.Id_Articulo = a.Id) "
 
         Dim hay_where As Boolean
 
@@ -69,6 +68,5 @@ Public Class FrmRepComprasA
         If Not validarForm(Me) Then Return
         generar()
     End Sub
-
 
 End Class

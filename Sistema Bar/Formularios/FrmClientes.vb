@@ -62,6 +62,7 @@ Public Class FrmClientes
             db.insertar("Clientes", sqlInsert)
         Else
             'Actualizar
+            If Not checkLogeado() Then Return
 
             If (db.ejecutarSQL("SELECT Nro_Doc FROM Clientes WHERE Nro_Doc=" & txtDni.Text.Trim & " AND Id_TipoDoc=" & cmbTipoDoc.SelectedValue).Rows.Count = 0) Then
                 MsgBox("El cliente que intenta modificar ya no existe.", vbCritical)
@@ -105,6 +106,8 @@ Public Class FrmClientes
     End Sub
 
     Private Sub borrar(sender As Object, e As EventArgs) Handles cmdBorrar.Click
+        If Not checkLogeado() Then Return
+
         If Not puedeActuarEnGrilla(grilla) Then Return
 
         Dim elemento As DataGridViewRow = grilla.CurrentRow()

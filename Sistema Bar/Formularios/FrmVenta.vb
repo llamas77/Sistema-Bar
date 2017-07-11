@@ -86,7 +86,7 @@ Public Class FrmVenta
         'Verifico si cargue un cliente con datos correctos y si existe...
         If cmbTiposDoc.SelectedIndex > -1 And txtDocumento.Text.Trim <> "" Then
             If IsNumeric(txtDocumento.Text.Trim) Then
-                If Val(txtDocumento.Text.Trim) >= 0 And Val(txtDocumento.Text.Trim) <= 999999999 Then
+                If Val(txtDocumento.Text.Trim) >= 0 And Val(txtDocumento.Text.Trim) <= 9223372036854775807 Then
                     If db.ejecutarSQL("SELECT Nro_Doc FROM Clientes WHERE Nro_Doc=" & txtDocumento.Text.Trim & " AND Id_TipoDoc=" & cmbTiposDoc.SelectedValue).Rows.Count = 1 Then
                         alCosto = db.ejecutarSQL("SELECT alCosto FROM Tipos_Cliente tc JOIN Clientes c ON (tc.Id = c.Id_TipoCliente) WHERE Nro_Doc=" & txtDocumento.Text.Trim & " AND Id_TipoDoc=" & cmbTiposDoc.SelectedValue)(0)(0)
                     End If
@@ -308,7 +308,7 @@ Public Class FrmVenta
             MsgBox("El campo 'Documento' debe ser un número positivo.", vbCritical)
             Return False
         End If
-        If Val(txtDocumento.Text.Trim) > 999999999 Then
+        If Val(txtDocumento.Text.Trim) > 9223372036854775807 Then
             MsgBox("El campo 'Documento' tiene muchos dígitos.", vbCritical)
             Return False
         End If
@@ -340,16 +340,27 @@ Public Class FrmVenta
         Dim listaFilas As New List(Of Integer)
         For i = 0 To grilla.Rows.Count - 1
             If db.ejecutarSQL("SELECT Id FROM Articulos WHERE Id=" & grilla.Rows(i).Cells(1).Value).Rows.Count = 0 Then
-                listaFilas.Add(i)
+                listaFilas.Add(grilla.Rows(i).Cells(1).Value)
             End If
         Next
+
+        ' Borro filas detectadas para borrar
         If listaFilas.Count > 0 Then
             MsgBox("Hay uno o varios artículos agregados que ya no existen. Se borrarán del detalle.", vbCritical)
-            For Each index As Integer In listaFilas
-                grilla.Rows.RemoveAt(index)
-            Next
+            i = 0
+            While i < grilla.Rows.Count
+                For Each j In listaFilas
+                    If grilla.Rows(i).Cells(1).Value = j Then
+                        grilla.Rows.RemoveAt(i)
+                        Continue While
+                    End If
+                Next
+                i += 1
+            End While
+
             cargarCombo(cmbArticulos, db.cargarTabla("Articulos"), "Id", "Nombre")
             actualizarPrecios()
+            actualizarTotal()
             Return False
         End If
 

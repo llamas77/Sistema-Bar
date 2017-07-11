@@ -171,7 +171,7 @@ Public Class FrmMenu
 
     Private Sub LogearAdminToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogearAdminToolStripMenuItem.Click
 
-        Dim pass As String = vInputBox("Ingrese la contraseña de administrador: ")
+        Dim pass As String = vInputBoxPass()
         If pass.Trim = "" Then Return
 
         If pass.Trim <> db.ejecutarSQL("SELECT Contraseña FROM Configuraciones WHERE Id = 4")(0)(0) Then
@@ -198,7 +198,7 @@ Public Class FrmMenu
         ConsultarTurnosToolStripMenuItem.Enabled = logeado
 
         'Articulos
-        ArtículosToolStripMenuItem.Enabled = logeado
+        ArtículosToolStripMenuItem.Enabled = True
 
         'Ventas
         VentasToolStripMenuItem.Enabled = turnoAbierto Or logeado
@@ -210,13 +210,20 @@ Public Class FrmMenu
         ComprasToolStripMenuItem1.Enabled = turnoAbierto
         ConsultarCompraToolStripMenuItem.Enabled = logeado
 
-        ProveedoresToolStripMenuItem.Enabled = logeado
-        ClientesToolStripMenuItem.Enabled = logeado
+        'Proveedores
+        ProveedoresToolStripMenuItem.Enabled = True
+        ProveedoresToolStripMenuItem1.Enabled = True
+
+        'Clientes
+        ClientesToolStripMenuItem.Enabled = True
+        TiposDeClienteToolStripMenuItem.Enabled = logeado
+        TiposDeDocumentosToolStripMenuItem.Enabled = logeado
+        GestiónToolStripMenuItem.Enabled = True
 
         'Gastos
-        GastosToolStripMenuItem.Enabled = logeado
-        GestiónToolStripMenuItem1.Enabled = turnoAbierto And logeado
-        TiposDeGastoToolStripMenuItem.Enabled = logeado
+        GastosToolStripMenuItem.Enabled = True
+        GestiónToolStripMenuItem1.Enabled = turnoAbierto
+        TiposDeGastoToolStripMenuItem.Enabled = True
 
         'Reportes
         ReportesToolStripMenuItem.Enabled = logeado
