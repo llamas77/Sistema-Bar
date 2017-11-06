@@ -23,6 +23,11 @@ Public Class FrmVenta
         FirstControl.Select()
         cargarCombo(cmbTiposDoc, db.cargarTabla("Tipos_Doc"), "Id", "Nombre")
         cargarCombo(cmbArticulos, db.cargarTabla("Articulos"), "Id", "Nombre")
+
+        ' Sql para el combo de clientes
+        Dim sql As String = "SELECT CAST(Id_TipoDoc as varchar(5)) + '-' + CAST(Nro_Doc as varchar(30)) as 'ID', Apellido + ', ' + Nombre as 'Nombre' FROM Clientes"
+        cargarCombo(cmbCliente, db.ejecutarSQL(sql), "ID", "Nombre")
+
         vaciarForm(Me)
         txtCantidad.Text = "1"
         lblTotal.Text = "$ 0"
@@ -128,6 +133,7 @@ Public Class FrmVenta
         For i = 0 To tabla.Rows.Count - 1
             If tabla(i)(0) = txtCodigo.Text.Trim Then
                 nombre = tabla(i)(2)
+                Exit For
             End If
         Next
 
@@ -281,12 +287,12 @@ Public Class FrmVenta
 
     Private Sub cmdVender_Click(sender As Object, e As EventArgs) Handles cmdVender.Click
         If Not checkTurnoAbierto() Then Return
-        If vender(True) Then MsgBox("La venta se realizó correctamente.", vbInformation)
+        vender(True)
     End Sub
 
     Private Sub cmdPendiente_Click(sender As Object, e As EventArgs) Handles cmdPendiente.Click
         If Not checkTurnoAbierto() Then Return
-        If vender(False) Then MsgBox("La venta queda pendiente.", vbInformation)
+        vender(False)
     End Sub
 
     Private Function vender(ByVal realizada As Boolean) As Boolean
@@ -415,22 +421,36 @@ Public Class FrmVenta
 
         Close()
 
+        Dim frm As New FrmVenta(contenedor)
+        frm.Show()
+
         Return True
     End Function
 
-    Private Sub txtDocumento_TextChanged(sender As Object, e As EventArgs) Handles txtDocumento.TextChanged
+    Private Sub txtDocumento_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txtDocumento.TextChanged, cmbTiposDoc.SelectedIndexChanged, cmbTiposDoc.TextChanged
+        'Cambia el cliente del combo, cuando se cambia el DOC o TipoDoc
+        If txtDocumento.Text.Trim = "" Or Not IsNumeric(txtDocumento.Text) Or cmbTiposDoc.SelectedIndex = -1 Then
+            cmbCliente.SelectedIndex = -1
+            Return
+        End If
+        Dim tabla As DataTable = cmbCliente.DataSource
+        Dim nombre As String = ""
+        Dim i As Integer
+        For i = 0 To tabla.Rows.Count - 1
+            Dim pos As Integer = InStr(tabla(i)(0).ToString(), "-")
+            If tabla(i)(0).ToString().Substring(0, pos - 1) = cmbTiposDoc.SelectedValue And tabla(i)(0).ToString().Substring(pos) = txtDocumento.Text.Trim Then
+                nombre = tabla(i)(1)
+                Exit For
+            End If
+        Next
+
+        cmbCliente.SelectedIndex = cmbCliente.FindStringExact(nombre.Trim)
+
+
         validAlCosto()
     End Sub
 
-    Private Sub cmbTiposDoc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTiposDoc.SelectedIndexChanged
-        validAlCosto()
-    End Sub
-
-    Private Sub cmbTiposDoc_TextChanged(sender As Object, e As EventArgs) Handles cmbTiposDoc.TextChanged
-        validAlCosto()
-    End Sub
-
-    Private Sub chkBar_CheckedChanged(sender As Object, e As EventArgs) Handles chkBar.CheckedChanged
+    Private Sub chkBar_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkBar.CheckedChanged
         If chkBar.Checked Then
             recargo = db.ejecutarSQL("SELECT Recargo FROM Configuraciones WHERE Id=1")(0)(0)
         Else
@@ -440,7 +460,7 @@ Public Class FrmVenta
         actualizarTodosPrecios()
     End Sub
 
-    Private Sub txtPagaCon_TextChanged(sender As Object, e As EventArgs) Handles txtPagaCon.TextChanged
+    Private Sub txtPagaCon_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txtPagaCon.TextChanged
         actPagaCon()
     End Sub
 
@@ -460,4 +480,35 @@ Public Class FrmVenta
     End Sub
 
 
+    Private Sub FrmVenta_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        Select Case e.KeyCode
+            Case Keys.F1
+                cmdVender_Click(sender, e)
+                Exit Sub
+            Case Keys.F12
+                cmdPendiente_Click(sender, e)
+        End Select
+    End Sub
+
+    Private Sub cmbCliente_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCliente.SelectedIndexChanged
+        ' Lo pongo en un Try porque al ejecutarse el form tira un error que no se manejar
+        If cmbCliente.SelectedIndex = -1 Then
+            Return
+        End If
+
+        Try
+            Dim pos As Integer = InStr(cmbCliente.SelectedValue.ToString(), "-")
+            Dim tipoDoc As Integer = cmbCliente.SelectedValue.ToString().Substring(0, pos - 1)
+            Dim doc As String = cmbCliente.SelectedValue.ToString.Substring(pos)
+
+            Dim sql As String = "SELECT td.Nombre FROM Tipos_Doc td JOIN Clientes c ON td.Id = c.Id_TipoDoc WHERE c.Id_TipoDoc =" & tipoDoc & " AND c.Nro_Doc =" & doc
+            Dim nomTipoDoc As String = db.ejecutarSQL(sql)(0)(0).ToString()
+
+            txtDocumento.Text = doc
+            cmbTiposDoc.SelectedIndex = cmbTiposDoc.FindStringExact(nomTipoDoc.Trim)
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

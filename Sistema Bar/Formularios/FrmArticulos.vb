@@ -81,7 +81,6 @@ Public Class FrmArticulos
             End If
 
             txtCodigo.Enabled = True
-            txtStock.Enabled = True
         End If
 
         actualizarPreciosVenta(txtCodigo.Text.Trim)
@@ -129,7 +128,6 @@ Public Class FrmArticulos
         If Not puedeActuarEnGrilla(grilla) Then Return
         tipoAct = setTipoAct(eTipoAct.modificar, cmdActualizar)
         txtCodigo.Enabled = False
-        txtStock.Enabled = False
         txtCodigo.Text = elemento.Cells(0).Value
         txtNombre.Text = elemento.Cells(2).Value
         cmbRubro.SelectedValue = elemento.Cells(1).Value
@@ -214,7 +212,6 @@ Public Class FrmArticulos
         tipoAct = setTipoAct(eTipoAct.insertar, cmdActualizar)
 
         txtCodigo.Enabled = True
-        txtStock.Enabled = True
         vaciarForm(Me)
     End Sub
 

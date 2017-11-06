@@ -65,10 +65,12 @@ Public Class FrmTurnos
             sql4 &= "SELECT SUM(g.Monto) FROM Gastos g "
             sql4 &= "WHERE g.Fecha >= (SELECT t1.Hora_Inicio FROM Turnos t1 WHERE Id = " & idTurno & ") AND g.Fecha <= (SELECT t2.Hora_Fin FROM Turnos t2 WHERE Id = " & idTurno & ") "
 
+            Dim cero As Decimal = 0
+
             'Setea los valores de ventas, compras, gastos
-            grilla.Rows(i).Cells(5).Value = IIf(TypeOf db.ejecutarSQL(sql2)(0)(0) Is DBNull, 0, db.ejecutarSQL(sql2)(0)(0))
-            grilla.Rows(i).Cells(6).Value = IIf(TypeOf db.ejecutarSQL(sql3)(0)(0) Is DBNull, 0, db.ejecutarSQL(sql3)(0)(0))
-            grilla.Rows(i).Cells(7).Value = IIf(TypeOf db.ejecutarSQL(sql4)(0)(0) Is DBNull, 0, db.ejecutarSQL(sql4)(0)(0))
+            grilla.Rows(i).Cells(5).Value = IIf(TypeOf db.ejecutarSQL(sql2)(0)(0) Is DBNull, cero, db.ejecutarSQL(sql2)(0)(0))
+            grilla.Rows(i).Cells(6).Value = IIf(TypeOf db.ejecutarSQL(sql3)(0)(0) Is DBNull, cero, db.ejecutarSQL(sql3)(0)(0))
+            grilla.Rows(i).Cells(7).Value = IIf(TypeOf db.ejecutarSQL(sql4)(0)(0) Is DBNull, cero, db.ejecutarSQL(sql4)(0)(0))
 
             'Calcula la caja final y la diferencia entre lo real y lo calculado
             grilla.Rows(i).Cells(8).Value = grilla.Rows(i).Cells(3).Value + grilla.Rows(i).Cells(5).Value - grilla.Rows(i).Cells(6).Value - grilla.Rows(i).Cells(7).Value

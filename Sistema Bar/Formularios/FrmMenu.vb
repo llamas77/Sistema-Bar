@@ -85,7 +85,8 @@ Public Class FrmMenu
             If texto.Trim = "" Then Return
         End While
 
-        Dim tabla As DataTable = db.ejecutarSQL("SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)")
+        Dim sqlUltimo As String = "SELECT * FROM Turnos t WHERE t.Id >= ALL (SELECT t2.Id FROM Turnos t2)"
+        Dim tabla As DataTable = db.ejecutarSQL(sqlUltimo)
 
         Dim sql As String = ""
         sql &= "UPDATE Turnos "
@@ -95,6 +96,47 @@ Public Class FrmMenu
 
         turnoAbierto = setEstTurno(Nothing, False)
         habilitarMenues()
+
+        'TODO: borrar si no hace falta recargar
+        tabla = db.ejecutarSQL(sqlUltimo)
+
+        'Ventas
+        Dim sql2 As String = ""
+        sql2 &= "SELECT SUM(dv.Cantidad * dv.Precio) as Ventas FROM Ventas v "
+        sql2 &= "JOIN Detalles_Ventas dv ON (v.Id = dv.Id_Venta) "
+        sql2 &= "WHERE v.Fecha >= (SELECT t1.Hora_Inicio FROM Turnos t1 WHERE Id = " & tabla(0)(0) & ") AND v.Fecha <= (SELECT t2.Hora_Fin FROM Turnos t2 WHERE Id = " & tabla(0)(0) & " AND v.Realizada=1) "
+
+        'Compras
+        Dim sql3 As String = ""
+        sql3 &= "SELECT SUM(dc.Cantidad * dc.Precio_Lista) as Compras FROM Compras c "
+        sql3 &= "JOIN Detalles_Compras dc ON (c.Id = dc.Id_Compra) "
+        sql3 &= "WHERE c.Fecha >= (SELECT t1.Hora_Inicio FROM Turnos t1 WHERE Id = " & tabla(0)(0) & ") AND c.Fecha <= (SELECT t2.Hora_Fin FROM Turnos t2 WHERE Id = " & tabla(0)(0) & ") "
+
+        'Gastos
+        Dim sql4 As String = ""
+        sql4 &= "SELECT SUM(g.Monto) FROM Gastos g "
+        sql4 &= "WHERE g.Fecha >= (SELECT t1.Hora_Inicio FROM Turnos t1 WHERE Id = " & tabla(0)(0) & ") AND g.Fecha <= (SELECT t2.Hora_Fin FROM Turnos t2 WHERE Id = " & tabla(0)(0) & ") "
+
+
+
+        'Setea los valores de ventas, compras, gastos
+        Dim valVentas As Decimal = IIf(TypeOf db.ejecutarSQL(sql2)(0)(0) Is DBNull, 0, db.ejecutarSQL(sql2)(0)(0))
+        Dim valCompras As Decimal = IIf(TypeOf db.ejecutarSQL(sql3)(0)(0) Is DBNull, 0, db.ejecutarSQL(sql3)(0)(0))
+        Dim valGastos As Decimal = IIf(TypeOf db.ejecutarSQL(sql4)(0)(0) Is DBNull, 0, db.ejecutarSQL(sql4)(0)(0))
+
+        'Calcula la caja final y la diferencia entre lo real y lo calculado
+        Dim finalCalculada As Decimal = tabla(0)(3) + valVentas - valCompras - valGastos
+        Dim diferencia As Decimal = tabla(0)(4) - finalCalculada
+
+        MsgBox("Caja Inicial:         " & vbTab & vbTab & "$" & tabla(0)(3) & vbNewLine &
+               "Caja Final:           " & vbTab & vbTab & "$" & tabla(0)(4) & vbNewLine & vbNewLine &
+               "Compras:              " & vbTab & vbTab & "$" & valCompras & vbNewLine &
+               "Gastos:               " & vbTab & vbTab & "$" & valGastos & vbNewLine &
+               "Ventas:               " & vbTab & vbTab & "$" & valVentas & vbNewLine & vbNewLine &
+               "Caja Final calculada: " & vbTab & "$" & finalCalculada & vbNewLine &
+               "Diferencia:           " & vbTab & vbTab & "$" & diferencia, MsgBoxStyle.OkOnly, "Resumen del turno")
+
+
 
     End Sub
 

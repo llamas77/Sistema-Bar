@@ -390,7 +390,9 @@
     <EmbeddedResource Include="Reportes\RepVentas.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DataSets\DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
     </None>

@@ -13,6 +13,15 @@ Public Class FrmCompra
         contenedor = compras
     End Sub
 
+    Private Sub FrmCompra_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case Keys.F1
+                cmdComprar_Click(sender, e)
+        End Select
+    End Sub
+
+
+
     Private Sub FrmCompras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FirstControl = txtCodigo
         FirstControl.Select()
@@ -67,6 +76,7 @@ Public Class FrmCompra
         For i = 0 To tabla.Rows.Count - 1
             If tabla(i)(0) = txtCodigo.Text.Trim Then
                 nombre = tabla(i)(2)
+                Exit For
             End If
         Next
 
@@ -307,12 +317,13 @@ Public Class FrmCompra
 
         db.terminarTransaccion()
 
-        MsgBox("La compra se realizó correctamente.", vbInformation)
-
         If TypeOf contenedor Is FrmCompras Then
             contenedor.cargarGrilla()
         End If
 
         Close()
+
+        Dim frm As New FrmCompra(contenedor)
+        frm.Show()
     End Sub
 End Class

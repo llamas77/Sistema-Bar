@@ -129,7 +129,7 @@ Partial Class FrmTiposDoc
         Me.grilla.AllowUserToAddRows = False
         Me.grilla.AllowUserToDeleteRows = False
         Me.grilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.grilla.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.grilla.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(185, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(234, Byte), Integer))
         Me.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre})
         Me.grilla.Location = New System.Drawing.Point(10, 93)
